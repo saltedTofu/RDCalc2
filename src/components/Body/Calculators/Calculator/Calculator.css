@@ -1,0 +1,12 @@
+.Calculator{
+    border:1px solid purple;
+    width:400px;
+    height:400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.selectCalc{
+    width:200px;
+}
