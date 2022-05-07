@@ -7,15 +7,46 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function IdealBodyWeight(){
 
+    
     const [gender,setGender] = useState('');
     const [heightFeet,setHeightFeet] = useState(0);
     const [heightInches,setHeightInches] = useState(0);
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [weight,setWeight] = useState(0);
+    const [IBW, setIBW] = useState('');
+    const [percentIBW,setPercentIBW] = useState('');
+
+    useEffect(()=>{
+        let totalHeight = (Number(heightFeet)*12) + Number(heightInches);
+        if(totalHeight<60){
+            let inchesBelowFiveFeet = 60-totalHeight;
+            if(gender==='male'){
+                let IBWMale = 106-2*(inchesBelowFiveFeet);
+                setIBW(IBWMale);
+                setPercentIBW(weight/IBWMale);
+            }
+            else if(gender==='female'){
+                let IBWFemale = 100-2*(inchesBelowFiveFeet);
+                setIBW(IBWFemale);
+                setPercentIBW(weight/IBWFemale);
+            }
+            return;
+        }
+        if(gender==='male'){
+            let IBWMale = 106 + 6*(totalHeight-60); //works if over 5 feet
+            setIBW(IBWMale);
+            setPercentIBW(Math.round(weight/IBWMale*100) + '%');
+        }
+        else if(gender==='female'){
+            let IBWFemale = 100 + 5*(totalHeight-60); //works if over 5 feet
+            setIBW(IBWFemale);
+            setPercentIBW(Math.round(weight/IBWFemale*100) + '%');
+        }
+    })
 
     const handleGender = (event) => {
         setGender(event.target.value);
@@ -32,8 +63,6 @@ function IdealBodyWeight(){
     const handleWeight = (event) => {
         setWeight(event.target.value);
     }
-    
-
     return(
         <div>
             <FormControl>
@@ -49,7 +78,6 @@ function IdealBodyWeight(){
                 </RadioGroup>
                 <Typography>Height</Typography>
                 <TextField 
-                    required
                     label="Feet"
                     type="number"
                     size="small"
@@ -58,7 +86,6 @@ function IdealBodyWeight(){
                 >
                 </TextField>
                 <TextField
-                    required
                     label="Inches"
                     type="number"
                     size="small"
@@ -68,7 +95,6 @@ function IdealBodyWeight(){
                 </TextField>
                 <Typography>Weight</Typography>
                 <TextField
-                    required
                     label={weightUnit}
                     type="number"
                     size="small"
@@ -76,20 +102,20 @@ function IdealBodyWeight(){
                     onChange={handleWeight}
                 >
                 </TextField>
-                <InputLabel id="weightUnitInput">Weight Unit</InputLabel>
+                <InputLabel id="weightUnitInputLabel">Weight Unit</InputLabel>
                 <Select
-                    labelId="weightUnitInput"
+                    labelId="weightUnitInputLabel"
+                    id="weightUnitInput"
                     value={weightUnit}
                     label="selectWeightUnit"
                     onChange={handleWeightUnit}
                 >
-                    <MenuItem >Lbs</MenuItem>
-                    <MenuItem >Kg</MenuItem>
+                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
+                    <MenuItem value={'Kg'}>Kg</MenuItem>
                 </Select>
-
-            </FormControl>
-            
-            
+                <Typography>IBW={IBW}</Typography>
+                <Typography>%IBW={percentIBW}</Typography>
+            </FormControl>   
         </div>
     )
 }
