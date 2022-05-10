@@ -1,7 +1,18 @@
+import {Typography, Slider, Select, MenuItem, TextField, InputLabel } from '@mui/material';
+import {useState, useEffect} from 'react';
+
 function Notes(){
+    const styles={
+        width:'100%',
+        height:'100%'
+    }
     return(
-        <div>
-            Notes
+        <div style={styles}>
+            <TextField
+                fullWidth
+                multiline
+                minRows={15}
+            ></TextField>
         </div>
     )
 }

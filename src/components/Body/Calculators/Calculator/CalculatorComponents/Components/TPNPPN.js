@@ -1,4 +1,4 @@
-import { FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel } from '@mui/material';
+import {Typography, Slider, Select, MenuItem, TextField, InputLabel } from '@mui/material';
 import {useState, useEffect} from 'react';
 
 function TPNPPN(){
@@ -117,7 +117,7 @@ function TPNPPN(){
             <Typography>{protein}g Protein</Typography>
             <Typography>{carbohydrates}g Dextrose</Typography>
             <Typography>{volume}ml Total Volume</Typography>
-            <Typography>Glucoose Infusion Rate</Typography>
+            <Typography>Glucose Infusion Rate</Typography>
             <TextField
                 label="Current Body Weight"
                 value={currentBodyWeight}
