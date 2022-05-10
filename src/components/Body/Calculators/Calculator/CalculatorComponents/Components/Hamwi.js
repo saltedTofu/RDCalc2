@@ -36,7 +36,10 @@ function Hamwi(){
 
     //Event Handlers for changing inputs and updating State
     const handleWeight = (event) => {
-        setWeight(event.target.value);
+        if(event.target.value<0){
+            setWeight(0);
+        }
+        else setWeight(event.target.value);
     }
     const handleWeightUnit = (event) => {
         setWeightUnit(event.target.value);
@@ -87,7 +90,7 @@ function Hamwi(){
                 valueLabelDisplay="auto"
             >
             </Slider>
-            <Typography>{lowerCal}</Typography>
+            <Typography>{lowerCal} kcal/kg</Typography>
             <Slider 
                 aria-label="Higher Kcal Range"
                 defaultValue={higherCal}
@@ -98,7 +101,7 @@ function Hamwi(){
                 valueLabelDisplay="auto"
             >
             </Slider>
-            <Typography>{higherCal}</Typography>
+            <Typography>{higherCal} kcal/kg</Typography>
             <Typography>{kcalRange}</Typography>
             <Typography>Protein Range</Typography>
             <Slider

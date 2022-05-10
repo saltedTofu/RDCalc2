@@ -18,14 +18,18 @@ function IdealBodyWeight(){
     const [percentIBW,setPercentIBW] = useState('');
 
     useEffect(()=>{
-        if(!heightFeet){
+        if(!gender){
+            setIBW('Please Select Gender');
+            return;
+        }
+        else if(!heightFeet){
             setIBW('Please Enter Height');
             setPercentIBW('Please Enter Height');
             return;
         }
         else if(!weight){
             setPercentIBW('Please Enter Weight');
-            //maybe highlight the field
+            //maybe highlight the field?
         }
         let totalHeight = (Number(heightFeet)*12) + Number(heightInches);
         if(totalHeight<60){
@@ -71,16 +75,25 @@ function IdealBodyWeight(){
         setGender(event.target.value);
     }
     const handleFeet = (event) => {
-        setHeightFeet(event.target.value);
+        if(event.target.value<0){
+            setHeightFeet(0);
+        }
+        else setHeightFeet(event.target.value);
     }
     const handleInches = (event) => {
-        setHeightInches(event.target.value);
+        if(event.target.value<0){
+            setHeightInches(0);
+        }
+        else setHeightInches(event.target.value);
     }
     const handleWeightUnit = (event) => {
         setWeightUnit(event.target.value);
     }
     const handleWeight = (event) => {
-        setWeight(event.target.value);
+        if(event.target.value<0){
+            setWeight(0);
+        }
+        else setWeight(event.target.value);
     }
     return(
         <div>
