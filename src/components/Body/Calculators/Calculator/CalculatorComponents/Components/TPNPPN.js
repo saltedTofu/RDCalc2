@@ -26,9 +26,13 @@ function TPNPPN(){
         setCarbohydrates(Math.round(carbs));
         setVolume(totalVolume);
     })
+
     //Calculate GIR
     useEffect(()=>{
-        //mg glucose, kg body weight, minutes per day?
+        if(!currentBodyWeight || currentBodyWeight==='0'){
+            setGIR('Please Enter Current Body Weight');
+            return;
+        }
         let weightInKg;
         if(weightUnit==='Lbs'){
             weightInKg=currentBodyWeight/2.205;
