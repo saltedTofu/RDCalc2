@@ -31,6 +31,7 @@ function TubeFeed(){
         setProteinProvided(Math.round(formulaToUse.protein/1000 * continuousRate * hrsDay));
         setFreeWater(Math.round(formulaToUse.water/1000 * continuousRate * hrsDay));
     },[chosenFormula,continuousRate,hrsDay])
+    
     return(
         <div>
             <FormControl fullWidth>

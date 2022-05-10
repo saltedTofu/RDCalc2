@@ -7,6 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
 import {useState, useEffect} from 'react';
+import '../Calculator.css';
 
 function IdealBodyWeight(){
     const [gender,setGender] = useState('');
@@ -70,7 +71,6 @@ function IdealBodyWeight(){
             else setPercentIBW(Math.round(weight/IBWFemale*100) + '%');
         }
     })
-
     const handleGender = (event) => {
         setGender(event.target.value);
     }
@@ -96,7 +96,7 @@ function IdealBodyWeight(){
         else setWeight(event.target.value);
     }
     return(
-        <div>
+        <div id="ibwCalculator">
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -109,45 +109,52 @@ function IdealBodyWeight(){
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
             </RadioGroup>
-            <Typography>Height</Typography>
-            <TextField 
-                label="Feet"
-                type="number"
-                size="small"
-                value={heightFeet}
-                onChange={handleFeet}
-            >
-            </TextField>
-            <TextField
-                label="Inches"
-                type="number"
-                size="small"
-                value={heightInches}
-                onChange={handleInches}
-            >
-            </TextField>
-            <Typography>Weight</Typography>
-            <TextField
-                label={weightUnit}
-                type="number"
-                size="small"
-                value={weight}
-                onChange={handleWeight}
-            >
-            </TextField>
-            <InputLabel id="weightUnitInputLabel">Weight Unit</InputLabel>
-            <Select
-                labelId="weightUnitInputLabel"
-                id="weightUnitInput"
-                value={weightUnit}
-                label="Weight Unit"
-                onChange={handleWeightUnit}
-            >
-                <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                <MenuItem value={'Kg'}>Kg</MenuItem>
-            </Select>
-            <Typography>IBW={IBW}</Typography>
-            <Typography>%IBW={percentIBW}</Typography> 
+            <div id="heightContainer">
+                <Typography variant="p">Height</Typography>
+                <TextField 
+                    label="Feet"
+                    type="number"
+                    size="small"
+                    value={heightFeet}
+                    onChange={handleFeet}
+                    sx={{width:'100px'}}
+                >
+                </TextField>
+                <TextField
+                    label="Inches"
+                    type="number"
+                    size="small"
+                    value={heightInches}
+                    onChange={handleInches}
+                    sx={{width:'100px'}}
+                >
+                </TextField>
+            </div>
+            <div id="weightContainer">
+                <Typography variant="p">Current Weight</Typography>
+                <TextField
+                    label={weightUnit}
+                    type="number"
+                    size="small"
+                    value={weight}
+                    onChange={handleWeight}
+                    sx={{width:'100px'}}
+                >
+                </TextField>
+                <Select
+                    labelId="weightUnitInputLabel"
+                    id="weightUnitInput"
+                    value={weightUnit}
+                    label="Weight Unit"
+                    onChange={handleWeightUnit}
+                    size="small"
+                >
+                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
+                    <MenuItem value={'Kg'}>Kg</MenuItem>
+                </Select>
+            </div>
+            <Typography variant="h5">IBW={IBW}</Typography>
+            <Typography variant="h5">%IBW={percentIBW}</Typography> 
         </div>
     )
 }

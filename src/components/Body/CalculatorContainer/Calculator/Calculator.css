@@ -1,0 +1,24 @@
+/*
+Ideal Body Weight
+*/
+#ibwCalculator{
+    display:flex;
+    flex-direction: column;
+    width:90%;
+    height:90%;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top:10%;
+}
+#heightContainer, #weightContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:80%;
+    padding-top:15px;
+    padding-bottom:15px;
+}
+/*
+Tube Feeding
+*/

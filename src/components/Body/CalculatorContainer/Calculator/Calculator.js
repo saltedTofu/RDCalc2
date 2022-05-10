@@ -1,4 +1,4 @@
-import './Components/IdealBodyWeight';
+import './Calculator.css';
 import IdealBodyWeight from './Components/IdealBodyWeight';
 import Hamwi from './Components/Hamwi';
 import TPNPPN from './Components/TPNPPN';
@@ -8,7 +8,7 @@ import PennState from './Components/PennState';
 import Notes from './Components/Notes';
 import TubeFeed from './Components/TubeFeed';
 
-function CalculatorComponent({Calc}){
+function Calculator({Calc}){
 
     if(Calc==='IBW'){
         return(
@@ -56,4 +56,4 @@ function CalculatorComponent({Calc}){
         </div>
     )
 }
-export default CalculatorComponent;
+export default Calculator;

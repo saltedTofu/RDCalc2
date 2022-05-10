@@ -1,11 +1,19 @@
-import Calculators from './Calculators/Calculators.js';
+import CalculatorContainer from './CalculatorContainer/CalculatorContainer.js';
+import AddButton from './AddButton/AddButton';
+import {useState} from 'react';
+import './Body.css';
 
-import './Body';
 
 function Body(){
-    return(
+    const [numberOfCalcs,setNumberOfCalcs] = useState([1]);
+
+    return (
         <div className="body">
-            <Calculators />
+            {numberOfCalcs.map((calc)=><CalculatorContainer />)}
+            <AddButton 
+                numberOfCalcs={numberOfCalcs}
+                setNumberOfCalcs={setNumberOfCalcs}
+            />
         </div>
     )
 }

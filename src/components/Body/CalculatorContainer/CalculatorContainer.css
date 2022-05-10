@@ -1,7 +1,8 @@
-.Calculator{
+.CalculatorContainer{
     border:1px solid purple;
+    background-color:turquoise;
     width:400px;
-    height:400px;
+    height:550px;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -9,4 +10,9 @@
 }
 .selectCalc{
     width:200px;
+}
+.handle{
+    width:100%;
+    height:25px;
+    border:1px solid red;
 }
