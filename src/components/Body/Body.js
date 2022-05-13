@@ -11,23 +11,21 @@ function Body(){
     useEffect(()=>{
         console.log('first render');
         const currentCalcs=calcsArray.length;
-        setCalcsArray([...calcsArray,<CalculatorContainer calcsArray={calcsArray} handleClose={handleClose} key={currentCalcs+1} id={currentCalcs+1}/>])
+        setCalcsArray([...calcsArray,<CalculatorContainer calcsArray={calcsArray} key={currentCalcs+1} id={currentCalcs+1} onClose={onClose}/>])
     },[])
 
     useEffect(()=>{
-        console.log('calcsArray modified');
+        //console.log('calcsArray modified');
+        //console.log(calcsArray);
     },[calcsArray])
-
-    const handleClose = (index) => {
-        const newArray = calcsArray.filter((calc)=> calc.props.id !== index);
-        setCalcsArray(newArray);
-    }
-    
-    
     
     const addCalc = () => {
         const currentCalcs=calcsArray.length;
-        setCalcsArray([...calcsArray,<CalculatorContainer calcsArray={calcsArray} handleClose={handleClose} key={currentCalcs+1} id={currentCalcs+1}/>])
+        setCalcsArray([...calcsArray,<CalculatorContainer calcsArray={calcsArray} key={currentCalcs+1} id={currentCalcs+1} onClose={onClose}/>]);
+    }
+
+    const onClose = (index) => {
+        setCalcsArray(calcsArray.filter((calc)=> calc.props.id !== index))
     }
 
     return (

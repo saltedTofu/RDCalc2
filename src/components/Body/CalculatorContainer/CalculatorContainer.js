@@ -6,21 +6,20 @@ import {useState} from 'react';
 import CalculatorComponent from './Calculator/Calculator';
 import Draggable from 'react-draggable';
 import CloseIcon from '@mui/icons-material/Close';
-import { SvgIcon, IconButton, Typography, Paper } from '@mui/material';
+import { SvgIcon, IconButton, Paper} from '@mui/material';
 import './Calculator/Calculator.js';
 import './CalculatorContainer.css';
 
-function CalculatorContainer({handleClose,id}){
+function CalculatorContainer({id, onClose, calcsArray}){
 
     const [chosenCalc, setChosenCalc] = useState('');
-    const [calcId,setCalcId] = useState(id);
 
     const handleChange = (event) =>{
         setChosenCalc(event.target.value);
     }
-    const handleClick = () => {
-        console.log('handling click');
-        handleClose(calcId);
+
+    const handleClose = () => {
+        onClose(id);
     }
     
     return(
@@ -32,7 +31,7 @@ function CalculatorContainer({handleClose,id}){
                 <div className="handle">
                     <IconButton 
                         sx={{padding:"0"}} 
-                        onClick={handleClick}
+                        onClick={handleClose}
                     >
                         <SvgIcon component={CloseIcon} fontSize="small">
                         </SvgIcon>
