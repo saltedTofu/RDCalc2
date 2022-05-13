@@ -3,12 +3,10 @@ import AddIcon from '@mui/icons-material/Add';
 import { SvgIcon, IconButton, Typography } from '@mui/material';
 import {useState} from 'react';
 
-function AddButton({numberOfCalcs,setNumberOfCalcs}){
+function AddButton({addCalc}){
 
     const handleClick = () => {
-        console.log('clicked');
-        console.log(numberOfCalcs);
-        setNumberOfCalcs([...numberOfCalcs,1]);
+        addCalc();
     }
     return(
         <div className="addButton">

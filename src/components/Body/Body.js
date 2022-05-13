@@ -1,20 +1,45 @@
 import CalculatorContainer from './CalculatorContainer/CalculatorContainer.js';
 import AddButton from './AddButton/AddButton';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './Body.css';
 
 
 function Body(){
-    const [numberOfCalcs,setNumberOfCalcs] = useState([1]);
+    
+    const [calcsArray,setCalcsArray] = useState([]);
+
+    useEffect(()=>{
+        console.log('first render');
+        const currentCalcs=calcsArray.length;
+        setCalcsArray([...calcsArray,<CalculatorContainer calcsArray={calcsArray} handleClose={handleClose} key={currentCalcs+1} id={currentCalcs+1}/>])
+    },[])
+
+    useEffect(()=>{
+        console.log('calcsArray modified');
+    },[calcsArray])
+
+    const handleClose = (index) => {
+        const newArray = calcsArray.filter((calc)=> calc.props.id !== index);
+        setCalcsArray(newArray);
+    }
+    
+    
+    
+    const addCalc = () => {
+        const currentCalcs=calcsArray.length;
+        setCalcsArray([...calcsArray,<CalculatorContainer calcsArray={calcsArray} handleClose={handleClose} key={currentCalcs+1} id={currentCalcs+1}/>])
+    }
 
     return (
-        <div className="body">
-            {numberOfCalcs.map((calc)=><CalculatorContainer />)}
+        <div>
             <AddButton 
-                numberOfCalcs={numberOfCalcs}
-                setNumberOfCalcs={setNumberOfCalcs}
+                addCalc={addCalc}
             />
+            <div className="body">
+                {calcsArray}
+            </div>
         </div>
+        
     )
 }
 

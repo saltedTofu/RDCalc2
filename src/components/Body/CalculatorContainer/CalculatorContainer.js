@@ -5,27 +5,44 @@ import FormControl from '@mui/material/FormControl';
 import {useState} from 'react';
 import CalculatorComponent from './Calculator/Calculator';
 import Draggable from 'react-draggable';
+import CloseIcon from '@mui/icons-material/Close';
+import { SvgIcon, IconButton, Typography, Paper } from '@mui/material';
 import './Calculator/Calculator.js';
 import './CalculatorContainer.css';
 
-function CalculatorContainer(){
+function CalculatorContainer({handleClose,id}){
 
     const [chosenCalc, setChosenCalc] = useState('');
+    const [calcId,setCalcId] = useState(id);
 
     const handleChange = (event) =>{
         setChosenCalc(event.target.value);
     }
-
+    const handleClick = () => {
+        console.log('handling click');
+        handleClose(calcId);
+    }
+    
     return(
         <Draggable
             handle=".handle"
+            bounds="parent"
         >
             <div className="CalculatorContainer">
                 <div className="handle">
+                    <IconButton 
+                        sx={{padding:"0"}} 
+                        onClick={handleClick}
+                    >
+                        <SvgIcon component={CloseIcon} fontSize="small">
+                        </SvgIcon>
+                    </IconButton>
                 </div>
-                <div className="selectCalc">
+                
+                <Paper className="selectCalc">
+                    <p>{id}</p>
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Add Calculator</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -43,7 +60,7 @@ function CalculatorContainer(){
                             <MenuItem value={'Mifflin'}>Mifflin</MenuItem>
                         </Select>
                     </FormControl>
-                </div>
+                </Paper>
                 <CalculatorComponent 
                     Calc={chosenCalc}
                 />
