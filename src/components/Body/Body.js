@@ -1,38 +1,34 @@
 import CalculatorContainer from './CalculatorContainer/CalculatorContainer.js';
 import AddButton from './AddButton/AddButton';
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import './Body.css';
+import { adjustCalcCounter, addCalc, removeCalc } from '../../redux/calcs.js';
+import { Button} from '@mui/material';
 
 
 function Body(){
     
-    const [calcsArray,setCalcsArray] = useState([]);
-
-    useEffect(()=>{
-        console.log('first render');
-        const currentCalcs=calcsArray.length;
-        setCalcsArray([...calcsArray,<CalculatorContainer calcsArray={calcsArray} key={currentCalcs+1} id={currentCalcs+1} onClose={onClose}/>])
-    },[])
-
-    useEffect(()=>{
-        //console.log('calcsArray modified');
-        //console.log(calcsArray);
-    },[calcsArray])
+    const calcsArray = useSelector(state => state.calcsArray.calcsArray);
+    const calcCounter = useSelector(state => state.calcsArray.calcCounter);
+    const dispatch = useDispatch();
     
-    const addCalc = () => {
-        const currentCalcs=calcsArray.length;
-        setCalcsArray([...calcsArray,<CalculatorContainer calcsArray={calcsArray} key={currentCalcs+1} id={currentCalcs+1} onClose={onClose}/>]);
+    const addNewCalc = () => {
+        dispatch(addCalc(<CalculatorContainer key={calcCounter} id={calcCounter} onClose={onClose}/>));
+        dispatch(adjustCalcCounter(1));
     }
 
     const onClose = (index) => {
-        setCalcsArray(calcsArray.filter((calc)=> calc.props.id !== index))
+        dispatch(removeCalc(index));
     }
 
     return (
         <div>
             <AddButton 
-                addCalc={addCalc}
+                addNewCalc={addNewCalc}
             />
+            <h1>{calcCounter}</h1>
+            <button onClick = {()=> dispatch(adjustCalcCounter(7))}>click me</button>
             <div className="body">
                 {calcsArray}
             </div>
