@@ -1,5 +1,6 @@
 import {useSelector} from 'react-redux';
 import './Body.css';
+import {Paper} from '@mui/material';
 import ResponsiveGridLayout from "react-grid-layout";
 
 
@@ -9,7 +10,7 @@ function Body(){
     const calcCounter = useSelector(state => state.calcsArray.calcCounter);
     
     return (
-        <div className="body">
+        <Paper className="body" elevation={5}>
             <ResponsiveGridLayout
             cols={12}
             rowHeight={30}
@@ -21,7 +22,7 @@ function Body(){
             >
                 {calcsArray}
             </ResponsiveGridLayout>
-        </div>
+        </Paper>
     )
 }
 

@@ -1,23 +1,26 @@
 import './Header.css';
-import Button from '@mui/material/Button';
+import {Button, Paper, Link, Box, TextField} from '@mui/material';
 import {useState} from 'react';
+import Logo from '../../utils/logo.png';
 
 
 function Header(){
     const [user,setUser] = useState(null);
 
     return(
-        <header className="header">
-            <a >Logo</a>
-            <div id="notLoggedIn">
-                <a>Log in</a>
+        <Paper className="header" elevation={5} square={true}>
+            <img src={Logo} alt="dietitian calc" id='logoImage'/>
+            <Box id="notLoggedIn" component="div">
+                <TextField label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}}></TextField>
+                <TextField label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} type="password"></TextField>
+                <Link sx={{marginRight:'10px'}}>Log in</Link>
                 <Button variant="contained">Sign Up</Button>
-            </div>
-            <div id="loggedIn">
+            </Box>
+            <Box id="loggedIn">
                 <p>Hello, {user}</p>
                 <p>(not user 1?)</p>
-            </div>
-        </header>
+            </Box>
+        </Paper>
     )
 }
 export default Header;

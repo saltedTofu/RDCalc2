@@ -5,13 +5,20 @@ import Header from './components/Header/Header.js';
 import Body from './components/Body/Body.js';
 import AddButton from './components/Body/AddButton/AddButton.js';
 import CalculatorContainer from './components/Body/CalculatorContainer/CalculatorContainer';
+import {Box, Paper} from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '../node_modules/react-grid-layout/css/styles.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import darkTheme from './themes/dark';
+import lofiTheme from './themes/lofi.js';
+import christmasTheme from './themes/christmas.js';
+import millenialPinkTheme from './themes/millenialPink.js';
 
 function App() {
+
 
     const calcCounter = useSelector(state => state.calcsArray.calcCounter);
     const dispatch = useDispatch();
@@ -25,13 +32,15 @@ function App() {
     }
 
   return (
-    <div className="App">
-      <Header />
-      <AddButton 
-        addNewCalc={addNewCalc}
-      />
-      <Body />
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Paper component="div" className="App">
+        <Header />
+        <AddButton 
+          addNewCalc={addNewCalc}
+        />
+        <Body />
+      </Paper>
+    </ThemeProvider>
   );
 }
 

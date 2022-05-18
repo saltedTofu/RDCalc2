@@ -21,8 +21,8 @@ const CalculatorContainer = (({id, onClose}) => {
     }
     
     return(
-            <div className="CalculatorContainer" >
-                <div className="handle">
+            <Paper className="CalculatorContainer" elevation={5}>
+                <Paper className="handle" sx={{marginBottom:'7px'}}>
                     <IconButton 
                         sx={{padding:"0"}} 
                         onClick={handleClose}
@@ -30,10 +30,8 @@ const CalculatorContainer = (({id, onClose}) => {
                         <SvgIcon component={CloseIcon} fontSize="small">
                         </SvgIcon>
                     </IconButton>
-                </div>
-                
-                <Paper className="selectCalc">
-                    <p>{id}</p>
+                </Paper>
+                <Paper className="selectCalc" sx={{marginBottom:'7px'}}>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
                         <Select
@@ -57,7 +55,7 @@ const CalculatorContainer = (({id, onClose}) => {
                 <CalculatorComponent 
                     Calc={chosenCalc}
                 />
-            </div>
+            </Paper>
     )
 })
 

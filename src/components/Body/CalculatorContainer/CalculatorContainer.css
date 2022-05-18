@@ -1,6 +1,4 @@
 .CalculatorContainer{
-    border:1px solid purple;
-    background-color:turquoise;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -12,7 +10,6 @@
 .handle{
     width:100%;
     height:25px;
-    border:1px solid red;
     display:flex;
     flex-direction: row;
     justify-content: flex-end;
