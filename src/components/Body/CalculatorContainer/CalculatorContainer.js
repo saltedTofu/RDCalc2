@@ -4,30 +4,24 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import {useState} from 'react';
 import CalculatorComponent from './Calculator/Calculator';
-import Draggable from 'react-draggable';
 import CloseIcon from '@mui/icons-material/Close';
+import React from 'react';
 import { SvgIcon, IconButton, Paper} from '@mui/material';
 import './Calculator/Calculator.js';
 import './CalculatorContainer.css';
 
-function CalculatorContainer({id, onClose, calcsArray}){
-
+const CalculatorContainer = (({id, onClose}) => {
     const [chosenCalc, setChosenCalc] = useState('');
 
     const handleChange = (event) =>{
         setChosenCalc(event.target.value);
     }
-
     const handleClose = () => {
         onClose(id);
     }
     
     return(
-        <Draggable
-            handle=".handle"
-            bounds="parent"
-        >
-            <div className="CalculatorContainer">
+            <div className="CalculatorContainer" >
                 <div className="handle">
                     <IconButton 
                         sx={{padding:"0"}} 
@@ -64,8 +58,7 @@ function CalculatorContainer({id, onClose, calcsArray}){
                     Calc={chosenCalc}
                 />
             </div>
-        </Draggable>
     )
-}
+})
 
 export default CalculatorContainer;

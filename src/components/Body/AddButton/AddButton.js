@@ -1,7 +1,6 @@
 import './AddButton.css';
 import AddIcon from '@mui/icons-material/Add';
 import { SvgIcon, IconButton, Typography } from '@mui/material';
-import {useState} from 'react';
 
 function AddButton({addNewCalc}){
 

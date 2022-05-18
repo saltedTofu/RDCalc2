@@ -1,8 +1,6 @@
 .CalculatorContainer{
     border:1px solid purple;
     background-color:turquoise;
-    width:fit-content;
-    height:fit-content;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
