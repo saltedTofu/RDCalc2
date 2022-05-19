@@ -1,0 +1,17 @@
+.signUp{
+    background-color:#333333;
+    height:100vh;
+    width:100vw;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.signUpForm{
+    width:500px;
+    margin-top:10%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -21,6 +21,7 @@ function TubeFeed(){
             setHrsDay(Number(event.target.value));
         } 
     }
+    const elSpacing = {marginTop:'15px', marginBottom:'15px'};
 
     useEffect(()=>{
         const formulaToUse = Formulas[chosenFormula];
@@ -33,12 +34,12 @@ function TubeFeed(){
     },[chosenFormula,continuousRate,hrsDay])
     
     return(
-        <div>
-            <FormControl fullWidth>
+        <div className='tubeFeedCalc'>
+            <FormControl fullWidth sx={elSpacing} >
             <InputLabel id="formula-select-label">Formula</InputLabel>
             <Select
                 labelId="formula-select-label"
-                label="formula-select"
+                label="Formula"
                 value={chosenFormula}
                 onChange={handleFormulaChange}
             >
@@ -56,17 +57,19 @@ function TubeFeed(){
                 step={1}
                 valueLabelDisplay="auto"
             ></Slider>
-            <Typography>{continuousRate} ml/hr</Typography>
-            <InputLabel id="continuous-hrs-label">hrs/day</InputLabel>
+            <Typography sx={{marginBottom:'15px'}}>{continuousRate} ml/hr</Typography>
             <TextField 
                 type="number" 
+                label="hrs/day"
                 labelId="continuous-hrs-label"
                 value={hrsDay}
                 onChange={handleHrsDay}
             ></TextField>
-            <Typography>{kcalProvided} KCal</Typography>
-            <Typography>{proteinProvided}g Protein</Typography>
-            <Typography>{freeWater}ml Free Water</Typography>
+            <div className="tubeFeedOutput">
+                <Typography variant="h6">{kcalProvided} KCal</Typography>
+                <Typography variant="h6">{proteinProvided}g Protein</Typography>
+                <Typography variant="h6">{freeWater}ml Free Water</Typography>
+            </div>
         </div>
     )
 }

@@ -32,7 +32,9 @@ function IdealBodyWeight(){
             setPercentIBW('Please Enter Weight');
             //maybe highlight the field?
         }
+
         let totalHeight = (Number(heightFeet)*12) + Number(heightInches);
+
         if(totalHeight<60){
             let inchesBelowFiveFeet = 60-totalHeight;
             if(gender==='male'){
@@ -130,7 +132,7 @@ function IdealBodyWeight(){
                 >
                 </TextField>
             </div>
-            <div id="weightContainer">
+            <div className="weightContainer">
                 <Typography variant="p">Current Weight</Typography>
                 <TextField
                     label={weightUnit}
@@ -153,8 +155,8 @@ function IdealBodyWeight(){
                     <MenuItem value={'Kg'}>Kg</MenuItem>
                 </Select>
             </div>
-            <Typography variant="h5">IBW={IBW}</Typography>
-            <Typography variant="h5">%IBW={percentIBW}</Typography> 
+            <Typography variant="h6">IBW={IBW}</Typography>
+            <Typography variant="h6">%IBW={percentIBW}</Typography> 
         </div>
     )
 }
