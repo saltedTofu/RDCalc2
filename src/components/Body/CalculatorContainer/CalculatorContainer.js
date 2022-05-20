@@ -4,28 +4,36 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import {useState} from 'react';
 import CalculatorComponent from './Calculator/Calculator';
-import Draggable from 'react-draggable';
+import CloseIcon from '@mui/icons-material/Close';
+import React from 'react';
+import { SvgIcon, IconButton, Paper} from '@mui/material';
 import './Calculator/Calculator.js';
 import './CalculatorContainer.css';
 
-function CalculatorContainer(){
-
+const CalculatorContainer = (({id, onClose}) => {
     const [chosenCalc, setChosenCalc] = useState('');
 
     const handleChange = (event) =>{
         setChosenCalc(event.target.value);
     }
-
+    const handleClose = () => {
+        onClose(id);
+    }
+    
     return(
-        <Draggable
-            handle=".handle"
-        >
-            <div className="CalculatorContainer">
-                <div className="handle">
-                </div>
-                <div className="selectCalc">
+            <Paper className="CalculatorContainer" elevation={5}>
+                <Paper className="handle" sx={{marginBottom:'7px'}}>
+                    <IconButton 
+                        sx={{padding:"0"}} 
+                        onClick={handleClose}
+                    >
+                        <SvgIcon component={CloseIcon} fontSize="small">
+                        </SvgIcon>
+                    </IconButton>
+                </Paper>
+                <Paper className="selectCalc" sx={{marginBottom:'7px'}}>
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Add Calculator</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -43,13 +51,12 @@ function CalculatorContainer(){
                             <MenuItem value={'Mifflin'}>Mifflin</MenuItem>
                         </Select>
                     </FormControl>
-                </div>
+                </Paper>
                 <CalculatorComponent 
                     Calc={chosenCalc}
                 />
-            </div>
-        </Draggable>
+            </Paper>
     )
-}
+})
 
 export default CalculatorContainer;

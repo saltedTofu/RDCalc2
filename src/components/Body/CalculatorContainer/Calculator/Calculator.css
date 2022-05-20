@@ -8,9 +8,10 @@ Ideal Body Weight
     height:90%;
     justify-content: center;
     align-items: center;
-    padding-top:10%;
+    padding-top:2%;
+    padding-bottom:4%;
 }
-#heightContainer, #weightContainer{
+#heightContainer, .weightContainer{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
@@ -22,12 +23,36 @@ Ideal Body Weight
 /*
 Tube Feeding
 */
-#tubeFeedingCalculator{
+.tubeFeedOutput{
     display:flex;
     flex-direction: column;
-    width:90%;
-    height:90%;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top:8%;
+    padding-bottom:8%;
+}
+.tubeFeedCalc{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-top:10%;
+
+}
+/*
+TPN/PPN
+*/
+.tpnppnCalculator{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.output{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top:8%;
+    padding-bottom:8%;
 }

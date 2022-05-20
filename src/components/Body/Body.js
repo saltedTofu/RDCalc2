@@ -1,20 +1,28 @@
-import CalculatorContainer from './CalculatorContainer/CalculatorContainer.js';
-import AddButton from './AddButton/AddButton';
-import {useState} from 'react';
+import {useSelector} from 'react-redux';
 import './Body.css';
+import {Paper} from '@mui/material';
+import ResponsiveGridLayout from "react-grid-layout";
 
 
 function Body(){
-    const [numberOfCalcs,setNumberOfCalcs] = useState([1]); //number of calcs = length of the array
-
+    
+    const calcsArray = useSelector(state => state.calcsArray.calcsArray);
+    const calcCounter = useSelector(state => state.calcsArray.calcCounter);
+    
     return (
-        <div className="body">
-            {numberOfCalcs.map((calc)=><CalculatorContainer />)}
-            <AddButton 
-                numberOfCalcs={numberOfCalcs}
-                setNumberOfCalcs={setNumberOfCalcs}
-            />
-        </div>
+        <Paper className="body" elevation={5}>
+            <ResponsiveGridLayout
+            cols={12}
+            rowHeight={30}
+            width={1000}
+            isResizable={false}
+            draggableHandle='.handle'
+            verticalCompact={false}
+            allowOverlap={true}
+            >
+                {calcsArray}
+            </ResponsiveGridLayout>
+        </Paper>
     )
 }
 

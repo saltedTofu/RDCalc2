@@ -1,6 +1,20 @@
 .header{
-    border-bottom: 3px solid blue;
-}
+    height:fit-content;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+  }
 #loggedIn{
     display:none;
+}
+#notLoggedIn{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#logoImage{
+    width:65px;
 }

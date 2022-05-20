@@ -44,6 +44,7 @@ function TPNPPN(){
         setGIR(Math.round(glucoseInfusionRate*10)/10);
     },[weightUnit,currentBodyWeight,carbohydrates])
 
+    //Event Handlers
     const handleDextrose = (event) => {
         if(event.target.value<0){
             setDextrose(0);
@@ -84,13 +85,16 @@ function TPNPPN(){
         setWeightUnit(event.target.value)
     }
 
+    const elSpacing = {marginTop:'15px', marginBottom:'15px'};
+
     return(
-        <div>
+        <div className='tpnppnCalculator'>
             <TextField
                 label="% Dextrose"
                 value={dextrose}
                 onChange={handleDextrose}
                 type="number"
+                sx={elSpacing}
             ></TextField>
             <TextField
                 label="% Amino Acid"
@@ -105,37 +109,44 @@ function TPNPPN(){
                 max={150}
                 step={1}
                 valueLabelDisplay="auto"
+                sx={elSpacing}
             ></Slider>
-            <Typography>{rate} ml/hr</Typography>
+            <Typography sx={{marginBottom:'15px'}}>{rate} ml/hr</Typography>
             <TextField
                 label="hrs/day"
                 value={hrsDay}
                 onChange={handleHrsDay}
                 type="number"
             ></TextField>
-            <Typography>{kcal} Kcal</Typography>
-            <Typography>{protein}g Protein</Typography>
-            <Typography>{carbohydrates}g Dextrose</Typography>
-            <Typography>{volume}ml Total Volume</Typography>
-            <Typography>Glucose Infusion Rate</Typography>
-            <TextField
-                label="Current Body Weight"
-                value={currentBodyWeight}
-                onChange={handleWeight}
-                type="number"
-            ></TextField>
-            <InputLabel id="weightUnitInputLabel">Weight Unit</InputLabel>
-            <Select
-                labelId="weightUnitInputLabel"
-                id="weightUnitInput"
-                value={weightUnit}
-                label="Weight Unit"
-                onChange={handleWeightUnit}
-            >
-                <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                <MenuItem value={'Kg'}>Kg</MenuItem>
-            </Select>
-            <Typography>GIR={GIR}</Typography>
+            <div className='output'>
+                <Typography variant="h6">{kcal} Kcal</Typography>
+                <Typography variant="h6">{protein}g Protein</Typography>
+                <Typography variant="h6">{carbohydrates}g Dextrose</Typography>
+                <Typography variant="h6">{volume}ml Total Volume</Typography>
+            </div>
+            <Typography variant="h5" sx={{marginBottom:'15px'}}>Glucose Infusion Rate</Typography>
+
+            <div className="weightContainer">
+                <Typography variant="p">Current Weight</Typography>
+                <TextField
+                    label={weightUnit}
+                    value={currentBodyWeight}
+                    onChange={handleWeight}
+                    type="number"
+                ></TextField>
+                <Select
+                    labelId="weightUnitInputLabel"
+                    id="weightUnitInput"
+                    value={weightUnit}
+                    label="Weight Unit"
+                    onChange={handleWeightUnit}
+                >
+                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
+                    <MenuItem value={'Kg'}>Kg</MenuItem>
+                </Select>
+            </div>
+            
+            <Typography variant="h6">GIR={GIR}</Typography>
         </div>
     )
 }
