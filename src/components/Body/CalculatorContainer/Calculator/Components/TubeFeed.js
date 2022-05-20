@@ -35,13 +35,8 @@ function TubeFeed(){
     },[chosenFormula,continuousRate,hrsDay])
 
     return(
-<<<<<<< HEAD
-        <div id="tubeFeedingCalculator">
-            <FormControl fullWidth>
-=======
         <div className='tubeFeedCalc'>
             <FormControl fullWidth sx={elSpacing} >
->>>>>>> 3785c13ab51f95637005baa7a86e53c11435a1bb
             <InputLabel id="formula-select-label">Formula</InputLabel>
             <Select
                 labelId="formula-select-label"
