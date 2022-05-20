@@ -1,6 +1,7 @@
 import { FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel } from '@mui/material';
 import {useState, useEffect} from 'react';
 import Formulas from './TubeFeedFormulas';
+import '../Calculator.css';
 
 function TubeFeed(){
     const [chosenFormula,setChosenFormula] = useState('');
@@ -31,9 +32,9 @@ function TubeFeed(){
         setProteinProvided(Math.round(formulaToUse.protein/1000 * continuousRate * hrsDay));
         setFreeWater(Math.round(formulaToUse.water/1000 * continuousRate * hrsDay));
     },[chosenFormula,continuousRate,hrsDay])
-    
+
     return(
-        <div>
+        <div id="tubeFeedingCalculator">
             <FormControl fullWidth>
             <InputLabel id="formula-select-label">Formula</InputLabel>
             <Select

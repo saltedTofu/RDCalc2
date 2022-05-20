@@ -5,7 +5,7 @@ import './Body.css';
 
 
 function Body(){
-    const [numberOfCalcs,setNumberOfCalcs] = useState([1]);
+    const [numberOfCalcs,setNumberOfCalcs] = useState([1]); //number of calcs = length of the array
 
     return (
         <div className="body">

@@ -6,7 +6,7 @@ Ideal Body Weight
     flex-direction: column;
     width:90%;
     height:90%;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding-top:10%;
 }
@@ -22,3 +22,12 @@ Ideal Body Weight
 /*
 Tube Feeding
 */
+#tubeFeedingCalculator{
+    display:flex;
+    flex-direction: column;
+    width:90%;
+    height:90%;
+    justify-content: space-around;
+    align-items: center;
+    padding-top:10%;
+}
