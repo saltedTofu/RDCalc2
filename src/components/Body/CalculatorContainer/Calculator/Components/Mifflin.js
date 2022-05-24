@@ -79,7 +79,6 @@ function Mifflin(){
     }
     return(
         <div>
-            Mifflin
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
