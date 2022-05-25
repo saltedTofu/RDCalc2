@@ -34,7 +34,7 @@ function Home({currentTheme, handleThemeChange}){
         <div>
             <Paper component="div" className="App">
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
-                <AddButton 
+                <AddButton
                     addNewCalc={addNewCalc}
                 />
                 <Body />
