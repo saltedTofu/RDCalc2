@@ -17,7 +17,7 @@ import lofiTheme from '../themes/lofi.js';
 import christmasTheme from '../themes/christmas.js';
 import millenialPinkTheme from '../themes/millenialPink.js';
 
-function Home(){
+function Home({currentTheme, handleThemeChange}){
 
     const calcCounter = useSelector(state => state.calcsArray.calcCounter);
     const dispatch = useDispatch();
@@ -33,7 +33,7 @@ function Home(){
     return(
         <div>
             <Paper component="div" className="App">
-                <Header />
+                <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
                 <AddButton 
                     addNewCalc={addNewCalc}
                 />

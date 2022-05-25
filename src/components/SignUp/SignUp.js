@@ -2,10 +2,10 @@ import {Paper, Typography, TextField, Button} from '@mui/material';
 import Header from '../Header/Header';
 import './SignUp.css';
 
-function SignUp(){
+function SignUp({currentTheme,handleThemeChange}){
     return(
         <Paper component="div" className="signUp">
-            <Header noLogin={true}/>
+            <Header noLogin={true} currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
             <Paper elevation={5} className="signUpForm">
                 <Typography variant="h2" sx={{margin:'20px'}}>Sign Up</Typography>
                 <TextField label="Create Username" sx={{marginTop:'20px', marginBottom:'20px'}}></TextField>
