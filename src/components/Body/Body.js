@@ -8,23 +8,24 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 
 function Body(){
     
-    
+    //reset position of all items to zero on breakpoint change?
+
     const calcsArray = useSelector(state => state.calcsArray.calcsArray);
     const calcCounter = useSelector(state => state.calcsArray.calcCounter);
-    
-    let layout = { x: 1, y: 0, w: 4, h: 3};
+
     return (
         <Paper className="body" elevation={5}>
             <ResponsiveGridLayout
                 rowHeight={30}
-                breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-                cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
-                layouts={{lg: [{ x: 1, y: 0, w: 4, h: 3}], md: [{ x: 1, y: 0, w: 1, h: 3}]}}
+                breakpoints={{ lg: 1200, md: 800, sm: 400}}
+                cols={{ lg: 12, md: 8, sm: 4}}
                 isResizable={false}
+                isBounded={true}
                 draggableHandle='.handle'
-                compactType='horizontal'
+                compactType='vertical'
                 allowOverlap={true}
-                onBreakpointChange={()=>{console.log('bp')}}
+                useCSSTransforms={true}
+                isDroppable={true}
             >
                 {calcsArray}
             </ResponsiveGridLayout>

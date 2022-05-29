@@ -26,7 +26,7 @@ function Home({currentTheme, handleThemeChange}){
       dispatch(removeCalc(index));
   }
     const addNewCalc = () => {
-        dispatch(addCalc(<div key={calcCounter} data-grid={{ x: 1, y: 0, w: 4, h: 3, minW:4, maxW:6, minH:3}} id={calcCounter}>{<CalculatorContainer  key={calcCounter} id={calcCounter} onClose={onClose}/>}</div>));
+        dispatch(addCalc(<div isBounded={true} key={calcCounter} data-grid={{ x: 0, y: 0, w: 4, h: 3, minW:4, maxW:4, minH:3}} id={calcCounter}>{<CalculatorContainer  key={calcCounter} id={calcCounter} onClose={onClose}/>}</div>));
         dispatch(adjustCalcCounter(1));
     }
 
