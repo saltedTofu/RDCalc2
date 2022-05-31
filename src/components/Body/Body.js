@@ -2,8 +2,7 @@ import {useSelector} from 'react-redux';
 import {useState} from 'react';
 import './Body.css';
 import {Paper} from '@mui/material';
-import { Responsive, WidthProvider } from "react-grid-layout";
-const ResponsiveGridLayout = WidthProvider(Responsive);
+import GridLayout from "react-grid-layout";
 
 
 function Body(){
@@ -15,20 +14,21 @@ function Body(){
 
     return (
         <Paper className="body" elevation={5}>
-            <ResponsiveGridLayout
+            <GridLayout
+                style={{minHeight:'80%', minWidth:'100%', maxWidth:'100%'}}
                 rowHeight={30}
-                breakpoints={{ lg: 1200, md: 800, sm: 400}}
-                cols={{ lg: 12, md: 8, sm: 4}}
+                cols={12}
+                width={1200}
                 isResizable={false}
-                isBounded={true}
                 draggableHandle='.handle'
                 compactType='vertical'
                 allowOverlap={true}
                 useCSSTransforms={true}
                 isDroppable={true}
+                isBounded={true}
             >
                 {calcsArray}
-            </ResponsiveGridLayout>
+            </GridLayout>
         </Paper>
     )
 }

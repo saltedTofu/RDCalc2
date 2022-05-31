@@ -1,11 +1,4 @@
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import TextField from '@mui/material/TextField';
-import Select from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import { Typography } from '@mui/material';
+import { Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel, TextField, Select, MenuItem } from '@mui/material';
 import {useState, useEffect} from 'react';
 import '../Calculator.css';
 
@@ -17,6 +10,12 @@ function IdealBodyWeight(){
     const [weight,setWeight] = useState(0);
     const [IBW, setIBW] = useState('');
     const [percentIBW,setPercentIBW] = useState('');
+    const [LBKA, setLBKA] = useState(false);
+    const [RBKA, setRBKA] = useState(false);
+    const [LAKA, setLAKA] = useState(false);
+    const [RAKA, setRAKA] = useState(false);
+    const [paraplegic, setParaplegic] = useState(false);
+    const [quadriplegic, setQuadriplegic] = useState(false);
 
     useEffect(()=>{
         if(!gender){
@@ -30,15 +29,21 @@ function IdealBodyWeight(){
         }
         else if(!weight){
             setPercentIBW('Please Enter Weight');
-            //maybe highlight the field?
         }
 
         let totalHeight = (Number(heightFeet)*12) + Number(heightInches);
+        let weightModifier = 1;
+        if(LBKA) weightModifier -= .06;
+        if(RBKA) weightModifier -= .06;
+        if(LAKA) weightModifier -= .16;
+        if(RAKA) weightModifier -= .16;
+        if(paraplegic) weightModifier -= .125; //range is 10%-15%
+        if(quadriplegic) weightModifier -= .175; //range is 15%-20%
 
         if(totalHeight<60){
-            let inchesBelowFiveFeet = 60-totalHeight;
+            let inchesBelowFiveFeet = 60-totalHeight; 
             if(gender==='male'){
-                let IBWMale = 106-2*(inchesBelowFiveFeet);
+                let IBWMale = Math.round((106-2*(inchesBelowFiveFeet))*weightModifier);
                 setIBW(IBWMale + ' lbs or ' + Math.round(IBWMale/2.2) + ' kg');
                 if(weightUnit==='Kg'){
                     setPercentIBW(Math.round((weight*2.2)/IBWMale*100) + '%');
@@ -46,7 +51,7 @@ function IdealBodyWeight(){
                 else setPercentIBW(Math.round(weight/IBWMale*100) + '%');
             }
             else if(gender==='female'){
-                let IBWFemale = 100-2*(inchesBelowFiveFeet);
+                let IBWFemale = Math.round((100-2*(inchesBelowFiveFeet))*weightModifier);
                 setIBW(IBWFemale + 'lbs or ' + Math.round(IBWFemale/2.2) + ' kg');
                 if(weightUnit==='Kg'){
                     setPercentIBW(Math.round((weight*2.2)/IBWFemale*100) + '%');
@@ -56,7 +61,7 @@ function IdealBodyWeight(){
             return;
         }
         if(gender==='male'){
-            let IBWMale = 106 + 6*(totalHeight-60); //works if over 5 feet
+            let IBWMale = Math.round((106 + 6*(totalHeight-60))*weightModifier); //works if over 5 feet
             setIBW(IBWMale + ' lbs or ' + Math.round(IBWMale/2.2) + ' kg');
             if(weightUnit==='Kg'){
                 setPercentIBW(Math.round((weight*2.2)/IBWMale*100) + '%');
@@ -65,7 +70,7 @@ function IdealBodyWeight(){
             
         }
         else if(gender==='female'){
-            let IBWFemale = 100 + 5*(totalHeight-60); //works if over 5 feet
+            let IBWFemale = Math.round((100 + 5*(totalHeight-60))*weightModifier); //works if over 5 feet
             setIBW(IBWFemale + ' lbs or ' + Math.round(IBWFemale/2.2) + ' kg');
             if(weightUnit==='Kg'){
                 setPercentIBW(Math.round((weight*2.2)/IBWFemale*100) + '%');
@@ -97,6 +102,42 @@ function IdealBodyWeight(){
         }
         else setWeight(event.target.value);
     }
+    const handleLBKA = (event) => {
+        if(event.target.checked){
+            setLBKA(true);
+        }
+        else setLBKA(false);
+    }
+    const handleRBKA = (event) => {
+        if(event.target.checked){
+            setRBKA(true);
+        }
+        else setRBKA(false);
+    }
+    const handleLAKA = (event) => {
+        if(event.target.checked){
+            setLAKA(true);
+        }
+        else setLAKA(false);
+    }
+    const handleRAKA = (event) => {
+        if(event.target.checked){
+            setRAKA(true);
+        }
+        else setRAKA(false);
+    }
+    const handleParaplegic = (event) => {
+        if(event.target.checked){
+            setParaplegic(true);
+        }
+        else setParaplegic(false);
+    }
+    const handleQuadriplegic = (event) => {
+        if(event.target.checked){
+            setQuadriplegic(true);
+        }
+        else setQuadriplegic(false);
+    }
     return(
         <div id="ibwCalculator">
             <RadioGroup
@@ -110,7 +151,7 @@ function IdealBodyWeight(){
             >
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
-            </RadioGroup>
+            </RadioGroup>  
             <div id="heightContainer">
                 <Typography variant="p">Height</Typography>
                 <TextField 
@@ -154,6 +195,24 @@ function IdealBodyWeight(){
                     <MenuItem value={'Lbs'}>Lbs</MenuItem>
                     <MenuItem value={'Kg'}>Kg</MenuItem>
                 </Select>
+            </div>
+            <div style={{display:'flex', flexDirection:'row', alignItems:'flex-start'}}>
+                <div style={{marginRight:'5px'}}>
+                    <Typography variant='p'>Amputations?</Typography>
+                    <FormGroup>
+                        <FormControlLabel control={<Checkbox onChange={handleLBKA} size='small'/>} label="L BKA" />
+                        <FormControlLabel control={<Checkbox onChange={handleRBKA} size='small'/>} label="R BKA" />
+                        <FormControlLabel control={<Checkbox onChange={handleLAKA} size='small'/>} label="L AKA" />
+                        <FormControlLabel control={<Checkbox onChange={handleRAKA} size='small'/>} label="R AKA" />
+                    </FormGroup>
+                </div>
+                <div style={{marginLeft:'5px'}}>
+                    <Typography variant='p'>Paralyzations?</Typography>
+                    <FormGroup>
+                        <FormControlLabel control={<Checkbox onChange={handleParaplegic}size='small'/>} label="Paraplegic" />
+                        <FormControlLabel control={<Checkbox onChange={handleQuadriplegic}size='small'/>} label="Quadriplegic" />
+                    </FormGroup>
+                </div>
             </div>
             <Typography variant="h6">IBW={IBW}</Typography>
             <Typography variant="h6">%IBW={percentIBW}</Typography> 

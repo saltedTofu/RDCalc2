@@ -1,15 +1,4 @@
 .body{
-  width:1201px;
-  height:fit-content;
-  min-height:80vh;
-}
-@media only screen and (max-width:1200px){
-  .body{
-    width:801px;
-  }
-}
-@media only screen and (max-width:800px){
-  .body{
-    width:400px;
-  }
+  width:1200px;
+  height:100%;
 }
