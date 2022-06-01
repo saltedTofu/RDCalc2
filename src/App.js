@@ -12,7 +12,8 @@ import lofiTheme from './themes/lofi.js';
 import christmasTheme from './themes/christmas.js';
 import millenialPinkTheme from './themes/millenialPink.js';
 import {useState} from 'react';
-import {BrowserRouter as Router, Routes, Route, Link as RouterLink} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {AuthProvider} from './contexts/AuthContext';
 
 function App() {
   const [currentTheme,setCurrentTheme] = useState('dark');
@@ -35,22 +36,24 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={themeObject}>
-      <Router>
-        <Routes>
-          <Route path="/signup" element={<SignUp 
-                                          currentTheme={currentTheme} 
-                                          handleThemeChange={handleThemeChange} 
-                                      />} 
-          />
-          <Route path="/" element={<Home 
-                                    currentTheme={currentTheme} 
-                                    handleThemeChange={handleThemeChange} 
-                                />} 
-          />
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider theme={themeObject}>
+        <Router>
+          <Routes>
+            <Route path="/signup" element={<SignUp 
+                                            currentTheme={currentTheme} 
+                                            handleThemeChange={handleThemeChange} 
+                                        />} 
+            />
+            <Route path="/" element={<Home 
+                                      currentTheme={currentTheme} 
+                                      handleThemeChange={handleThemeChange} 
+                                  />} 
+            />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

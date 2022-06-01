@@ -5,17 +5,12 @@ import Header from './Header/Header.js';
 import Body from './Body/Body.js';
 import AddButton from './Body/AddButton/AddButton.js';
 import CalculatorContainer from './Body/CalculatorContainer/CalculatorContainer';
-import SignUp from './SignUp/SignUp';
+import Footer from './Footer/Footer';
 import {Box, Paper} from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import darkTheme from '../themes/dark';
-import lofiTheme from '../themes/lofi.js';
-import christmasTheme from '../themes/christmas.js';
-import millenialPinkTheme from '../themes/millenialPink.js';
 
 function Home({currentTheme, handleThemeChange}){
 
@@ -31,15 +26,14 @@ function Home({currentTheme, handleThemeChange}){
     }
 
     return(
-        <div>
-            <Paper component="div" className="App">
+            <Paper component="div" className="App" square={true}>
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
                 <AddButton
                     addNewCalc={addNewCalc}
                 />
                 <Body />
+                <Footer />
             </Paper>
-        </div>
     )
 }
 export default Home;
