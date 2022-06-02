@@ -1,6 +1,7 @@
 import firebase from  'firebase/compat/app'
-import { getFirestore, setDoc, collection, getDocs, doc, updateDoc } from "firebase/firestore";
+import { getFirestore, setDoc, collection, getDocs, doc, updateDoc, getDoc, query, where } from "firebase/firestore";
 import 'firebase/compat/auth';
+import { useReducer } from 'react';
 
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,33 +16,32 @@ const app = firebase.initializeApp({
 const db = getFirestore(app);
 const usersRef = collection(db, 'users');
 
-//get data
-function read(){
-  getDocs(usersRef)
-  .then((snapshot)=>{
-    let users = []
-    snapshot.docs.forEach((doc)=>{
-      users.push({...doc.data(), id:doc.id})
-    })
-    console.log(users);
-})
+
+//get current layout data to use for updating
+async function read(user){
+  const querySnapshot = await getDoc(doc(db,'users',user));
+  const layouts = querySnapshot.data().layouts;
+  return layouts;
 }
 
-//update data
-async function update(user, settings){
+//add layout
+async function addLayout(user, layout, layoutName){
+  const currentLayouts = await read(user);
+  console.log(currentLayouts);
   await updateDoc(doc(db, 'users',user),{
-    calcs:settings.calcs,
-    positions:settings.positions,
-    theme:settings.theme
+    layouts:{
+      ...currentLayouts,
+      [layoutName]:layout
+    }
   })
 }
 
-//create data
-async function write(user){
+//add new user
+async function addNewUser(user){
   try {
     const docRef = await setDoc(doc(db,'users',user), {
-      calcs: [],
-      positions: [],
+      user:user,
+      layouts: {},
       theme:'dark'
     });
     console.log("Document written with ID: ", docRef.id);
@@ -50,11 +50,11 @@ async function write(user){
   }
 }
 
-//delete data
-//not needed currently
+//delete layout for user
 
-export const writeDB = write;
+
+export const addNewUserDB = addNewUser;
 export const readDB = read;
-export const updateDB = update;
+export const addLayoutDB = addLayout;
 export const auth = app.auth()
 export default app

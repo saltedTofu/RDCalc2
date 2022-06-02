@@ -5,6 +5,7 @@ import Header from './Header/Header.js';
 import Body from './Body/Body.js';
 import AddButton from './Body/AddButton/AddButton.js';
 import CalculatorContainer from './Body/CalculatorContainer/CalculatorContainer';
+import LayoutSelect from './LayoutSelect/LayoutSelect'
 import Footer from './Footer/Footer';
 import {Box, Paper} from '@mui/material';
 import '@fontsource/roboto/300.css';
@@ -19,7 +20,7 @@ function Home({currentTheme, handleThemeChange}){
 
     const onClose = (index) => {
       dispatch(removeCalc(index));
-  }
+    }
     const addNewCalc = () => {
         dispatch(addCalc(<div key={calcCounter} data-grid={{ x: 0, y: 0, w: 4, h: 3, minW:4, maxW:4, minH:3}} id={calcCounter}>{<CalculatorContainer  key={calcCounter} id={calcCounter} onClose={onClose}/>}</div>));
         dispatch(adjustCalcCounter(1));
@@ -28,9 +29,12 @@ function Home({currentTheme, handleThemeChange}){
     return(
             <Paper component="div" className="App" square={true}>
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
-                <AddButton
-                    addNewCalc={addNewCalc}
-                />
+                <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+                    <AddButton
+                        addNewCalc={addNewCalc}
+                    />
+                    <LayoutSelect />
+                </div>
                 <Body />
                 <Footer />
             </Paper>

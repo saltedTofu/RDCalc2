@@ -4,7 +4,8 @@ export const calcsArraySlice = createSlice({
     name:"calcs",
     initialState: {
         calcsArray:[],
-        calcCounter:0
+        calcCounter:0,
+        globalUser:''
     },
     reducers:{
         addCalc: (state,action) => {
@@ -15,11 +16,14 @@ export const calcsArraySlice = createSlice({
         },
         adjustCalcCounter: (state,action) => {
             state.calcCounter += action.payload;
+        },
+        setGlobalUser: (state,action) => {
+            state.globalUser = action.payload;
         }
 
     }
 })
 
-export const {addCalc,removeCalc,adjustCalcCounter} = calcsArraySlice.actions;
+export const {addCalc,removeCalc,adjustCalcCounter, setGlobalUser} = calcsArraySlice.actions;
 
 export default calcsArraySlice.reducer;

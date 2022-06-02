@@ -3,12 +3,19 @@ import {Button, Paper, Box, TextField, Select, MenuItem, Typography, Alert} from
 import {useState, useLayoutEffect, useRef, useEffect} from 'react';
 import Logo from '../../utils/logo.png';
 import {BrowserRouter as Router, Routes, Route, Link as RouterLink} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import { setGlobalUser } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
 
 function Header({currentTheme, handleThemeChange}){
 
     const {login, currentUser, logout} = useAuth();
 
+    //global state from redux
+    const userGlobal = useSelector(state => state.calcsArray.globalUser);
+    const dispatch = useDispatch();
+
+    //local state
     const [user,setUser] = useState('');
     const [iconBackground,setIconBackground] = useState('#0288d1');
     const [error,setError] = useState('');
@@ -16,6 +23,10 @@ function Header({currentTheme, handleThemeChange}){
 
     const emailRef = useRef();
     const passwordRef = useRef();
+
+    useEffect(()=>{
+        dispatch(setGlobalUser(user));
+    },[user,dispatch])
 
     useLayoutEffect(()=>{
         if(currentTheme==='dark'){

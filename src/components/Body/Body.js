@@ -6,8 +6,6 @@ import GridLayout from "react-grid-layout";
 
 
 function Body(){
-    
-    //reset position of all items to zero on breakpoint change?
 
     const calcsArray = useSelector(state => state.calcsArray.calcsArray);
     const calcCounter = useSelector(state => state.calcsArray.calcCounter);
