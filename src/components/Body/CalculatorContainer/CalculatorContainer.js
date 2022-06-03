@@ -2,20 +2,47 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import {useState} from 'react';
+import {useState,useEffect} from 'react'; 
+import {useDispatch, useSelector} from 'react-redux';
 import CalculatorComponent from './Calculator/Calculator';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
 import { SvgIcon, IconButton, Paper} from '@mui/material';
+import {removeCalc, removeCalcName, addCalcName} from '../../../redux/calcs';
 import './Calculator/Calculator.js';
 import './CalculatorContainer.css';
 
-const CalculatorContainer = (({id, onClose}) => {
+const CalculatorContainer = (({id, name=''}) => {
+    const dispatch = useDispatch();
     const [chosenCalc, setChosenCalc] = useState('');
+    const calcNamesArray = useSelector(state => state.calcsArray.calcNamesArray);
+    const calcCounter = useSelector(state => state.calcsArray.calcCounter);
+
+    useEffect(()=>{
+        if(name){
+            setChosenCalc(name);
+        }
+        if(calcNamesArray.length<calcCounter && name){
+            dispatch(addCalcName(name));
+        }
+    },[])
+    useEffect(()=>{
+        setChosenCalc(name);
+    },[name])
+
+    const onClose = (index) => {
+        dispatch(removeCalcName(chosenCalc))
+        dispatch(removeCalc(index));
+    }
 
     const handleChange = (event) =>{
+        if(chosenCalc){
+            dispatch(removeCalcName(chosenCalc));
+        }
         setChosenCalc(event.target.value);
+        dispatch(addCalcName(event.target.value));
     }
+
     const handleClose = () => {
         onClose(id);
     }

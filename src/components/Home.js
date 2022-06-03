@@ -40,4 +40,5 @@ function Home({currentTheme, handleThemeChange}){
             </Paper>
     )
 }
+
 export default Home;

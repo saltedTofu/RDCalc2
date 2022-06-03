@@ -2,6 +2,7 @@ import './AddButton.css';
 import AddIcon from '@mui/icons-material/Add';
 import { SvgIcon, IconButton, Typography, Paper } from '@mui/material';
 
+
 function AddButton({addNewCalc}){
 
     const handleClick = () => {

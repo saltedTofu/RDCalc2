@@ -1,26 +1,41 @@
 import {Select, MenuItem, InputLabel, FormControl, Button, TextField} from '@mui/material';
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import { setCalcsArray } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
 
 function LayoutSelect(){
-    const {addLayout} = useAuth();
+    const {addLayout, getLayouts} = useAuth();
     const [layout,setLayout] = useState('');
+    const [layoutArray,setLayoutArray]=useState([]);
     const [layoutName,setLayoutName] = useState('');
     const [error,setError] = useState('');
+
     const calcsArray = useSelector(state => state.calcsArray.calcsArray);
+    const calcNamesArray = useSelector(state => state.calcsArray.calcNamesArray);
     const globalUser = useSelector(state => state.calcsArray.globalUser);
 
+    const dispatch=useDispatch();
 
-    const handleChange = (event) =>{
+    useEffect(()=>{
+        const fetchLayouts = async()=>{
+            const layouts = await getLayouts(globalUser);
+            setLayoutArray(layouts);
+        }
+        fetchLayouts();
+    },[globalUser,getLayouts])
+
+    useEffect(()=>{
+        if(layoutArray && layout){
+            dispatch(setCalcsArray(layoutArray[layout]));
+        }
+    },[layout,dispatch,layoutArray])
+
+    const handleLayoutChange = (event) =>{
         setLayout(event.target.value)
     }
+
     const handleClick = () => {
-        console.log(calcsArray);
-        console.log(layoutName);
-        console.log(globalUser);
-        //use current user from redux if present
-        //use layoutName if not null
         if(!globalUser){
             setError('Please Sign In to Save a Layout')
             console.log('please sign in');
@@ -31,27 +46,25 @@ function LayoutSelect(){
             console.log('please add name')
             return;
         }
-        addLayout(globalUser, calcsArray, layoutName) 
-        //cant add calcsArray =(
+        addLayout(globalUser, calcNamesArray, layoutName) 
         console.log('layout added successfully')
     }
+
     const handleLayoutNameChange = (event) => {
         setLayoutName(event.target.value);
     }
-    return(
 
+    return(
         <div>
             <FormControl sx={{minWidth:'100px'}}>
                 <InputLabel id='select-label'>Layout</InputLabel>
                 <Select
                     label="Layout"
                     labelId='select-label'
-                    onChange={handleChange}
+                    onChange={handleLayoutChange}
                     value={layout}
                 >
-                    <MenuItem value={'layout1'}>Layout 1</MenuItem>
-                    <MenuItem value={'layout2'}>Layout 2</MenuItem>
-                    <MenuItem value={'layout3'}>Layout 3</MenuItem>
+                    {Object.keys(layoutArray).map((choice)=><MenuItem value={choice}>{choice}</MenuItem>)}
                 </Select>
             </FormControl>
             <Button onClick={handleClick}>Save as New</Button>
