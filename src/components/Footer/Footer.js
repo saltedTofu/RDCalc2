@@ -1,10 +1,10 @@
-import {Paper, Typography} from '@mui/material';
+import {Paper, Typography, Box} from '@mui/material';
 
 function Footer() {
     return(
-        <Paper>
+        <Box>
             <Typography variant="h5">Made by Tyler Dansby xD</Typography>
-        </Paper>
+        </Box>
     )
 }
 

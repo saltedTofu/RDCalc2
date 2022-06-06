@@ -1,0 +1,13 @@
+.mobileCalculatorContainer{
+    display:none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top:5%;
+    width:100%;
+}
+@media only screen and (max-width:500px) {
+    .mobileCalculatorContainer{
+        display:flex;
+    }
+}

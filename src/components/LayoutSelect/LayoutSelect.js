@@ -6,6 +6,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { setCalcsArray } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
 import { flexbox } from '@mui/system';
+import './LayoutSelect.css';
 
 function LayoutSelect(){
     const {addLayout, getLayouts, deleteLayout} = useAuth();
@@ -95,7 +96,7 @@ function LayoutSelect(){
     }
 
     return(
-        <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+        <div className="layoutSelect">
             <FormControl sx={{minWidth:'100px', marginLeft:'15px'}}>
                 <InputLabel id='select-label'>Layout</InputLabel>
                 <Select

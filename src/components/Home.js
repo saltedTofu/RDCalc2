@@ -12,6 +12,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import MobileCalculatorContainer from './MobileCalculatorContainer/MobileCalculatorContainer';
 
 function Home({currentTheme, handleThemeChange}){
 
@@ -34,6 +35,7 @@ function Home({currentTheme, handleThemeChange}){
                     <LayoutSelect />
                 </div>
                 <Body />
+                <MobileCalculatorContainer />
                 <Footer />
             </Paper>
     )

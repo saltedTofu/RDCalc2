@@ -88,20 +88,21 @@ function Header({currentTheme, handleThemeChange}){
                 </Select>
             </div>
             {error && <Alert color="error">{error}</Alert>}
+            <div className="loginFields">
+                <Box style={{display: user ? "flex" : "none"}}>
+                    <Typography variant="p">Hello, {user}</Typography>
+                    <Button variant="contained" onClick={handleLogout}>Logout</Button>
+                </Box>
 
-            <Box style={{display: user ? "flex" : "none"}}>
-                <Typography variant="p">Hello, {user}</Typography>
-                <Button variant="contained" onClick={handleLogout}>Logout</Button>
-            </Box>
-
-            <form id="notLoggedIn" onSubmit={handleSubmit} style={{display: user ? "none" : "flex"}}>
-                <TextField label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef}></TextField>
-                <TextField label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password"></TextField>
-                <Button sx={{marginRight:'10px'}} type="submit" disabled={loading}>Log in</Button>
-                <RouterLink to='/signup'>
-                    <Button variant="contained">Sign Up</Button>
-                </RouterLink>
-            </form>
+                <form id="notLoggedIn" onSubmit={handleSubmit} style={{display: user ? "none" : "flex"}}>
+                    <TextField label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef}></TextField>
+                    <TextField label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password"></TextField>
+                    <Button sx={{marginRight:'10px'}} type="submit" disabled={loading}>Log in</Button>
+                    <RouterLink to='/signup'>
+                        <Button variant="contained">Sign Up</Button>
+                    </RouterLink>
+                </form>
+            </div>
             
         </Paper>
     )

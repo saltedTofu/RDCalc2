@@ -1,0 +1,10 @@
+.layoutSelect{
+    display:flex;
+    flex-direction: row;
+    align-items: center;   
+}
+@media only screen and (max-width:500px){
+    .layoutSelect{
+        display:none;
+    }
+  }
