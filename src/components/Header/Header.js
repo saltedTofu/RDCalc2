@@ -72,11 +72,13 @@ function Header({currentTheme, handleThemeChange}){
 
     return(
         <Paper className="header" elevation={5} square={true}>
+
             <RouterLink to='/'>
                 <div id="logoContainer" style={{backgroundColor:iconBackground}}>
                     <img src={Logo} alt="dietitian calc" id='logoImage'/>
                 </div>
             </RouterLink>
+
             <div style={{display: 'flex', flexDirection:'row', alignItems:'center'}}>
                 <Typography style={{marginRight:'10px'}}>Theme</Typography>
                 <Select
@@ -87,19 +89,20 @@ function Header({currentTheme, handleThemeChange}){
                     <MenuItem value='lofi'>Lofi</MenuItem>
                 </Select>
             </div>
-            {error && <Alert color="error">{error}</Alert>}
-            <div className="loginFields">
-                <Box style={{display: user ? "flex" : "none"}}>
-                    <Typography variant="p">Hello, {user}</Typography>
-                    <Button variant="contained" onClick={handleLogout}>Logout</Button>
-                </Box>
 
-                <form id="notLoggedIn" onSubmit={handleSubmit} style={{display: user ? "none" : "flex"}}>
+            {error && <Alert color="error">{error}</Alert>}
+
+            <div className="loginFields">
+                <Box style={{display: user ? "flex" : "none", alignItems:'center',justifyContent:'center'}}>
+                    <Typography variant="p">Hello, {user}</Typography>
+                    <Button variant="contained" onClick={handleLogout} sx={{margin:'10px'}}>Logout</Button>
+                </Box>
+                <form id="notLoggedIn" onSubmit={handleSubmit} style={{display: user ? "none" : "flex", alignItems:'center',justifyContent:'center'}}>
                     <TextField label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef}></TextField>
                     <TextField label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password"></TextField>
-                    <Button sx={{marginRight:'10px'}} type="submit" disabled={loading}>Log in</Button>
+                    <Button sx={{marginLeft:'10px'}} type="submit" disabled={loading} >Log in</Button>
                     <RouterLink to='/signup'>
-                        <Button variant="contained">Sign Up</Button>
+                        <Button variant="contained" sx={{margin:'10px'}}>Sign Up</Button>
                     </RouterLink>
                 </form>
             </div>

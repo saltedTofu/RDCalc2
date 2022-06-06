@@ -13,7 +13,7 @@
     width:65px;
     height:65px;
 }
-@media only screen and (max-width:600px){
+@media only screen and (max-width:499px){
     .loginFields{
         display:none;
     }
