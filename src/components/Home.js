@@ -18,20 +18,18 @@ function Home({currentTheme, handleThemeChange}){
     const calcCounter = useSelector(state => state.calcsArray.calcCounter);
     const dispatch = useDispatch();
 
-    const onClose = (index) => {
-      dispatch(removeCalc(index));
-    }
     const addNewCalc = () => {
-        dispatch(addCalc(<div key={calcCounter} data-grid={{ x: 0, y: 0, w: 4, h: 3, minW:4, maxW:4, minH:3}} id={calcCounter}>{<CalculatorContainer  key={calcCounter} id={calcCounter} onClose={onClose}/>}</div>));
+        dispatch(addCalc(<div key={calcCounter} data-grid={{ x: 0, y: 0, w: 4, h: 3, minW:4, maxW:4, minH:3}} id={calcCounter}>{<CalculatorContainer  key={calcCounter} id={calcCounter}/>}</div>));
         dispatch(adjustCalcCounter(1));
     }
 
     return(
             <Paper component="div" className="App" square={true}>
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
-                <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+                <div style={{display:'flex', flexDirection:'row', alignItems:'center', width:'50%', justifyContent:'center'}}>
                     <AddButton
                         addNewCalc={addNewCalc}
+                        currentTheme={currentTheme}
                     />
                     <LayoutSelect />
                 </div>

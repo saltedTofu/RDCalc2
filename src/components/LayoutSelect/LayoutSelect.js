@@ -1,11 +1,14 @@
 import {Select, MenuItem, InputLabel, FormControl, Button, TextField} from '@mui/material';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import DeleteIcon from '@mui/icons-material/Delete';
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { setCalcsArray } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
+import { flexbox } from '@mui/system';
 
 function LayoutSelect(){
-    const {addLayout, getLayouts} = useAuth();
+    const {addLayout, getLayouts, deleteLayout} = useAuth();
     const [layout,setLayout] = useState('');
     const [layoutArray,setLayoutArray]=useState([]);
     const [layoutName,setLayoutName] = useState('');
@@ -19,14 +22,20 @@ function LayoutSelect(){
 
     useEffect(()=>{
         const fetchLayouts = async()=>{
-            const layouts = await getLayouts(globalUser);
-            setLayoutArray(layouts);
+            if(globalUser){
+                const layouts = await getLayouts(globalUser);
+                setLayoutArray(layouts);
+            }
+            else{
+                setLayoutArray([]);
+            }
         }
         fetchLayouts();
     },[globalUser,getLayouts])
 
     useEffect(()=>{
-        if(layoutArray && layout){
+        
+        if(layoutArray.length>0 && layout){
             dispatch(setCalcsArray(layoutArray[layout]));
         }
     },[layout,dispatch,layoutArray])
@@ -35,7 +44,7 @@ function LayoutSelect(){
         setLayout(event.target.value)
     }
 
-    const handleClick = () => {
+    const handleNewLayout = async() => {
         if(!globalUser){
             setError('Please Sign In to Save a Layout')
             console.log('please sign in');
@@ -46,17 +55,48 @@ function LayoutSelect(){
             console.log('please add name')
             return;
         }
-        addLayout(globalUser, calcNamesArray, layoutName) 
-        console.log('layout added successfully')
+        await addLayout(globalUser, calcNamesArray, layoutName);
+        const fetchLayouts = async()=>{
+            if(globalUser){
+                const layouts = await getLayouts(globalUser);
+                console.log(layouts);
+                setLayoutArray(layouts);
+            }
+            else{
+                setLayoutArray([]);
+            }
+        }
+        setTimeout(()=>{ //in order for database to catchup, otherwise a refresh is needed for new layout to appear in the select
+            fetchLayouts();
+        },1000)
+        
     }
 
     const handleLayoutNameChange = (event) => {
         setLayoutName(event.target.value);
     }
 
+    const handleDelete = () => {
+        setLayout('');
+        deleteLayout(globalUser, layout);
+        const fetchLayouts = async()=>{
+            if(globalUser){
+                const layouts = await getLayouts(globalUser);
+                console.log(layouts);
+                setLayoutArray(layouts);
+            }
+            else{
+                setLayoutArray([]);
+            }
+        }
+        setTimeout(()=>{ //in order for database to catchup, otherwise a refresh is needed for deleted layout to disappear
+            fetchLayouts();
+        },1000)
+    }
+
     return(
-        <div>
-            <FormControl sx={{minWidth:'100px'}}>
+        <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+            <FormControl sx={{minWidth:'100px', marginLeft:'15px'}}>
                 <InputLabel id='select-label'>Layout</InputLabel>
                 <Select
                     label="Layout"
@@ -65,14 +105,18 @@ function LayoutSelect(){
                     value={layout}
                 >
                     {Object.keys(layoutArray).map((choice)=><MenuItem value={choice}>{choice}</MenuItem>)}
-                </Select>
+                </Select>  
+                <Button onClick={handleDelete}>Delete This Layout<DeleteIcon /></Button>
             </FormControl>
-            <Button onClick={handleClick}>Save as New</Button>
-            <TextField 
-                value={layoutName}
-                label="New Layout Name"
-                onChange={handleLayoutNameChange}
-            ></TextField>
+            <div style={{display:'flex', flexDirection:'column', marginLeft:'20px'}}>
+                <TextField 
+                    value={layoutName}
+                    label="New Layout Name"
+                    onChange={handleLayoutNameChange}
+                ></TextField>   
+                <Button onClick={handleNewLayout}>Save as New Layout<AddBoxIcon /></Button>
+            </div>
+                     
         </div>
     )
 }

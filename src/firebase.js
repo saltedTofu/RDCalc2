@@ -1,5 +1,5 @@
 import firebase from  'firebase/compat/app'
-import { getFirestore, setDoc, collection, getDocs, doc, updateDoc, getDoc, query, where } from "firebase/firestore";
+import { getFirestore, setDoc, collection, doc, updateDoc, getDoc, deleteField} from "firebase/firestore";
 import 'firebase/compat/auth';
 import { useReducer } from 'react';
 
@@ -27,7 +27,6 @@ async function read(user){
 //add layout
 async function addLayout(user, layout, layoutName){
   const currentLayouts = await read(user);
-  console.log(currentLayouts);
   await updateDoc(doc(db, 'users',user),{
     layouts:{
       ...currentLayouts,
@@ -51,10 +50,25 @@ async function addNewUser(user){
 }
 
 //delete layout for user
+async function deleteLayout(user, layoutName){
+  try{
+    let currentLayouts = await read(user);
+    delete currentLayouts[layoutName];
+    console.log(currentLayouts);
+    await updateDoc(doc(db,'users',user), {
+      layouts:currentLayouts
+    })
+    return 'Layout Deleted'
+  } catch(e){
+    console.log(e)
+    return 'Unable to Delete Layout'
+  }
+}
 
 
 export const addNewUserDB = addNewUser;
 export const readDB = read;
 export const addLayoutDB = addLayout;
+export const deleteLayoutDB = deleteLayout;
 export const auth = app.auth()
 export default app

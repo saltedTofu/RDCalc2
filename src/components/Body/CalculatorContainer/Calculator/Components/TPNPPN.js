@@ -42,7 +42,7 @@ function TPNPPN(){
         }
         const glucoseInfusionRate = (rate*dextrose*1000)/(weightInKg*60*100);
         setGIR(Math.round(glucoseInfusionRate*10)/10);
-    },[weightUnit,currentBodyWeight,carbohydrates])
+    },[weightUnit,currentBodyWeight,carbohydrates, dextrose, rate])
 
     //Event Handlers
     const handleDextrose = (event) => {
@@ -85,23 +85,26 @@ function TPNPPN(){
         setWeightUnit(event.target.value)
     }
 
-    const elSpacing = {marginTop:'15px', marginBottom:'15px'};
-
     return(
         <div className='tpnppnCalculator'>
-            <TextField
-                label="% Dextrose"
-                value={dextrose}
-                onChange={handleDextrose}
-                type="number"
-                sx={elSpacing}
+            <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+                <TextField
+                    label="% Dextrose"
+                    value={dextrose}
+                    onChange={handleDextrose}
+                    type="number"
+                    sx={{marginTop:'15px', marginBottom:'15px', width:'100px'}}
+                ></TextField>
+                <TextField
+                    label="% Amino Acid"
+                    value={aminoAcid}
+                    onChange={handleAminoAcid}
+                    type="number"
+                    sx={{marginTop:'15px', marginBottom:'15px', width:'100px'}}
             ></TextField>
-            <TextField
-                label="% Amino Acid"
-                value={aminoAcid}
-                onChange={handleAminoAcid}
-                type="number"
-            ></TextField>
+            </div>
+            
+
             <Slider
                 value={rate}
                 onChange={handleRate}
@@ -109,7 +112,7 @@ function TPNPPN(){
                 max={150}
                 step={1}
                 valueLabelDisplay="auto"
-                sx={elSpacing}
+                sx={{width:'85%'}}
             ></Slider>
             <Typography sx={{marginBottom:'15px'}}>{rate} ml/hr</Typography>
             <TextField
@@ -117,6 +120,7 @@ function TPNPPN(){
                 value={hrsDay}
                 onChange={handleHrsDay}
                 type="number"
+                sx={{width:'100px'}}
             ></TextField>
             <div className='output'>
                 <Typography variant="h6">{kcal} Kcal</Typography>
@@ -133,6 +137,7 @@ function TPNPPN(){
                     value={currentBodyWeight}
                     onChange={handleWeight}
                     type="number"
+                    sx={{width:'150px'}}
                 ></TextField>
                 <Select
                     labelId="weightUnitInputLabel"
@@ -145,8 +150,7 @@ function TPNPPN(){
                     <MenuItem value={'Kg'}>Kg</MenuItem>
                 </Select>
             </div>
-            
-            <Typography variant="h6">GIR={GIR}</Typography>
+            <Typography variant="h6">{GIR} mg/kg/min</Typography>
         </div>
     )
 }

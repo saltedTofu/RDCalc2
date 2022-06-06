@@ -12,7 +12,7 @@ function Header({currentTheme, handleThemeChange}){
     const {login, currentUser, logout} = useAuth();
 
     //global state from redux
-    const userGlobal = useSelector(state => state.calcsArray.globalUser);
+    const globalUser = useSelector(state => state.calcsArray.globalUser);
     const dispatch = useDispatch();
 
     //local state
@@ -60,10 +60,14 @@ function Header({currentTheme, handleThemeChange}){
 
     const handleLogout = async () => {
         try{
+            setLoading(true)
+            setUser('');
             await logout(currentUser.auth);
+            
         }catch{
             setError('Failed to log out');
         }
+        setLoading(false);
     }
 
     return(

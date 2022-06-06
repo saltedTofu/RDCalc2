@@ -13,6 +13,7 @@ function SignUp({currentTheme,handleThemeChange}){
     const passwordConfirmRef = useRef();
     const {signup} = useAuth();
     const [error,setError] = useState('');
+    const [success,setSuccess] = useState('')
     const [loading,setLoading] = useState(false);
 
     const handleSubmit = async (event) => {
@@ -29,9 +30,14 @@ function SignUp({currentTheme,handleThemeChange}){
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
         } catch {
+            setSuccess('');
             setError('Failed to create an account')
+            setLoading(false)
+            return;
         }
+        setError('');
         setLoading(false)
+        setSuccess('Account Created');
     }
 
     return(
@@ -54,6 +60,7 @@ function SignUp({currentTheme,handleThemeChange}){
                     </form>
                 </Paper>
                 {error && <Alert color="error">{error}</Alert>}
+                {success && <Alert color="success">{success}</Alert>}
             </Paper>
         </div>
     )

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { auth, addNewUserDB, addLayoutDB, readDB} from "../firebase"
+import { auth, addNewUserDB, addLayoutDB, readDB, deleteLayoutDB} from "../firebase"
 
 const AuthContext = React.createContext()
 
@@ -13,7 +13,6 @@ export function AuthProvider({ children }) {
 
   function getLayouts(user){
     const result=readDB(user);
-    console.log(result);
     return result;
   }
   function signup(email, password) {
@@ -31,6 +30,9 @@ export function AuthProvider({ children }) {
     return auth.signOut(auth);
   }
 
+  function deleteLayout(user, layoutName){
+    return deleteLayoutDB(user,layoutName)
+  }
   function resetPassword(email) {
     return auth.sendPasswordResetEmail(email)
   }
@@ -51,7 +53,8 @@ export function AuthProvider({ children }) {
     logout,
     resetPassword,
     addLayout,
-    getLayouts
+    getLayouts,
+    deleteLayout
   }
 
   return (

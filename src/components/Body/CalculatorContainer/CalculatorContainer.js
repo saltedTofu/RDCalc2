@@ -8,7 +8,7 @@ import CalculatorComponent from './Calculator/Calculator';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
 import { SvgIcon, IconButton, Paper} from '@mui/material';
-import {removeCalc, removeCalcName, addCalcName} from '../../../redux/calcs';
+import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from '../../../redux/calcs';
 import './Calculator/Calculator.js';
 import './CalculatorContainer.css';
 
@@ -18,14 +18,13 @@ const CalculatorContainer = (({id, name=''}) => {
     const calcNamesArray = useSelector(state => state.calcsArray.calcNamesArray);
     const calcCounter = useSelector(state => state.calcsArray.calcCounter);
 
-    useEffect(()=>{
+    useEffect(()=>{ //sets the calcNamesArray if rendered through selecting a layout (name has been passed as a prop)
         if(name){
             setChosenCalc(name);
-        }
-        if(calcNamesArray.length<calcCounter && name){
-            dispatch(addCalcName(name));
+            dispatch(adjustCalcCounter(1));
         }
     },[])
+
     useEffect(()=>{
         setChosenCalc(name);
     },[name])
