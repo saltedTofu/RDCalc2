@@ -33,8 +33,12 @@ function PennState(){
         else if(gender==='female'){
             mifflinOutput = (10*weightInKg) + (6.25*heightInCm) - (5*age) + - 161;
         }
+        let convertedTMax = tMax;
+        if(tMaxUnit==='Fahrenheit'){
+            convertedTMax=(convertedTMax-32)*(5/9);
+        }
         mifflinOutput *= activityFactor;
-        pennOutput = mifflinOutput*0.96 + tMax*167 + ve*31 - 6212;
+        pennOutput = Math.round(mifflinOutput*0.96 + convertedTMax*167 + ve*31 - 6212);
         setPenn(pennOutput);
     },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor,tMax,tMaxUnit,ve])
 
@@ -108,7 +112,7 @@ function PennState(){
         else setAge(Number(event.target.value));
     }
     return(
-        <div>
+        <div className="pennState">
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -174,49 +178,55 @@ function PennState(){
                     sx={{width:'100px'}}
                     value={age}
                 >
-
                 </TextField>
             </div>
-            <div>
+            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
                 <Typography>Activity Factor</Typography>
                 <TextField
                     type="number"
                     size='small'
                     onChange={handleActivityFactor}
-                    sx={{width:'100px'}}
+                    sx={{width:'100px', marginLeft:'10px'}}
                     value={activityFactor}
                 ></TextField>
             </div>
-            <TextField
-                    type="number"
-                    size='small'
-                    onChange={handleTmax}
-                    sx={{width:'100px'}}
-                    value={tMax}
-                    label='TMax'
-            ></TextField>
-            <Select
-                    labelId="tMaxUnitInputLabel"
-                    id="tMaxUnitInput"
-                    value={tMaxUnit}
-                    onChange={handleTmaxUnit}
-                    size="small"
-                >
-                    <MenuItem value={'Celsius'}>Celsius</MenuItem>
-                    <MenuItem value={'Fahrenheit'}>Fahrenheight</MenuItem>
-            </Select>
-            <TextField
-                    type="number"
-                    size='small'
-                    onChange={handleVe}
-                    sx={{width:'100px'}}
-                    value={ve}
-                    label='VE in L/min'
-            ></TextField>
-            <Typography variant="p">{penn}</Typography>
-            <Typography variant="p">{modifiedPenn}</Typography>
+            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
+                <Typography>TMax</Typography>
+                <TextField
+                        type="number"
+                        size='small'
+                        onChange={handleTmax}
+                        sx={{width:'100px',marginLeft:'10px', marginRight:'5px'}}
+                        value={tMax}
+                        label={tMaxUnit==='Fahrenheit' ? '°F' : '°C'}
+                ></TextField>
+                <Select
+                        labelId="tMaxUnitInputLabel"
+                        id="tMaxUnitInput"
+                        value={tMaxUnit}
+                        onChange={handleTmaxUnit}
+                        size="small"
+                        sx={{marginLeft:'5px'}}
+                    >
+                        <MenuItem value={'Celsius'}>Celsius</MenuItem>
+                        <MenuItem value={'Fahrenheit'}>Fahrenheight</MenuItem>
+                </Select>
+            </div>
+            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
+                <TextField
+                        type="number"
+                        size='small'
+                        onChange={handleVe}
+                        sx={{width:'100px'}}
+                        value={ve}
+                        label='VE in L/min'
+                ></TextField>
+            </div>
+            <Typography variant="h6">{penn} kcal</Typography>
+            <Typography variant="h6">{modifiedPenn}</Typography>
         </div>
     )
 }
 
 export default PennState;
+

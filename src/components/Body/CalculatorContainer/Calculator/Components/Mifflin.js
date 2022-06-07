@@ -78,7 +78,7 @@ function Mifflin(){
         else setAge(Number(event.target.value));
     }
     return(
-        <div>
+        <div className="mifflin">
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -144,20 +144,19 @@ function Mifflin(){
                     sx={{width:'100px'}}
                     value={age}
                 >
-
                 </TextField>
             </div>
-            <div>
+            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
                 <Typography>Activity Factor</Typography>
                 <TextField
                     type="number"
                     size='small'
                     onChange={handleActivityFactor}
-                    sx={{width:'100px'}}
+                    sx={{width:'100px', marginLeft:'10px'}}
                     value={activityFactor}
                 ></TextField>
             </div>
-            <Typography variant="p">{output}</Typography>
+            <Typography variant="h6">{output}</Typography>
         </div>
     )
 }

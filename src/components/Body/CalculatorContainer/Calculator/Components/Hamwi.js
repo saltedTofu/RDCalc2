@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import { Slider, Typography, TextField, InputLabel, Select, MenuItem } from '@mui/material';
+import '../Calculator.css';
 
 function Hamwi(){
 
@@ -58,27 +59,27 @@ function Hamwi(){
     }
 
     return(
-        <div>
-            <Typography>Weight</Typography>
-            <TextField
-                label={weightUnit}
-                type="number"
-                size="small"
-                value={weight}
-                onChange={handleWeight}
-            >
-            </TextField>
-            <InputLabel id="weightUnitInputLabel">Weight Unit</InputLabel>
-            <Select
-                labelId="weightUnitInputLabel"
-                id="weightUnitInput"
-                value={weightUnit}
-                label="Weight Unit"
-                onChange={handleWeightUnit}
-            >
-                <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                <MenuItem value={'Kg'}>Kg</MenuItem>
-            </Select>
+        <div className="hamwi">
+            <div style={{display:'flex', marginBottom:'10px'}}>
+                <TextField
+                    label='Weight'
+                    type="number"
+                    value={weight}
+                    onChange={handleWeight}
+                    sx={{width:'100px'}}
+                >
+                </TextField>
+                <Select
+                    id="weightUnitInput"
+                    value={weightUnit}
+                    label="Weight Unit"
+                    onChange={handleWeightUnit}
+                >
+                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
+                    <MenuItem value={'Kg'}>Kg</MenuItem>
+                </Select>
+            </div>
+            
             <Typography>Kcal Range</Typography>
             <Slider 
                 aria-label="Lower Kcal Range"
@@ -88,6 +89,7 @@ function Hamwi(){
                 min={10}
                 max={50}
                 valueLabelDisplay="auto"
+                sx={{width:'80%'}}
             >
             </Slider>
             <Typography>{lowerCal} kcal/kg</Typography>
@@ -99,10 +101,11 @@ function Hamwi(){
                 min={10}
                 max={50}
                 valueLabelDisplay="auto"
+                sx={{width:'80%'}}
             >
             </Slider>
             <Typography>{higherCal} kcal/kg</Typography>
-            <Typography>{kcalRange}</Typography>
+            <Typography sx={{margin:'10px 10px'}} variant="h6">{kcalRange} kcal</Typography>
             <Typography>Protein Range</Typography>
             <Slider
                 aria-label="Lower Protein Range"
@@ -112,6 +115,7 @@ function Hamwi(){
                 min={0.1}
                 max={4.0}
                 step={0.1}
+                sx={{width:'80%'}}
             ></Slider>
             <Typography>{lowerProtein}</Typography>
             <Slider
@@ -122,9 +126,10 @@ function Hamwi(){
                 min={0.1}
                 max={4.0}
                 step={0.1}
+                sx={{width:'80%'}}
             ></Slider>
             <Typography>{higherProtein}</Typography>
-            <Typography>{proteinRange}</Typography>
+            <Typography sx={{margin:'10px 10px'}} variant="h6">{proteinRange} g</Typography>
         </div>
     )
 }

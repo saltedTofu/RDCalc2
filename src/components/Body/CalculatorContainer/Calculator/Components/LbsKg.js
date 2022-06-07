@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import { Slider, Typography, TextField, InputLabel, Select, MenuItem, Radio, RadioGroup } from '@mui/material';
+import '../Calculator.css';
 
 function LbsKg(){
     const [input,setInput] = useState(null);
@@ -32,23 +33,25 @@ function LbsKg(){
     }
 
     return(
-        <div>
-            <TextField
-                type="number"
-                label="Weight"
-                value={input}
-                onChange={handleInput}
-            ></TextField>
-            <Select
-                labelId="unit-input-label"
-                value={unit}
-                onChange={handleUnit}
-            >
-                <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                <MenuItem value={'Kg'}>Kg</MenuItem>
-            </Select>
-            <Typography>=</Typography>
-            <Typography>{output} {outputUnit}</Typography>
+        <div className='lbsKgConverter'>
+            <div>
+                <TextField
+                    type="number"
+                    label="Weight"
+                    value={input}
+                    onChange={handleInput}
+                    sx={{width:'100px'}}
+                ></TextField>
+                <Select
+                    value={unit}
+                    onChange={handleUnit}
+                >
+                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
+                    <MenuItem value={'Kg'}>Kg</MenuItem>
+                </Select>
+            </div>
+            <Typography variant="h6">=</Typography>
+            <Typography variant="h6">{output} {outputUnit}</Typography>
         </div>
     )
 }

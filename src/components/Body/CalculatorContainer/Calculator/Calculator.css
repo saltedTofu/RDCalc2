@@ -1,5 +1,5 @@
 /*
-Ideal Body Weight & Mifflin
+Ideal Body Weight & Mifflin & Penn State
 */
 #ibwCalculator{
     display:flex;
@@ -11,15 +11,34 @@ Ideal Body Weight & Mifflin
     padding-top:2%;
     padding-bottom:4%;
 }
-#heightContainer, .weightContainer, .ageContainer{
+.pennState, .mifflin{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    margin-top:2%;
+    margin-bottom:2%;
+}
+#heightContainer, .weightContainer{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width:80%;
+    width:85%;
     padding-top:15px;
     padding-bottom:15px;
 }
+.ageContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:50%;
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
 /*
 Tube Feeding
 */
@@ -55,4 +74,25 @@ TPN/PPN
     align-items: flex-start;
     padding-top:4%;
     padding-bottom:4%;
+}
+/*
+Lbs/Kg
+*/
+.lbsKgConverter{
+    margin-top:2%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*
+Hamwi
+*/
+.hamwi{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    margin-top:2%;
 }
