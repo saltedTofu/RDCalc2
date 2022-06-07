@@ -16,6 +16,8 @@ function IdealBodyWeight(){
     const [RAKA, setRAKA] = useState(false);
     const [paraplegic, setParaplegic] = useState(false);
     const [quadriplegic, setQuadriplegic] = useState(false);
+    const [BMI,setBMI] = useState('');
+    const [adjusted,setAdjusted] = useState(false);
 
     useEffect(()=>{
         if(!gender){
@@ -31,6 +33,7 @@ function IdealBodyWeight(){
             setPercentIBW('Please Enter Weight');
         }
 
+        
         let totalHeight = (Number(heightFeet)*12) + Number(heightInches);
         let weightModifier = 1;
         if(LBKA) weightModifier -= .06;
@@ -39,6 +42,29 @@ function IdealBodyWeight(){
         if(RAKA) weightModifier -= .16;
         if(paraplegic) weightModifier -= .125; //range is 10%-15%
         if(quadriplegic) weightModifier -= .175; //range is 15%-20%
+
+        
+        //BMI Calculations
+        let adjustedWeight=weight;
+        if(weightModifier<1){ //adjusted weight for amputation/paralyzations
+            adjustedWeight = adjustedWeight*(1+(1-weightModifier));
+            setAdjusted(true);
+        }
+        else{
+            setAdjusted(false);
+        }
+        if(weightUnit==='Lbs'){
+            const convertedWeight=Number(adjustedWeight)/2.205;
+            const convertedHeight=totalHeight*2.54/100;
+            const calculatedBMI = Math.round(convertedWeight/(convertedHeight*convertedHeight)*10)/10; //round to 1 decimal place
+            setBMI(calculatedBMI);
+        }
+        else{
+            const convertedHeight=totalHeight*2.54/100;
+            const calculatedBMI = Math.round(adjustedWeight/(convertedHeight*convertedHeight)*10)/10; //round to 1 decimal place
+            console.log(calculatedBMI);
+            setBMI(calculatedBMI);
+        }
 
         if(totalHeight<60){
             let inchesBelowFiveFeet = 60-totalHeight; 
@@ -78,6 +104,7 @@ function IdealBodyWeight(){
             else setPercentIBW(Math.round(weight/IBWFemale*100) + '%');
         }
     })
+
     const handleGender = (event) => {
         setGender(event.target.value);
     }
@@ -200,22 +227,26 @@ function IdealBodyWeight(){
                 <div style={{marginRight:'5px'}}>
                     <Typography variant='p'>Amputations?</Typography>
                     <FormGroup>
-                        <FormControlLabel control={<Checkbox onChange={handleLBKA} size='small'/>} label="L BKA" />
-                        <FormControlLabel control={<Checkbox onChange={handleRBKA} size='small'/>} label="R BKA" />
-                        <FormControlLabel control={<Checkbox onChange={handleLAKA} size='small'/>} label="L AKA" />
-                        <FormControlLabel control={<Checkbox onChange={handleRAKA} size='small'/>} label="R AKA" />
+                        <FormControlLabel control={<Checkbox onChange={handleLBKA} size='small'/>} label="L BKA (6%)" />
+                        <FormControlLabel control={<Checkbox onChange={handleRBKA} size='small'/>} label="R BKA (6%)" />
+                        <FormControlLabel control={<Checkbox onChange={handleLAKA} size='small'/>} label="L AKA (16%)" />
+                        <FormControlLabel control={<Checkbox onChange={handleRAKA} size='small'/>} label="R AKA (16%)" />
                     </FormGroup>
                 </div>
                 <div style={{marginLeft:'5px'}}>
                     <Typography variant='p'>Paralyzations?</Typography>
                     <FormGroup>
-                        <FormControlLabel control={<Checkbox onChange={handleParaplegic}size='small'/>} label="Paraplegic" />
-                        <FormControlLabel control={<Checkbox onChange={handleQuadriplegic}size='small'/>} label="Quadriplegic" />
+                        <FormControlLabel control={<Checkbox onChange={handleParaplegic}size='small'/>} label="Paraplegic (12.5%)" />
+                        <FormControlLabel control={<Checkbox onChange={handleQuadriplegic}size='small'/>} label="Quadriplegic (17.5%)" />
                     </FormGroup>
                 </div>
             </div>
             <Typography variant="h6">IBW={IBW}</Typography>
-            <Typography variant="h6">%IBW={percentIBW}</Typography> 
+            <Typography variant="h6">%IBW={percentIBW}</Typography>
+            <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                {adjusted && <Typography sx={{marginRight:'5px'}}>(adjusted)</Typography>}
+                <Typography variant="h6">BMI={BMI}</Typography>
+            </div>
         </div>
     )
 }

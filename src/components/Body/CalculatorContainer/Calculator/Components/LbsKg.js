@@ -11,12 +11,12 @@ function LbsKg(){
         let convertedWeight;
         if(unit==='Lbs'){
             setOutputUnit('Kg');
-            convertedWeight = input/2.205;
+            convertedWeight = Math.round(input/2.205*10)/10; //rounds to 1 decimal place
             setOutput(convertedWeight);
         }
         else{
             setOutputUnit('Lbs');
-            convertedWeight = input*2.205;
+            convertedWeight = Math.round(input*2.205*10)/10; //rounds to 1 decimal place
             setOutput(convertedWeight);
         }
     },[unit,input])

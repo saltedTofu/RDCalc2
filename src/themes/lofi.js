@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 /*
-dark purp 300E3F
-pink 9E6196
+dark purp #300E3F
+pink #9E6196
 */
 const lofi = createTheme({
   components:{
@@ -32,13 +32,13 @@ typography:{
     },
     primary: { //color of buttons, checkbox
       main: '#9E6196', //light pink
-      contrastText: '#121212' //white
+      contrastText: '#121212', //white
     },
     secondary: { 
       main: '#300E3F', //purple
       contrastText: '#fafafa' //white
     }
-  },
+  }
 });
 
 export default lofi;

@@ -98,8 +98,8 @@ function Header({currentTheme, handleThemeChange}){
                     <Button variant="contained" onClick={handleLogout} sx={{margin:'10px'}}>Logout</Button>
                 </Box>
                 <form id="notLoggedIn" onSubmit={handleSubmit} style={{display: user ? "none" : "flex", alignItems:'center',justifyContent:'center'}}>
-                    <TextField label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef}></TextField>
-                    <TextField label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password"></TextField>
+                    <TextField className="autofillColor" label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef}></TextField>
+                    <TextField className="autofillColor" label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password"></TextField>
                     <Button sx={{marginLeft:'10px'}} type="submit" disabled={loading} >Log in</Button>
                     <RouterLink to='/signup'>
                         <Button variant="contained" sx={{margin:'10px'}}>Sign Up</Button>

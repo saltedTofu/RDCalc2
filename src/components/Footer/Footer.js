@@ -1,9 +1,10 @@
-import {Paper, Typography, Box} from '@mui/material';
+import {Paper, Typography, Box, Link} from '@mui/material';
 
 function Footer() {
     return(
-        <Box>
-            <Typography variant="h5">Made by Tyler Dansby xD</Typography>
+        <Box sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center'}}>
+            <Typography variant="p">Find any errors? Let me know and i'll fix them!</Typography>
+            <Link variant="p" href="mailto:saltedTofuDev@gmail.com">saltedTofuDev@gmail.com</Link>
         </Box>
     )
 }
