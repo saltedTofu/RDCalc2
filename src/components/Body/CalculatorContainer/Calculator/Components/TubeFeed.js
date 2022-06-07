@@ -6,10 +6,16 @@ import '../Calculator.css';
 function TubeFeed(){
     const [chosenFormula,setChosenFormula] = useState('');
     const [continuousRate,setContinuousRate] = useState(50);
+    const [bolusPerDay,setBolusPerDay] = useState(0);
+    const [bolusVolume, setBolusVolume] = useState(250);
     const [kcalProvided, setKcalProvided] = useState(0);
     const [proteinProvided, setProteinProvided] = useState(0);
     const [freeWater, setFreeWater] = useState(0);
     const [hrsDay,setHrsDay] = useState(0);
+    const [bolusKcalProvided, setBolusKcalProvided] = useState(0);
+    const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
+    const [bolusFreeWater, setBolusFreeWater] = useState(0);
+
     
     const handleFormulaChange = (event) => {
         setChosenFormula(event.target.value);
@@ -22,9 +28,17 @@ function TubeFeed(){
             setHrsDay(Number(event.target.value));
         } 
     }
-    const elSpacing = {marginTop:'15px', marginBottom:'15px'};
+    const handleBolusVolume = (event) => {
+        setBolusVolume(event.target.value);
+    }
+    const handleBolusPerDay = (event) => {
+        if(Number(event.target.value)>0 && Number(event.target.value)<26){
+            setBolusPerDay(event.target.value);
+        }
+    }
 
-    useEffect(()=>{
+    //Continuous
+    useEffect(()=>{ 
         const formulaToUse = Formulas[chosenFormula];
         if(!formulaToUse){
             return;
@@ -33,21 +47,33 @@ function TubeFeed(){
         setProteinProvided(Math.round(formulaToUse.protein/1000 * continuousRate * hrsDay));
         setFreeWater(Math.round(formulaToUse.water/1000 * continuousRate * hrsDay));
     },[chosenFormula,continuousRate,hrsDay])
+    
+    //Bolus
+    useEffect(()=>{
+        const formulaToUse = Formulas[chosenFormula];
+        if(!formulaToUse){
+            return;
+        }
+        setBolusKcalProvided(Math.round(formulaToUse.kcal/1000 * bolusPerDay * bolusVolume));
+        setBolusProteinProvided(Math.round(formulaToUse.protein/1000 * bolusPerDay * bolusVolume));
+        setBolusFreeWater(Math.round(formulaToUse.water/1000 * bolusPerDay * bolusVolume));
 
+    },[bolusPerDay,bolusVolume,chosenFormula])
     return(
         <div className='tubeFeedCalc'>
-            <FormControl fullWidth sx={elSpacing} >
-            <InputLabel id="formula-select-label">Formula</InputLabel>
-            <Select
-                labelId="formula-select-label"
-                label="Formula"
-                value={chosenFormula}
-                onChange={handleFormulaChange}
-            >
-                {Object.entries(Formulas).map(([key]) => <MenuItem value={key}>{key}</MenuItem>)}   
-            </Select>
+            <FormControl sx={{marginTop:'15px', marginBottom:'15px'}} >
+                <InputLabel id="formula-select-label">Formula</InputLabel>
+                <Select
+                    labelId="formula-select-label"
+                    label="Formula"
+                    value={chosenFormula}
+                    onChange={handleFormulaChange}
+                    sx={{width:'200px'}}
+                >
+                    {Object.entries(Formulas).map(([key]) => <MenuItem value={key}>{Formulas[key].name}</MenuItem>)}
+                </Select>
             </FormControl>
-            <Typography>Continuous</Typography>
+            <Typography variant="h6">Continuous</Typography>
             <Slider
                 aria-label="Continous Rate"
                 defaultValue={50}
@@ -71,6 +97,33 @@ function TubeFeed(){
                 <Typography variant="h6">{proteinProvided}g Protein</Typography>
                 <Typography variant="h6">{freeWater}ml Free Water</Typography>
             </div>
+
+            <Typography variant="h6">Bolus</Typography>
+            <Slider
+                aria-label="Bolus Volume"
+                defaultValue={250}
+                value={bolusVolume}
+                onChange={handleBolusVolume}
+                min={100}
+                max={500}
+                step={2}
+                valueLabelDisplay="auto"
+                sx={{width:'100%'}}
+            ></Slider>
+            <Typography sx={{marginBottom:'15px'}}>{bolusVolume} ml</Typography>
+            <TextField 
+                type="number" 
+                label="bolus/day"
+                labelId="continuous-hrs-label"
+                value={bolusPerDay}
+                onChange={handleBolusPerDay}
+            ></TextField>
+            <div className="tubeFeedOutput">
+                <Typography variant="h6">{bolusKcalProvided} KCal</Typography>
+                <Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
+                <Typography variant="h6">{bolusFreeWater}ml Free Water</Typography>
+            </div>
+
         </div>
     )
 }
