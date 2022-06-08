@@ -42,25 +42,25 @@ function SignUp({currentTheme,handleThemeChange}){
 
     return(
         <div>
-            <Paper component="div" className="signUp">     
+            <Paper square component="div" className="signUp">     
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
                 <Paper elevation={5} className="signUpForm">
                     <form onSubmit={handleSubmit}>
-                        <Typography variant="h2" sx={{margin:'20px'}}>Sign Up</Typography>
-                        <FormGroup sx={{width:'90%'}}>
+                        <Typography variant="h2" sx={{marginTop:'20px', marginBottom:'20px'}}>Sign Up</Typography>
+                        <FormGroup sx={{width:'100%'}}>
                             <FormControl><TextField label="Enter Email" sx={{marginTop:'20px', marginBottom:'20px'}} inputRef={emailRef}></TextField></FormControl>
                         </FormGroup>
-                        <FormGroup sx={{width:'90%'}}>
+                        <FormGroup sx={{width:'100%'}}>
                             <FormControl><TextField label="Create Password" sx={{marginTop:'20px', marginBottom:'20px'}} type="password" inputRef={passwordRef}></TextField></FormControl>
                         </FormGroup>
-                        <FormGroup sx={{width:'90%'}}>
+                        <FormGroup sx={{width:'100%'}}>
                             <FormControl><TextField label="Confirm Password" sx={{marginTop:'20px', marginBottom:'20px'}} type="password" inputRef={passwordConfirmRef}></TextField></FormControl>
                         </FormGroup>
-                        <Button disabled={loading} fullWidth variant="contained" sx={{margin:'20px'}} type="submit">Sign Up</Button>
+                        <Button disabled={loading} fullWidth variant="contained" sx={{marginTop:'20px', marginBottom:'20px'}} type="submit">Sign Up</Button>
                     </form>
                 </Paper>
-                {error && <Alert color="error">{error}</Alert>}
-                {success && <Alert color="success">{success}</Alert>}
+                {error && <Alert sx={{marginTop:'15px'}} color="error">{error}</Alert>}
+                {success && <Alert sx={{marginTop:'15px'}} color="success">{success}</Alert>}
             </Paper>
         </div>
     )

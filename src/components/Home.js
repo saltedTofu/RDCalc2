@@ -1,5 +1,5 @@
 import '../App.css';
-import { adjustCalcCounter, addCalc, removeCalc } from '../../src/redux/calcs';
+import { adjustCalcCounter, addCalc} from '../../src/redux/calcs';
 import {useSelector, useDispatch} from 'react-redux';
 import Header from './Header/Header.js';
 import Body from './Body/Body.js';
@@ -7,7 +7,7 @@ import AddButton from './Body/AddButton/AddButton.js';
 import CalculatorContainer from './Body/CalculatorContainer/CalculatorContainer';
 import LayoutSelect from './LayoutSelect/LayoutSelect'
 import Footer from './Footer/Footer';
-import {Box, Paper} from '@mui/material';
+import {Paper} from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';

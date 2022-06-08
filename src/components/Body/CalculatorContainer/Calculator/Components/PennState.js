@@ -11,7 +11,6 @@ function PennState(){
     const [age,setAge] = useState(0);
     const [activityFactor,setActivityFactor] = useState(1);
     const [penn,setPenn] = useState('');
-    const [modifiedPenn,setModifiedPenn] = useState('');
     const [tMax,setTmax] = useState(0);
     const [tMaxUnit,setTMaxUnit] = useState('Celsius');
     const [ve,setVe] = useState(0);
@@ -19,7 +18,6 @@ function PennState(){
     useEffect(()=>{
         let mifflinOutput='';
         let pennOutput='';
-        let modifiedPennOutput='';
         const heightInCm = ((heightFeet*12) + heightInches)*2.54;
         const weightInKg = weightUnit==='Lbs' ? weight/2.205 : weight;
         console.log(weightInKg);
@@ -82,7 +80,7 @@ function PennState(){
         else if(event.target.value>8){
             setHeightFeet(8);
         }
-        else setHeightFeet(Number(event.target.value));
+        else setHeightFeet(event.target.value);
     }
     const handleInches = (event) => {
         if(event.target.value<0){
@@ -91,7 +89,7 @@ function PennState(){
         else if(event.target.value>11){
             setHeightInches(11);
         }
-        else setHeightInches(Number(event.target.value));
+        else setHeightInches(event.target.value);
     }
     const handleWeightUnit = (event) => {
         setWeightUnit(event.target.value);
@@ -100,7 +98,7 @@ function PennState(){
         if(event.target.value<0){
             setWeight(0);
         }
-        else setWeight(Number(event.target.value));
+        else setWeight(event.target.value);
     }
     const handleAge = (event) =>{
         if(event.target.value<0){
@@ -109,7 +107,7 @@ function PennState(){
         else if(event.target.value>123){
             setAge(123);
         }
-        else setAge(Number(event.target.value));
+        else setAge(event.target.value);
     }
     return(
         <div className="pennState">
@@ -223,7 +221,6 @@ function PennState(){
                 ></TextField>
             </div>
             <Typography variant="h6">{penn} kcal</Typography>
-            <Typography variant="h6">{modifiedPenn}</Typography>
         </div>
     )
 }

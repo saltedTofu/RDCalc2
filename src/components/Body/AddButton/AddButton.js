@@ -1,11 +1,14 @@
 import './AddButton.css';
 import AddIcon from '@mui/icons-material/Add';
-import { SvgIcon, IconButton, Typography, Paper } from '@mui/material';
+import { SvgIcon, IconButton, Typography, Paper, Alert } from '@mui/material';
 import {useState, useLayoutEffect} from 'react';
+import {useSelector} from 'react-redux';
 
 
 function AddButton({addNewCalc, currentTheme}){
     const [borderColor, setBorderColor] = useState('#0288d1');
+    const [error,setError] = useState('');
+    const calcsArray = useSelector(state => state.calcsArray.calcsArray);
 
     useLayoutEffect(()=>{
         if(currentTheme==='dark'){
@@ -17,7 +20,16 @@ function AddButton({addNewCalc, currentTheme}){
     },[currentTheme])
 
     const handleClick = () => {
-        addNewCalc();
+        if(calcsArray.length>5){
+            setError('Too Many Calculators!');
+        }
+        else{
+            addNewCalc();
+        }
+    }
+
+    const handleCloseError = () => {
+        setError('');
     }
 
     return(
@@ -31,6 +43,7 @@ function AddButton({addNewCalc, currentTheme}){
                 <SvgIcon component={AddIcon} fontSize='large'>
                 </SvgIcon>
             </IconButton>
+            {error && <Alert sx={{position:'absolute', left:'28%'}} onClose={handleCloseError}>{error}</Alert>}
         </Paper>
     )
 }

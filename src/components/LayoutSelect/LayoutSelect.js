@@ -5,7 +5,6 @@ import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { setCalcsArray } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
-import { flexbox } from '@mui/system';
 import './LayoutSelect.css';
 
 function LayoutSelect(){
@@ -16,7 +15,6 @@ function LayoutSelect(){
     const [error,setError] = useState('');
     const [success,setSuccess] = useState('');
 
-    const calcsArray = useSelector(state => state.calcsArray.calcsArray);
     const calcNamesArray = useSelector(state => state.calcsArray.calcNamesArray);
     const globalUser = useSelector(state => state.calcsArray.globalUser);
 
