@@ -1,4 +1,4 @@
-import {Select, MenuItem, InputLabel, FormControl, Button, TextField} from '@mui/material';
+import {Select, MenuItem, InputLabel, FormControl, Button, TextField, Alert} from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useState, useEffect} from 'react';
@@ -14,6 +14,7 @@ function LayoutSelect(){
     const [layoutArray,setLayoutArray]=useState([]);
     const [layoutName,setLayoutName] = useState('');
     const [error,setError] = useState('');
+    const [success,setSuccess] = useState('');
 
     const calcsArray = useSelector(state => state.calcsArray.calcsArray);
     const calcNamesArray = useSelector(state => state.calcsArray.calcNamesArray);
@@ -35,8 +36,10 @@ function LayoutSelect(){
     },[globalUser,getLayouts])
 
     useEffect(()=>{
-        
-        if(layoutArray.length>0 && layout){
+        if(layoutArray.length<1){
+            dispatch(setCalcsArray([]));
+        }
+        else if(layout){
             dispatch(setCalcsArray(layoutArray[layout]));
         }
     },[layout,dispatch,layoutArray])
@@ -47,20 +50,28 @@ function LayoutSelect(){
 
     const handleNewLayout = async() => {
         if(!globalUser){
-            setError('Please Sign In to Save a Layout')
-            console.log('please sign in');
+            setError('Please Sign In to Save a Layout');
+            setSuccess('');
             return;
         }
         if(!layoutName){
-            setError('Please Add a Name for the Layout')
-            console.log('please add name')
+            setError('Please Add a Name for the Layout');
+            setSuccess('');
             return;
         }
-        await addLayout(globalUser, calcNamesArray, layoutName);
+        try{
+            await addLayout(globalUser, calcNamesArray, layoutName);
+        }
+        catch{
+            setError('Unable to Add Layout: Server Error');
+            setSuccess('');
+        }
+        setSuccess('Layout Created');
+        setError('');
+        
         const fetchLayouts = async()=>{
             if(globalUser){
                 const layouts = await getLayouts(globalUser);
-                console.log(layouts);
                 setLayoutArray(layouts);
             }
             else{
@@ -83,7 +94,6 @@ function LayoutSelect(){
         const fetchLayouts = async()=>{
             if(globalUser){
                 const layouts = await getLayouts(globalUser);
-                console.log(layouts);
                 setLayoutArray(layouts);
             }
             else{
@@ -93,6 +103,14 @@ function LayoutSelect(){
         setTimeout(()=>{ //in order for database to catchup, otherwise a refresh is needed for deleted layout to disappear
             fetchLayouts();
         },1000)
+    }
+
+    const handleCloseSuccess = () => {
+        setSuccess('');
+    }
+
+    const handleCloseError = () => {
+        setError('');
     }
 
     return(
@@ -117,7 +135,8 @@ function LayoutSelect(){
                 ></TextField>   
                 <Button onClick={handleNewLayout}>Save as New Layout<AddBoxIcon /></Button>
             </div>
-                     
+            {error && <Alert color="error" onClose={handleCloseError} sx={{position:'absolute', right:'25%'}}>{error}</Alert>}
+            {success && <Alert color="success" onClose={handleCloseSuccess} sx={{position:'absolute', right:'30%'}}>{success}</Alert>}
         </div>
     )
 }

@@ -11,14 +11,13 @@ function SignUp({currentTheme,handleThemeChange}){
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const {signup} = useAuth();
+    const {signup, addUser} = useAuth();
     const [error,setError] = useState('');
     const [success,setSuccess] = useState('')
     const [loading,setLoading] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         if(passwordRef.current.value !== passwordConfirmRef.current.value){
             return setError('Passwords do not match');
         }
@@ -29,14 +28,15 @@ function SignUp({currentTheme,handleThemeChange}){
             setError('');
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
+            await addUser(emailRef.current.value);
         } catch {
             setSuccess('');
-            setError('Failed to create an account')
-            setLoading(false)
+            setError('Failed to create an account');
+            setLoading(false);
             return;
         }
         setError('');
-        setLoading(false)
+        setLoading(false);
         setSuccess('Account Created');
     }
 

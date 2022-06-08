@@ -16,8 +16,11 @@ export function AuthProvider({ children }) {
     return result;
   }
   function signup(email, password) {
-   addNewUserDB(email); //fails if already taken
+    //addNewUserDB(email); //fails if already taken
     return auth.createUserWithEmailAndPassword(email, password)
+  }
+  function addUser(email){
+    addNewUserDB(email);
   }
   function addLayout(user, layout, layoutName){
     addLayoutDB(user, layout, layoutName);
@@ -54,7 +57,8 @@ export function AuthProvider({ children }) {
     resetPassword,
     addLayout,
     getLayouts,
-    deleteLayout
+    deleteLayout,
+    addUser
   }
 
   return (
