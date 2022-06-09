@@ -13,6 +13,8 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.8.2",
+    "firebase-admin": "^10.2.0",
+    "firebase-functions": "^3.21.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-draggable": "^4.4.5",
@@ -26,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:prod":"env-cmd -f .env.prod npm run build && firebase deploy -P prod",
+    "build:dev":"env-cmd -f .env.local npm run build && firebase deploy -P dev"
   },
   "eslintConfig": {
     "extends": [
