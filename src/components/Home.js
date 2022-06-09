@@ -7,7 +7,7 @@ import AddButton from './Body/AddButton/AddButton.js';
 import CalculatorContainer from './Body/CalculatorContainer/CalculatorContainer';
 import LayoutSelect from './LayoutSelect/LayoutSelect'
 import Footer from './Footer/Footer';
-import {Paper} from '@mui/material';
+import {Paper, Alert} from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -27,7 +27,8 @@ function Home({currentTheme, handleThemeChange}){
     return(
             <Paper component="div" className="App" square={true}>
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
-                <div style={{display:'flex', flexDirection:'row', alignItems:'center', width:'50%', justifyContent:'center'}}>
+                <div style={{display:'flex', flexDirection:'row', alignItems:'center', width:'100%', justifyContent:'center'}}>
+                    <Alert color="info"sx={{width:'400px'}}>Please Note: All calculations should be double checked for accuracy</Alert>
                     <AddButton
                         addNewCalc={addNewCalc}
                         currentTheme={currentTheme}

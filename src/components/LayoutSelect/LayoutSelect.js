@@ -1,4 +1,4 @@
-import {Select, MenuItem, InputLabel, FormControl, Button, TextField, Alert} from '@mui/material';
+import {Select, MenuItem, InputLabel, FormControl, Button, TextField, Alert, Snackbar} from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useState, useEffect} from 'react';
@@ -113,7 +113,7 @@ function LayoutSelect(){
 
     return(
         <div className="layoutSelect">
-            <FormControl sx={{minWidth:'100px', marginLeft:'15px'}}>
+            <FormControl sx={{minWidth:'100px'}}>
                 <InputLabel id='select-label'>Layout</InputLabel>
                 <Select
                     label="Layout"
@@ -133,8 +133,8 @@ function LayoutSelect(){
                 ></TextField>   
                 <Button onClick={handleNewLayout}>Save as New Layout<AddBoxIcon /></Button>
             </div>
-            {error && <Alert color="error" onClose={handleCloseError} sx={{position:'absolute', right:'25%'}}>{error}</Alert>}
-            {success && <Alert color="success" onClose={handleCloseSuccess} sx={{position:'absolute', right:'30%'}}>{success}</Alert>}
+            {error && <Snackbar  anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={true} onClose={handleCloseError} autoHideDuration={6000}><Alert severity='error'>{error}</Alert></Snackbar>}
+            {success && <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={true} onClose={handleCloseSuccess} autoHideDuration={6000}><Alert severity='success'>{success}</Alert></Snackbar>}
         </div>
     )
 }

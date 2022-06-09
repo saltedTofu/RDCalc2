@@ -1,6 +1,6 @@
 import './AddButton.css';
 import AddIcon from '@mui/icons-material/Add';
-import { SvgIcon, IconButton, Typography, Paper, Alert } from '@mui/material';
+import { SvgIcon, IconButton, Typography, Paper, Alert, Snackbar } from '@mui/material';
 import {useState, useLayoutEffect} from 'react';
 import {useSelector} from 'react-redux';
 
@@ -21,7 +21,7 @@ function AddButton({addNewCalc, currentTheme}){
 
     const handleClick = () => {
         if(calcsArray.length>5){
-            setError('Too Many Calculators!');
+            setError('Too many calculators! The maximum amount is 6.');
         }
         else{
             addNewCalc();
@@ -43,7 +43,8 @@ function AddButton({addNewCalc, currentTheme}){
                 <SvgIcon component={AddIcon} fontSize='large'>
                 </SvgIcon>
             </IconButton>
-            {error && <Alert sx={{position:'absolute', left:'28%'}} onClose={handleCloseError}>{error}</Alert>}
+            
+            {error && <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={true} autoHideDuration={6000} onClose={handleCloseError}><Alert severity="error"  >{error}</Alert></Snackbar>}
         </Paper>
     )
 }

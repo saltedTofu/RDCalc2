@@ -79,7 +79,7 @@ function Header({currentTheme, handleThemeChange}){
                 </div>
             </RouterLink>
 
-            <div style={{display: 'flex', flexDirection:'row', alignItems:'center'}}>
+            <div style={{display: 'flex', flexDirection:'row', alignItems:'center', position:'absolute', left:'100px'}}>
                 <Typography style={{marginRight:'10px'}}>Theme</Typography>
                 <Select
                     onChange={handleThemeChange}
@@ -89,15 +89,13 @@ function Header({currentTheme, handleThemeChange}){
                     <MenuItem value='lofi'>Lofi</MenuItem>
                 </Select>
             </div>
-
-            {error && <Alert color="error">{error}</Alert>}
-
             <div className="loginFields">
                 <Box style={{display: user ? "flex" : "none", alignItems:'center',justifyContent:'center'}}>
                     <Typography variant="p">Hello, {user}</Typography>
                     <Button variant="contained" onClick={handleLogout} sx={{margin:'10px'}}>Logout</Button>
                 </Box>
                 <form id="notLoggedIn" onSubmit={handleSubmit} style={{display: user ? "none" : "flex", alignItems:'center',justifyContent:'center'}}>
+                    {error && <Alert color="error">{error}</Alert>}
                     <TextField className="autofillColor" label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef}></TextField>
                     <TextField className="autofillColor" label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password"></TextField>
                     <Button sx={{marginLeft:'10px'}} type="submit" disabled={loading} >Log in</Button>
