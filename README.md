@@ -1,6 +1,6 @@
 # **Dietitian Calc**
 ### React App created for Dietitians to perform daily calculations.
-[Link to Webpage](https://super-cool-site-by-saltedtofu.netlify.app/)
+[Link to Webpage](https://rdcalc-production.web.app/)
 ## Table of Contents
   - [Introduction](#introduction)
   - [Technologies](#technologies)
