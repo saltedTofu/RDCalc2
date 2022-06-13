@@ -4,7 +4,7 @@ import '../Calculator.css';
 
 function Hamwi(){
 
-    const [weight,setWeight] = useState(0);
+    const [weight,setWeight] = useState(null);
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [lowerCal,setLowerCal] = useState(25);
     const [higherCal,setHigherCal] = useState(30);

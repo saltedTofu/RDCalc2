@@ -6,12 +6,12 @@ function TPNPPN(){
     const [dextrose,setDextrose] = useState(0);
     const [aminoAcid,setAminoAcid] = useState(0);
     const [rate,setRate] = useState(0);
-    const [hrsDay,setHrsDay] = useState(0);
+    const [hrsDay,setHrsDay] = useState(null);
     const [kcal,setKcal] = useState(0);
     const [protein,setProtein] = useState(0);
     const [volume,setVolume] = useState(0);
     const [carbohydrates,setCarbohydrates] = useState(0);
-    const [currentBodyWeight,setCurrentBodyWeight] = useState(0);
+    const [currentBodyWeight,setCurrentBodyWeight] = useState(null);
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [GIR,setGIR] = useState(0);
 
@@ -120,7 +120,6 @@ function TPNPPN(){
                 value={hrsDay}
                 onChange={handleHrsDay}
                 type="number"
-                sx={{width:'100px'}}
             ></TextField>
             <div className='output'>
                 <Typography variant="h6">{kcal} Kcal</Typography>

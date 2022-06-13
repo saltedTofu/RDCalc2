@@ -2,11 +2,11 @@ import { Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, Men
 import {useState, useEffect} from 'react';
 function Mifflin(){
     const [gender,setGender] = useState('');
-    const [weight,setWeight] = useState(0);
+    const [weight,setWeight] = useState(null);
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [heightFeet,setHeightFeet] = useState(0);
-    const [heightInches,setHeightInches] = useState(0);
-    const [age,setAge] = useState(0);
+    const [heightFeet,setHeightFeet] = useState(null);
+    const [heightInches,setHeightInches] = useState(null);
+    const [age,setAge] = useState(null);
     const [output,setOutput] = useState('');
     const [activityFactor,setActivityFactor] = useState(1);
 
@@ -143,6 +143,7 @@ function Mifflin(){
                     onChange={handleAge}
                     sx={{width:'100px'}}
                     value={age}
+                    label="Years"
                 >
                 </TextField>
             </div>

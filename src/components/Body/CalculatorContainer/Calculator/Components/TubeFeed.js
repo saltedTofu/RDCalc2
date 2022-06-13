@@ -6,12 +6,12 @@ import '../Calculator.css';
 function TubeFeed(){
     const [chosenFormula,setChosenFormula] = useState('');
     const [continuousRate,setContinuousRate] = useState(50);
-    const [bolusPerDay,setBolusPerDay] = useState(0);
+    const [bolusPerDay,setBolusPerDay] = useState(null);
     const [bolusVolume, setBolusVolume] = useState(250);
     const [kcalProvided, setKcalProvided] = useState(0);
     const [proteinProvided, setProteinProvided] = useState(0);
     const [freeWater, setFreeWater] = useState(0);
-    const [hrsDay,setHrsDay] = useState(0);
+    const [hrsDay,setHrsDay] = useState(null);
     const [bolusKcalProvided, setBolusKcalProvided] = useState(0);
     const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
     const [bolusFreeWater, setBolusFreeWater] = useState(0);
@@ -69,6 +69,7 @@ function TubeFeed(){
                     value={chosenFormula}
                     onChange={handleFormulaChange}
                     sx={{width:'200px'}}
+                    MenuProps={{sx:{height:'600px'}}}
                 >
                     {Object.entries(Formulas).map(([key]) => <MenuItem value={key}>{Formulas[key].name}</MenuItem>)}
                 </Select>

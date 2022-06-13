@@ -46,6 +46,10 @@ function LayoutSelect(){
         setLayout(event.target.value)
     }
 
+    useEffect(()=>{ //sets layout to empty, so modified layouts dont change on theme change
+        setLayout('');
+    },[calcNamesArray])
+
     const handleNewLayout = async() => {
         if(!globalUser){
             setError('Please Sign In to Save a Layout');
@@ -119,7 +123,6 @@ function LayoutSelect(){
                     label="Layout"
                     labelId='select-label'
                     onChange={handleLayoutChange}
-                    value={layout}
                 >
                     {Object.keys(layoutArray).map((choice)=><MenuItem value={choice}>{choice}</MenuItem>)}
                 </Select>  

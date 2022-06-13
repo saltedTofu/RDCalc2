@@ -4,16 +4,16 @@ import {useState, useEffect} from 'react';
 
 function PennState(){
     const [gender,setGender] = useState('');
-    const [weight,setWeight] = useState(0);
+    const [weight,setWeight] = useState(null);
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [heightFeet,setHeightFeet] = useState(0);
-    const [heightInches,setHeightInches] = useState(0);
-    const [age,setAge] = useState(0);
+    const [heightFeet,setHeightFeet] = useState(null);
+    const [heightInches,setHeightInches] = useState(null);
+    const [age,setAge] = useState(null);
     const [activityFactor,setActivityFactor] = useState(1);
     const [penn,setPenn] = useState('');
-    const [tMax,setTmax] = useState(0);
+    const [tMax,setTmax] = useState(null);
     const [tMaxUnit,setTMaxUnit] = useState('Celsius');
-    const [ve,setVe] = useState(0);
+    const [ve,setVe] = useState(null);
 
     useEffect(()=>{
         let mifflinOutput='';
@@ -37,7 +37,7 @@ function PennState(){
         }
         mifflinOutput *= activityFactor;
         pennOutput = Math.round(mifflinOutput*0.96 + convertedTMax*167 + ve*31 - 6212);
-        setPenn(pennOutput);
+        setPenn(pennOutput + ' kcal');
     },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor,tMax,tMaxUnit,ve])
 
     const handleTmaxUnit = (event) => {
@@ -89,7 +89,7 @@ function PennState(){
         else if(event.target.value>11){
             setHeightInches(11);
         }
-        else setHeightInches(event.target.value);
+        else setHeightInches(Number(event.target.value));
     }
     const handleWeightUnit = (event) => {
         setWeightUnit(event.target.value);
@@ -171,6 +171,7 @@ function PennState(){
                 <Typography>Age</Typography>
                 <TextField
                     type='number'
+                    label='Years'
                     size="small"
                     onChange={handleAge}
                     sx={{width:'100px'}}
@@ -211,16 +212,17 @@ function PennState(){
                 </Select>
             </div>
             <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
+                <Typography>Minute Ventilation</Typography>
                 <TextField
                         type="number"
                         size='small'
                         onChange={handleVe}
-                        sx={{width:'100px'}}
+                        sx={{width:'120px',marginLeft:'10px', marginRight:'5px'}}
                         value={ve}
                         label='VE in L/min'
                 ></TextField>
             </div>
-            <Typography variant="h6">{penn} kcal</Typography>
+            <Typography variant="h6">{penn}</Typography>
         </div>
     )
 }
