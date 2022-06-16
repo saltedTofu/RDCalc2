@@ -25,7 +25,7 @@ function TPNPPN(){
         setProtein(Math.round(pro));
         setCarbohydrates(Math.round(carbs));
         setVolume(totalVolume);
-    })
+    },[rate, hrsDay, dextrose, aminoAcid])
 
     //Calculate GIR
     useEffect(()=>{
@@ -78,6 +78,9 @@ function TPNPPN(){
     const handleWeight = (event) => {
         if(event.target.value<0){
             setCurrentBodyWeight(0);
+        }
+        else if(event.target.value>9999){
+            setCurrentBodyWeight(9999);
         }
         else setCurrentBodyWeight(event.target.value);
     }

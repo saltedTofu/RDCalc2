@@ -29,6 +29,9 @@ function LbsKg(){
         if(event.target.value<0){
             setInput(0);
         }
+        else if(event.target.value>9999){
+            setInput(9999);
+        }
         else setInput(event.target.value);
     }
 

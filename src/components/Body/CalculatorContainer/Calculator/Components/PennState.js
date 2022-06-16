@@ -98,6 +98,9 @@ function PennState(){
         if(event.target.value<0){
             setWeight(0);
         }
+        else if(event.target.value>9999){
+            setWeight(9999);
+        }
         else setWeight(event.target.value);
     }
     const handleAge = (event) =>{
