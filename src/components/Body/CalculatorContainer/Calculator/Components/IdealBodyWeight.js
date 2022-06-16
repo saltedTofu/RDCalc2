@@ -112,11 +112,17 @@ function IdealBodyWeight(){
         if(event.target.value<0){
             setHeightFeet(0);
         }
+        else if(event.target.value>8){
+            setHeightFeet(8);
+        }
         else setHeightFeet(event.target.value);
     }
     const handleInches = (event) => {
         if(event.target.value<0){
             setHeightInches(0);
+        }
+        else if(event.target.value>11){
+            setHeightInches(11);
         }
         else setHeightInches(event.target.value);
     }
