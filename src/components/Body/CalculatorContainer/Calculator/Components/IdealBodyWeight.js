@@ -103,7 +103,7 @@ function IdealBodyWeight(){
             }
             else setPercentIBW(Math.round(weight/IBWFemale*100) + '%');
         }
-    })
+    },[gender,heightFeet,heightInches,weight,weightUnit,LBKA,RBKA,LAKA,RAKA,paraplegic,quadriplegic])
 
     const handleGender = (event) => {
         setGender(event.target.value);
