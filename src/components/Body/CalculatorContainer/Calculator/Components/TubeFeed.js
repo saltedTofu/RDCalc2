@@ -21,7 +21,10 @@ function TubeFeed(){
         setChosenFormula(event.target.value);
     }
     const handleContinuousRate = (event) => {
-        setContinuousRate(Number(event.target.value));
+        if(event.target.value>100){
+            setContinuousRate(100);
+        }
+        else setContinuousRate(event.target.value);
     }
     const handleHrsDay = (event) => {
         if(Number(event.target.value)>0 && Number(event.target.value)<25){
@@ -29,7 +32,10 @@ function TubeFeed(){
         } 
     }
     const handleBolusVolume = (event) => {
-        setBolusVolume(event.target.value);
+        if(event.target.value>1000){
+            setBolusVolume(1000)
+        }
+        else setBolusVolume(event.target.value);
     }
     const handleBolusPerDay = (event) => {
         if(Number(event.target.value)>0 && Number(event.target.value)<26){
@@ -85,7 +91,10 @@ function TubeFeed(){
                 step={1}
                 valueLabelDisplay="auto"
             ></Slider>
-            <Typography sx={{marginBottom:'15px'}}>{continuousRate} ml/hr</Typography>
+            <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                <TextField sx={{marginBottom:'15px', width:'100px'}} value={continuousRate} type="number" onChange={handleContinuousRate}></TextField>
+                <Typography variant="h6" sx={{marginLeft:'15px'}}>ml/hr</Typography>
+            </div>
             <TextField 
                 type="number" 
                 label="hrs/day"
@@ -98,7 +107,6 @@ function TubeFeed(){
                 <Typography variant="h6">{proteinProvided}g Protein</Typography>
                 <Typography variant="h6">{freeWater}ml Free Water</Typography>
             </div>
-
             <Typography variant="h6">Bolus</Typography>
             <Slider
                 aria-label="Bolus Volume"
@@ -107,11 +115,14 @@ function TubeFeed(){
                 onChange={handleBolusVolume}
                 min={100}
                 max={500}
-                step={2}
+                step={1}
                 valueLabelDisplay="auto"
-                sx={{width:'100%'}}
+                sx={{width:'100%',marginBottom:'15px'}}
             ></Slider>
-            <Typography sx={{marginBottom:'15px'}}>{bolusVolume} ml</Typography>
+            <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                <TextField sx={{marginBottom:'15px', width:'100px'}} value={bolusVolume} type="number" onChange={handleBolusVolume}></TextField>
+                <Typography variant="h6" sx={{marginLeft:'15px'}}>ml</Typography>
+            </div>
             <TextField 
                 type="number" 
                 label="bolus/day"
