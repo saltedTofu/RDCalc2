@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { Slider, Typography, TextField, InputLabel, Select, MenuItem, Radio, RadioGroup } from '@mui/material';
+import {Typography, TextField, Select, MenuItem} from '@mui/material';
 import '../Calculator.css';
 
 function LbsKg(){
@@ -36,7 +36,7 @@ function LbsKg(){
     }
 
     return(
-        <div className='lbsKgConverter'>
+        <div className='lbsKgConverter' data-testid="lbsKgConverter">
             <div>
                 <TextField
                     type="number"

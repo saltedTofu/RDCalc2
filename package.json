@@ -10,7 +10,6 @@
     "@mui/material": "^5.6.3",
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.8.2",
     "firebase-admin": "^10.2.0",
@@ -29,8 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:prod":"env-cmd -f .env.prod npm run build && firebase deploy -P prod",
-    "build:dev":"env-cmd -f .env.local npm run build && firebase deploy -P dev"
+    "build:prod": "env-cmd -f .env.prod npm run build && firebase deploy -P prod",
+    "build:dev": "env-cmd -f .env.local npm run build && firebase deploy -P dev"
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +48,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.3.0",
+    "jest-dom": "^4.0.0",
+    "react-test-renderer": "^18.2.0"
   }
 }
