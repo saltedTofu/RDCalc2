@@ -90,8 +90,8 @@ function Header({currentTheme, handleThemeChange}){
                 </Select>
             </div>
 
-            <div style={{display: 'flex', flexDirection:'row', alignItems:'center', position:'absolute', left:'300px'}}>
-                <a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer"><img src={Coffee} width="200px" alt="Donate Button"></img></a>
+            <div style={{display: 'flex', flexDirection:'row', alignItems:'center', position:'absolute'}} id="donateDiv">
+                <a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer"><img src={Coffee} width="200px" alt="Donate Button" id="donateButton"></img></a>
             </div>
             
             <div className="loginFields">
