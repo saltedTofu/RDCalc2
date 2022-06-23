@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Routes, Route, Link as RouterLink} from 'react-
 import {useSelector, useDispatch} from 'react-redux';
 import { setGlobalUser } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
+import Coffee from '../../utils/buyMeCoffee.png';
 
 function Header({currentTheme, handleThemeChange}){
 
@@ -72,13 +73,12 @@ function Header({currentTheme, handleThemeChange}){
 
     return(
         <Paper className="header" elevation={5} square={true}>
-
             <RouterLink to='/'>
                 <div id="logoContainer" style={{backgroundColor:iconBackground}}>
                     <img src={Logo} alt="dietitian calc" id='logoImage'/>
                 </div>
             </RouterLink>
-
+            
             <div style={{display: 'flex', flexDirection:'row', alignItems:'center', position:'absolute', left:'100px'}}>
                 <Typography style={{marginRight:'10px'}}>Theme</Typography>
                 <Select
@@ -89,6 +89,11 @@ function Header({currentTheme, handleThemeChange}){
                     <MenuItem value='lofi'>Lofi</MenuItem>
                 </Select>
             </div>
+
+            <div style={{display: 'flex', flexDirection:'row', alignItems:'center', position:'absolute', left:'300px'}}>
+                <a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer"><img src={Coffee} width="200px" alt="Donate Button"></img></a>
+            </div>
+            
             <div className="loginFields">
                 <Box style={{display: user ? "flex" : "none", alignItems:'center',justifyContent:'center'}}>
                     <Typography variant="p">Hello, {user}</Typography>

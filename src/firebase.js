@@ -2,6 +2,7 @@ import firebase from  'firebase/compat/app'
 import { getFirestore, setDoc, collection, doc, updateDoc, getDoc, deleteField} from "firebase/firestore";
 import 'firebase/compat/auth';
 import { useReducer } from 'react';
+import {getAnalytics} from 'firebase/analytics';
 
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -12,8 +13,9 @@ const app = firebase.initializeApp({
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID
 })
-
+const analytics = getAnalytics(app);
 const db = getFirestore(app);
+
 const usersRef = collection(db, 'users');
 
 
