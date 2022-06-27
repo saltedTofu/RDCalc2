@@ -1,10 +1,11 @@
-import { FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel } from '@mui/material';
+import { FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import {useState, useEffect} from 'react';
 import Formulas from './TubeFeedFormulas';
 import '../Calculator.css';
 
 function TubeFeed(){
     const [chosenFormula,setChosenFormula] = useState('');
+    const [feedingType,setFeedingType] = useState('continuous');
     const [continuousRate,setContinuousRate] = useState(50);
     const [bolusPerDay,setBolusPerDay] = useState(null);
     const [bolusVolume, setBolusVolume] = useState(250);
@@ -16,7 +17,6 @@ function TubeFeed(){
     const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
     const [bolusFreeWater, setBolusFreeWater] = useState(0);
 
-    
     const handleFormulaChange = (event) => {
         setChosenFormula(event.target.value);
     }
@@ -41,6 +41,9 @@ function TubeFeed(){
         if(Number(event.target.value)>0 && Number(event.target.value)<26){
             setBolusPerDay(event.target.value);
         }
+    }
+    const handleFeedingType = (event) => {
+        setFeedingType(event.target.value);
     }
 
     //Continuous
@@ -74,68 +77,94 @@ function TubeFeed(){
                     label="Formula"
                     value={chosenFormula}
                     onChange={handleFormulaChange}
-                    sx={{width:'200px'}}
+                    sx={{width:'200px', marginBottom:'15px'}}
                     MenuProps={{sx:{height:'600px'}}}
                 >
                     {Object.entries(Formulas).map(([key]) => <MenuItem value={key}>{Formulas[key].name}</MenuItem>)}
                 </Select>
+                <ToggleButtonGroup 
+                    size="large" 
+                    aria-label="Choose feeding type"
+                    exclusive
+                    onChange={handleFeedingType}
+                    value={feedingType}
+                >
+                    <ToggleButton value='continuous'>Continuous</ToggleButton>
+                    <ToggleButton value='bolus'>Bolus</ToggleButton>
+                </ToggleButtonGroup>
             </FormControl>
-            <Typography variant="h6">Continuous</Typography>
-            <Slider
-                aria-label="Continous Rate"
-                defaultValue={50}
-                value={continuousRate}
-                onChange={handleContinuousRate}
-                min={5}
-                max={100}
-                step={1}
-                valueLabelDisplay="auto"
-            ></Slider>
-            <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                <TextField sx={{marginBottom:'15px', width:'100px'}} value={continuousRate} type="number" onChange={handleContinuousRate}></TextField>
-                <Typography variant="h6" sx={{marginLeft:'15px'}}>ml/hr</Typography>
+            <div 
+                style={
+                    feedingType==='continuous'
+                        ? {display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'100%'}
+                        : {display:'none'}
+                    }
+            >
+                <Typography variant="h6">Continuous</Typography>
+                <Slider
+                    aria-label="Continous Rate"
+                    defaultValue={50}
+                    value={continuousRate}
+                    onChange={handleContinuousRate}
+                    min={5}
+                    max={100}
+                    step={1}
+                    valueLabelDisplay="auto"
+                    sx={{width:'100%',marginBottom:'15px'}}
+                ></Slider>
+                <div>
+                    <TextField sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} value={continuousRate} type="number" onChange={handleContinuousRate} label="ml/hr"></TextField>
+                    <TextField 
+                        type="number" 
+                        label="hrs/day"
+                        labelId="continuous-hrs-label"
+                        value={hrsDay}
+                        onChange={handleHrsDay}
+                        sx={{width:'100px'}}
+                    ></TextField>
+                </div>
+                <div className="tubeFeedOutput">
+                    <Typography variant="h6">{kcalProvided} KCal</Typography>
+                    <Typography variant="h6">{proteinProvided}g Protein</Typography>
+                    <Typography variant="h6">{freeWater}ml Free Water</Typography>
+                </div>
             </div>
-            <TextField 
-                type="number" 
-                label="hrs/day"
-                labelId="continuous-hrs-label"
-                value={hrsDay}
-                onChange={handleHrsDay}
-            ></TextField>
-            <div className="tubeFeedOutput">
-                <Typography variant="h6">{kcalProvided} KCal</Typography>
-                <Typography variant="h6">{proteinProvided}g Protein</Typography>
-                <Typography variant="h6">{freeWater}ml Free Water</Typography>
+            <div 
+                style={
+                    feedingType==='bolus'
+                        ? {display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'100%'}
+                        : {display:'none'}
+                    }
+            >
+                <Typography variant="h6">Bolus</Typography>
+                <Slider
+                    aria-label="Bolus Volume"
+                    defaultValue={250}
+                    value={bolusVolume}
+                    onChange={handleBolusVolume}
+                    min={100}
+                    max={500}
+                    step={1}
+                    valueLabelDisplay="auto"
+                    sx={{width:'100%',marginBottom:'15px'}}
+                ></Slider>
+                <div>
+                    <TextField sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} value={bolusVolume} type="number" onChange={handleBolusVolume} label="ml"></TextField>
+                    <TextField 
+                        type="number" 
+                        label="bolus/day"
+                        labelId="continuous-hrs-label"
+                        value={bolusPerDay}
+                        onChange={handleBolusPerDay}
+                        sx={{width:'100px'}}
+                    ></TextField>
+                </div>
+                <div className="tubeFeedOutput">
+                    <Typography variant="h6">{bolusKcalProvided} KCal</Typography>
+                    <Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
+                    <Typography variant="h6">{bolusFreeWater}ml Free Water</Typography>
+                </div>
             </div>
-            <Typography variant="h6">Bolus</Typography>
-            <Slider
-                aria-label="Bolus Volume"
-                defaultValue={250}
-                value={bolusVolume}
-                onChange={handleBolusVolume}
-                min={100}
-                max={500}
-                step={1}
-                valueLabelDisplay="auto"
-                sx={{width:'100%',marginBottom:'15px'}}
-            ></Slider>
-            <div style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                <TextField sx={{marginBottom:'15px', width:'100px'}} value={bolusVolume} type="number" onChange={handleBolusVolume}></TextField>
-                <Typography variant="h6" sx={{marginLeft:'15px'}}>ml</Typography>
-            </div>
-            <TextField 
-                type="number" 
-                label="bolus/day"
-                labelId="continuous-hrs-label"
-                value={bolusPerDay}
-                onChange={handleBolusPerDay}
-            ></TextField>
-            <div className="tubeFeedOutput">
-                <Typography variant="h6">{bolusKcalProvided} KCal</Typography>
-                <Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
-                <Typography variant="h6">{bolusFreeWater}ml Free Water</Typography>
-            </div>
-
         </div>
     )
 }

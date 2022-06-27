@@ -35,7 +35,6 @@ export const calcsArraySlice = createSlice({
             state.calcNamesArray = action.payload;
             state.calcCounter += state.calcNamesArray.length
             state.calcsArray = state.calcNamesArray.map((calcName, index)=><div key={index} data-grid={{ x: 0, y: 0, w: 4, h: 3, minW:4, maxW:4, minH:3}} id={index}>{<CalculatorContainer name={calcName} key={index} id={index}/>}</div>);
-            console.log(state.calcNamesArray);
         }
 
     }

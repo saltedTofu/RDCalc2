@@ -34,10 +34,7 @@ function LayoutSelect(){
     },[globalUser,getLayouts])
 
     useEffect(()=>{
-        if(layoutArray.length<1){
-            dispatch(setCalcsArray([]));
-        }
-        else if(layout){
+        if(layout){
             dispatch(setCalcsArray(layoutArray[layout]));
         }
     },[layout,dispatch,layoutArray])
