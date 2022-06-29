@@ -1,6 +1,7 @@
-import { Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link} from '@mui/material';
+import { Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, Menu} from '@mui/material';
 import {useState, useEffect} from 'react';
 import Formulas from './TubeFeedFormulas';
+import Modulars from './Modulars';
 import '../Calculator.css';
 
 function TubeFeed(){
@@ -16,6 +17,10 @@ function TubeFeed(){
     const [bolusKcalProvided, setBolusKcalProvided] = useState(0);
     const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
     const [bolusFreeWater, setBolusFreeWater] = useState(0);
+    const [modular,setModular] = useState('none')
+    const [modularPerDay,setModularPerDay] = useState(null);
+    const [flushAmount,setFlushAmount] = useState(null);
+    const [flushPerDay,setFlushPerDay] = useState(null);
 
     const handleFormulaChange = (event) => {
         setChosenFormula(event.target.value);
@@ -45,6 +50,36 @@ function TubeFeed(){
     const handleFeedingType = (event) => {
         setFeedingType(event.target.value);
     }
+    const handleModular = (event) => {
+        setModular(event.target.value);
+    }
+    const handleModularPerDay = (event) => {
+        if(event.target.value<0){
+            setModularPerDay(0);
+        }
+        else if(event.target.value>99){
+            setModularPerDay(99);
+        }
+        else setModularPerDay(event.target.value);
+    }
+    const handleFlushAmount = (event) => {
+        if(event.target.value<0){
+            setFlushAmount(0);
+        }
+        else if(event.target.value>9999){
+            setFlushAmount(9999);
+        }
+        else setFlushAmount(event.target.value);
+    }
+    const handleFlushPerDay = (event) => {
+        if(event.target.value<0){
+            setFlushPerDay(0);
+        }
+        else if(event.target.value>49){
+            setFlushPerDay(49);
+        }
+        else setFlushPerDay(event.target.value);
+    }
 
     //Continuous
     useEffect(()=>{ 
@@ -52,10 +87,22 @@ function TubeFeed(){
         if(!formulaToUse){
             return;
         }
-        setKcalProvided(Math.round(formulaToUse.kcal/1000 * continuousRate * hrsDay));
-        setProteinProvided(Math.round(formulaToUse.protein/1000 * continuousRate * hrsDay));
-        setFreeWater(Math.round(formulaToUse.water/1000 * continuousRate * hrsDay));
-    },[chosenFormula,continuousRate,hrsDay])
+        let modularKcal=0;
+        let modularProtein=0;
+        if(modular!=='none'){
+            const chosenModular = Modulars[modular];
+            modularKcal=chosenModular.kcal * modularPerDay;
+            modularProtein=chosenModular.protein * modularPerDay;
+        }
+        let flush=0;
+        if(flushAmount){
+            //handle flush amount
+            flush=flushAmount * flushPerDay;
+        }
+        setKcalProvided(Math.round(modularKcal + formulaToUse.kcal/1000 * continuousRate * hrsDay));
+        setProteinProvided(Math.round(modularProtein + formulaToUse.protein/1000 * continuousRate * hrsDay));
+        setFreeWater(Math.round(flush + formulaToUse.water/1000 * continuousRate * hrsDay));
+    },[chosenFormula,continuousRate,hrsDay,modular,modularPerDay,flushAmount,flushPerDay])
     
     //Bolus
     useEffect(()=>{
@@ -63,11 +110,23 @@ function TubeFeed(){
         if(!formulaToUse){
             return;
         }
-        setBolusKcalProvided(Math.round(formulaToUse.kcal/1000 * bolusPerDay * bolusVolume));
-        setBolusProteinProvided(Math.round(formulaToUse.protein/1000 * bolusPerDay * bolusVolume));
-        setBolusFreeWater(Math.round(formulaToUse.water/1000 * bolusPerDay * bolusVolume));
+        let modularKcal=0;
+        let modularProtein=0;
+        if(modular!=='none'){
+            const chosenModular = Modulars[modular];
+            modularKcal=chosenModular.kcal * modularPerDay;
+            modularProtein=chosenModular.protein * modularPerDay;
+        }
+        let flush=0;
+        if(flushAmount){
+            //handle flush amount
+            flush=flushAmount * flushPerDay;
+        }
+        setBolusKcalProvided(Math.round(modularKcal + formulaToUse.kcal/1000 * bolusPerDay * bolusVolume));
+        setBolusProteinProvided(Math.round(modularProtein + formulaToUse.protein/1000 * bolusPerDay * bolusVolume));
+        setBolusFreeWater(Math.round(flush + formulaToUse.water/1000 * bolusPerDay * bolusVolume));
 
-    },[bolusPerDay,bolusVolume,chosenFormula])
+    },[bolusPerDay,bolusVolume,chosenFormula,modular,modularPerDay,flushAmount,flushPerDay])
     return(
         <div className='tubeFeedCalc'>
             <FormControl sx={{marginTop:'15px', marginBottom:'15px', display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}} >
@@ -139,6 +198,57 @@ function TubeFeed(){
                         sx={{width:'100px'}}
                     ></TextField>
                 </div>
+                <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center',marginBottom:'20px', marginTop:'8px'}}>
+                    <InputLabel id="modular-label">Modular</InputLabel>
+                    <Select
+                        labelId='modular-label'
+                        label="Modular"
+                        value={modular}
+                        onChange={handleModular}
+                        sx={{width:'175px',marginRight:'15px'}}
+                        MenuProps={{sx:{height:'600px'}}}
+                    >
+                        <MenuItem value={'none'}>None</MenuItem>
+                        {Object.entries(Modulars).map(([key]) => <MenuItem value={key}>{Modulars[key].name}</MenuItem>)}
+                    </Select>
+                    <TextField
+                        sx={{width:'100px',marginRight:'10px'}}
+                        type="number"
+                        label="times/day"
+                        value={modularPerDay}
+                        onChange={handleModularPerDay}
+                    ></TextField>
+                    <Link  target="_blank" 
+                            sx={
+                                modular!=='none'
+                                ? {display:'flex'}
+                                : {display:'none'}
+                            }
+                            href={
+                                modular!=='none'
+                                    ? Modulars[modular].reference
+                                    : ''
+                            }
+                        >
+                            Reference
+                    </Link>
+                </FormControl>
+                <FormControl sx={{display:'flex',flexDirection:'row', marginBottom:'20px'}}>
+                    <TextField
+                        type="number"
+                        label="Water Flush Volume (mL)"
+                        sx={{marginRight:'10px'}}
+                        value={flushAmount}
+                        onChange={handleFlushAmount}
+                    ></TextField>
+                    <TextField
+                        sx={{width:'100px'}}
+                        type="number"
+                        label="flushes/day"
+                        value={flushPerDay}
+                        onChange={handleFlushPerDay}
+                    ></TextField>
+                </FormControl>
                 <Paper className="tubeFeedOutput">
                     <Typography variant="h6">{kcalProvided} Kcal</Typography>
                     <Typography variant="h6">{proteinProvided}g Protein</Typography>
@@ -175,6 +285,57 @@ function TubeFeed(){
                         sx={{width:'100px'}}
                     ></TextField>
                 </div>
+                <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center',marginBottom:'20px', marginTop:'8px'}}>
+                    <InputLabel id="modular-label">Modular</InputLabel>
+                    <Select
+                        labelId='modular-label'
+                        label="Modular"
+                        value={modular}
+                        onChange={handleModular}
+                        sx={{width:'175px',marginRight:'15px'}}
+                        MenuProps={{sx:{height:'600px'}}}
+                    >
+                        <MenuItem value={'none'}>None</MenuItem>
+                        {Object.entries(Modulars).map(([key]) => <MenuItem value={key}>{Modulars[key].name}</MenuItem>)}
+                    </Select>
+                    <TextField
+                        sx={{width:'100px',marginRight:'10px'}}
+                        type="number"
+                        label="times/day"
+                        value={modularPerDay}
+                        onChange={handleModularPerDay}
+                    ></TextField>
+                    <Link  target="_blank" 
+                            sx={
+                                modular!=='none'
+                                ? {display:'flex'}
+                                : {display:'none'}
+                            }
+                            href={
+                                modular!=='none'
+                                    ? Modulars[modular].reference
+                                    : ''
+                            }
+                        >
+                            Reference
+                    </Link>
+                </FormControl>
+                <FormControl sx={{display:'flex',flexDirection:'row', marginBottom:'20px'}}>
+                    <TextField
+                        type="number"
+                        label="Water Flush Volume (mL)"
+                        sx={{marginRight:'10px'}}
+                        value={flushAmount}
+                        onChange={handleFlushAmount}
+                    ></TextField>
+                    <TextField
+                        sx={{width:'100px'}}
+                        type="number"
+                        label="flushes/day"
+                        value={flushPerDay}
+                        onChange={handleFlushPerDay}
+                    ></TextField>
+                </FormControl>
                 <Paper className="tubeFeedOutput">
                     <Typography variant="h6">{bolusKcalProvided} Kcal</Typography>
                     <Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
