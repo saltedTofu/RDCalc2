@@ -70,15 +70,15 @@ function TubeFeed(){
     },[bolusPerDay,bolusVolume,chosenFormula])
     return(
         <div className='tubeFeedCalc'>
-            <FormControl sx={{marginTop:'15px', marginBottom:'15px'}} >
+            <FormControl sx={{marginTop:'15px', marginBottom:'15px', display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}} >
                 <InputLabel id="formula-select-label">Formula</InputLabel>
-                <div>
+                <div style={{display:'flex', flexDirection:'row',justifyContent:'center', alignItems:'center', marginBottom:'20px'}}>
                     <Select
                         labelid="formula-select-label"
                         label="Formula"
                         value={chosenFormula}
                         onChange={handleFormulaChange}
-                        sx={{width:'200px', marginBottom:'15px'}}
+                        sx={{width:'200px', marginRight:'10px'}}
                         MenuProps={{sx:{height:'600px'}}}
                     >
                         {Object.entries(Formulas).map(([key]) => <MenuItem value={key}>{Formulas[key].name}</MenuItem>)}
