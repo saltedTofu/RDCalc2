@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Typography, TextField, Select, MenuItem} from '@mui/material';
+import {Typography, TextField, Select, MenuItem, Paper} from '@mui/material';
 import '../Calculator.css';
 
 function LbsKg(){
@@ -53,8 +53,9 @@ function LbsKg(){
                     <MenuItem value={'Kg'}>Kg</MenuItem>
                 </Select>
             </div>
-            <Typography variant="h6">=</Typography>
-            <Typography variant="h6">{output} {outputUnit}</Typography>
+            <Paper sx={{padding:'10px', margin:'10px'}}>
+                <Typography variant="h6">{output} {outputUnit}</Typography>
+            </Paper>
         </div>
     )
 }

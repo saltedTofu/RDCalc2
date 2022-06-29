@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { Slider, Typography, TextField, InputLabel, Select, MenuItem } from '@mui/material';
+import { Slider, Typography, TextField, Paper, Select, MenuItem } from '@mui/material';
 import '../Calculator.css';
 
 function Hamwi(){
@@ -82,7 +82,6 @@ function Hamwi(){
                     <MenuItem value={'Kg'}>Kg</MenuItem>
                 </Select>
             </div>
-            
             <Typography>Kcal Range</Typography>
             <Slider 
                 aria-label="Lower Kcal Range"
@@ -108,7 +107,9 @@ function Hamwi(){
             >
             </Slider>
             <Typography>{higherCal} kcal/kg</Typography>
-            <Typography sx={{margin:'10px 10px'}} variant="h6">{kcalRange} kcal</Typography>
+            <Paper sx={{margin:'10px', padding:'10px'}}>
+                <Typography  variant="h6">{kcalRange} kcal</Typography>
+            </Paper>
             <Typography>Protein Range</Typography>
             <Slider
                 aria-label="Lower Protein Range"
@@ -132,7 +133,9 @@ function Hamwi(){
                 sx={{width:'80%'}}
             ></Slider>
             <Typography>{higherProtein}</Typography>
-            <Typography sx={{margin:'10px 10px'}} variant="h6">{proteinRange} g</Typography>
+            <Paper sx={{margin:'10px', padding:'10px'}}>
+                <Typography variant="h6">{proteinRange} g</Typography>
+            </Paper>
         </div>
     )
 }

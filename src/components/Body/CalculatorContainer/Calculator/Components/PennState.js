@@ -1,4 +1,4 @@
-import { Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem } from '@mui/material';
+import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem } from '@mui/material';
 import {useState, useEffect} from 'react';
 //currently using 2003 penn state, need to add modified
 
@@ -225,7 +225,9 @@ function PennState(){
                         label='VE in L/min'
                 ></TextField>
             </div>
-            <Typography variant="h6">{penn}</Typography>
+            <Paper sx={{margin:'10px',padding:'10px'}}>
+                <Typography variant="h6">{penn}</Typography>
+            </Paper>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup} from '@mui/material';
 import {useState, useEffect} from 'react';
 import Formulas from './TubeFeedFormulas';
 import '../Calculator.css';
@@ -93,6 +93,7 @@ function TubeFeed(){
                     <ToggleButton value='bolus'>Bolus</ToggleButton>
                 </ToggleButtonGroup>
             </FormControl>
+
             <div 
                 style={
                     feedingType==='continuous'
@@ -100,7 +101,6 @@ function TubeFeed(){
                         : {display:'none'}
                     }
             >
-                <Typography variant="h6">Continuous</Typography>
                 <Slider
                     aria-label="Continous Rate"
                     defaultValue={50}
@@ -123,12 +123,13 @@ function TubeFeed(){
                         sx={{width:'100px'}}
                     ></TextField>
                 </div>
-                <div className="tubeFeedOutput">
-                    <Typography variant="h6">{kcalProvided} KCal</Typography>
+                <Paper className="tubeFeedOutput">
+                    <Typography variant="h6">{kcalProvided} Kcal</Typography>
                     <Typography variant="h6">{proteinProvided}g Protein</Typography>
                     <Typography variant="h6">{freeWater}ml Free Water</Typography>
-                </div>
+                </Paper>
             </div>
+
             <div 
                 style={
                     feedingType==='bolus'
@@ -136,7 +137,6 @@ function TubeFeed(){
                         : {display:'none'}
                     }
             >
-                <Typography variant="h6">Bolus</Typography>
                 <Slider
                     aria-label="Bolus Volume"
                     defaultValue={250}
@@ -159,11 +159,11 @@ function TubeFeed(){
                         sx={{width:'100px'}}
                     ></TextField>
                 </div>
-                <div className="tubeFeedOutput">
-                    <Typography variant="h6">{bolusKcalProvided} KCal</Typography>
+                <Paper className="tubeFeedOutput">
+                    <Typography variant="h6">{bolusKcalProvided} Kcal</Typography>
                     <Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
                     <Typography variant="h6">{bolusFreeWater}ml Free Water</Typography>
-                </div>
+                </Paper>
             </div>
         </div>
     )

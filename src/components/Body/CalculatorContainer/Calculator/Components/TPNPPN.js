@@ -1,4 +1,4 @@
-import {Typography, Slider, Select, MenuItem, TextField, InputLabel } from '@mui/material';
+import {Typography, Slider, Select, MenuItem, TextField, Paper } from '@mui/material';
 import {useState, useEffect} from 'react';
 
 function TPNPPN(){
@@ -124,12 +124,12 @@ function TPNPPN(){
                 onChange={handleHrsDay}
                 type="number"
             ></TextField>
-            <div className='output'>
+            <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px', margin:'10px'}}>
                 <Typography variant="h6">{kcal} Kcal</Typography>
                 <Typography variant="h6">{protein}g Protein</Typography>
                 <Typography variant="h6">{carbohydrates}g Dextrose</Typography>
                 <Typography variant="h6">{volume}ml Total Volume</Typography>
-            </div>
+            </Paper>
             <Typography variant="h5" sx={{marginBottom:'15px'}}>Glucose Infusion Rate</Typography>
 
             <div className="weightContainer">
@@ -152,7 +152,10 @@ function TPNPPN(){
                     <MenuItem value={'Kg'}>Kg</MenuItem>
                 </Select>
             </div>
-            <Typography variant="h6">{GIR} mg/kg/min</Typography>
+            <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px', margin:'10px'}}>
+                <Typography variant="h6">{GIR} mg/kg/min</Typography>
+            </Paper>
+            
         </div>
     )
 }

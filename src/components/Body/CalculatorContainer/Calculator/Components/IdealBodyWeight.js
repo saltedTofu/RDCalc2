@@ -1,4 +1,4 @@
-import { Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel, TextField, Select, MenuItem } from '@mui/material';
+import { Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel, TextField, Select, MenuItem } from '@mui/material';
 import {useState, useEffect} from 'react';
 import '../Calculator.css';
 
@@ -250,12 +250,14 @@ function IdealBodyWeight(){
                     </FormGroup>
                 </div>
             </div>
-            <Typography variant="h6">IBW={IBW}</Typography>
-            <Typography variant="h6">%IBW={percentIBW}</Typography>
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-                {adjusted && <Typography sx={{marginRight:'5px'}}>(adjusted)</Typography>}
-                <Typography variant="h6">BMI={BMI}</Typography>
-            </div>
+            <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',padding:'10px'}}>
+                <Typography variant="h6">IBW={IBW}</Typography>
+                <Typography variant="h6">%IBW={percentIBW}</Typography>
+                <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    {adjusted && <Typography sx={{marginRight:'5px'}}>(adjusted)</Typography>}
+                    <Typography variant="h6">BMI={BMI}</Typography>
+                </div>
+            </Paper>
         </div>
     )
 }

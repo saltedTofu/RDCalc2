@@ -1,4 +1,4 @@
-import { Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem } from '@mui/material';
+import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem } from '@mui/material';
 import {useState, useEffect} from 'react';
 function Mifflin(){
     const [gender,setGender] = useState('');
@@ -160,7 +160,9 @@ function Mifflin(){
                     value={activityFactor}
                 ></TextField>
             </div>
-            <Typography variant="h6">{output}</Typography>
+            <Paper sx={{margin:'10px',padding:'10px'}}>
+                <Typography variant="h6">{output}</Typography>
+            </Paper>
         </div>
     )
 }
