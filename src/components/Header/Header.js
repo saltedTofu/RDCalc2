@@ -47,7 +47,7 @@ function Header({currentTheme, handleThemeChange}){
         }
     },[currentUser])
 
-    const handleSubmit = async(event) => {
+    const handleLogin = async(event) => {
         event.preventDefault();
         try {
             setError('')
@@ -97,15 +97,15 @@ function Header({currentTheme, handleThemeChange}){
             <div className="loginFields">
                 <Box style={{display: user ? "flex" : "none", alignItems:'center',justifyContent:'center'}}>
                     <Typography variant="p">Hello, {user}</Typography>
-                    <Button variant="contained" onClick={handleLogout} sx={{margin:'10px'}}>Logout</Button>
+                    <Button variant="contained" onClick={handleLogout} sx={{margin:'10px'}} disabled={loading}>Logout</Button>
                 </Box>
-                <form id="notLoggedIn" onSubmit={handleSubmit} style={{display: user ? "none" : "flex", alignItems:'center',justifyContent:'center'}}>
+                <form id="notLoggedIn" onSubmit={handleLogin} style={{display: user ? "none" : "flex", alignItems:'center',justifyContent:'center'}}>
                     {error && <Alert color="error">{error}</Alert>}
                     <TextField className="autofillColor" label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef}></TextField>
                     <TextField className="autofillColor" label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password"></TextField>
                     <Button sx={{marginLeft:'10px'}} type="submit" disabled={loading} >Log in</Button>
                     <RouterLink to='/signup'>
-                        <Button variant="contained" sx={{margin:'10px'}}>Sign Up</Button>
+                        <Button variant="contained" sx={{margin:'10px'}} disabled={loading}>Sign Up</Button>
                     </RouterLink>
                 </form>
             </div>

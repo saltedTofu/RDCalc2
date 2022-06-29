@@ -14,6 +14,7 @@ function LayoutSelect(){
     const [layoutName,setLayoutName] = useState('');
     const [error,setError] = useState('');
     const [success,setSuccess] = useState('');
+    const [loading,setLoading] = useState(false);
 
     const calcNamesArray = useSelector(state => state.calcsArray.calcNamesArray);
     const globalUser = useSelector(state => state.calcsArray.globalUser);
@@ -48,6 +49,7 @@ function LayoutSelect(){
     },[calcNamesArray])
 
     const handleNewLayout = async() => {
+        setLoading(true);
         if(!globalUser){
             setError('Please Sign In to Save a Layout');
             setSuccess('');
@@ -64,9 +66,11 @@ function LayoutSelect(){
         catch{
             setError('Unable to Add Layout: Server Error');
             setSuccess('');
+            setLoading(false);
         }
         setSuccess('Layout Created');
         setError('');
+        setLoading(false);
         
         const fetchLayouts = async()=>{
             if(globalUser){
@@ -131,7 +135,7 @@ function LayoutSelect(){
                     label="New Layout Name"
                     onChange={handleLayoutNameChange}
                 ></TextField>   
-                <Button onClick={handleNewLayout}>Save as New Layout<AddBoxIcon /></Button>
+                <Button onClick={handleNewLayout} disabled={loading}>Save as New Layout<AddBoxIcon /></Button>
             </div>
             {error && <Snackbar  anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={true} onClose={handleCloseError} autoHideDuration={6000}><Alert severity='error'>{error}</Alert></Snackbar>}
             {success && <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={true} onClose={handleCloseSuccess} autoHideDuration={6000}><Alert severity='success'>{success}</Alert></Snackbar>}
