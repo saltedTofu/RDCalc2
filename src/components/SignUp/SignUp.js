@@ -46,7 +46,7 @@ function SignUp({currentTheme,handleThemeChange}){
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
                 <Paper elevation={5} className="signUpForm">
                     <form onSubmit={handleSubmit}>
-                        <Typography variant="h2" sx={{marginTop:'20px', marginBottom:'20px'}}>Sign Up</Typography>
+                        <Typography variant="h2" sx={{marginTop:'20px', marginBottom:'20px', marginLeft:'5px'}}>Sign Up</Typography>
                         <FormGroup sx={{width:'100%'}}>
                             <FormControl><TextField label="Enter Email" sx={{marginTop:'20px', marginBottom:'20px'}} inputRef={emailRef}></TextField></FormControl>
                         </FormGroup>
@@ -56,7 +56,7 @@ function SignUp({currentTheme,handleThemeChange}){
                         <FormGroup sx={{width:'100%'}}>
                             <FormControl><TextField label="Confirm Password" sx={{marginTop:'20px', marginBottom:'20px'}} type="password" inputRef={passwordConfirmRef}></TextField></FormControl>
                         </FormGroup>
-                        <Button disabled={loading} fullWidth variant="contained" sx={{marginTop:'20px', marginBottom:'20px'}} type="submit">Sign Up</Button>
+                        <Button disabled={loading} fullWidth variant="contained" sx={{marginTop:'20px', marginBottom:'30px'}} type="submit">Create Account</Button>
                     </form>
                 </Paper>
                 {error && <Alert sx={{marginTop:'15px'}} color="error">{error}</Alert>}
