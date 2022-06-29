@@ -1,4 +1,4 @@
-import { Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup} from '@mui/material';
+import { Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link} from '@mui/material';
 import {useState, useEffect} from 'react';
 import Formulas from './TubeFeedFormulas';
 import '../Calculator.css';
@@ -72,16 +72,32 @@ function TubeFeed(){
         <div className='tubeFeedCalc'>
             <FormControl sx={{marginTop:'15px', marginBottom:'15px'}} >
                 <InputLabel id="formula-select-label">Formula</InputLabel>
-                <Select
-                    labelId="formula-select-label"
-                    label="Formula"
-                    value={chosenFormula}
-                    onChange={handleFormulaChange}
-                    sx={{width:'200px', marginBottom:'15px'}}
-                    MenuProps={{sx:{height:'600px'}}}
-                >
-                    {Object.entries(Formulas).map(([key]) => <MenuItem value={key}>{Formulas[key].name}</MenuItem>)}
-                </Select>
+                <div>
+                    <Select
+                        labelid="formula-select-label"
+                        label="Formula"
+                        value={chosenFormula}
+                        onChange={handleFormulaChange}
+                        sx={{width:'200px', marginBottom:'15px'}}
+                        MenuProps={{sx:{height:'600px'}}}
+                    >
+                        {Object.entries(Formulas).map(([key]) => <MenuItem value={key}>{Formulas[key].name}</MenuItem>)}
+                    </Select>
+                    <Link  target="_blank" 
+                        sx={
+                            chosenFormula
+                            ? {display:'flex'}
+                            : {display:'none'}
+                        }
+                        href={
+                            chosenFormula
+                                ? Formulas[chosenFormula].reference
+                                : ''
+                        }
+                    >
+                        Reference
+                    </Link>
+                </div>
                 <ToggleButtonGroup 
                     size="large" 
                     aria-label="Choose feeding type"
