@@ -8,7 +8,3 @@ it('renders without crashing', ()=>{
     const div = document.createElement('div');
     ReactDOM.render(<IdealBodyWeight />, div);
 })
-
-// test('properly calculates IBW', () => {
-
-// })

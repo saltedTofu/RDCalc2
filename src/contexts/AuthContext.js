@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { auth, addNewUserDB, addLayoutDB, readDB, deleteLayoutDB} from "../firebase"
+import { auth, addNewUserDB, addLayoutDB, readDB, deleteLayoutDB, addTubeFeedFavoriteDB, getCurrentTubeFeedFavoritesDB} from "../firebase"
 
 const AuthContext = React.createContext()
 
@@ -36,7 +36,17 @@ export function AuthProvider({ children }) {
   function deleteLayout(user, layoutName){
     return deleteLayoutDB(user,layoutName)
   }
-  function resetPassword(email) {
+  
+  //Tubefeed favorites
+  function addTubeFeedFavorite(user,formula){
+    return addTubeFeedFavoriteDB(user,formula);
+  }
+  function getTubeFeedFavorites(user){
+    return getCurrentTubeFeedFavoritesDB(user)
+  }
+  
+  //not implemented
+  function resetPassword(email) { 
     return auth.sendPasswordResetEmail(email)
   }
 
@@ -58,7 +68,9 @@ export function AuthProvider({ children }) {
     addLayout,
     getLayouts,
     deleteLayout,
-    addUser
+    addUser,
+    addTubeFeedFavorite,
+    getTubeFeedFavorites
   }
 
   return (

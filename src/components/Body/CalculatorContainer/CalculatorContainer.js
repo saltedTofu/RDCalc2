@@ -1,13 +1,9 @@
-import Select from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import {useState,useEffect} from 'react'; 
 import {useDispatch, useSelector} from 'react-redux';
 import CalculatorComponent from './Calculator/Calculator';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
-import { SvgIcon, IconButton, Paper} from '@mui/material';
+import { SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl} from '@mui/material';
 import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from '../../../redux/calcs';
 import './Calculator/Calculator.js';
 import './CalculatorContainer.css';

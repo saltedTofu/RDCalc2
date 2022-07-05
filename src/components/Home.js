@@ -33,7 +33,7 @@ function Home({currentTheme, handleThemeChange}){
                         addNewCalc={addNewCalc}
                         currentTheme={currentTheme}
                     />
-                    <LayoutSelect />
+                    
                 </div>
                 <Body />
                 <MobileCalculatorContainer />

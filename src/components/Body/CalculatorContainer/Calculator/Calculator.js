@@ -6,7 +6,7 @@ import LbsKg from './Components/LbsKg';
 import Mifflin from './Components/Mifflin';
 import PennState from './Components/PennState';
 import Notes from './Components/Notes';
-import TubeFeed from './Components/TubeFeed';
+import TubeFeed from './Components/TubeFeed/TubeFeed';
 
 function Calculator({Calc}){
 

@@ -1,26 +1,40 @@
-import { Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, Menu} from '@mui/material';
-import {useState, useEffect} from 'react';
-import Formulas from './TubeFeedFormulas';
-import Modulars from './Modulars';
-import '../Calculator.css';
+import { Checkbox, Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import {useState, useEffect, useLayoutEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import Formulas from '../TubeFeedFormulas';
+import Modulars from '../Modulars';
+import {useAuth} from '../../../../../../contexts/AuthContext';
+import '../../Calculator.css';
+import TubeFeedSelect from './TubeFeedSelect/TubeFeedSelect';
 
 function TubeFeed(){
-    const [chosenFormula,setChosenFormula] = useState('');
+    const [chosenFormula,setChosenFormula] = useState('Compleat');
+    const [tubeFeedFavorites,setTubeFeedFavorites] = useState([]);
+    const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
     const [feedingType,setFeedingType] = useState('continuous');
     const [continuousRate,setContinuousRate] = useState(50);
-    const [bolusPerDay,setBolusPerDay] = useState(null);
+    const [bolusPerDay,setBolusPerDay] = useState(undefined);
     const [bolusVolume, setBolusVolume] = useState(250);
     const [kcalProvided, setKcalProvided] = useState(0);
     const [proteinProvided, setProteinProvided] = useState(0);
     const [freeWater, setFreeWater] = useState(0);
-    const [hrsDay,setHrsDay] = useState(null);
+    const [hrsDay,setHrsDay] = useState(undefined);
     const [bolusKcalProvided, setBolusKcalProvided] = useState(0);
     const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
     const [bolusFreeWater, setBolusFreeWater] = useState(0);
     const [modular,setModular] = useState('none')
-    const [modularPerDay,setModularPerDay] = useState(null);
-    const [flushAmount,setFlushAmount] = useState(null);
-    const [flushPerDay,setFlushPerDay] = useState(null);
+    const [modularPerDay,setModularPerDay] = useState(undefined);
+    const [flushAmount,setFlushAmount] = useState(undefined);
+    const [flushPerDay,setFlushPerDay] = useState(undefined);
+
+    //global state from redux
+    const globalUser = useSelector(state => state.calcsArray.globalUser);
+    const dispatch = useDispatch();
+
+    //query Firebase DB for tube feeding favorites
+    const {addTubeFeedFavorite,getTubeFeedFavorites} = useAuth();
 
     const handleFormulaChange = (event) => {
         setChosenFormula(event.target.value);
@@ -81,6 +95,29 @@ function TubeFeed(){
         else setFlushPerDay(event.target.value);
     }
 
+    const handleTubeFeedFavorite = async (formula) => {
+        if(globalUser){
+            const favoritesArray = await addTubeFeedFavorite(globalUser,formula);
+            setTubeFeedFavorites(favoritesArray);
+        }
+        else{
+            console.log('no user signed in') //create error message alert
+        }
+    }
+
+    const handleShowFavorites = () => {
+        setShowOnlyFavorites(!showOnlyFavorites);
+    }
+    useEffect(()=>{
+        const setFavoritesOnInitialRender = async () => {
+            if(globalUser){
+                const favoritesArray = await getTubeFeedFavorites(globalUser)
+                setTubeFeedFavorites(favoritesArray);
+            }
+        }
+        setFavoritesOnInitialRender();
+        
+    },[])
     //Continuous
     useEffect(()=>{ 
         const formulaToUse = Formulas[chosenFormula];
@@ -130,33 +167,50 @@ function TubeFeed(){
     return(
         <div className='tubeFeedCalc'>
             <FormControl sx={{marginTop:'15px', marginBottom:'15px', display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}} >
-                <InputLabel id="formula-select-label">Formula</InputLabel>
-                <div style={{display:'flex', flexDirection:'row',justifyContent:'center', alignItems:'center', marginBottom:'20px'}}>
-                    <Select
-                        labelid="formula-select-label"
-                        label="Formula"
-                        value={chosenFormula}
-                        onChange={handleFormulaChange}
-                        sx={{width:'200px', marginRight:'10px'}}
-                        MenuProps={{sx:{height:'600px'}}}
-                    >
-                        {Object.entries(Formulas).map(([key]) => <MenuItem value={key}>{Formulas[key].name}</MenuItem>)}
-                    </Select>
-                    <Link  target="_blank" 
-                        sx={
-                            chosenFormula
-                            ? {display:'flex'}
-                            : {display:'none'}
-                        }
-                        href={
-                            chosenFormula
-                                ? Formulas[chosenFormula].reference
-                                : ''
-                        }
-                    >
-                        Reference
-                    </Link>
+                <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center', marginBottom:'20px'}}>
+                    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
+                        <Checkbox
+                            label="Favorites Only"
+                            checked={showOnlyFavorites}
+                            onChange={handleShowFavorites}
+                        />
+                        <Typography variant="p">Show Favorites Only</Typography>
+                    </div>
+                    <div style={{display:'flex',flexDirection:'row', justifyContent:'center',alignItems:'center'}}>
+                        <TubeFeedSelect 
+                            chosenFormula={chosenFormula}
+                            handleFormulaChange={handleFormulaChange}
+                            showOnlyFavorites={showOnlyFavorites}
+                            Formulas={Formulas}
+                            tubeFeedFavorites={tubeFeedFavorites}
+                        />
+                        <Link target="_blank" 
+                            sx={
+                                chosenFormula
+                                ? {display:'flex'}
+                                : {display:'none'}
+                            }
+                            href={
+                                chosenFormula
+                                    ? Formulas[chosenFormula].reference
+                                    : ''
+                            }
+                        >
+                            Reference
+                        </Link>
+                    </div>
+                    <div style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', width:'100%'}}>
+                        <IconButton onClick={function updateFavorites(){handleTubeFeedFavorite(Formulas[chosenFormula].name)}}>
+                            <FavoriteIcon sx={tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}/>
+                            <FavoriteBorderIcon  sx={tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}/>
+                        </IconButton>
+                        <Typography sx={tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}>Add to Favorites</Typography>
+                        <Typography sx={tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}>Remove from Favorites</Typography>
+                    </div>
+                
+                    
                 </div>
+                
                 <ToggleButtonGroup 
                     size="large" 
                     aria-label="Choose feeding type"
@@ -192,7 +246,7 @@ function TubeFeed(){
                     <TextField 
                         type="number" 
                         label="hrs/day"
-                        labelId="continuous-hrs-label"
+                        labelid="continuous-hrs-label"
                         value={hrsDay}
                         onChange={handleHrsDay}
                         sx={{width:'100px'}}
@@ -201,15 +255,15 @@ function TubeFeed(){
                 <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center',marginBottom:'20px', marginTop:'8px'}}>
                     <InputLabel id="modular-label">Modular</InputLabel>
                     <Select
-                        labelId='modular-label'
+                        labelid='modular-label'
                         label="Modular"
                         value={modular}
                         onChange={handleModular}
                         sx={{width:'175px',marginRight:'15px'}}
                         MenuProps={{sx:{height:'600px'}}}
                     >
-                        <MenuItem value={'none'}>None</MenuItem>
-                        {Object.entries(Modulars).map(([key]) => <MenuItem value={key}>{Modulars[key].name}</MenuItem>)}
+                        <MenuItem value={'none'} key={'none'}>None</MenuItem>
+                        {Object.entries(Modulars).map(([key]) => <MenuItem key={key} value={key}>{Modulars[key].name}</MenuItem>)}
                     </Select>
                     <TextField
                         sx={{width:'100px',marginRight:'10px'}}
@@ -279,7 +333,7 @@ function TubeFeed(){
                     <TextField 
                         type="number" 
                         label="bolus/day"
-                        labelId="continuous-hrs-label"
+                        labelid="continuous-hrs-label"
                         value={bolusPerDay}
                         onChange={handleBolusPerDay}
                         sx={{width:'100px'}}
@@ -288,15 +342,15 @@ function TubeFeed(){
                 <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center',marginBottom:'20px', marginTop:'8px'}}>
                     <InputLabel id="modular-label">Modular</InputLabel>
                     <Select
-                        labelId='modular-label'
+                        labelid='modular-label'
                         label="Modular"
                         value={modular}
                         onChange={handleModular}
                         sx={{width:'175px',marginRight:'15px'}}
                         MenuProps={{sx:{height:'600px'}}}
                     >
-                        <MenuItem value={'none'}>None</MenuItem>
-                        {Object.entries(Modulars).map(([key]) => <MenuItem value={key}>{Modulars[key].name}</MenuItem>)}
+                        <MenuItem value={'none'} key="none">None</MenuItem>
+                        {Object.entries(Modulars).map(([key]) => <MenuItem value={key} key={key}>{Modulars[key].name}</MenuItem>)}
                     </Select>
                     <TextField
                         sx={{width:'100px',marginRight:'10px'}}
