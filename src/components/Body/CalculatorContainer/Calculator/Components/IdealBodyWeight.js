@@ -4,10 +4,10 @@ import '../Calculator.css';
 
 function IdealBodyWeight(){
     const [gender,setGender] = useState('');
-    const [heightFeet,setHeightFeet] = useState(null);
-    const [heightInches,setHeightInches] = useState(null);
+    const [heightFeet,setHeightFeet] = useState('');
+    const [heightInches,setHeightInches] = useState('');
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [weight,setWeight] = useState(null);
+    const [weight,setWeight] = useState('');
     const [IBW, setIBW] = useState('');
     const [percentIBW,setPercentIBW] = useState('');
     const [LBKA, setLBKA] = useState(false);
@@ -180,7 +180,7 @@ function IdealBodyWeight(){
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
                 id="gender-select"
-                labelId="gender-select"
+                labelid="gender-select"
                 value={gender}
                 onChange={handleGender}
                 sx={{flexDirection:'row'}}
@@ -212,6 +212,7 @@ function IdealBodyWeight(){
             <div className="weightContainer">
                 <Typography variant="p">Current Weight</Typography>
                 <TextField
+                    placeholder="0"
                     label={weightUnit}
                     type="number"
                     size="small"
@@ -221,15 +222,14 @@ function IdealBodyWeight(){
                 >
                 </TextField>
                 <Select
-                    labelId="weightUnitInputLabel"
                     id="weightUnitInput"
                     value={weightUnit}
-                    label="Weight Unit"
                     onChange={handleWeightUnit}
                     size="small"
+                    data-testid="units-select"
                 >
-                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                    <MenuItem value={'Kg'}>Kg</MenuItem>
+                    <MenuItem value={'Lbs'} data-testid="lbs-select">Lbs</MenuItem>
+                    <MenuItem value={'Kg'} data-testid="kg-select">Kg</MenuItem>
                 </Select>
             </div>
             <div style={{display:'flex', flexDirection:'row', alignItems:'flex-start'}}>

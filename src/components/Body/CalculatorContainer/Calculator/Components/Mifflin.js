@@ -2,11 +2,11 @@ import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Sele
 import {useState, useEffect} from 'react';
 function Mifflin(){
     const [gender,setGender] = useState('');
-    const [weight,setWeight] = useState(null);
+    const [weight,setWeight] = useState('');
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [heightFeet,setHeightFeet] = useState(null);
-    const [heightInches,setHeightInches] = useState(null);
-    const [age,setAge] = useState(null);
+    const [heightFeet,setHeightFeet] = useState('');
+    const [heightInches,setHeightInches] = useState('');
+    const [age,setAge] = useState('');
     const [output,setOutput] = useState('');
     const [activityFactor,setActivityFactor] = useState(1);
 
@@ -86,7 +86,7 @@ function Mifflin(){
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
                 id="gender-select"
-                labelId="gender-select"
+                labelid="gender-select"
                 value={gender}
                 onChange={handleGender}
                 sx={{flexDirection:'row'}}
@@ -127,7 +127,7 @@ function Mifflin(){
                 >
                 </TextField>
                 <Select
-                    labelId="weightUnitInputLabel"
+                    labelid="weightUnitInputLabel"
                     id="weightUnitInput"
                     value={weightUnit}
                     label="Weight Unit"

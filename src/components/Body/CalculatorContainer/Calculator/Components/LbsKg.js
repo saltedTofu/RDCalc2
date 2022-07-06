@@ -3,7 +3,7 @@ import {Typography, TextField, Select, MenuItem, Paper} from '@mui/material';
 import '../Calculator.css';
 
 function LbsKg(){
-    const [input,setInput] = useState(null);
+    const [input,setInput] = useState('');
     const [unit,setUnit] = useState('Lbs');
     const [output,setOutput] = useState(0);
     const [outputUnit,setOutputUnit] = useState('Kg');

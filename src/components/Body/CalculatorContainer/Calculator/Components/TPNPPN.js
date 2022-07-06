@@ -6,12 +6,12 @@ function TPNPPN(){
     const [dextrose,setDextrose] = useState(0);
     const [aminoAcid,setAminoAcid] = useState(0);
     const [rate,setRate] = useState(0);
-    const [hrsDay,setHrsDay] = useState(null);
+    const [hrsDay,setHrsDay] = useState('');
     const [kcal,setKcal] = useState(0);
     const [protein,setProtein] = useState(0);
     const [volume,setVolume] = useState(0);
     const [carbohydrates,setCarbohydrates] = useState(0);
-    const [currentBodyWeight,setCurrentBodyWeight] = useState(null);
+    const [currentBodyWeight,setCurrentBodyWeight] = useState('');
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [GIR,setGIR] = useState(0);
 
@@ -142,10 +142,9 @@ function TPNPPN(){
                     sx={{width:'150px'}}
                 ></TextField>
                 <Select
-                    labelId="weightUnitInputLabel"
+                    labelid="weightUnitInputLabel"
                     id="weightUnitInput"
                     value={weightUnit}
-                    label="Weight Unit"
                     onChange={handleWeightUnit}
                 >
                     <MenuItem value={'Lbs'}>Lbs</MenuItem>

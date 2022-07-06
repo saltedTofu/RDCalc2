@@ -4,16 +4,16 @@ import {useState, useEffect} from 'react';
 
 function PennState(){
     const [gender,setGender] = useState('');
-    const [weight,setWeight] = useState(null);
+    const [weight,setWeight] = useState('');
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [heightFeet,setHeightFeet] = useState(null);
-    const [heightInches,setHeightInches] = useState(null);
-    const [age,setAge] = useState(null);
+    const [heightFeet,setHeightFeet] = useState('');
+    const [heightInches,setHeightInches] = useState('');
+    const [age,setAge] = useState('');
     const [activityFactor,setActivityFactor] = useState(1);
     const [penn,setPenn] = useState('');
-    const [tMax,setTmax] = useState(null);
+    const [tMax,setTmax] = useState('');
     const [tMaxUnit,setTMaxUnit] = useState('Celsius');
-    const [ve,setVe] = useState(null);
+    const [ve,setVe] = useState('');
 
     useEffect(()=>{
         let mifflinOutput='';
@@ -118,7 +118,7 @@ function PennState(){
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
                 id="gender-select"
-                labelId="gender-select"
+                labelid="gender-select"
                 value={gender}
                 onChange={handleGender}
                 sx={{flexDirection:'row'}}
@@ -159,7 +159,6 @@ function PennState(){
                 >
                 </TextField>
                 <Select
-                    labelId="weightUnitInputLabel"
                     id="weightUnitInput"
                     value={weightUnit}
                     label="Weight Unit"
@@ -203,7 +202,7 @@ function PennState(){
                         label={tMaxUnit==='Fahrenheit' ? '°F' : '°C'}
                 ></TextField>
                 <Select
-                        labelId="tMaxUnitInputLabel"
+                        labelid="tMaxUnitInputLabel"
                         id="tMaxUnitInput"
                         value={tMaxUnit}
                         onChange={handleTmaxUnit}
