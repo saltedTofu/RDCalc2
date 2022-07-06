@@ -15,19 +15,19 @@ function TubeFeed(){
     const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
     const [feedingType,setFeedingType] = useState('continuous');
     const [continuousRate,setContinuousRate] = useState(50);
-    const [bolusPerDay,setBolusPerDay] = useState(0);
+    const [bolusPerDay,setBolusPerDay] = useState('');
     const [bolusVolume, setBolusVolume] = useState(250);
     const [kcalProvided, setKcalProvided] = useState(0);
     const [proteinProvided, setProteinProvided] = useState(0);
     const [freeWater, setFreeWater] = useState(0);
-    const [hrsDay,setHrsDay] = useState(0);
+    const [hrsDay,setHrsDay] = useState('');
     const [bolusKcalProvided, setBolusKcalProvided] = useState(0);
     const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
     const [bolusFreeWater, setBolusFreeWater] = useState(0);
     const [modular,setModular] = useState('none')
-    const [modularPerDay,setModularPerDay] = useState(0);
-    const [flushAmount,setFlushAmount] = useState(0);
-    const [flushPerDay,setFlushPerDay] = useState(0);
+    const [modularPerDay,setModularPerDay] = useState('');
+    const [flushAmount,setFlushAmount] = useState('');
+    const [flushPerDay,setFlushPerDay] = useState('');
     const [error,setError] = useState('');
 
     //global state from redux
@@ -51,9 +51,13 @@ function TubeFeed(){
         else setContinuousRate(event.target.value);
     }
     const handleHrsDay = (event) => {
-        if(Number(event.target.value)>0 && Number(event.target.value)<25){
-            setHrsDay(Number(event.target.value));
+        if(event.target.value<1){
+            setHrsDay(0);
+        }
+        else if(event.target.value>24){
+            setHrsDay(24);
         } 
+        else setHrsDay(event.target.value)
     }
     const handleBolusVolume = (event) => {
         if(event.target.value>1000){
@@ -62,9 +66,13 @@ function TubeFeed(){
         else setBolusVolume(event.target.value);
     }
     const handleBolusPerDay = (event) => {
-        if(Number(event.target.value)>0 && Number(event.target.value)<26){
-            setBolusPerDay(event.target.value);
+        if(event.target.value<1){
+            setBolusPerDay(0);
         }
+        else if (event.target.value>24){
+            setBolusPerDay(24);
+        }
+        else setBolusPerDay(event.target.value);
     }
     const handleFeedingType = (event) => {
         setFeedingType(event.target.value);

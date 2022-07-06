@@ -42,7 +42,7 @@ async function addNewUser(user){
   try {
     const docRef = await setDoc(doc(db,'users',user), {
       user:user,
-      layouts: {},
+      tubeFeedFavorites: [],
       theme:'dark'
     });
     console.log("Document written with ID: ", docRef.id);
