@@ -91,7 +91,7 @@ function Header({currentTheme, handleThemeChange}){
             </div>
 
             <div style={{display: 'flex', flexDirection:'row', alignItems:'center', position:'absolute'}} id="donateDiv">
-                <a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer"><img src={Coffee} width="200px" alt="Donate Button" id="donateButton"></img></a>
+                <a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer"><img src={Coffee} width="160px" alt="Donate Button" id="donateButton"></img></a>
             </div>
             
             <div className="loginFields">
