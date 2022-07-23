@@ -1,8 +1,11 @@
 import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert} from '@mui/material';
-import {useRef, useState} from 'react'
+import {useRef, useState, useEffect} from 'react'
 import Header from '../Header/Header';
 import {useAuth} from '../../contexts/AuthContext';
 import './SignUp.css';
+import { useNavigate } from "react-router-dom";
+
+
 
 
 
@@ -15,6 +18,14 @@ function SignUp({currentTheme,handleThemeChange}){
     const [error,setError] = useState('');
     const [success,setSuccess] = useState('')
     const [loading,setLoading] = useState(false);
+
+    let navigate = useNavigate();
+
+    useEffect(()=>{
+        if(success){
+            return navigate("/");
+        }
+    },[success])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
