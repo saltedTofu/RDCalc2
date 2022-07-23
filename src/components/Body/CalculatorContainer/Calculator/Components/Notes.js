@@ -12,6 +12,7 @@ function Notes(){
                 fullWidth
                 multiline
                 minRows={15}
+                data-testid="notes"
             ></TextField>
         </div>
     )

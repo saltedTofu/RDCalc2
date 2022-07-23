@@ -213,7 +213,6 @@ function IdealBodyWeight(){
                 <Typography variant="p">Current Weight</Typography>
                 <TextField
                     placeholder="0"
-                    label={weightUnit}
                     type="number"
                     size="small"
                     value={weight}

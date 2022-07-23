@@ -14,7 +14,6 @@ function Mifflin(){
         let mifflinOutput='';
         const heightInCm = ((heightFeet*12) + heightInches)*2.54;
         const weightInKg = weightUnit==='Lbs' ? weight/2.205 : weight;
-        console.log(weightInKg);
         if(!gender){
             setOutput('Select Gender');
             return;
@@ -118,21 +117,20 @@ function Mifflin(){
             <div className="weightContainer">
                 <Typography variant="p">Current Weight</Typography>
                 <TextField
-                    label={weightUnit}
                     type="number"
                     size="small"
                     value={weight}
                     onChange={handleWeight}
                     sx={{width:'100px'}}
+                    placeholder='0'
                 >
                 </TextField>
                 <Select
-                    labelid="weightUnitInputLabel"
                     id="weightUnitInput"
                     value={weightUnit}
-                    label="Weight Unit"
                     onChange={handleWeightUnit}
                     size="small"
+                    data-testid='units-select'
                 >
                     <MenuItem value={'Lbs'}>Lbs</MenuItem>
                     <MenuItem value={'Kg'}>Kg</MenuItem>
@@ -158,6 +156,7 @@ function Mifflin(){
                     onChange={handleActivityFactor}
                     sx={{width:'100px', marginLeft:'10px'}}
                     value={activityFactor}
+                    placeholder="1"
                 ></TextField>
             </div>
             <Paper sx={{margin:'10px',padding:'10px'}}>

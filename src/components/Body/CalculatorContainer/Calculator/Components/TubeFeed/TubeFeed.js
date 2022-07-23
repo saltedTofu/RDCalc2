@@ -140,6 +140,9 @@ function TubeFeed(){
     },[])
 
     useEffect(()=>{
+        if(!globalUser){
+            setShowOnlyFavorites(false);
+        }
         const setFavoritesOnUserChange = async () => {
             if(globalUser){
                 const favoritesArray = await getTubeFeedFavorites(globalUser)

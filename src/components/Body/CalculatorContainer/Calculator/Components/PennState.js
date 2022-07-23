@@ -150,7 +150,7 @@ function PennState(){
             <div className="weightContainer">
                 <Typography variant="p">Current Weight</Typography>
                 <TextField
-                    label={weightUnit}
+                    placeholder='0'
                     type="number"
                     size="small"
                     value={weight}
@@ -161,9 +161,9 @@ function PennState(){
                 <Select
                     id="weightUnitInput"
                     value={weightUnit}
-                    label="Weight Unit"
                     onChange={handleWeightUnit}
                     size="small"
+                    data-testid="units-select"
                 >
                     <MenuItem value={'Lbs'}>Lbs</MenuItem>
                     <MenuItem value={'Kg'}>Kg</MenuItem>
@@ -189,6 +189,7 @@ function PennState(){
                     onChange={handleActivityFactor}
                     sx={{width:'100px', marginLeft:'10px'}}
                     value={activityFactor}
+                    placeholder='1'
                 ></TextField>
             </div>
             <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
@@ -208,9 +209,10 @@ function PennState(){
                         onChange={handleTmaxUnit}
                         size="small"
                         sx={{marginLeft:'5px'}}
+                        data-testid='temperature-unit'
                     >
                         <MenuItem value={'Celsius'}>Celsius</MenuItem>
-                        <MenuItem value={'Fahrenheit'}>Fahrenheight</MenuItem>
+                        <MenuItem value={'Fahrenheit'}>Fahrenheit</MenuItem>
                 </Select>
             </div>
             <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>

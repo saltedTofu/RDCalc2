@@ -1,6 +1,7 @@
 import React from 'react';
 import IdealBodyWeight from '../IdealBodyWeight';
-import {fireEvent, render, screen, waitFor, within} from '@testing-library/react';
+import {getByRole, fireEvent, render, screen, waitFor, within} from '@testing-library/react';
+import UserEvent from "@testing-library/user-event";
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
@@ -14,6 +15,21 @@ test('Properly calculates a 5 foot 10 male that weighs 100# with no amp/par usin
     expect(screen.getByText("IBW=166 lbs or 75 kg")).toBeInTheDocument()
     expect(screen.getByText("%IBW=60%")).toBeInTheDocument()
     expect(screen.getByText("BMI=14.3")).toBeInTheDocument()
+})
+
+test('Properly calculates a 5 foot 10 male that weighs 100# with no amp/par using kg input',async ()=>{
+    render(<IdealBodyWeight />)
+    userEvent.click(screen.getByLabelText('Male'))
+    userEvent.type(screen.getByLabelText(/Feet/i),'5')
+    userEvent.type(screen.getByLabelText(/Inches/i),'10')
+    userEvent.type(screen.getByPlaceholderText('0'),'100')
+    UserEvent.click(getByRole(screen.getByTestId("units-select"), "button"));
+    await waitFor(() => UserEvent.click(screen.getByTestId('kg-select')));
+
+    //expect(screen.getByRole("heading")).toHaveTextContent('2671 kcal');
+    expect(screen.getByText("IBW=166 lbs or 75 kg")).toBeInTheDocument()
+    expect(screen.getByText("%IBW=133%")).toBeInTheDocument()
+    expect(screen.getByText("BMI=31.6")).toBeInTheDocument()
 })
 
 test('Properly calculates a 6 foot 3 female that weighs 300# with no amp/par using lbs input',()=>{
