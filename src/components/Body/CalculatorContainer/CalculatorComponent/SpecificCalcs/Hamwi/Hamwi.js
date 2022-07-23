@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import { Slider, Typography, TextField, Paper, Select, MenuItem } from '@mui/material';
-import '../Calculator.css';
+import '../../Calculator.css';
 
 function Hamwi(){
 

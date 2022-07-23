@@ -1,12 +1,12 @@
 import './Calculator.css';
-import IdealBodyWeight from './Components/IdealBodyWeight';
-import Hamwi from './Components/Hamwi';
-import TPNPPN from './Components/TPNPPN';
-import LbsKg from './Components/LbsKg';
-import Mifflin from './Components/Mifflin';
-import PennState from './Components/PennState';
-import Notes from './Components/Notes';
-import TubeFeed from './Components/TubeFeed/TubeFeed';
+import IdealBodyWeight from './SpecificCalcs/IdealBodyWeight/IdealBodyWeight';
+import Hamwi from './SpecificCalcs/Hamwi/Hamwi';
+import TPNPPN from './SpecificCalcs/TPNPPN/TPNPPN';
+import LbsKg from './SpecificCalcs/LbsKg/LbsKg';
+import Mifflin from './SpecificCalcs/Mifflin/Mifflin';
+import PennState from './SpecificCalcs/PennState/PennState';
+import Notes from './SpecificCalcs/Notes/Notes';
+import TubeFeed from './SpecificCalcs/TubeFeed/TubeFeed';
 
 function Calculator({Calc}){
 

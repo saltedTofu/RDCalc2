@@ -1,6 +1,6 @@
 import { Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel, TextField, Select, MenuItem } from '@mui/material';
 import {useState, useEffect} from 'react';
-import '../Calculator.css';
+import '../../Calculator.css';
 
 function IdealBodyWeight(){
     const [gender,setGender] = useState('');

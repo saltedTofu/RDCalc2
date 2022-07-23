@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {Typography, TextField, Select, MenuItem, Paper} from '@mui/material';
-import '../Calculator.css';
+import '../../Calculator.css';
 
 function LbsKg(){
     const [input,setInput] = useState('');

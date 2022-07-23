@@ -1,11 +1,11 @@
 import {useState,useEffect} from 'react'; 
 import {useDispatch, useSelector} from 'react-redux';
-import CalculatorComponent from './Calculator/Calculator';
+import CalculatorComponent from './CalculatorComponent/CalculatorComponent';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
 import { SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl} from '@mui/material';
 import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from '../../../redux/calcs';
-import './Calculator/Calculator.js';
+import './CalculatorComponent/CalculatorComponent.js';
 import './CalculatorContainer.css';
 
 const CalculatorContainer = (({id, name=''}) => {

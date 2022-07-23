@@ -4,9 +4,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useEffect} from 'react'
 import Header from './Header/Header.js';
 import Body from './Body/Body.js';
-import AddButton from './Body/AddButton/AddButton.js';
+import AddButton from './AddButton/AddButton.js';
 import CalculatorContainer from './Body/CalculatorContainer/CalculatorContainer';
-import LayoutSelect from './LayoutSelect/LayoutSelect'
 import Footer from './Footer/Footer';
 import {Paper, Alert} from '@mui/material';
 import '@fontsource/roboto/300.css';

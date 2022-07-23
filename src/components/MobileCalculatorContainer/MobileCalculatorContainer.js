@@ -1,6 +1,6 @@
 import './MobileCalculatorContainer.css';
 import { SvgIcon, IconButton, Paper, FormControl, InputLabel, Select, MenuItem} from '@mui/material';
-import CalculatorComponent from '../Body/CalculatorContainer/Calculator/Calculator'
+import CalculatorComponent from '../Body/CalculatorContainer/CalculatorComponent/CalculatorComponent'
 import {useState} from 'react';
 
 function MobileCalculatorContainer(){
