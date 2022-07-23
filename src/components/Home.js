@@ -13,6 +13,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import MobileCalculatorContainer from './MobileCalculatorContainer/MobileCalculatorContainer';
+import './Home.css'
 import {useAuth} from '../contexts/AuthContext'
 
 function Home({currentTheme, handleThemeChange, setCurrentTheme}){
@@ -41,12 +42,12 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}){
                     setCurrentTheme={setCurrentTheme} 
                     />
                 <div style={{display:'flex', flexDirection:'row', alignItems:'center', width:'100%', justifyContent:'center'}}>
-                    <Alert color="info"sx={{width:'400px'}}>Please Note: All calculations should be double checked for accuracy</Alert>
+                    <Alert className="doubleCheckWarning" color="info"sx={{width:'400px'}}>Please Note: All calculations should be double checked for accuracy</Alert>
                     <AddButton
                         addNewCalc={addNewCalc}
                         currentTheme={currentTheme}
                     />
-                    <div style={{width:'395px'}}></div>
+                    <div style={{width:'395px'}} className="emptyDiv"></div>
                 </div>
                 <Body />
                 <MobileCalculatorContainer />
