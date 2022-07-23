@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { auth, addNewUserDB, addLayoutDB, readDB, deleteLayoutDB, addTubeFeedFavoriteDB, getCurrentTubeFeedFavoritesDB} from "../firebase"
+import { auth, addNewUserDB, addTubeFeedFavoriteDB, getCurrentTubeFeedFavoritesDB, changeThemeDB, getThemeDB} from "../firebase"
 
 const AuthContext = React.createContext()
 
@@ -11,10 +11,6 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
 
-  function getLayouts(user){
-    const result=readDB(user);
-    return result;
-  }
   function signup(email, password) {
     //addNewUserDB(email); //fails if already taken
     return auth.createUserWithEmailAndPassword(email, password)
@@ -22,9 +18,7 @@ export function AuthProvider({ children }) {
   function addUser(email){
     addNewUserDB(email);
   }
-  function addLayout(user, layout, layoutName){
-    addLayoutDB(user, layout, layoutName);
-  }
+
   async function login(email, password) {
     return auth.signInWithEmailAndPassword(email, password)
   }
@@ -33,10 +27,14 @@ export function AuthProvider({ children }) {
     return auth.signOut(auth);
   }
 
-  function deleteLayout(user, layoutName){
-    return deleteLayoutDB(user,layoutName)
+  function changeTheme(user,theme){
+    return changeThemeDB(user,theme)
   }
-  
+
+  function getTheme(user){
+    return getThemeDB(user)
+  }
+
   //Tubefeed favorites
   function addTubeFeedFavorite(user,formula){
     return addTubeFeedFavoriteDB(user,formula);
@@ -55,7 +53,6 @@ export function AuthProvider({ children }) {
       setCurrentUser(user)
       setLoading(false)
     })
-
     return unsubscribe
   }, [])
 
@@ -65,12 +62,11 @@ export function AuthProvider({ children }) {
     signup,
     logout,
     resetPassword,
-    addLayout,
-    getLayouts,
-    deleteLayout,
     addUser,
     addTubeFeedFavorite,
-    getTubeFeedFavorites
+    getTubeFeedFavorites,
+    changeTheme,
+    getTheme
   }
 
   return (

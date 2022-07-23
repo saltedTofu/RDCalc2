@@ -62,7 +62,7 @@ let Peptamen = new tubeFeed(1000,40,848, 'Peptamen', 'https://www.nestlemedicalh
 let Peptamen15 = new tubeFeed(1500,68,772, 'Peptamen 1.5', 'https://www.nestlemedicalhub.com/products/peptamen-15');
 let PeptamenAF12 = new tubeFeed(1200,76,810, 'Peptamen AF 1.2', 'https://www.nestlemedicalhub.com/products/peptamen-af');
 let PeptamenIntenseVHP = new tubeFeed(1000,92,840, 'Peptamen Intense VHP', 'https://www.nestlemedicalhub.com/products/peptamen-intense-vhp');
-let Renalcal = new tubeFeed(1000,34,704, 'Renalcal', 'https://www.nestlemedicalhub.com/products/renalcal');
+let Renalcal = new tubeFeed(2000,34,704, 'Renalcal', 'https://www.nestlemedicalhub.com/products/renalcal');
 let Replete = new tubeFeed(1000,64,840, 'Replete', 'https://www.nestlemedicalhub.com/products/replete');
 let VivonexRTF = new tubeFeed(1000,50,850, 'Vivonex RTF', 'https://www.nestlemedicalhub.com/products/vivonex-rtf');
 //Kate farms

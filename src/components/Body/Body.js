@@ -8,7 +8,6 @@ import GridLayout from "react-grid-layout";
 function Body(){
 
     const calcsArray = useSelector(state => state.calcsArray.calcsArray);
-    const calcCounter = useSelector(state => state.calcsArray.calcCounter);
 
     return (
         <Paper className="body" elevation={5}>

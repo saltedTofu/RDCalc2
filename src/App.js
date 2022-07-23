@@ -11,13 +11,28 @@ import darkTheme from './themes/dark';
 import lofiTheme from './themes/lofi.js';
 import christmasTheme from './themes/christmas.js';
 import millenialPinkTheme from './themes/millenialPink.js';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {AuthProvider} from './contexts/AuthContext';
 
 function App() {
   const [currentTheme,setCurrentTheme] = useState('dark');
   const [themeObject,setThemeObject] = useState(darkTheme);
+
+  useEffect(()=>{
+    if(currentTheme==='dark'){
+      setThemeObject(darkTheme);
+    }
+    else if(currentTheme==='lofi'){
+      setThemeObject(lofiTheme);
+    }
+    else if(currentTheme==='christmas'){
+      setThemeObject(christmasTheme);
+    }
+    else if(currentTheme==='pink'){
+      setThemeObject(millenialPinkTheme);
+    }
+  },[currentTheme])
 
   const handleThemeChange = (event) => {
     if(event.target.value==='dark'){
@@ -47,7 +62,8 @@ function App() {
             />
             <Route path="/" element={<Home 
                                       currentTheme={currentTheme} 
-                                      handleThemeChange={handleThemeChange} 
+                                      handleThemeChange={handleThemeChange}
+                                      setCurrentTheme={setCurrentTheme}
                                   />} 
             />
           </Routes>

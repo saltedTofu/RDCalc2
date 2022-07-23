@@ -8,12 +8,11 @@ import { setGlobalUser } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
 import Coffee from '../../utils/buyMeCoffee.png';
 
-function Header({currentTheme, handleThemeChange}){
+function Header({currentTheme, handleThemeChange, setCurrentTheme}){
 
-    const {login, currentUser, logout} = useAuth();
+    const {login, currentUser, logout, getTheme} = useAuth();
 
     //global state from redux
-    const globalUser = useSelector(state => state.calcsArray.globalUser);
     const dispatch = useDispatch();
 
     //local state
@@ -24,6 +23,16 @@ function Header({currentTheme, handleThemeChange}){
 
     const emailRef = useRef();
     const passwordRef = useRef();
+
+    useEffect(()=>{
+        async function grabTheme(){
+            if(user){
+                let savedTheme = await getTheme(user);
+                await setCurrentTheme(savedTheme)
+            }
+        }
+        grabTheme()
+    },[user,getTheme,setCurrentTheme])
 
     useEffect(()=>{
         dispatch(setGlobalUser(user));
@@ -109,7 +118,6 @@ function Header({currentTheme, handleThemeChange}){
                     </RouterLink>
                 </form>
             </div>
-            
         </Paper>
     )
 }

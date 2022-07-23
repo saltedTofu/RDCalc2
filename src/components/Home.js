@@ -1,6 +1,7 @@
 import '../App.css';
 import { adjustCalcCounter, addCalc} from '../../src/redux/calcs';
 import {useSelector, useDispatch} from 'react-redux';
+import {useEffect} from 'react'
 import Header from './Header/Header.js';
 import Body from './Body/Body.js';
 import AddButton from './Body/AddButton/AddButton.js';
@@ -13,10 +14,13 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import MobileCalculatorContainer from './MobileCalculatorContainer/MobileCalculatorContainer';
+import {useAuth} from '../contexts/AuthContext'
 
-function Home({currentTheme, handleThemeChange}){
+function Home({currentTheme, handleThemeChange, setCurrentTheme}){
 
+    const {changeTheme} = useAuth();
     const calcCounter = useSelector(state => state.calcsArray.calcCounter);
+    const globalUser = useSelector(state => state.calcsArray.globalUser);
     const dispatch = useDispatch();
 
     const addNewCalc = () => {
@@ -24,9 +28,19 @@ function Home({currentTheme, handleThemeChange}){
         dispatch(adjustCalcCounter(1));
     }
 
+    useEffect(()=>{ //updates users theme in the DB
+        if(globalUser){
+            changeTheme(globalUser,currentTheme)
+        }
+    },[currentTheme, changeTheme])
+
     return(
             <Paper component="div" className="App" square={true}>
-                <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
+                <Header 
+                    currentTheme={currentTheme} 
+                    handleThemeChange={handleThemeChange}
+                    setCurrentTheme={setCurrentTheme} 
+                    />
                 <div style={{display:'flex', flexDirection:'row', alignItems:'center', width:'100%', justifyContent:'center'}}>
                     <Alert color="info"sx={{width:'400px'}}>Please Note: All calculations should be double checked for accuracy</Alert>
                     <AddButton
