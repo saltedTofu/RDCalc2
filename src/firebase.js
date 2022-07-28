@@ -1,5 +1,6 @@
 import firebase from  'firebase/compat/app'
 import {getFirestore, setDoc, doc, updateDoc, getDoc} from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
 import 'firebase/compat/auth';
 
 const app = firebase.initializeApp({
@@ -13,6 +14,7 @@ const app = firebase.initializeApp({
 })
 
 const db = getFirestore(app);
+const analytics = getAnalytics(app);
 
 //add new user
 async function addNewUser(user){
@@ -22,9 +24,7 @@ async function addNewUser(user){
       tubeFeedFavorites: [],
       theme:'dark'
     });
-    console.log("Document written with ID: ", docRef.id);
   } catch (e) {
-    console.error("Error adding document: ", e);
   }
 }
 

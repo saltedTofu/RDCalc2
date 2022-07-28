@@ -1,5 +1,5 @@
 import React from 'react';
-import IdealBodyWeight from '../IdealBodyWeight';
+import IdealBodyWeight from './IdealBodyWeight';
 import {getByRole, fireEvent, render, screen, waitFor, within} from '@testing-library/react';
 import UserEvent from "@testing-library/user-event";
 import userEvent from '@testing-library/user-event';

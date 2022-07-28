@@ -1,5 +1,5 @@
 import React from 'react';
-import LbsKg from '../components/Body/CalculatorContainer/Calculator/Components/LbsKg';
+import LbsKg from './LbsKg';
 import {fireEvent, render, screen, waitFor, within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
