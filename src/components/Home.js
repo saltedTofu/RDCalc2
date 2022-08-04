@@ -1,6 +1,8 @@
 import '../App.css';
 import { adjustCalcCounter, addCalc} from '../../src/redux/calcs';
 import {useSelector, useDispatch} from 'react-redux';
+import {Link as RouterLink} from 'react-router-dom';
+import {Link} from '@mui/material';
 import {useEffect} from 'react'
 import Header from './Header/Header.js';
 import Body from './Body/Body.js';
@@ -41,13 +43,16 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}){
                     handleThemeChange={handleThemeChange}
                     setCurrentTheme={setCurrentTheme} 
                     />
-                <div style={{display:'flex', flexDirection:'row', alignItems:'center', width:'100%', justifyContent:'center'}}>
+                <div id='warningAddNotes'>
                     <Alert className="doubleCheckWarning" color="info"sx={{width:'400px'}}>Please Note: All calculations should be double checked for accuracy</Alert>
                     <AddButton
                         addNewCalc={addNewCalc}
                         currentTheme={currentTheme}
                     />
-                    <div style={{width:'395px'}} className="emptyDiv"></div>
+                    <RouterLink to='/release-notes'>
+                        <Link >Release Notes</Link>
+                    </RouterLink>
+                    <div style={{width:'240px'}} className="emptyDiv"></div>
                 </div>
                 <Body />
                 <MobileCalculatorContainer />

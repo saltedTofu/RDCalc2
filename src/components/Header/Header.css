@@ -6,6 +6,13 @@
     align-items: center;
     width:100%;
 }
+#warningAddNotes{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:100%;
+    justify-content:center;
+}
 #logoImage{
     width:65px;
 }
@@ -16,6 +23,7 @@
 #donateDiv{
     left:260px;
 }
+
 @media only screen and (max-width:1050px){
     #emailInput{
         width:110px;
@@ -44,5 +52,7 @@
     #donateDiv{
         left:275px;
     }
-
+    #warningAddNotes{
+        flex-direction:column;
+    }
 }
