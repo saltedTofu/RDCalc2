@@ -1,10 +1,11 @@
 class tubeFeed{
-    constructor(kcal,protein,water,name,reference,micros={}){
+    constructor(kcal,protein,water,name,reference,micros){
       this._kcal=kcal;
       this._protein=protein;
       this._water=water;
       this._name=name;
       this._reference=reference
+      this._micros=micros;
     }
     get kcal(){
         return this._kcal;

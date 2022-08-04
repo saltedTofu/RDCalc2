@@ -8,6 +8,7 @@ import Modulars from '../../../../../../utils/Modulars';
 import {useAuth} from '../../../../../../contexts/AuthContext';
 import '../../Calculator.css';
 import TubeFeedSelect from './TubeFeedSelect/TubeFeedSelect';
+import TubeFeedMicros from './TubeFeedMicros/TubeFeedMicros';
 
 function TubeFeed(){
     const [chosenFormula,setChosenFormula] = useState('Compleat');
@@ -29,6 +30,7 @@ function TubeFeed(){
     const [flushAmount,setFlushAmount] = useState('');
     const [flushPerDay,setFlushPerDay] = useState('');
     const [error,setError] = useState('');
+    const [totalVolume,setTotalVolume] = useState(0)
 
     //global state from redux
     const globalUser = useSelector(state => state.calcsArray.globalUser);
@@ -128,6 +130,15 @@ function TubeFeed(){
         }
     }
 
+    const handleTotalVolume = () => {
+        if(feedingType==='continuous'){
+            setTotalVolume(continuousRate*hrsDay)
+        }
+        else{
+            setTotalVolume(bolusPerDay*bolusVolume)
+        }
+    }
+
     useEffect(()=>{
         const setFavoritesOnInitialRender = async () => {
             if(globalUser){
@@ -138,6 +149,10 @@ function TubeFeed(){
         setFavoritesOnInitialRender();
         
     },[])
+    
+    useEffect(()=>{
+        handleTotalVolume();
+    },[feedingType])
 
     useEffect(()=>{
         if(!globalUser){
@@ -177,6 +192,7 @@ function TubeFeed(){
         setKcalProvided(Math.round(modularKcal + formulaToUse.kcal/1000 * continuousRate * hrsDay));
         setProteinProvided(Math.round(modularProtein + formulaToUse.protein/1000 * continuousRate * hrsDay));
         setFreeWater(Math.round(flush + formulaToUse.water/1000 * continuousRate * hrsDay));
+        handleTotalVolume();
     },[chosenFormula,continuousRate,hrsDay,modular,modularPerDay,flushAmount,flushPerDay])
     
     //Bolus
@@ -200,8 +216,9 @@ function TubeFeed(){
         setBolusKcalProvided(Math.round(modularKcal + formulaToUse.kcal/1000 * bolusPerDay * bolusVolume));
         setBolusProteinProvided(Math.round(modularProtein + formulaToUse.protein/1000 * bolusPerDay * bolusVolume));
         setBolusFreeWater(Math.round(flush + formulaToUse.water/1000 * bolusPerDay * bolusVolume));
-
+        handleTotalVolume();
     },[bolusPerDay,bolusVolume,chosenFormula,modular,modularPerDay,flushAmount,flushPerDay])
+
     return(
         <div className='tubeFeedCalc'>
             <FormControl sx={{marginBottom:'15px', display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}} >
@@ -314,11 +331,18 @@ function TubeFeed(){
                         onChange={handleFlushPerDay}
                     ></TextField>
                 </FormControl>
-                <Paper className="tubeFeedOutput">
+                <Paper className="tubeFeedOutput" sx={{marginBottom:'20px'}}>
                     <Typography variant="h6">{kcalProvided} Kcal</Typography>
                     <Typography variant="h6">{proteinProvided}g Protein</Typography>
                     <Typography variant="h6">{freeWater}ml Free Water</Typography>
                 </Paper>
+                <TubeFeedMicros 
+                        chosenFormula={chosenFormula}
+                        totalVolume={totalVolume}
+                        modular={modular}
+                        modularPerDay={modularPerDay}
+                        Formulas={Formulas}
+                />
                 <div style={{display:'flex',flexDirection:'row', justifyContent:'space-around', width:'100%', paddingBottom:'10px'}}>
                     <Link target="_blank" 
                         sx={
@@ -418,11 +442,19 @@ function TubeFeed(){
                         onChange={handleFlushPerDay}
                     ></TextField>
                 </FormControl>
-                <Paper className="tubeFeedOutput">
+                <Paper className="tubeFeedOutput" sx={{marginBottom:'20px'}}>
                     <Typography variant="h6">{bolusKcalProvided} Kcal</Typography>
                     <Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
                     <Typography variant="h6">{bolusFreeWater}ml Free Water</Typography>
                 </Paper>
+                <TubeFeedMicros 
+                        chosenFormula={chosenFormula}
+                        totalVolume={totalVolume}
+                        modular={modular}
+                        modularPerDay={modularPerDay}
+                        Formulas={Formulas}
+                        
+                />
                 <div style={{display:'flex',flexDirection:'row', justifyContent:'space-around', width:'100%', paddingBottom:'10px'}}>
                     <Link target="_blank" 
                         sx={
