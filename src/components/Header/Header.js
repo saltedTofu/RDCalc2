@@ -2,8 +2,8 @@ import './Header.css';
 import {Button, Paper, Box, TextField, Select, MenuItem, Typography, Alert} from '@mui/material';
 import {useState, useLayoutEffect, useRef, useEffect} from 'react';
 import Logo from '../../utils/logo.png';
-import {BrowserRouter as Router, Routes, Route, Link as RouterLink} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux';
+import {Link as RouterLink} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 import { setGlobalUser } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
 import Coffee from '../../utils/buyMeCoffee.png';
@@ -110,8 +110,8 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}){
                 </Box>
                 <form id="notLoggedIn" onSubmit={handleLogin} style={{display: user ? "none" : "flex", alignItems:'center',justifyContent:'center'}}>
                     {error && <Alert color="error">{error}</Alert>}
-                    <TextField className="autofillColor" label="Username" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef}></TextField>
-                    <TextField className="autofillColor" label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password"></TextField>
+                    <TextField className="autofillColor" label="Email" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef} id="emailInput"></TextField>
+                    <TextField className="autofillColor" label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password" id="passwordInput"></TextField>
                     <Button sx={{marginLeft:'10px'}} type="submit" disabled={loading} >Log in</Button>
                     <RouterLink to='/signup'>
                         <Button variant="contained" sx={{margin:'10px'}} disabled={loading}>Sign Up</Button>

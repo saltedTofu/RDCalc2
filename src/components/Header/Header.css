@@ -16,10 +16,28 @@
 #donateDiv{
     left:260px;
 }
-@media only screen and (max-width:499px){
+@media only screen and (max-width:1050px){
+    #emailInput{
+        width:110px;
+    }
+    #passwordInput{
+        width:110px;
+    }
+}
+@media only screen and (max-width:890px){
+    #emailInput{
+        width:90px;
+    }
+    #passwordInput{
+        width:90px;
+    }
+}
+@media only screen and (max-width:850px){
     .loginFields{
         display:none;
     }
+}
+@media only screen and (max-width:499px){
     #donateButton{
         width:125px;
     }

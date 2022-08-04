@@ -6,20 +6,27 @@ import './SignUp.css';
 import { useNavigate } from "react-router-dom";
 
 
-
-
-
 function SignUp({currentTheme,handleThemeChange}){
 
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
+    const [backgroundColor,setBackgroundColor]=useState('#333333')
     const {signup, addUser} = useAuth();
     const [error,setError] = useState('');
     const [success,setSuccess] = useState('')
     const [loading,setLoading] = useState(false);
 
     let navigate = useNavigate();
+
+    useEffect(()=>{
+        if(currentTheme==='dark'){
+            setBackgroundColor('#1E1E1E')
+        }
+        if(currentTheme==='lofi'){
+            setBackgroundColor('#300E3F')
+        }
+    },[currentTheme])
 
     useEffect(()=>{
         if(success){
@@ -53,9 +60,9 @@ function SignUp({currentTheme,handleThemeChange}){
 
     return(
         <div>
-            <Paper square component="div" className="signUp">     
+            <Paper className="signUp" sx={{backgroundColor:backgroundColor}}>
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
-                <Paper elevation={5} className="signUpForm">
+                <div className="signUpForm">
                     <form onSubmit={handleSubmit}>
                         <Typography variant="h2" sx={{marginTop:'20px', marginBottom:'20px', marginLeft:'5px'}}>Sign Up</Typography>
                         <FormGroup sx={{width:'100%'}}>
@@ -69,7 +76,7 @@ function SignUp({currentTheme,handleThemeChange}){
                         </FormGroup>
                         <Button disabled={loading} fullWidth variant="contained" sx={{marginTop:'20px', marginBottom:'30px'}} type="submit">Create Account</Button>
                     </form>
-                </Paper>
+                </div>
                 {error && <Alert sx={{marginTop:'15px'}} color="error">{error}</Alert>}
                 {success && <Alert sx={{marginTop:'15px'}} color="success">{success}</Alert>}
             </Paper>

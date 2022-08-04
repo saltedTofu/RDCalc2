@@ -1,6 +1,7 @@
 import './App.css';
 import SignUp from './components/SignUp/SignUp';
 import Home from './components/Home';
+import ReleaseNotes from './components/ReleaseNotes/ReleaseNotes'
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -65,6 +66,12 @@ function App() {
                                       handleThemeChange={handleThemeChange}
                                       setCurrentTheme={setCurrentTheme}
                                   />} 
+            />
+            <Route path="/release-notes" element={<ReleaseNotes 
+                                                    currentTheme={currentTheme} 
+                                                    handleThemeChange={handleThemeChange}
+                                                  />}
+
             />
           </Routes>
         </Router>
