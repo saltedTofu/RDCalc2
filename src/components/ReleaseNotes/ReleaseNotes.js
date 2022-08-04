@@ -2,6 +2,7 @@ import Header from '../Header/Header';
 import {Paper, Typography, Stack, Box, Tabs, Tab} from '@mui/material';
 import {useEffect,useState} from 'react'
 import PropTypes from 'prop-types'
+import Footer from '../Footer/Footer'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -70,7 +71,8 @@ function ReleaseNotes({currentTheme,handleThemeChange}){
             justifyContent:'flex-start',
             alignItems:'flex-start',
             width:'100%',
-            height:'100%'
+            height:'100%',
+            minHeight:'100vh'
         },
         versionNote:{
             margin:'20px',
@@ -141,7 +143,8 @@ function ReleaseNotes({currentTheme,handleThemeChange}){
                         </Stack>
                     </TabPanel>
 
-                </div>  
+                </div>
+            <Footer />
             </Paper>
         </div>
     )
