@@ -109,8 +109,15 @@ function ReleaseNotes({currentTheme,handleThemeChange}){
                     <TabPanel value={value} index={0} style={{marginLeft:'7%', width:'100%'}}>
                         <Typography variant="h3" sx={styles.titleTypography}>Release Notes</Typography>
                         <Stack spacing={1} sx={styles.versionNote}>
+                            <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.0.0.1</Typography>
+                            <Typography variant="h5">August 11, 2022</Typography>
+                            <Typography variant="p" sx={{fontWeight:'bold'}}>Bug Fixes</Typography>
+                            <Typography variant="p">• Fixed a bug where micronutrient amounts were calculated incorrectly</Typography>
+                            <Typography variant="p">• Updated version number in footer</Typography>
+                        </Stack>
+                        <Stack spacing={1} sx={styles.versionNote}>
                             <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.0.0.0</Typography>
-                            <Typography variant="h5">August 4, 2022</Typography>
+                            <Typography variant="h5">August 10, 2022</Typography>
                             <Typography variant="p" sx={{fontWeight:'bold'}}>What's New</Typography>
                             <Typography variant="p">• Added release notes route (the page you are currently reading)</Typography>
                             <Typography variant="p">• Micronutrients added to tube feeding calculator</Typography>
