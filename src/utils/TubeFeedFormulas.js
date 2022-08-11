@@ -31,344 +31,344 @@ class tubeFeed{
 let Glucerna10 = new tubeFeed(1000,41.8,853, 'Glucerna 1.0', 'https://abbottnutrition.com/glucerna-1_0-cal',{
     fat:{
         name:'Fat',
-        amount:12.9,
+        amount:12.9*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:22.8,
+        amount:22.8*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:3.4,
+        amount:3.4*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:34,
+        amount:34*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mg'
     },
     inositol:{
         name:'Inositol',
-        amount:200,
+        amount:200*(1000/237),
         unit:'mg'
     },
     vitA:{
         name:'Vitamin A',
-        amount:450,
+        amount:450*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:1.7,
+        amount:1.7*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5.1,
+        amount:5.1*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:14,
+        amount:14*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:50,
+        amount:50*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:167,
+        amount:167*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.38,
+        amount:0.38*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.43,
+        amount:0.43*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.5,
+        amount:0.5*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.5,
+        amount:1.5*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:6.8,
+        amount:6.8*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:83.7,
+        amount:83.7*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:75,
+        amount:75*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2.5,
+        amount:2.5*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:220,
+        amount:220*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:314,
+        amount:314*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:325,
+        amount:325*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:170,
+        amount:170*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:170,
+        amount:170*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:67,
+        amount:67*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.84,
+        amount:0.84*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.34,
+        amount:0.34*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.8,
+        amount:3.8*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.0,
+        amount:3.0*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:12,
+        amount:12*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:20,
+        amount:20*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mcg'
     }
 });
 let Glucerna12 = new tubeFeed(1200,60,805, 'Glucerna 1.2', 'https://abbottnutrition.com/glucerna-1_2-cal',{
     fat:{
         name:'Fat',
-        amount:90,
+        amount:90*(1000/1500),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:171.8,
+        amount:171.8*(1000/1500),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:24.1,
+        amount:24.1*(1000/1500),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:265,
+        amount:265*(1000/1500),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:200,
+        amount:200*(1000/1500),
         unit:'mg'
     },
     inositol:{
         name:'Inositol',
-        amount:1270,
+        amount:1270*(1000/1500),
         unit:'mg'
     },
     vitA:{
         name:'Vitamin A',
-        amount:3480,
+        amount:3480*(1000/1500),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:12.8,
+        amount:12.8*(1000/1500),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:33,
+        amount:33*(1000/1500),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:150,
+        amount:150*(1000/1500),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:390,
+        amount:390*(1000/1500),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:800,
+        amount:800*(1000/1500),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:1.8,
+        amount:1.8*(1000/1500),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:2.1,
+        amount:2.1*(1000/1500),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:2.4,
+        amount:2.4*(1000/1500),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:7.2,
+        amount:7.2*(1000/1500),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:38,
+        amount:38*(1000/1500),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:557,
+        amount:557*(1000/1500),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:360,
+        amount:360*(1000/1500),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:12,
+        amount:12*(1000/1500),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:1670,
+        amount:1670*(1000/1500),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:3030,
+        amount:3030*(1000/1500),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:1920,
+        amount:1920*(1000/1500),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:1200,
+        amount:1200*(1000/1500),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:1200,
+        amount:1200*(1000/1500),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:480,
+        amount:480*(1000/1500),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:180,
+        amount:180*(1000/1500),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:2.4,
+        amount:2.4*(1000/1500),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:2.4,
+        amount:2.4*(1000/1500),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:18,
+        amount:18*(1000/1500),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:22,
+        amount:22*(1000/1500),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:84,
+        amount:84*(1000/1500),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:240,
+        amount:240*(1000/1500),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:115,
+        amount:115*(1000/1500),
         unit:'mcg'
     }
 });
@@ -547,27 +547,27 @@ let Glucerna15 = new tubeFeed(1500,82.5,759, 'Glucerna 1.5', 'https://abbottnutr
 let Jevity10 = new tubeFeed(1060,44.3,835, 'Jevity 1.0', 'https://abbottnutrition.com/jevity-1_0-cal',{
     fat:{
         name:'Fat',
-        amount:8.2,
+        amount:8.2*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:36.7,
+        amount:36.7*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:3.4,
+        amount:3.4*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:27,
+        amount:27*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:27,
+        amount:27*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -577,169 +577,169 @@ let Jevity10 = new tubeFeed(1060,44.3,835, 'Jevity 1.0', 'https://abbottnutritio
     },
     vitA:{
         name:'Vitamin A',
-        amount:142,
+        amount:142*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.2,
+        amount:3.2*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:7.3,
+        amount:7.3*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:55,
+        amount:55*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:63,
+        amount:63*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.26,
+        amount:0.26*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.43,
+        amount:0.43*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.33,
+        amount:0.33*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.9,
+        amount:1.9*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:3.3,
+        amount:3.3*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:108,
+        amount:108*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:4.7,
+        amount:4.7*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:0.95,
+        amount:0.95*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:220,
+        amount:220*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:372,
+        amount:372*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:310,
+        amount:310*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:216,
+        amount:216*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:198,
+        amount:198*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:69,
+        amount:69*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:28,
+        amount:28*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.69,
+        amount:0.69*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.36,
+        amount:0.36*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:2.2,
+        amount:2.2*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:2.8,
+        amount:2.8*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:11,
+        amount:11*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:11,
+        amount:11*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:19,
+        amount:19*(1000/237),
         unit:'mcg'
     }
 });
 let Jevity12 = new tubeFeed(1200,55.5,807, 'Jevity 1.2', 'https://abbottnutrition.com/jevity-1_2-cal',{
     fat:{
         name:'Fat',
-        amount:9.3,
+        amount:9.3*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:40.2,
+        amount:40.2*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:4,
+        amount:4*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -749,169 +749,169 @@ let Jevity12 = new tubeFeed(1200,55.5,807, 'Jevity 1.2', 'https://abbottnutritio
     },
     vitA:{
         name:'Vitamin A',
-        amount:171,
+        amount:171*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.8,
+        amount:3.8*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:9.2,
+        amount:9.2*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:29,
+        amount:29*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:59,
+        amount:59*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:76,
+        amount:76*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.41,
+        amount:0.41*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.59,
+        amount:0.59*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.33,
+        amount:0.33*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2.3,
+        amount:2.3*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:4,
+        amount:4*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:142,
+        amount:142*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:5.7,
+        amount:5.7*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:0.95,
+        amount:0.95*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:253,
+        amount:253*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:566,
+        amount:566*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:356,
+        amount:356*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:284,
+        amount:284*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:284,
+        amount:284*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:88,
+        amount:88*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.81,
+        amount:0.81*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.41,
+        amount:0.41*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:2.5,
+        amount:2.5*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.4,
+        amount:3.4*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:14,
+        amount:14*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:14,
+        amount:14*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:23,
+        amount:23*(1000/237),
         unit:'mcg'
     }
 });
 let Jevity15 = new tubeFeed(1500,63.8,760, 'Jevity 1.5', 'https://abbottnutrition.com/jevity-1_5-cal',{
     fat:{
         name:'Fat',
-        amount:11.8,
+        amount:11.8*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:51.1,
+        amount:51.1*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:5,
+        amount:5*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -921,169 +921,169 @@ let Jevity15 = new tubeFeed(1500,63.8,760, 'Jevity 1.5', 'https://abbottnutritio
     },
     vitA:{
         name:'Vitamin A',
-        amount:213,
+        amount:213*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:4.7,
+        amount:4.7*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:13,
+        amount:13*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:40,
+        amount:40*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:71,
+        amount:71*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:95,
+        amount:95*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.45,
+        amount:0.45*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.76,
+        amount:0.76*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.54,
+        amount:0.54*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2.8,
+        amount:2.8*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:4.7,
+        amount:4.7*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:142,
+        amount:142*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:7.1,
+        amount:7.1*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:1.9,
+        amount:1.9*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:316,
+        amount:316*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:517,
+        amount:517*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:322,
+        amount:322*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:308,
+        amount:308*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:296,
+        amount:296*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:100,
+        amount:100*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.0,
+        amount:1.0*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.52,
+        amount:0.52*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.1,
+        amount:3.1*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4.3,
+        amount:4.3*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:18,
+        amount:18*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:18,
+        amount:18*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:30,
+        amount:30*(1000/237),
         unit:'mcg'
     }
 });
 let Nepro = new tubeFeed(1770,81,727, 'Nepro', 'https://abbottnutrition.com/nepro-with-carbsteady',{
     fat:{
         name:'Fat',
-        amount:23,
+        amount:23*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:38,
+        amount:38*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:6,
+        amount:6*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:63,
+        amount:63*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:38,
+        amount:38*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -1093,154 +1093,154 @@ let Nepro = new tubeFeed(1770,81,727, 'Nepro', 'https://abbottnutrition.com/nepr
     },
     vitA:{
         name:'Vitamin A',
-        amount:180,
+        amount:180*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.8,
+        amount:3.8*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:6.8,
+        amount:6.8*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:19,
+        amount:19*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:23,
+        amount:23*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:300,
+        amount:300*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.60,
+        amount:0.60*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.50,
+        amount:0.50*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:2.21,
+        amount:2.21*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.2,
+        amount:1.2*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:8.0,
+        amount:8.0*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:140,
+        amount:140*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:15,
+        amount:15*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2.25,
+        amount:2.25*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:250,
+        amount:250*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:225,
+        amount:225*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:200,
+        amount:200*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:250,
+        amount:250*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:170,
+        amount:170*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:40,
+        amount:40*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:38,
+        amount:38*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.60,
+        amount:0.60*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.43,
+        amount:0.43*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.0,
+        amount:3.0*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.3,
+        amount:3.3*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:14,
+        amount:14*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:7.5,
+        amount:7.5*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:11,
+        amount:11*(1000/237),
         unit:'mcg'
     }
 });
 let Osmolite10 = new tubeFeed(1060,44.3,835, 'Osmolite 1.0', 'https://abbottnutrition.com/osmolite-1_0-cal',{
     fat:{
         name:'Fat',
-        amount:8.2,
+        amount:8.2*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:33.9,
+        amount:33.9*(1000/237),
         unit:'g'
     },
     fiber:{
@@ -1250,12 +1250,12 @@ let Osmolite10 = new tubeFeed(1060,44.3,835, 'Osmolite 1.0', 'https://abbottnutr
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:27,
+        amount:27*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:27,
+        amount:27*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -1265,154 +1265,154 @@ let Osmolite10 = new tubeFeed(1060,44.3,835, 'Osmolite 1.0', 'https://abbottnutr
     },
     vitA:{
         name:'Vitamin A',
-        amount:142,
+        amount:142*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.2,
+        amount:3.2*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:7.3,
+        amount:7.3*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:55,
+        amount:55*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:63,
+        amount:63*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.27,
+        amount:0.27*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.43,
+        amount:0.43*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.33,
+        amount:0.33*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.9,
+        amount:1.9*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:3.3,
+        amount:3.3*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:108,
+        amount:108*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:4.7,
+        amount:4.7*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:0.95,
+        amount:0.95*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:220,
+        amount:220*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:372,
+        amount:372*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:341,
+        amount:341*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:206,
+        amount:206*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:198,
+        amount:198*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:69,
+        amount:69*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:28,
+        amount:28*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.69,
+        amount:0.69*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.36,
+        amount:0.36*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:2.2,
+        amount:2.2*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:2.8,
+        amount:2.8*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:11,
+        amount:11*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:11,
+        amount:11*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:19,
+        amount:19*(1000/237),
         unit:'mcg'
     }
 });
 let Osmolite12 = new tubeFeed(1200,55.5,820, 'Osmolite 1.2', 'https://abbottnutrition.com/osmolite-1_2-cal',{
     fat:{
         name:'Fat',
-        amount:9.3,
+        amount:9.3*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:37.5,
+        amount:37.5*(1000/237),
         unit:'g'
     },
     fiber:{
@@ -1422,12 +1422,12 @@ let Osmolite12 = new tubeFeed(1200,55.5,820, 'Osmolite 1.2', 'https://abbottnutr
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -1437,154 +1437,154 @@ let Osmolite12 = new tubeFeed(1200,55.5,820, 'Osmolite 1.2', 'https://abbottnutr
     },
     vitA:{
         name:'Vitamin A',
-        amount:171,
+        amount:171*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.8,
+        amount:3.8*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:10,
+        amount:10*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:29,
+        amount:29*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:59,
+        amount:59*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:76,
+        amount:76*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.41,
+        amount:0.41*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.59,
+        amount:0.59*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.33,
+        amount:0.33*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2.3,
+        amount:2.3*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:4,
+        amount:4*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:142,
+        amount:142*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:5.7,
+        amount:5.7*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:0.95,
+        amount:0.95*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:253,
+        amount:253*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:539,
+        amount:539*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:356,
+        amount:356*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:284,
+        amount:284*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:284,
+        amount:284*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:88,
+        amount:88*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.81,
+        amount:0.81*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.41,
+        amount:0.41*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:2.5,
+        amount:2.5*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.4,
+        amount:3.4*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:14,
+        amount:14*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:14,
+        amount:14*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:23,
+        amount:23*(1000/237),
         unit:'mcg'
     }
 });
 let Osmolite15 = new tubeFeed(1500,62.7,762, 'Osmolite 1.5', 'https://abbottnutrition.com/osmolite-1_5-cal',{
     fat:{
         name:'Fat',
-        amount:11.6,
+        amount:11.6*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:48.2,
+        amount:48.2*(1000/237),
         unit:'g'
     },
     fiber:{
@@ -1594,12 +1594,12 @@ let Osmolite15 = new tubeFeed(1500,62.7,762, 'Osmolite 1.5', 'https://abbottnutr
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -1609,169 +1609,169 @@ let Osmolite15 = new tubeFeed(1500,62.7,762, 'Osmolite 1.5', 'https://abbottnutr
     },
     vitA:{
         name:'Vitamin A',
-        amount:213,
+        amount:213*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:4.7,
+        amount:4.7*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:14,
+        amount:14*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:40,
+        amount:40*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:47,
+        amount:47*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:95,
+        amount:95*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.45,
+        amount:0.45*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.76,
+        amount:0.76*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.54,
+        amount:0.54*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2.8,
+        amount:2.8*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:4.7,
+        amount:4.7*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:142,
+        amount:142*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:7.1,
+        amount:7.1*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:1.9,
+        amount:1.9*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:316,
+        amount:316*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:517,
+        amount:517*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:403,
+        amount:403*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:308,
+        amount:308*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:296,
+        amount:296*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:100,
+        amount:100*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.0,
+        amount:1.0*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.52,
+        amount:0.52*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.1,
+        amount:3.1*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4.3,
+        amount:4.3*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:18,
+        amount:18*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:19,
+        amount:19*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:30,
+        amount:30*(1000/237),
         unit:'mcg'
     }
 });
 let Pivot15 = new tubeFeed(1500,93.8,750, 'Pivot 1.5', 'https://abbottnutrition.com/pivot-1_5-cal',{
     fat:{
         name:'Fat',
-        amount:12,
+        amount:12*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:40.9,
+        amount:40.9*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:1.8,
+        amount:1.8*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -1781,146 +1781,146 @@ let Pivot15 = new tubeFeed(1500,93.8,750, 'Pivot 1.5', 'https://abbottnutrition.
     },
     vitA:{
         name:'Vitamin A',
-        amount:427,
+        amount:427*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:6.6,
+        amount:6.6*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:6.4,
+        amount:6.4*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:30,
+        amount:30*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:72,
+        amount:72*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:145,
+        amount:145*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.47,
+        amount:0.47*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.50,
+        amount:0.50*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.55,
+        amount:0.55*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.2,
+        amount:1.2*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:6.0,
+        amount:6.0*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:180,
+        amount:180*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:7.1,
+        amount:7.1*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2.1,
+        amount:2.1*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:350,
+        amount:350*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:470,
+        amount:470*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:380,
+        amount:380*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:240,
+        amount:240*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:230,
+        amount:230*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:100,
+        amount:100*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:40,
+        amount:40*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.2,
+        amount:1.2*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.52,
+        amount:0.52*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:7.3,
+        amount:7.3*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:5.6,
+        amount:5.6*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:19,
+        amount:19*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:40,
+        amount:40*(1000/237),
         unit:'mcg'
     }
 });
-let Promote = new tubeFeed(1000,63,839, 'Promote','https://abbottnutrition.com/promote', 'https://abbottnutrition.com/promote',{
+let Promote = new tubeFeed(1000,63,839, 'Promote','https://abbottnutrition.com/promote',{
     fat:{
         name:'Fat',
         amount:26,
@@ -2439,27 +2439,27 @@ let Pulmocare = new tubeFeed(1500,62.6,785, 'Pulmocare', 'https://abbottnutritio
 let Suplena = new tubeFeed(1800,44.7,725.7, 'Suplena', 'https://abbottnutrition.com/suplena-with-carbsteady',{
     fat:{
         name:'Fat',
-        amount:23,
+        amount:23*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:46,
+        amount:46*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:6,
+        amount:6*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:63,
+        amount:63*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:38,
+        amount:38*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -2469,169 +2469,169 @@ let Suplena = new tubeFeed(1800,44.7,725.7, 'Suplena', 'https://abbottnutrition.
     },
     vitA:{
         name:'Vitamin A',
-        amount:225,
+        amount:225*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:5,
+        amount:5*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:6.8,
+        amount:6.8*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:19,
+        amount:19*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:23,
+        amount:23*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:300,
+        amount:300*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.6,
+        amount:0.6*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.5,
+        amount:0.5*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:2.21,
+        amount:2.21*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.2,
+        amount:1.2*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:8,
+        amount:8*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:140,
+        amount:140*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:15,
+        amount:15*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2.25,
+        amount:2.25*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:190,
+        amount:190*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:250,
+        amount:250*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:210,
+        amount:210*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:250,
+        amount:250*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:170,
+        amount:170*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:40,
+        amount:40*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:38,
+        amount:38*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.6,
+        amount:0.6*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.42,
+        amount:0.42*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3,
+        amount:3*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.3,
+        amount:3.3*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:13.8,
+        amount:13.8*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:7.5,
+        amount:7.5*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:11,
+        amount:11*(1000/237),
         unit:'mcg'
     }
 });
 let TwoCalHN = new tubeFeed(2000,83.5,700, 'TwoCal HN', 'https://abbottnutrition.com/twocal-hn',{
     fat:{
         name:'Fat',
-        amount:21.5,
+        amount:21.5*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:51.8,
+        amount:51.8*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:1.2,
+        amount:1.2*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:50,
+        amount:50*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:50,
+        amount:50*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -2641,169 +2641,169 @@ let TwoCalHN = new tubeFeed(2000,83.5,700, 'TwoCal HN', 'https://abbottnutrition
     },
     vitA:{
         name:'Vitamin A',
-        amount:375,
+        amount:375*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:5.8,
+        amount:5.8*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:8,
+        amount:8*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:40,
+        amount:40*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:75,
+        amount:75*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:272,
+        amount:272*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.6,
+        amount:0.6*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.65,
+        amount:0.65*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.85,
+        amount:0.85*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2.4,
+        amount:2.4*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:8,
+        amount:8*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:200,
+        amount:200*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:20,
+        amount:20*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:4,
+        amount:4*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:200,
+        amount:200*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:500,
+        amount:500*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:230,
+        amount:230*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:325,
+        amount:325*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:313,
+        amount:313*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:98,
+        amount:98*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:50,
+        amount:50*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.3,
+        amount:1.3*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.5,
+        amount:0.5*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:5.7,
+        amount:5.7*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:6,
+        amount:6*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:18,
+        amount:18*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:12,
+        amount:12*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:15,
+        amount:15*(1000/237),
         unit:'mcg'
     }
 });
 let Vital10 = new tubeFeed(1000,40,834, 'Vital 1.0', 'https://abbottnutrition.com/vital-1_0-cal',{
     fat:{
         name:'Fat',
-        amount:9,
+        amount:9*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:30.7,
+        amount:30.7*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:1,
+        amount:1*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -2813,142 +2813,142 @@ let Vital10 = new tubeFeed(1000,40,834, 'Vital 1.0', 'https://abbottnutrition.co
     },
     vitA:{
         name:'Vitamin A',
-        amount:330,
+        amount:330*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:4.3,
+        amount:4.3*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:4.3,
+        amount:4.3*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:20,
+        amount:20*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:71,
+        amount:71*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:150,
+        amount:150*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.54,
+        amount:0.54*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.59,
+        amount:0.59*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.88,
+        amount:0.88*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.9,
+        amount:1.9*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:4.2,
+        amount:4.2*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:120,
+        amount:120*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:9,
+        amount:9*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2,
+        amount:2*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:204,
+        amount:204*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:350,
+        amount:350*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:250,
+        amount:250*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:205,
+        amount:205*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:198,
+        amount:198*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:66,
+        amount:66*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.68,
+        amount:0.68*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.33,
+        amount:0.33*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:4,
+        amount:4*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3,
+        amount:3*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:11,
+        amount:11*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:13,
+        amount:13*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:24,
+        amount:24*(1000/237),
         unit:'mcg'
     }
 });
@@ -3127,27 +3127,27 @@ let VitalAF12 = new tubeFeed(1200,75,811, 'Vital AF 1.2', 'https://abbottnutriti
 let Vital15 = new tubeFeed(1500,67.5,764, 'Vital 1.5', 'https://abbottnutrition.com/vital-1_5-cal',{
     fat:{
         name:'Fat',
-        amount:13.5,
+        amount:13.5*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:44.2,
+        amount:44.2*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:1.4,
+        amount:1.4*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:35,
+        amount:35*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:35,
+        amount:35*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -3157,169 +3157,169 @@ let Vital15 = new tubeFeed(1500,67.5,764, 'Vital 1.5', 'https://abbottnutrition.
     },
     vitA:{
         name:'Vitamin A',
-        amount:433,
+        amount:433*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:5,
+        amount:5*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5.2,
+        amount:5.2*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:35,
+        amount:35*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:40,
+        amount:40*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:154,
+        amount:154*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.7,
+        amount:0.7*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.5,
+        amount:0.5*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.9,
+        amount:0.9*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2,
+        amount:2*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:7.9,
+        amount:7.9*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:184,
+        amount:184*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:8.9,
+        amount:8.9*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2.1,
+        amount:2.1*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:270,
+        amount:270*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:520,
+        amount:520*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:355,
+        amount:355*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:308,
+        amount:308*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:297,
+        amount:297*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:100,
+        amount:100*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.2,
+        amount:1.2*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.52,
+        amount:0.52*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:7.2,
+        amount:7.2*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4.4,
+        amount:4.4*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:19,
+        amount:19*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:24,
+        amount:24*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:43,
+        amount:43*(1000/237),
         unit:'mcg'
     }
 });
 let VitalHighProtein = new tubeFeed(1000,87.3,836, 'Vital High Protein', 'https://abbottnutrition.com/vital-hp',{
     fat:{
         name:'Fat',
-        amount:5.5,
+        amount:5.5*(1000/237),
         unit:'g'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:26.7,
+        amount:26.7*(1000/237),
         unit:'g'
     },
     fiber:{
         name:'Fiber',
-        amount:0,
+        amount:0*(1000/237),
         unit:'g'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mg'
     },
     inositol:{
@@ -3329,142 +3329,142 @@ let VitalHighProtein = new tubeFeed(1000,87.3,836, 'Vital High Protein', 'https:
     },
     vitA:{
         name:'Vitamin A',
-        amount:166,
+        amount:166*(1000/237),
         unit:'mcg RAE'
     },
     vitD:{
         name:'Vitamin D',
-        amount:5,
+        amount:5*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:4,
+        amount:4*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:39,
+        amount:39*(1000/237),
         unit:'mg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:82,
+        amount:82*(1000/237),
         unit:'mg'
     },
     folate:{
         name:'Folate',
-        amount:100,
+        amount:100*(1000/237),
         unit:'mcg DFE'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.5,
+        amount:0.5*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.3,
+        amount:0.3*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.5,
+        amount:0.5*(1000/237),
         unit:'mg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2,
+        amount:2*(1000/237),
         unit:'mcg'
     },
     niacin:{
         name:'Niacin',
-        amount:6.8,
+        amount:6.8*(1000/237),
         unit:'mg NE'
     },
     choline:{
         name:'Choline',
-        amount:118,
+        amount:118*(1000/237),
         unit:'mg'
     },
     biotin:{
         name:'Biotin',
-        amount:8,
+        amount:8*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:1.4,
+        amount:1.4*(1000/237),
         unit:''
     },
     sodium:{
         name:'Sodium',
-        amount:330,
+        amount:330*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:332,
+        amount:332*(1000/237),
         unit:'mg'
     },
     chloride:{
         name:'Chloride',
-        amount:245,
+        amount:245*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:206,
+        amount:206*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:198,
+        amount:198*(1000/237),
         unit:'mg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:67,
+        amount:67*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mcg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.8,
+        amount:0.8*(1000/237),
         unit:'mg'
     },
     copper:{
         name:'Copper',
-        amount:0.4,
+        amount:0.4*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:4.7,
+        amount:4.7*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3,
+        amount:3*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:15,
+        amount:15*(1000/237),
         unit:'mcg'
     },
     chromium:{
         name:'Chromium',
-        amount:20,
+        amount:20*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:32,
+        amount:32*(1000/237),
         unit:'mcg'
     }
 });
@@ -3472,7 +3472,7 @@ let VitalHighProtein = new tubeFeed(1000,87.3,836, 'Vital High Protein', 'https:
 let Compleat = new tubeFeed(1060,48,828, 'Compleat', 'https://www.nestlemedicalhub.com/products/compleat',{
     fat:{
         name:'Fat',
-        amount:10,
+        amount:10*4,
         unit:'g'
     },
     mct:{
@@ -3482,169 +3482,169 @@ let Compleat = new tubeFeed(1060,48,828, 'Compleat', 'https://www.nestlemedicalh
     },
     sodium:{
         name:'Sodium',
-        amount:250,
+        amount:250*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:390,
+        amount:390*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:34,
+        amount:34*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:150,
+        amount:150*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:250,
+        amount:250*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:60,
+        amount:60*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:220,
+        amount:220*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5.5,
+        amount:5.5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.7,
+        amount:0.7*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2,
+        amount:2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:10,
+        amount:10*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:210,
+        amount:210*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:75,
+        amount:75*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:15,
+        amount:15*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:35,
+        amount:35*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:220,
+        amount:220*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:110,
+        amount:110*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     }
 });
 let DiabetisourceAC = new tubeFeed (1200,60,820, 'Diabetsource AC', 'https://www.nestlemedicalhub.com/products/diabetisource-ac',{
     fat:{
         name:'Fat',
-        amount:14.7,
+        amount:14.7*4,
         unit:'g'
     },
     mct:{
@@ -3654,513 +3654,513 @@ let DiabetisourceAC = new tubeFeed (1200,60,820, 'Diabetsource AC', 'https://www
     },
     sodium:{
         name:'Sodium',
-        amount:265,
+        amount:265*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:400,
+        amount:400*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:25,
+        amount:25*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:200,
+        amount:200*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:275,
+        amount:275*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:60,
+        amount:60*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.6,
+        amount:3.6*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:4,
+        amount:4*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:8,
+        amount:8*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:24,
+        amount:24*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:100,
+        amount:100*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.8,
+        amount:1.8*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:60,
+        amount:60*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3.2,
+        amount:3.2*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:80,
+        amount:80*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:4.8,
+        amount:4.8*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:16,
+        amount:16*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.92,
+        amount:0.92*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:40,
+        amount:40*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:160,
+        amount:160*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:120,
+        amount:120*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     }
 });
 let FibersourceHN = new tubeFeed(1200,54,810, 'Fibersource HN', 'https://www.nestlemedicalhub.com/products/fibersource-hn',{
     fat:{
         name:'Fat',
-        amount:10,
+        amount:10*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:2,
+        amount:2*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:280,
+        amount:280*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:480,
+        amount:480*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:41,
+        amount:41*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:160,
+        amount:160*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:320,
+        amount:320*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:60,
+        amount:60*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:240,
+        amount:240*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3,
+        amount:3*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:6,
+        amount:6*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:24,
+        amount:24*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:100,
+        amount:100*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.5,
+        amount:1.5*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:12,
+        amount:12*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:240,
+        amount:240*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:85,
+        amount:85*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:16,
+        amount:16*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.9,
+        amount:0.9*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:24,
+        amount:24*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:325,
+        amount:325*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:120,
+        amount:120*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     }
 });
 let Glytrol = new tubeFeed(1000,45.2,840, 'Glytrol','https://www.nestlemedicalhub.com/products/glytrol',{
     fat:{
         name:'Fat',
-        amount:11.9,
+        amount:11.9*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:2.4,
+        amount:2.4*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:185,
+        amount:185*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:350,
+        amount:350*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:25,
+        amount:25*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:180,
+        amount:180*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:400,
+        amount:400*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:35,
+        amount:35*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:180,
+        amount:180*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.2,
+        amount:3.2*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:1.7,
+        amount:1.7*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:12.5,
+        amount:12.5*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:7,
+        amount:7*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:1,
+        amount:1*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:100,
+        amount:100*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2,
+        amount:2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:75,
+        amount:75*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:180,
+        amount:180*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:71.5,
+        amount:71.5*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.8,
+        amount:3.8*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:19,
+        amount:19*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.38,
+        amount:0.38*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.75,
+        amount:0.75*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:31,
+        amount:31*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:300,
+        amount:300*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:100,
+        amount:100*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     }
 });
 let Impact = new tubeFeed(1000,56,852, 'Impact', 'https://www.nestlemedicalhub.com/products/impact',{
     fat:{
         name:'Fat',
-        amount:7,
+        amount:7*4,
         unit:'g'
     },
     mct:{
@@ -4170,152 +4170,152 @@ let Impact = new tubeFeed(1000,56,852, 'Impact', 'https://www.nestlemedicalhub.c
     },
     sodium:{
         name:'Sodium',
-        amount:240,
+        amount:240*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:400,
+        amount:400*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:33,
+        amount:33*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:250,
+        amount:250*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:500,
+        amount:500*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:20,
+        amount:20*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.3,
+        amount:3.3*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:10,
+        amount:10*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:17,
+        amount:17*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.43,
+        amount:0.43*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:100,
+        amount:100*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2,
+        amount:2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:1.7,
+        amount:1.7*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:68,
+        amount:68*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.8,
+        amount:3.8*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.42,
+        amount:0.42*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:325,
+        amount:325*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:68,
+        amount:68*4,
         unit:'mg'
     },
     lCarnitine:{
@@ -4332,334 +4332,334 @@ let Impact = new tubeFeed(1000,56,852, 'Impact', 'https://www.nestlemedicalhub.c
 let ImpactPeptide15 = new tubeFeed(1500,94,770, 'Impact Peptide 1.5', 'https://www.nestlemedicalhub.com/products/impact-peptide-15',{
     fat:{
         name:'Fat',
-        amount:15.9,
+        amount:15.9*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:7.9,
+        amount:7.9*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:292,
+        amount:292*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:468,
+        amount:468*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:35,
+        amount:35*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:560,
+        amount:560*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:1125,
+        amount:1125*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:250,
+        amount:250*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:250,
+        amount:250*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4.5,
+        amount:4.5*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:5,
+        amount:5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:17,
+        amount:17*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:18.7,
+        amount:18.7*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.75,
+        amount:0.75*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:7,
+        amount:7*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:1,
+        amount:1*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:135,
+        amount:135*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2,
+        amount:2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:100,
+        amount:100*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:250,
+        amount:250*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:40,
+        amount:40*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:105,
+        amount:105*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:9,
+        amount:9*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.75,
+        amount:0.75*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:1,
+        amount:1*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:35,
+        amount:35*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:55,
+        amount:55*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:435,
+        amount:435*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:138,
+        amount:138*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:37.5,
+        amount:37.5*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:70,
+        amount:70*4,
         unit:'mg'
     }
 });
 let ImpactAdvancedRecovery = new tubeFeed(1120,104,812, 'Impact Advanced Recovery', 'https://www.nestlemedicalhub.com/products/impact-advanced-recovery',{
     fat:{
         name:'Fat',
-        amount:11,
+        amount:11*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:1.8,
+        amount:1.8*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:270,
+        amount:270*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:600,
+        amount:600*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:20,
+        amount:20*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:440,
+        amount:440*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:870,
+        amount:870*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:75,
+        amount:75*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:380,
+        amount:380*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:6,
+        amount:6*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:5.7,
+        amount:5.7*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:14,
+        amount:14*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:33,
+        amount:33*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.9,
+        amount:0.9*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:8,
+        amount:8*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.75,
+        amount:0.75*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:95,
+        amount:95*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:15,
+        amount:15*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:4.1,
+        amount:4.1*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:350,
+        amount:350*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:75,
+        amount:75*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:105,
+        amount:105*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:7.5,
+        amount:7.5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:24,
+        amount:24*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.45,
+        amount:0.45*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:1,
+        amount:1*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:18,
+        amount:18*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:22,
+        amount:22*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:600,
+        amount:600*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:120,
+        amount:120*4,
         unit:'mg'
     },
     lCarnitine:{
@@ -4676,523 +4676,523 @@ let ImpactAdvancedRecovery = new tubeFeed(1120,104,812, 'Impact Advanced Recover
 let IsosourceHN = new tubeFeed(1200,54,808, 'Isosource HN', 'https://www.nestlemedicalhub.com/products/isosource-hn',{
     fat:{
         name:'Fat',
-        amount:10,
+        amount:10*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:2,
+        amount:2*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:280,
+        amount:280*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:480,
+        amount:480*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:39,
+        amount:39*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:160,
+        amount:160*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:320,
+        amount:320*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:60,
+        amount:60*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:240,
+        amount:240*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:6,
+        amount:6*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:24,
+        amount:24*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:100,
+        amount:100*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.5,
+        amount:1.5*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:10,
+        amount:10*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:240,
+        amount:240*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:85,
+        amount:85*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:16,
+        amount:16*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.9,
+        amount:0.9*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:350,
+        amount:350*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:120,
+        amount:120*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     }
 });
 let Isosource15 = new tubeFeed(1500,68,760, 'Isosource 1.5', 'https://www.nestlemedicalhub.com/products/isosource-15-cal',{
     fat:{
         name:'Fat',
-        amount:14.8,
+        amount:14.8*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:3,
+        amount:3*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:325,
+        amount:325*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:600,
+        amount:600*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:44,
+        amount:44*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:195,
+        amount:195*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:385,
+        amount:385*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:75,
+        amount:75*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:300,
+        amount:300*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4.5,
+        amount:4.5*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:4,
+        amount:4*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:7.5,
+        amount:7.5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:31,
+        amount:31*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.9,
+        amount:0.9*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:5.4,
+        amount:5.4*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:138,
+        amount:138*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.8,
+        amount:1.8*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:17,
+        amount:17*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:4.7,
+        amount:4.7*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:300,
+        amount:300*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:38,
+        amount:38*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:105,
+        amount:105*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:38,
+        amount:38*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:440,
+        amount:440*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:150,
+        amount:150*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:42,
+        amount:42*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:42,
+        amount:42*4,
         unit:'mg'
     }
 });
 let Nutren20 = new tubeFeed(2000,84,690, 'Nutren 2.0', 'https://www.nestlemedicalhub.com/products/nutren-20',{
     fat:{
         name:'Fat',
-        amount:23,
+        amount:23*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:11.5,
+        amount:11.5*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:375,
+        amount:375*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:525,
+        amount:525*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:54,
+        amount:54*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:260,
+        amount:260*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:520,
+        amount:520*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:100,
+        amount:100*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:400,
+        amount:400*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:6,
+        amount:6*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:5,
+        amount:5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:10,
+        amount:10*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:40,
+        amount:40*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:1,
+        amount:1*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:1,
+        amount:1*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:6,
+        amount:6*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:1.3,
+        amount:1.3*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:160,
+        amount:160*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2.5,
+        amount:2.5*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:370,
+        amount:370*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:140,
+        amount:140*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:6,
+        amount:6*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.5,
+        amount:1.5*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:40,
+        amount:40*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:375,
+        amount:375*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:50,
+        amount:50*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:50,
+        amount:50*4,
         unit:'mg'
     }
 });
 let NovasourceRenal = new tubeFeed (2000,90.7,720, 'Novasource Renal', 'https://www.nestlemedicalhub.com/products/novasource-renal',{
     fat:{
         name:'Fat',
-        amount:24,
+        amount:24*(1000/237),
         unit:'g'
     },
     mct:{
@@ -5202,1393 +5202,1393 @@ let NovasourceRenal = new tubeFeed (2000,90.7,720, 'Novasource Renal', 'https://
     },
     sodium:{
         name:'Sodium',
-        amount:220,
+        amount:220*(1000/237),
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:230,
+        amount:230*(1000/237),
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:43,
+        amount:43*(1000/237),
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:110,
+        amount:110*(1000/237),
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:250,
+        amount:250*(1000/237),
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:22,
+        amount:22*(1000/237),
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:200,
+        amount:200*(1000/237),
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4.3,
+        amount:4.3*(1000/237),
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:2.5,
+        amount:2.5*(1000/237),
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:7,
+        amount:7*(1000/237),
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:30,
+        amount:30*(1000/237),
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.4,
+        amount:0.4*(1000/237),
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.9,
+        amount:0.9*(1000/237),
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:4.8,
+        amount:4.8*(1000/237),
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:2,
+        amount:2*(1000/237),
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:240,
+        amount:240*(1000/237),
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.5,
+        amount:1.5*(1000/237),
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:12,
+        amount:12*(1000/237),
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2.5,
+        amount:2.5*(1000/237),
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:200,
+        amount:200*(1000/237),
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:45,
+        amount:45*(1000/237),
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:50,
+        amount:50*(1000/237),
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:5.2,
+        amount:5.2*(1000/237),
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:26,
+        amount:26*(1000/237),
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.5,
+        amount:0.5*(1000/237),
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:1,
+        amount:1*(1000/237),
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:25,
+        amount:25*(1000/237),
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:21,
+        amount:21*(1000/237),
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:190,
+        amount:190*(1000/237),
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:130,
+        amount:130*(1000/237),
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:63,
+        amount:63*(1000/237),
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:36,
+        amount:36*(1000/237),
         unit:'mg'
     }
 });
 let Nutren10 = new tubeFeed(1000,40,844, 'Nutren 1.0', 'https://www.nestlemedicalhub.com/products/nutren-10',{
     fat:{
         name:'Fat',
-        amount:8.5,
+        amount:8.5*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:1.7,
+        amount:1.7*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:220,
+        amount:220*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:400,
+        amount:400*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:34,
+        amount:34*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:130,
+        amount:130*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:260,
+        amount:260*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:50,
+        amount:50*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:2.5,
+        amount:2.5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.7,
+        amount:0.7*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:85,
+        amount:85*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:10,
+        amount:10*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:70,
+        amount:70*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:15,
+        amount:15*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:300,
+        amount:300*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:100,
+        amount:100*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     }
 });
 let Nutren10WithFiber = new tubeFeed(1000,40,848, 'Nutren 1.0 With Fiber', 'https://www.nestlemedicalhub.com/products/nutren-10-fiber',{
     fat:{
         name:'Fat',
-        amount:8.5,
+        amount:8.5*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:1.7,
+        amount:1.7*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:220,
+        amount:220*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:400,
+        amount:400*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:37,
+        amount:37*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:130,
+        amount:130*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:260,
+        amount:260*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:50,
+        amount:50*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:2.5,
+        amount:2.5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.7,
+        amount:0.7*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:85,
+        amount:85*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:10,
+        amount:10*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:70,
+        amount:70*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:15,
+        amount:15*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:325,
+        amount:325*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:100,
+        amount:100*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     }
 });
 let Nutren15 = new tubeFeed(1500,68,764, 'Nutren 1.5', 'https://www.nestlemedicalhub.com/products/nutren-15',{
     fat:{
         name:'Fat',
-        amount:15,
+        amount:15*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:3,
+        amount:3*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:325,
+        amount:325*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:600,
+        amount:600*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:44,
+        amount:44*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:200,
+        amount:200*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:390,
+        amount:390*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:75,
+        amount:75*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:300,
+        amount:300*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:4,
+        amount:4*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:8,
+        amount:8*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.9,
+        amount:0.9*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:1,
+        amount:1*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:120,
+        amount:120*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.8,
+        amount:1.8*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:15,
+        amount:15*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:300,
+        amount:300*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:40,
+        amount:40*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:105,
+        amount:105*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:40,
+        amount:40*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:400,
+        amount:400*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:150,
+        amount:150*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:40,
+        amount:40*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:40,
+        amount:40*4,
         unit:'mg'
     }
 });
 let Peptamen = new tubeFeed(1000,40,848, 'Peptamen', 'https://www.nestlemedicalhub.com/products/peptamen',{
     fat:{
         name:'Fat',
-        amount:10,
+        amount:10*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:7,
+        amount:7*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:120,
+        amount:120*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:400,
+        amount:400*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:32,
+        amount:32*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:200,
+        amount:200*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:250,
+        amount:250*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.3,
+        amount:3.3*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:5.5,
+        amount:5.5*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2,
+        amount:2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:8,
+        amount:8*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:175,
+        amount:175*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:35,
+        amount:35*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:75,
+        amount:75*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:18,
+        amount:18*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.7,
+        amount:0.7*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:12,
+        amount:12*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:250,
+        amount:250*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:120,
+        amount:120*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     }
 });
 let Peptamen15 = new tubeFeed(1500,68,772, 'Peptamen 1.5', 'https://www.nestlemedicalhub.com/products/peptamen-15',{
     fat:{
         name:'Fat',
-        amount:14,
+        amount:14*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:10,
+        amount:10*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:220,
+        amount:220*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:520,
+        amount:520*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:47,
+        amount:47*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:300,
+        amount:300*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:375,
+        amount:375*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:45,
+        amount:45*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:250,
+        amount:250*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:6,
+        amount:6*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:5,
+        amount:5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:7.5,
+        amount:7.5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:30,
+        amount:30*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:8.3,
+        amount:8.3*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.9,
+        amount:0.9*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:75,
+        amount:75*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:3,
+        amount:3*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:12,
+        amount:12*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:1.8,
+        amount:1.8*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:250,
+        amount:250*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:105,
+        amount:105*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:5.5,
+        amount:5.5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:1.1,
+        amount:1.1*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:18,
+        amount:18*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:40,
+        amount:40*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:440,
+        amount:440*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:180,
+        amount:180*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:40,
+        amount:40*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:40,
+        amount:40*4,
         unit:'mg'
     }
 });
 let PeptamenAF12 = new tubeFeed(1200,76,810, 'Peptamen AF 1.2', 'https://www.nestlemedicalhub.com/products/peptamen-af',{
     fat:{
         name:'Fat',
-        amount:13.5,
+        amount:13.5*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:7,
+        amount:7*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:180,
+        amount:180*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:450,
+        amount:450*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:28,
+        amount:28*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:250,
+        amount:250*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:300,
+        amount:300*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:35,
+        amount:35*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:4,
+        amount:4*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:8,
+        amount:8*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.7,
+        amount:0.7*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:6.6,
+        amount:6.6*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.7,
+        amount:0.7*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:60,
+        amount:60*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:3,
+        amount:3*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:10,
+        amount:10*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:1.5,
+        amount:1.5*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:45,
+        amount:45*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:85,
+        amount:85*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:4.4,
+        amount:4.4*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.8,
+        amount:0.8*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:15,
+        amount:15*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:45,
+        amount:45*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:340,
+        amount:340*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:140,
+        amount:140*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     }
 });
 let PeptamenIntenseVHP = new tubeFeed(1000,92,840, 'Peptamen Intense VHP', 'https://www.nestlemedicalhub.com/products/peptamen-intense-vhp',{
     fat:{
         name:'Fat',
-        amount:9.5,
+        amount:9.5*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:4.5,
+        amount:4.5*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:170,
+        amount:170*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:375,
+        amount:375*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:19,
+        amount:19*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:200,
+        amount:200*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:250,
+        amount:250*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:30,
+        amount:30*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:170,
+        amount:170*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.3,
+        amount:3.3*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:5.5,
+        amount:5.5*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.6,
+        amount:0.6*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:50,
+        amount:50*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:2,
+        amount:2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:8,
+        amount:8*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:170,
+        amount:170*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:35,
+        amount:35*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:75,
+        amount:75*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.7,
+        amount:0.7*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:15,
+        amount:15*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:40,
+        amount:40*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:280,
+        amount:280*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:120,
+        amount:120*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     }
 });
 let Renalcal = new tubeFeed(2000,34,704, 'Renalcal', 'https://www.nestlemedicalhub.com/products/renalcal',{
     fat:{
         name:'Fat',
-        amount:20.5,
+        amount:20.5*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:15,
+        amount:15*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:15,
+        amount:15*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:20,
+        amount:20*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:73,
+        amount:73*4,
         unit:'g'
     },
     retinol:{
@@ -6603,12 +6603,12 @@ let Renalcal = new tubeFeed(2000,34,704, 'Renalcal', 'https://www.nestlemedicalh
     },
     vitC:{
         name:'Vitamin C',
-        amount:15,
+        amount:15*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:15,
+        amount:15*4,
         unit:'mg'
     },
     iron:{
@@ -6633,47 +6633,47 @@ let Renalcal = new tubeFeed(2000,34,704, 'Renalcal', 'https://www.nestlemedicalh
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:1.8,
+        amount:1.8*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:150,
+        amount:150*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.5,
+        amount:1.5*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:75,
+        amount:75*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2.5,
+        amount:2.5*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     },
     iodine:{
@@ -6683,17 +6683,17 @@ let Renalcal = new tubeFeed(2000,34,704, 'Renalcal', 'https://www.nestlemedicalh
     },
     magnesium:{
         name:'Magnesium',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:12.5,
+        amount:12.5*4,
         unit:'mcg'
     },
     copper:{
@@ -6723,221 +6723,221 @@ let Renalcal = new tubeFeed(2000,34,704, 'Renalcal', 'https://www.nestlemedicalh
     },
     choline:{
         name:'Choline',
-        amount:100,
+        amount:100*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     }
 });
 let Replete = new tubeFeed(1000,64,840, 'Replete', 'https://www.nestlemedicalhub.com/products/replete',{
     fat:{
         name:'Fat',
-        amount:8.5,
+        amount:8.5*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:1.7,
+        amount:1.7*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:220,
+        amount:220*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:400,
+        amount:400*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:28,
+        amount:28*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:130,
+        amount:130*4,
         unit:'mcg'
     },
     betaCarotene:{
         name:'B-Carotene',
-        amount:260,
+        amount:260*4,
         unit:'mcg'
     },
     vitC:{
         name:'Vitamin C',
-        amount:50,
+        amount:50*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:2.5,
+        amount:2.5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:5,
+        amount:5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.5,
+        amount:0.5*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.7,
+        amount:0.7*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:85,
+        amount:85*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.2,
+        amount:1.2*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:10,
+        amount:10*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:70,
+        amount:70*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:4,
+        amount:4*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:17,
+        amount:17*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.4,
+        amount:0.4*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.9,
+        amount:0.9*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:25,
+        amount:25*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:225,
+        amount:225*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:100,
+        amount:100*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:25,
+        amount:25*4,
         unit:'mg'
     }
 });
 let VivonexRTF = new tubeFeed(1000,50,850, 'Vivonex RTF', 'https://www.nestlemedicalhub.com/products/vivonex-rtf',{
     fat:{
         name:'Fat',
-        amount:2.9,
+        amount:2.9*4,
         unit:'g'
     },
     mct:{
         name:'MCT',
-        amount:1.2,
+        amount:1.2*4,
         unit:'g'
     },
     sodium:{
         name:'Sodium',
-        amount:175,
+        amount:175*4,
         unit:'mg'
     },
     potassium:{
         name:'Potassium',
-        amount:300,
+        amount:300*4,
         unit:'mg'
     },
     carbohydrate:{
         name:'Carbohydrate',
-        amount:44,
+        amount:44*4,
         unit:'g'
     },
     retinol:{
         name:'Retinol',
-        amount:250,
+        amount:250*4,
         unit:'mcg'
     },
     betaCarotene:{
@@ -6947,137 +6947,137 @@ let VivonexRTF = new tubeFeed(1000,50,850, 'Vivonex RTF', 'https://www.nestlemed
     },
     vitC:{
         name:'Vitamin C',
-        amount:17,
+        amount:17*4,
         unit:'mg'
     },
     calcium:{
         name:'Calcium',
-        amount:167,
+        amount:167*4,
         unit:'mg'
     },
     iron:{
         name:'Iron',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     vitD:{
         name:'Vitamin D',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mcg'
     },
     vitE:{
         name:'Vitamin E',
-        amount:3.5,
+        amount:3.5*4,
         unit:'mg'
     },
     vitK:{
         name:'Vitamin K',
-        amount:13.3,
+        amount:13.3*4,
         unit:'mcg'
     },
     thiamin:{
         name:'Thiamin',
-        amount:0.42,
+        amount:0.42*4,
         unit:'mg'
     },
     riboflavin:{
         name:'Riboflavin',
-        amount:0.47,
+        amount:0.47*4,
         unit:'mg'
     },
     niacin:{
         name:'Niacin',
-        amount:5.5,
+        amount:5.5*4,
         unit:'mg'
     },
     vitB6:{
         name:'Vitamin B6',
-        amount:0.55,
+        amount:0.55*4,
         unit:'mg'
     },
     folicAcid:{
         name:'Folic Acid',
-        amount:110,
+        amount:110*4,
         unit:'mcg'
     },
     vitB12:{
         name:'Vitamin B12',
-        amount:1.7,
+        amount:1.7*4,
         unit:'mcg'
     },
     biotin:{
         name:'Biotin',
-        amount:83,
+        amount:83*4,
         unit:'mcg'
     },
     pantothenicAcid:{
         name:'Pantothenic Acid',
-        amount:2.8,
+        amount:2.8*4,
         unit:'mg'
     },
     phosphorus:{
         name:'Phosphorus',
-        amount:167,
+        amount:167*4,
         unit:'mg'
     },
     iodine:{
         name:'Iodine',
-        amount:26.5,
+        amount:26.5*4,
         unit:'mcg'
     },
     magnesium:{
         name:'Magnesium',
-        amount:67,
+        amount:67*4,
         unit:'mg'
     },
     zinc:{
         name:'Zinc',
-        amount:3,
+        amount:3*4,
         unit:'mg'
     },
     selenium:{
         name:'Selenium',
-        amount:11.5,
+        amount:11.5*4,
         unit:'mcg'
     },
     copper:{
         name:'Copper',
-        amount:0.33,
+        amount:0.33*4,
         unit:'mg'
     },
     manganese:{
         name:'Manganese',
-        amount:0.33,
+        amount:0.33*4,
         unit:'mg'
     },
     chromium:{
         name:'Chromium',
-        amount:20,
+        amount:20*4,
         unit:'mcg'
     },
     molybdenum:{
         name:'Molybdenum',
-        amount:12.5,
+        amount:12.5*4,
         unit:'mcg'
     },
     chloride:{
         name:'Chloride',
-        amount:200,
+        amount:200*4,
         unit:'mg'
     },
     choline:{
         name:'Choline',
-        amount:55,
+        amount:55*4,
         unit:'mg'
     },
     lCarnitine:{
         name:'L-Carnitine',
-        amount:16.7,
+        amount:16.7*4,
         unit:'mg'
     },
     taurine:{
         name:'Taurine',
-        amount:16.7,
+        amount:16.7*4,
         unit:'mg'
     }
 });
