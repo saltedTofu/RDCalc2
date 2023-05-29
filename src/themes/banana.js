@@ -27,12 +27,12 @@ typography:{
       paper:'#fcba03' //yellow
     },
     text: {
-      primary:'#212121', //white
-      secondary: '#fafafa'
+      primary:'#212121', //black
+      secondary: '#212121'
     },
     primary: { //color of buttons, checkbox
-      main: '#212121', //light pink
-      contrastText: '#121212', //white
+      main: '#292828', //black
+      contrastText: '#e8e8e8', //white
     },
     secondary: { 
       main: '#212121', //purple
