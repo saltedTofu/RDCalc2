@@ -12,6 +12,7 @@ import darkTheme from './themes/dark';
 import lofiTheme from './themes/lofi.js';
 import christmasTheme from './themes/christmas.js';
 import millenialPinkTheme from './themes/millenialPink.js';
+import bananaTheme from './themes/banana.js';
 import {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {AuthProvider} from './contexts/AuthContext';
@@ -33,6 +34,9 @@ function App() {
     else if(currentTheme==='pink'){
       setThemeObject(millenialPinkTheme);
     }
+    else if(currentTheme==='banana'){
+      setThemeObject(bananaTheme);
+    }
   },[currentTheme])
 
   const handleThemeChange = (event) => {
@@ -41,6 +45,9 @@ function App() {
     }
     else if(event.target.value==='lofi'){
       setThemeObject(lofiTheme);
+    }
+    else if(event.target.value==='banana'){
+      setThemeObject(bananaTheme);
     }
     else if(event.target.value==='christmas'){
       setThemeObject(christmasTheme);

@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import CalculatorComponent from './CalculatorComponent/CalculatorComponent';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
-import { SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl} from '@mui/material';
+import {SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl} from '@mui/material';
 import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from '../../../redux/calcs';
 import './CalculatorComponent/CalculatorComponent.js';
 import './CalculatorContainer.css';

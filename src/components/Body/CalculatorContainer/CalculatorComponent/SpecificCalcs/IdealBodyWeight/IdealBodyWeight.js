@@ -1,4 +1,4 @@
-import { Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel, TextField, Select, MenuItem } from '@mui/material';
+import {Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel, TextField, Select, MenuItem } from '@mui/material';
 import {useState, useEffect} from 'react';
 import '../../Calculator.css';
 

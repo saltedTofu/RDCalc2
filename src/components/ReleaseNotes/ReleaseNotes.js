@@ -30,12 +30,12 @@ function TabPanel(props) {
     value: PropTypes.number.isRequired,
   };
   
-  function a11yProps(index) {
+function a11yProps(index) {
     return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
     };
-  }
+}
 
 function ReleaseNotes({currentTheme,handleThemeChange}){
 
@@ -48,6 +48,9 @@ function ReleaseNotes({currentTheme,handleThemeChange}){
         }
         if(currentTheme==='lofi'){
             setBackgroundColor('#300E3F')
+        }
+        if(currentTheme==='banana'){
+            setBackgroundColor('#fcba03')
         }
     },[currentTheme])
 

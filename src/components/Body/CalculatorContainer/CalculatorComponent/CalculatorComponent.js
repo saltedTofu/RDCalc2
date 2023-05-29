@@ -52,7 +52,7 @@ function Calculator({Calc}){
     }
     return(
         <div>
-            
+
         </div>
     )
 }

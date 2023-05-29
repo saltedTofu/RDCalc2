@@ -1,5 +1,5 @@
 import './Header.css';
-import {Button, Paper, Box, TextField, Select, MenuItem, Typography, Alert, Link} from '@mui/material';
+import {Button, Paper, Box, TextField, Select, MenuItem, Typography, Alert} from '@mui/material';
 import {useState, useLayoutEffect, useRef, useEffect} from 'react';
 import Logo from '../../utils/logo.png';
 import {Link as RouterLink} from 'react-router-dom';
@@ -44,6 +44,9 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}){
         }
         else if(currentTheme==='lofi'){
             setIconBackground('#9E6196') //light pink
+        }
+        else if(currentTheme==='banana'){
+            setIconBackground('#fcba03') //yellow
         }
     },[currentTheme])
 
@@ -96,6 +99,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}){
                 >
                     <MenuItem value='dark'>Dark</MenuItem>
                     <MenuItem value='lofi'>Lofi</MenuItem>
+                    <MenuItem value='banana'>Banana</MenuItem>
                 </Select>
             </div>
 

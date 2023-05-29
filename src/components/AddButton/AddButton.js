@@ -17,6 +17,9 @@ function AddButton({addNewCalc, currentTheme}){
         else if(currentTheme==='lofi'){
             setBorderColor('#9E6196') //light pink
         }
+        else if(currentTheme==='banana'){
+            setBorderColor('#212121') //light pink
+        }
     },[currentTheme])
 
     const handleClick = () => {
