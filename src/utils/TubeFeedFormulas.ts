@@ -1,12 +1,78 @@
-class tubeFeed{
-    constructor(kcal,protein,water,name,reference,micros){
+export interface TubeFeedObject {
+    kcal:number;
+    protein:number;
+    water:number;
+    name:string;
+    reference:string;
+    micros:Micros;
+}
+
+type Micro = {
+    name:string;
+    amount:number | null;
+    unit:string;
+}
+
+export interface Micros {
+    fat?:Micro,
+    carbohydrate?:Micro,
+    fiber?:Micro,
+    lCarnitine?:Micro,
+    taurine?:Micro,
+    inositol?:Micro,
+    vitA?:Micro,
+    vitD?:Micro,
+    vitE?:Micro,
+    vitK?:Micro,
+    vitC?:Micro,
+    folate?:Micro,
+    thiamin?:Micro,
+    riboflavin?:Micro,
+    vitB6?:Micro,
+    vitB12?:Micro,
+    niacin?:Micro,
+    choline?:Micro,
+    biotin?:Micro,
+    pantothenicAcid?:Micro,
+    sodium?:Micro,
+    potassium?:Micro,
+    chloride?:Micro,
+    calcium?:Micro,
+    phosphorus?:Micro,
+    magnesium?:Micro,
+    iodine?:Micro,
+    manganese?:Micro,
+    copper?:Micro,
+    zinc?:Micro,
+    iron?:Micro,
+    selenium?:Micro,
+    chromium?:Micro,
+    molybdenum?:Micro,
+    mct?:Micro,
+    retinol?:Micro,
+    betaCarotene?:Micro,
+    folicAcid?:Micro,
+    palmitate?:Micro,
+}
+
+class tubeFeed implements TubeFeedObject{
+    constructor(kcal:number,protein:number,water:number,name:string,reference:string,micros:Micros){
       this._kcal=kcal;
       this._protein=protein;
       this._water=water;
       this._name=name;
-      this._reference=reference
+      this._reference=reference;
       this._micros=micros;
     }
+    _kcal = 0;
+    _protein = 0;
+    _water = 0;
+    _name = '';
+    _reference = '';
+    _micros = {
+        
+    };
+
     get kcal(){
         return this._kcal;
     }
@@ -27,6 +93,7 @@ class tubeFeed{
     }
     
 }
+
 //Abbot
 let Glucerna10 = new tubeFeed(1000,41.8,853, 'Glucerna 1.0', 'https://abbottnutrition.com/glucerna-1_0-cal',{
     fat:{
@@ -8105,7 +8172,58 @@ let KateFarmsRenalSupport18 = new tubeFeed(1800,80,670, 'Kate Farms Renal Suppor
     }
 });
 
-const Formulas = {
+export type FormulasType = 'Compleat' | 'DiabetisourceAC' | 'FibersourceHN' | 'Glucerna10' | 'Glucerna12' | 'Glucerna15' | 'Glytrol' | 'Impact' | 'ImpactAdvancedRecovery' | 'ImpactPeptide15' | 'Isosource15' | 'IsosourceHN' | 'Jevity10' | 'Jevity12' | 'Jevity15' | 'KateFarmsGlucoseSupport12' | 'KateFarmsRenalSupport18' | 'KateFarmsStandard10' | 'KateFarmsStandard14' | 'KateFarmsPeptide10' | 'KateFarmsPeptide15' | 'Nepro' | 'NovasourceRenal' | 'Nutren10' | 'Nutren10WithFiber' | 'Nutren15' | 'Nutren20' | 'Osmolite10' | 'Osmolite12' | 'Osmolite15' | 'Peptamen' | 'PeptamenAF12' | 'Peptamen15' | 'PeptamenIntenseVHP' | 'Pivot15' | 'Promote' | 'PromoteWithFiber' | 'Pulmocare' | 'Renalcal' | 'Replete' | 'Suplena' | 'TwoCalHN' | 'Vital10' | 'VitalAF12' | 'Vital15' | 'VitalHighProtein' | 'VivonexRTF'
+
+export interface FormulasContainerType {
+    Compleat: TubeFeedObject;
+    DiabetisourceAC: TubeFeedObject;
+    FibersourceHN: TubeFeedObject;
+    Glucerna10: TubeFeedObject;
+    Glucerna12: TubeFeedObject;
+    Glucerna15: TubeFeedObject;
+    Glytrol: TubeFeedObject;
+    Impact: TubeFeedObject;
+    ImpactAdvancedRecovery: TubeFeedObject;
+    ImpactPeptide15: TubeFeedObject;
+    Isosource15: TubeFeedObject;
+    IsosourceHN: TubeFeedObject;
+    Jevity10: TubeFeedObject;
+    Jevity12: TubeFeedObject;
+    Jevity15: TubeFeedObject;
+    KateFarmsGlucoseSupport12: TubeFeedObject;
+    KateFarmsRenalSupport18: TubeFeedObject;
+    KateFarmsStandard10: TubeFeedObject;
+    KateFarmsStandard14: TubeFeedObject;
+    KateFarmsPeptide10: TubeFeedObject;
+    KateFarmsPeptide15: TubeFeedObject;
+    Nepro: TubeFeedObject;
+    NovasourceRenal: TubeFeedObject;
+    Nutren10: TubeFeedObject;
+    Nutren10WithFiber: TubeFeedObject;
+    Nutren15: TubeFeedObject;
+    Nutren20: TubeFeedObject;
+    Osmolite10: TubeFeedObject;
+    Osmolite12: TubeFeedObject;
+    Osmolite15: TubeFeedObject;
+    Peptamen: TubeFeedObject;
+    PeptamenAF12: TubeFeedObject;
+    Peptamen15: TubeFeedObject;
+    PeptamenIntenseVHP: TubeFeedObject;
+    Pivot15: TubeFeedObject;
+    Promote: TubeFeedObject;
+    PromoteWithFiber: TubeFeedObject;
+    Pulmocare: TubeFeedObject;
+    Renalcal: TubeFeedObject;
+    Replete: TubeFeedObject;
+    Suplena: TubeFeedObject;
+    TwoCalHN: TubeFeedObject;
+    Vital10: TubeFeedObject;
+    VitalAF12: TubeFeedObject;
+    Vital15: TubeFeedObject;
+    VitalHighProtein: TubeFeedObject;
+    VivonexRTF: TubeFeedObject;
+}
+export const Formulas = {
     Compleat,
     DiabetisourceAC,
     FibersourceHN,
@@ -8154,5 +8272,3 @@ const Formulas = {
     VitalHighProtein,
     VivonexRTF
 }
-
-export default Formulas;

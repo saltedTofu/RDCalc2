@@ -1,12 +1,12 @@
 import '../App.css';
-import { adjustCalcCounter, addCalc} from '../../src/redux/calcs';
+import { adjustCalcCounter, addCalc} from '../redux/calcs';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link as RouterLink} from 'react-router-dom';
 import {Link} from '@mui/material';
-import {useEffect} from 'react'
-import Header from './Header/Header.js';
-import Body from './Body/Body.js';
-import AddButton from './AddButton/AddButton.js';
+import {SetStateAction, useEffect} from 'react'
+import Header from './Header/Header';
+import Body from './Body/Body';
+import AddButton from './AddButton/AddButton';
 import CalculatorContainer from './Body/CalculatorContainer/CalculatorContainer';
 import Footer from './Footer/Footer';
 import {Paper, Alert} from '@mui/material';
@@ -18,11 +18,20 @@ import MobileCalculatorContainer from './MobileCalculatorContainer/MobileCalcula
 import './Home.css'
 import {useAuth} from '../contexts/AuthContext'
 
-function Home({currentTheme, handleThemeChange, setCurrentTheme}){
+interface Props {
+    currentTheme:string;
+    setCurrentTheme:React.Dispatch<SetStateAction<string>>;
+    handleThemeChange:(event: {
+        target: {
+            value: SetStateAction<string>;
+        };
+    }) => void
+}
+function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 
     const {changeTheme} = useAuth();
-    const calcCounter = useSelector(state => state.calcsArray.calcCounter);
-    const globalUser = useSelector(state => state.calcsArray.globalUser);
+    const calcCounter = useSelector((state:any) => state.calcsArray.calcCounter);
+    const globalUser = useSelector((state:any) => state.calcsArray.globalUser);
     const dispatch = useDispatch();
 
     const addNewCalc = () => {

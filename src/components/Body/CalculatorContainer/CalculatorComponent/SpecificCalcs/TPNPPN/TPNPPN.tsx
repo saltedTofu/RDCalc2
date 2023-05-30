@@ -6,14 +6,15 @@ function TPNPPN(){
     const [dextrose,setDextrose] = useState(0);
     const [aminoAcid,setAminoAcid] = useState(0);
     const [rate,setRate] = useState(0);
-    const [hrsDay,setHrsDay] = useState('');
+    const [hrsDay,setHrsDay] = useState(0);
     const [kcal,setKcal] = useState(0);
     const [protein,setProtein] = useState(0);
     const [volume,setVolume] = useState(0);
     const [carbohydrates,setCarbohydrates] = useState(0);
-    const [currentBodyWeight,setCurrentBodyWeight] = useState('');
+    const [currentBodyWeight,setCurrentBodyWeight] = useState(0);
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [GIR,setGIR] = useState(0);
+    const [GIRError, setGIRError] = useState('');
 
     //Calculate TPN/PPN
     useEffect(()=>{
@@ -29,10 +30,11 @@ function TPNPPN(){
 
     //Calculate GIR
     useEffect(()=>{
-        if(!currentBodyWeight || currentBodyWeight==='0'){
-            setGIR('Please Enter Current Body Weight');
+        if(!currentBodyWeight || currentBodyWeight===0){
+            setGIRError('Please Enter Current Body Weight');
             return;
         }
+        setGIRError('');
         let weightInKg;
         if(weightUnit==='Lbs'){
             weightInKg=currentBodyWeight/2.205;
@@ -45,7 +47,7 @@ function TPNPPN(){
     },[weightUnit,currentBodyWeight,carbohydrates, dextrose, rate])
 
     //Event Handlers
-    const handleDextrose = (event) => {
+    const handleDextrose = (event:any) => {
         if(event.target.value<0){
             setDextrose(0);
         }
@@ -54,7 +56,7 @@ function TPNPPN(){
         }
         else setDextrose(event.target.value);
     }
-    const handleAminoAcid = (event) => {
+    const handleAminoAcid = (event:any) => {
         if(event.target.value<0){
             setAminoAcid(0);
         }
@@ -63,7 +65,7 @@ function TPNPPN(){
         }
         else setAminoAcid(event.target.value);
     }
-    const handleHrsDay = (event) => {
+    const handleHrsDay = (event:any) => {
         if(event.target.value<0){
             setHrsDay(0);
         }
@@ -72,10 +74,10 @@ function TPNPPN(){
         }
         else setHrsDay(event.target.value);
     }
-    const handleRate = (event) => {
+    const handleRate = (event:any) => {
         setRate(event.target.value);
     }
-    const handleWeight = (event) => {
+    const handleWeight = (event:any) => {
         if(event.target.value<0){
             setCurrentBodyWeight(0);
         }
@@ -84,7 +86,7 @@ function TPNPPN(){
         }
         else setCurrentBodyWeight(event.target.value);
     }
-    const handleWeightUnit = (event) => {
+    const handleWeightUnit = (event:any) => {
         setWeightUnit(event.target.value)
     }
 
@@ -133,7 +135,7 @@ function TPNPPN(){
             <Typography variant="h5" sx={{marginBottom:'15px'}}>Glucose Infusion Rate</Typography>
 
             <div className="weightContainer">
-                <Typography variant="p">Current Weight</Typography>
+                <Typography>Current Weight</Typography>
                 <TextField
                     label={weightUnit}
                     value={currentBodyWeight}
@@ -142,7 +144,6 @@ function TPNPPN(){
                     sx={{width:'150px'}}
                 ></TextField>
                 <Select
-                    labelid="weightUnitInputLabel"
                     id="weightUnitInput"
                     value={weightUnit}
                     onChange={handleWeightUnit}
@@ -152,7 +153,7 @@ function TPNPPN(){
                 </Select>
             </div>
             <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px', margin:'10px'}}>
-                <Typography variant="h6">{GIR} mg/kg/min</Typography>
+                {GIRError ? <Typography variant="h6">{GIRError}</Typography> : <Typography variant="h6">{GIR} mg/kg/min</Typography>}
             </Paper>
             
         </div>

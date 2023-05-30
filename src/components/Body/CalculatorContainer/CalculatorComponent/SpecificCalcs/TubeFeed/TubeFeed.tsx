@@ -1,40 +1,39 @@
 import { Alert, Snackbar, Checkbox, Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import {useState, useEffect, useLayoutEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import Formulas from '../../../../../../utils/TubeFeedFormulas';
-import Modulars from '../../../../../../utils/Modulars';
+import {useState, useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {Formulas, FormulasType} from '../../../../../../utils/TubeFeedFormulas';
+import {Modulars, ModularsType} from '../../../../../../utils/Modulars';
 import {useAuth} from '../../../../../../contexts/AuthContext';
 import '../../Calculator.css';
 import TubeFeedSelect from './TubeFeedSelect/TubeFeedSelect';
 import TubeFeedMicros from './TubeFeedMicros/TubeFeedMicros';
 
 function TubeFeed(){
-    const [chosenFormula,setChosenFormula] = useState('Compleat');
-    const [tubeFeedFavorites,setTubeFeedFavorites] = useState([]);
+    const [chosenFormula,setChosenFormula] = useState<FormulasType>('Compleat');
+    const [tubeFeedFavorites,setTubeFeedFavorites] = useState<string[]>([]);
     const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
     const [feedingType,setFeedingType] = useState('continuous');
     const [continuousRate,setContinuousRate] = useState(50);
-    const [bolusPerDay,setBolusPerDay] = useState('');
+    const [bolusPerDay,setBolusPerDay] = useState(0);
     const [bolusVolume, setBolusVolume] = useState(250);
     const [kcalProvided, setKcalProvided] = useState(0);
     const [proteinProvided, setProteinProvided] = useState(0);
     const [freeWater, setFreeWater] = useState(0);
-    const [hrsDay,setHrsDay] = useState('');
+    const [hrsDay,setHrsDay] = useState(0);
     const [bolusKcalProvided, setBolusKcalProvided] = useState(0);
     const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
     const [bolusFreeWater, setBolusFreeWater] = useState(0);
-    const [modular,setModular] = useState('none')
-    const [modularPerDay,setModularPerDay] = useState('');
-    const [flushAmount,setFlushAmount] = useState('');
-    const [flushPerDay,setFlushPerDay] = useState('');
+    const [modular,setModular] = useState<ModularsType>('none')
+    const [modularPerDay,setModularPerDay] = useState(0);
+    const [flushAmount,setFlushAmount] = useState(0);
+    const [flushPerDay,setFlushPerDay] = useState(0);
     const [error,setError] = useState('');
     const [totalVolume,setTotalVolume] = useState(0)
 
     //global state from redux
-    const globalUser = useSelector(state => state.calcsArray.globalUser);
-    const dispatch = useDispatch();
+    const globalUser = useSelector((state:any) => state.calcsArray.globalUser);
 
     //query Firebase DB for tube feeding favorites
     const {addTubeFeedFavorite,getTubeFeedFavorites} = useAuth();
@@ -43,16 +42,16 @@ function TubeFeed(){
         setError('');
     }
 
-    const handleFormulaChange = (event) => {
+    const handleFormulaChange = (event:any) => {
         setChosenFormula(event.target.value);
     }
-    const handleContinuousRate = (event) => {
+    const handleContinuousRate = (event:any) => {
         if(event.target.value>100){
             setContinuousRate(100);
         }
         else setContinuousRate(event.target.value);
     }
-    const handleHrsDay = (event) => {
+    const handleHrsDay = (event:any) => {
         if(event.target.value<1){
             setHrsDay(0);
         }
@@ -61,13 +60,13 @@ function TubeFeed(){
         } 
         else setHrsDay(event.target.value)
     }
-    const handleBolusVolume = (event) => {
+    const handleBolusVolume = (event:any) => {
         if(event.target.value>1000){
             setBolusVolume(1000)
         }
         else setBolusVolume(event.target.value);
     }
-    const handleBolusPerDay = (event) => {
+    const handleBolusPerDay = (event:any) => {
         if(event.target.value<1){
             setBolusPerDay(0);
         }
@@ -76,13 +75,13 @@ function TubeFeed(){
         }
         else setBolusPerDay(event.target.value);
     }
-    const handleFeedingType = (event) => {
+    const handleFeedingType = (event:any) => {
         setFeedingType(event.target.value);
     }
-    const handleModular = (event) => {
+    const handleModular = (event:any) => {
         setModular(event.target.value);
     }
-    const handleModularPerDay = (event) => {
+    const handleModularPerDay = (event:any) => {
         if(event.target.value<0){
             setModularPerDay(0);
         }
@@ -91,7 +90,7 @@ function TubeFeed(){
         }
         else setModularPerDay(event.target.value);
     }
-    const handleFlushAmount = (event) => {
+    const handleFlushAmount = (event:any) => {
         if(event.target.value<0){
             setFlushAmount(0);
         }
@@ -100,7 +99,7 @@ function TubeFeed(){
         }
         else setFlushAmount(event.target.value);
     }
-    const handleFlushPerDay = (event) => {
+    const handleFlushPerDay = (event:any) => {
         if(event.target.value<0){
             setFlushPerDay(0);
         }
@@ -110,7 +109,7 @@ function TubeFeed(){
         else setFlushPerDay(event.target.value);
     }
 
-    const handleTubeFeedFavorite = async (formula) => {
+    const handleTubeFeedFavorite = async (formula:string) => {
         if(globalUser){
             const favoritesArray = await addTubeFeedFavorite(globalUser,formula);
             setTubeFeedFavorites(favoritesArray);
@@ -225,11 +224,10 @@ function TubeFeed(){
                 <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center', marginBottom:'10px'}}>
                     <div style={{display:'flex', flexDirection:'row', justifyContent:'space-around', alignItems:'center', marginBottom:'5px'}}>
                         <Checkbox
-                            label="Favorites Only"
                             checked={showOnlyFavorites}
                             onChange={handleShowFavorites}
                         />
-                        <Typography variant="p">Show Favorites Only</Typography>
+                        <Typography>Show Favorites Only</Typography>
                     </div>
                     <div style={{display:'flex',flexDirection:'row', justifyContent:'center',alignItems:'center'}}>
                         <TubeFeedSelect 
@@ -288,7 +286,6 @@ function TubeFeed(){
                     <TextField 
                         type="number" 
                         label="hrs/day"
-                        labelid="continuous-hrs-label"
                         value={hrsDay}
                         onChange={handleHrsDay}
                         sx={{width:'100px'}}
@@ -297,7 +294,6 @@ function TubeFeed(){
                 <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center',marginBottom:'20px', marginTop:'8px'}}>
                     <InputLabel id="modular-label">Modular</InputLabel>
                     <Select
-                        labelid='modular-label'
                         label="Modular"
                         value={modular}
                         onChange={handleModular}
@@ -305,7 +301,7 @@ function TubeFeed(){
                         MenuProps={{sx:{height:'600px'}}}
                     >
                         <MenuItem value={'none'} key={'none'}>None</MenuItem>
-                        {Object.entries(Modulars).map(([key]) => <MenuItem key={key} value={key}>{Modulars[key].name}</MenuItem>)}
+                        {Object.entries(Modulars).map(([key]) => <MenuItem key={key} value={key}>{(Modulars as any)[key].name}</MenuItem>)}
                     </Select>
                     <TextField
                         sx={{width:'100px',marginRight:'10px'}}
@@ -339,9 +335,6 @@ function TubeFeed(){
                 <TubeFeedMicros 
                         chosenFormula={chosenFormula}
                         totalVolume={totalVolume}
-                        modular={modular}
-                        modularPerDay={modularPerDay}
-                        Formulas={Formulas}
                 />
                 <div style={{display:'flex',flexDirection:'row', justifyContent:'space-around', width:'100%', paddingBottom:'10px'}}>
                     <Link target="_blank" 
@@ -398,7 +391,6 @@ function TubeFeed(){
                     <TextField 
                         type="number" 
                         label="bolus/day"
-                        labelid="continuous-hrs-label"
                         value={bolusPerDay}
                         onChange={handleBolusPerDay}
                         sx={{width:'100px'}}
@@ -407,7 +399,6 @@ function TubeFeed(){
                 <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center',marginBottom:'20px', marginTop:'8px'}}>
                     <InputLabel id="modular-label">Modular</InputLabel>
                     <Select
-                        labelid='modular-label'
                         label="Modular"
                         value={modular}
                         onChange={handleModular}
@@ -415,7 +406,7 @@ function TubeFeed(){
                         MenuProps={{sx:{height:'600px'}}}
                     >
                         <MenuItem value={'none'} key="none">None</MenuItem>
-                        {Object.entries(Modulars).map(([key]) => <MenuItem value={key} key={key}>{Modulars[key].name}</MenuItem>)}
+                        {Object.entries(Modulars).map(([key]) => <MenuItem value={key} key={key}>{(Modulars as any)[key].name}</MenuItem>)}
                     </Select>
                     <TextField
                         sx={{width:'100px',marginRight:'10px'}}
@@ -449,11 +440,7 @@ function TubeFeed(){
                 </Paper>
                 <TubeFeedMicros 
                         chosenFormula={chosenFormula}
-                        totalVolume={totalVolume}
-                        modular={modular}
-                        modularPerDay={modularPerDay}
-                        Formulas={Formulas}
-                        
+                        totalVolume={totalVolume}   
                 />
                 <div style={{display:'flex',flexDirection:'row', justifyContent:'space-around', width:'100%', paddingBottom:'10px'}}>
                     <Link target="_blank" 

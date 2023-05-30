@@ -1,20 +1,19 @@
 import {Popover,Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@mui/material';
-import {useState, useRef, useEffect} from 'react'
-import Formulas from '../../../../../../../utils/TubeFeedFormulas'
+import {useState, useRef} from 'react'
+import {Formulas, FormulasType, Micros} from '../../../../../../../utils/TubeFeedFormulas'
 
-function TubeFeedMicros({chosenFormula,totalVolume,modular,modularPerDay}){
+interface Props {
+    chosenFormula:FormulasType;
+    totalVolume:number;
+}
 
-    
-    useEffect(()=>{
-        setMicros(Formulas[chosenFormula].micros)
-    },[chosenFormula])
+function TubeFeedMicros({chosenFormula,totalVolume}:Props){
 
     const [open,setOpen] = useState(false)
-    const [micros,setMicros] = useState(Formulas[chosenFormula].micros)
 
     const buttonRef = useRef(null)
 
-    const handleOpenPopover = (event) => {
+    const handleOpenPopover = () => {
         setOpen(true)
     }
     const handleClosePopover = () => {
@@ -47,10 +46,10 @@ function TubeFeedMicros({chosenFormula,totalVolume,modular,modularPerDay}){
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {Object.keys(micros).map((nutrient) => (
-                                <TableRow key={micros[nutrient].name}>
-                                    <TableCell component="th" scope="row">{micros[nutrient].name}</TableCell>
-                                    <TableCell align="right">{Math.round(micros[nutrient].amount*(totalVolume/1000)*100)/100 + ' ' + micros[nutrient].unit}</TableCell>
+                            {Object.keys(Formulas[chosenFormula].micros).map((nutrient:string) => (
+                               <TableRow key={nutrient}>
+                                    <TableCell component="th" scope="row">{(Formulas as any)[chosenFormula].micros[nutrient].name}</TableCell>
+                                    <TableCell align="right">{Math.round((Formulas as any)[chosenFormula].micros[nutrient].amount*(totalVolume/1000)*100)/100 + ' ' + (Formulas as any)[chosenFormula].micros[nutrient].unit}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

@@ -1,16 +1,26 @@
 import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert} from '@mui/material';
-import {useRef, useState, useEffect} from 'react'
+import {useRef, useState, useEffect, SetStateAction} from 'react'
 import Header from '../Header/Header';
 import {useAuth} from '../../contexts/AuthContext';
 import './SignUp.css';
 import { useNavigate } from "react-router-dom";
 
+interface Props {
+    currentTheme:string;
+    setCurrentTheme:React.Dispatch<SetStateAction<string>>;
+    handleThemeChange:(event: {
+        target: {
+            value: SetStateAction<string>;
+        };
+    }) => void
+}
 
-function SignUp({currentTheme,handleThemeChange}){
 
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
+function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
+
+    const emailRef = useRef<HTMLInputElement>();
+    const passwordRef = useRef<HTMLInputElement>();
+    const passwordConfirmRef = useRef<HTMLInputElement>();
     const [backgroundColor,setBackgroundColor]=useState('#333333')
     const {signup, addUser} = useAuth();
     const [error,setError] = useState('');
@@ -34,8 +44,11 @@ function SignUp({currentTheme,handleThemeChange}){
         }
     },[success])
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event:React.FormEvent) => {
         event.preventDefault();
+        if(!passwordRef.current || !passwordConfirmRef.current || !emailRef.current){
+            return;
+        }
         if(passwordRef.current.value !== passwordConfirmRef.current.value){
             return setError('Passwords do not match');
         }
@@ -61,7 +74,7 @@ function SignUp({currentTheme,handleThemeChange}){
     return(
         <div>
             <Paper className="signUp" sx={{backgroundColor:backgroundColor}}>
-                <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange}/>
+                <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange} setCurrentTheme={setCurrentTheme}/>
                 <div className="signUpForm">
                     <form onSubmit={handleSubmit}>
                         <Typography variant="h2" sx={{marginTop:'20px', marginBottom:'20px', marginLeft:'5px'}}>Sign Up</Typography>

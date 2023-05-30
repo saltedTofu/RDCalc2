@@ -1,10 +1,21 @@
-class modular{
-    constructor(kcal,protein,name,reference){
+export interface ModularObject {
+    kcal:number;
+    protein:number;
+    name:string;
+    reference:string;
+}
+
+class modular implements ModularObject{
+    constructor(kcal:number,protein:number,name:string,reference:string){
       this._kcal=kcal;
       this._protein=protein;
       this._name=name;
       this._reference=reference
     }
+    _kcal = 0;
+    _protein = 0;
+    _name = '';
+    _reference = '';
     get kcal(){
         return this._kcal;
     }
@@ -30,7 +41,9 @@ let MCTOIL = new modular(115,0,'MCT Oil (Nestle 15ml)', 'https://www.nestlemedic
 let NutrisourceFiber = new modular(5,0,'Nutrisource Fiber (4g)','https://www.nestlemedicalhub.com/products/nutrisource-fiber');
 //Other
 
-const Modulars = {
+export type ModularsType = 'none' | 'Arginaid' | 'BeneCalorie' | 'Beneprotein' | 'Glutasolve' | 'Juven' | 'MCTOIL' | 'Microlipid' | 'NutrisourceFiber'
+
+export const Modulars = {
     Arginaid,
     BeneCalorie,
     Beneprotein,
@@ -40,5 +53,3 @@ const Modulars = {
     Microlipid,
     NutrisourceFiber
 }
-
-export default Modulars;

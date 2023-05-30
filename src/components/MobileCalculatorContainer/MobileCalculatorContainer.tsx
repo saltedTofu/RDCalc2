@@ -7,12 +7,12 @@ function MobileCalculatorContainer(){
 
     const [chosenCalc, setChosenCalc] = useState('');
 
-    const handleChange = (event) =>{
+    const handleChange = (event:any) =>{
         setChosenCalc(event.target.value);
     }
 
     return(
-            <div className="mobileCalculatorContainer" elevation={5}>
+            <div className="mobileCalculatorContainer">
                 <Paper className="selectCalc" sx={{marginBottom:'7px'}}>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>

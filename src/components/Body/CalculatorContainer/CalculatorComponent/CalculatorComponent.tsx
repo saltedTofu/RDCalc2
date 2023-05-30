@@ -8,7 +8,11 @@ import PennState from './SpecificCalcs/PennState/PennState';
 import Notes from './SpecificCalcs/Notes/Notes';
 import TubeFeed from './SpecificCalcs/TubeFeed/TubeFeed';
 
-function Calculator({Calc}){
+interface Props {
+    Calc:string;
+}
+
+function Calculator({Calc}:Props){
 
     if(Calc==='IBW'){
         return(

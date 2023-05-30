@@ -17,7 +17,7 @@ function Hamwi(){
     useEffect(()=>{
         let weightToUse=Number(weight);
         if(weightUnit==='Lbs'){//convert to Kg
-            weightToUse=weight/2.2;
+            weightToUse=weightToUse/2.2;
         }
         const lowerKcal = Math.round(lowerCal*weightToUse);
         const higherKcal = Math.round(higherCal*weightToUse);
@@ -28,7 +28,7 @@ function Hamwi(){
     useEffect(()=>{
         let weightToUse=Number(weight);
         if(weightUnit==='Lbs'){//convert to Kg
-            weightToUse=weight/2.2;
+            weightToUse=weightToUse/2.2;
         }
         const lowerPro = Math.round(lowerProtein*weightToUse);
         const higherPro = Math.round(higherProtein*weightToUse);
@@ -36,28 +36,29 @@ function Hamwi(){
     },[lowerProtein,higherProtein,weight,weightUnit])
 
     //Event Handlers for changing inputs and updating State
-    const handleWeight = (event) => {
-        if(event.target.value<0){
-            setWeight(0);
+    const handleWeight = (event:any) => {
+        console.log('type: ' + typeof(event.target.value))
+        if(Number(event.target.value)<0){
+            setWeight('0');
         }
-        if(event.target.value>9999){
-            setWeight(9999);
+        if(Number(event.target.value)>9999){
+            setWeight('9999');
         }
         else setWeight(event.target.value);
     }
-    const handleWeightUnit = (event) => {
+    const handleWeightUnit = (event:any) => {
         setWeightUnit(event.target.value);
     }
-    const handleLowerCal = (event) => {
+    const handleLowerCal = (event:any) => {
         setLowerCal(Number(event.target.value));
     }
-    const handleHigherCal = (event) => {
+    const handleHigherCal = (event:any) => {
         setHigherCal(Number(event.target.value));
     }
-    const handleLowerProtein = (event) => {
+    const handleLowerProtein = (event:any) => {
         setLowerProtein(Number(event.target.value));
     }
-    const handleHigherProtein = (event) => {
+    const handleHigherProtein = (event:any) => {
         setHigherProtein(Number(event.target.value));
     }
 

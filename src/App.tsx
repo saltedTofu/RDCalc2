@@ -13,7 +13,7 @@ import lofiTheme from './themes/lofi.js';
 import christmasTheme from './themes/christmas.js';
 import millenialPinkTheme from './themes/millenialPink.js';
 import bananaTheme from './themes/banana.js';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, SetStateAction} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {AuthProvider} from './contexts/AuthContext';
 
@@ -39,7 +39,7 @@ function App() {
     }
   },[currentTheme])
 
-  const handleThemeChange = (event) => {
+  const handleThemeChange = (event: { target: { value: SetStateAction<string>; }; }) => {
     if(event.target.value==='dark'){
       setThemeObject(darkTheme);
     }
@@ -63,21 +63,36 @@ function App() {
       <ThemeProvider theme={themeObject}>
         <Router>
           <Routes>
-            <Route path="/signup" element={<SignUp 
-                                            currentTheme={currentTheme} 
-                                            handleThemeChange={handleThemeChange} 
-                                        />} 
+            <Route 
+              path="/signup" 
+              element={
+                <SignUp 
+                  currentTheme={currentTheme} 
+                  handleThemeChange={handleThemeChange}
+                  setCurrentTheme={setCurrentTheme}
+
+                />
+              } 
             />
-            <Route path="/" element={<Home 
-                                      currentTheme={currentTheme} 
-                                      handleThemeChange={handleThemeChange}
-                                      setCurrentTheme={setCurrentTheme}
-                                  />} 
+            <Route 
+            path="/" 
+            element={
+              <Home 
+                currentTheme={currentTheme} 
+                handleThemeChange={handleThemeChange}
+                setCurrentTheme={setCurrentTheme}
+              />
+              } 
             />
-            <Route path="/release-notes" element={<ReleaseNotes 
-                                                    currentTheme={currentTheme} 
-                                                    handleThemeChange={handleThemeChange}
-                                                  />}
+            <Route 
+              path="/release-notes" 
+              element={
+                <ReleaseNotes 
+                  currentTheme={currentTheme} 
+                  handleThemeChange={handleThemeChange}
+                  setCurrentTheme={setCurrentTheme}
+                />
+            }                                                                                 
 
             />
           </Routes>

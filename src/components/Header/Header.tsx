@@ -1,6 +1,6 @@
 import './Header.css';
 import {Button, Paper, Box, TextField, Select, MenuItem, Typography, Alert} from '@mui/material';
-import {useState, useLayoutEffect, useRef, useEffect} from 'react';
+import {useState, useLayoutEffect, useRef, useEffect, SetStateAction} from 'react';
 import Logo from '../../utils/logo.png';
 import {Link as RouterLink} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
@@ -8,7 +8,18 @@ import { setGlobalUser } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
 import Coffee from '../../utils/buyMeCoffee.png';
 
-function Header({currentTheme, handleThemeChange, setCurrentTheme}){
+interface Props {
+    currentTheme:string;
+    setCurrentTheme:React.Dispatch<SetStateAction<string>>;
+    handleThemeChange:(event: {
+        target: {
+            value: SetStateAction<string>;
+        };
+    }) => void
+
+}
+
+function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 
     const {login, currentUser, logout, getTheme} = useAuth();
 
@@ -21,8 +32,8 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}){
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(false);
 
-    const emailRef = useRef();
-    const passwordRef = useRef();
+    const emailRef = useRef<HTMLInputElement>();
+    const passwordRef = useRef<HTMLInputElement>();
 
     useEffect(()=>{
         async function grabTheme(){
@@ -59,8 +70,11 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}){
         }
     },[currentUser])
 
-    const handleLogin = async(event) => {
+    const handleLogin = async(event:React.FormEvent) => {
         event.preventDefault();
+        if(!emailRef.current || !passwordRef.current){
+            return;
+        }
         try {
             setError('')
             setLoading(true)
@@ -109,7 +123,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}){
             
             <div className="loginFields">
                 <Box style={{display: user ? "flex" : "none", alignItems:'center',justifyContent:'center'}}>
-                    <Typography variant="p">Hello, {user}</Typography>
+                    <Typography>Hello, {user}</Typography>
                     <Button variant="contained" onClick={handleLogout} sx={{margin:'10px'}} disabled={loading}>Logout</Button>
                 </Box>
                 <form id="notLoggedIn" onSubmit={handleLogin} style={{display: user ? "none" : "flex", alignItems:'center',justifyContent:'center'}}>

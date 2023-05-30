@@ -1,67 +1,34 @@
 import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem } from '@mui/material';
 import {useState, useEffect} from 'react';
-//currently using 2003 penn state, need to add modified
 
-function PennState(){
+function Mifflin(){
     const [gender,setGender] = useState('');
-    const [weight,setWeight] = useState('');
+    const [weight,setWeight] = useState(0);
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [heightFeet,setHeightFeet] = useState('');
-    const [heightInches,setHeightInches] = useState('');
-    const [age,setAge] = useState('');
+    const [heightFeet,setHeightFeet] = useState(0);
+    const [heightInches,setHeightInches] = useState(0);
+    const [age,setAge] = useState(0);
+    const [output,setOutput] = useState('');
     const [activityFactor,setActivityFactor] = useState(1);
-    const [penn,setPenn] = useState('');
-    const [tMax,setTmax] = useState('');
-    const [tMaxUnit,setTMaxUnit] = useState('Celsius');
-    const [ve,setVe] = useState('');
 
     useEffect(()=>{
         let mifflinOutput='';
-        let pennOutput='';
         const heightInCm = ((heightFeet*12) + heightInches)*2.54;
         const weightInKg = weightUnit==='Lbs' ? weight/2.205 : weight;
-        console.log(weightInKg);
         if(!gender){
-            setPenn('Select Gender');
+            setOutput('Select Gender');
             return;
         }
         if(gender==='male'){
-            mifflinOutput = (10*weightInKg) + (6.25*heightInCm) - (5*age) + 5;
+            mifflinOutput = String(Math.floor(((10*weightInKg) + (6.25*heightInCm) - (5*age) + 5)*activityFactor));
         }
         else if(gender==='female'){
-            mifflinOutput = (10*weightInKg) + (6.25*heightInCm) - (5*age) + - 161;
+            mifflinOutput = String(Math.floor(((10*weightInKg) + (6.25*heightInCm) - (5*age) + - 161)*activityFactor));
         }
-        let convertedTMax = tMax;
-        if(tMaxUnit==='Fahrenheit'){
-            convertedTMax=(convertedTMax-32)*(5/9);
-        }
-        mifflinOutput *= activityFactor;
-        pennOutput = Math.round(mifflinOutput*0.96 + convertedTMax*167 + ve*31 - 6212);
-        setPenn(pennOutput + ' kcal');
-    },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor,tMax,tMaxUnit,ve])
+        setOutput(mifflinOutput + ' kcal');
+    },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor])
 
-    const handleTmaxUnit = (event) => {
-        setTMaxUnit(event.target.value);
-    }
-    const handleTmax = (event) => {
-        if(event.target.value<0){
-            setTmax(0);
-        }
-        else if(event.target.value>120){
-            setTmax(120);
-        }
-        else setTmax(event.target.value);
-    }
-    const handleVe = (event) =>{
-        if(event.target.value<0){
-            setVe(0);
-        }
-        else if(event.target.value>100){
-            setVe(100);
-        }
-        else setVe(event.target.value);
-    }
-    const handleActivityFactor = (event) => {
+    const handleActivityFactor = (event:any) => {
         if(event.target.value>2){
             setActivityFactor(2);
         }
@@ -70,19 +37,19 @@ function PennState(){
         }
         else setActivityFactor(event.target.value);
     }
-   const handleGender = (event) => {
+   const handleGender = (event:any) => {
        setGender(event.target.value);
    }
-   const handleFeet = (event) => {
+   const handleFeet = (event:any) => {
         if(event.target.value<0){
             setHeightFeet(0);
         }
         else if(event.target.value>8){
             setHeightFeet(8);
         }
-        else setHeightFeet(event.target.value);
+        else setHeightFeet(Number(event.target.value));
     }
-    const handleInches = (event) => {
+    const handleInches = (event:any) => {
         if(event.target.value<0){
             setHeightInches(0);
         }
@@ -91,34 +58,33 @@ function PennState(){
         }
         else setHeightInches(Number(event.target.value));
     }
-    const handleWeightUnit = (event) => {
+    const handleWeightUnit = (event:any) => {
         setWeightUnit(event.target.value);
     }
-    const handleWeight = (event) => {
+    const handleWeight = (event:any) => {
         if(event.target.value<0){
             setWeight(0);
         }
         else if(event.target.value>9999){
-            setWeight(9999);
+            setWeight(9999)
         }
-        else setWeight(event.target.value);
+        else setWeight(Number(event.target.value));
     }
-    const handleAge = (event) =>{
+    const handleAge = (event:any) =>{
         if(event.target.value<0){
             setAge(0);
         }
         else if(event.target.value>123){
             setAge(123);
         }
-        else setAge(event.target.value);
+        else setAge(Number(event.target.value));
     }
     return(
-        <div className="pennState">
+        <div className="mifflin">
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
                 id="gender-select"
-                labelid="gender-select"
                 value={gender}
                 onChange={handleGender}
                 sx={{flexDirection:'row'}}
@@ -127,7 +93,7 @@ function PennState(){
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
             </RadioGroup>
             <div id="heightContainer">
-                <Typography variant="p">Height</Typography>
+                <Typography>Height</Typography>
                 <TextField 
                     label="Feet"
                     type="number"
@@ -148,14 +114,14 @@ function PennState(){
                 </TextField>
             </div>
             <div className="weightContainer">
-                <Typography variant="p">Current Weight</Typography>
+                <Typography>Current Weight</Typography>
                 <TextField
-                    placeholder='0'
                     type="number"
                     size="small"
                     value={weight}
                     onChange={handleWeight}
                     sx={{width:'100px'}}
+                    placeholder='0'
                 >
                 </TextField>
                 <Select
@@ -163,7 +129,7 @@ function PennState(){
                     value={weightUnit}
                     onChange={handleWeightUnit}
                     size="small"
-                    data-testid="units-select"
+                    data-testid='units-select'
                 >
                     <MenuItem value={'Lbs'}>Lbs</MenuItem>
                     <MenuItem value={'Kg'}>Kg</MenuItem>
@@ -173,11 +139,11 @@ function PennState(){
                 <Typography>Age</Typography>
                 <TextField
                     type='number'
-                    label='Years'
                     size="small"
                     onChange={handleAge}
                     sx={{width:'100px'}}
                     value={age}
+                    label="Years"
                 >
                 </TextField>
             </div>
@@ -189,49 +155,14 @@ function PennState(){
                     onChange={handleActivityFactor}
                     sx={{width:'100px', marginLeft:'10px'}}
                     value={activityFactor}
-                    placeholder='1'
-                ></TextField>
-            </div>
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
-                <Typography>TMax</Typography>
-                <TextField
-                        type="number"
-                        size='small'
-                        onChange={handleTmax}
-                        sx={{width:'100px',marginLeft:'10px', marginRight:'5px'}}
-                        value={tMax}
-                        label={tMaxUnit==='Fahrenheit' ? '°F' : '°C'}
-                ></TextField>
-                <Select
-                        labelid="tMaxUnitInputLabel"
-                        id="tMaxUnitInput"
-                        value={tMaxUnit}
-                        onChange={handleTmaxUnit}
-                        size="small"
-                        sx={{marginLeft:'5px'}}
-                        data-testid='temperature-unit'
-                    >
-                        <MenuItem value={'Celsius'}>Celsius</MenuItem>
-                        <MenuItem value={'Fahrenheit'}>Fahrenheit</MenuItem>
-                </Select>
-            </div>
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
-                <Typography>Minute Ventilation</Typography>
-                <TextField
-                        type="number"
-                        size='small'
-                        onChange={handleVe}
-                        sx={{width:'120px',marginLeft:'10px', marginRight:'5px'}}
-                        value={ve}
-                        label='VE in L/min'
+                    placeholder="1"
                 ></TextField>
             </div>
             <Paper sx={{margin:'10px',padding:'10px'}}>
-                <Typography variant="h6">{penn}</Typography>
+                <Typography variant="h6">{output}</Typography>
             </Paper>
         </div>
     )
 }
 
-export default PennState;
-
+export default Mifflin;

@@ -1,18 +1,21 @@
 import {useState,useEffect} from 'react'; 
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import CalculatorComponent from './CalculatorComponent/CalculatorComponent';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
-import {SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl} from '@mui/material';
+import {SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl, SelectChangeEvent} from '@mui/material';
 import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from '../../../redux/calcs';
-import './CalculatorComponent/CalculatorComponent.js';
+import './CalculatorComponent/CalculatorComponent';
 import './CalculatorContainer.css';
 
-const CalculatorContainer = (({id, name=''}) => {
+interface Props {
+    id:number;
+    name?:string;
+}
+
+const CalculatorContainer = (({id, name=''}:Props) => {
     const dispatch = useDispatch();
     const [chosenCalc, setChosenCalc] = useState('');
-    const calcNamesArray = useSelector(state => state.calcsArray.calcNamesArray);
-    const calcCounter = useSelector(state => state.calcsArray.calcCounter);
 
     useEffect(()=>{ //sets the calcNamesArray if rendered through selecting a layout (name has been passed as a prop)
         if(name){
@@ -25,12 +28,12 @@ const CalculatorContainer = (({id, name=''}) => {
         setChosenCalc(name);
     },[name])
 
-    const onClose = (index) => {
+    const onClose = (index:number) => {
         dispatch(removeCalcName(chosenCalc))
         dispatch(removeCalc(index));
     }
 
-    const handleChange = (event) =>{
+    const handleChange = (event:SelectChangeEvent) =>{
         if(chosenCalc){
             dispatch(removeCalcName(chosenCalc));
         }

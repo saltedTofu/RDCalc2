@@ -12,25 +12,25 @@ function LbsKg(){
         let convertedWeight;
         if(unit==='Lbs'){
             setOutputUnit('Kg');
-            convertedWeight = Math.round(input/2.205*10)/10; //rounds to 1 decimal place
+            convertedWeight = Math.round(Number(input)/2.205*10)/10; //rounds to 1 decimal place
             setOutput(convertedWeight);
         }
         else{
             setOutputUnit('Lbs');
-            convertedWeight = Math.round(input*2.205*10)/10; //rounds to 1 decimal place
+            convertedWeight = Math.round(Number(input)*2.205*10)/10; //rounds to 1 decimal place
             setOutput(convertedWeight);
         }
     },[unit,input])
 
-    const handleUnit = (event) => {
+    const handleUnit = (event:any) => {
         setUnit(event.target.value);
     }
-    const handleInput = (event) => {
-        if(event.target.value<0){
-            setInput(0);
+    const handleInput = (event:any) => {
+        if(Number(event.target.value)<0){
+            setInput('0');
         }
-        else if(event.target.value>9999){
-            setInput(9999);
+        else if(Number(event.target.value)>9999){
+            setInput('9999');
         }
         else setInput(event.target.value);
     }

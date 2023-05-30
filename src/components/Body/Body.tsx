@@ -1,5 +1,4 @@
 import {useSelector} from 'react-redux';
-import {useState} from 'react';
 import './Body.css';
 import {Paper} from '@mui/material';
 import GridLayout from "react-grid-layout";
@@ -7,7 +6,7 @@ import GridLayout from "react-grid-layout";
 
 function Body(){
 
-    const calcsArray = useSelector(state => state.calcsArray.calcsArray);
+    const calcsArray = useSelector((state:any) => state.calcsArray.calcsArray);
 
     return (
         <Paper className="body" elevation={5}>

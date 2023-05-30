@@ -4,11 +4,15 @@ import { SvgIcon, IconButton, Typography, Paper, Alert, Snackbar } from '@mui/ma
 import {useState, useLayoutEffect} from 'react';
 import {useSelector} from 'react-redux';
 
+interface Props {
+    addNewCalc: () => void;
+    currentTheme: string;
+}
 
-function AddButton({addNewCalc, currentTheme}){
+function AddButton({addNewCalc, currentTheme}:Props){
     const [borderColor, setBorderColor] = useState('#0288d1');
     const [error,setError] = useState('');
-    const calcsArray = useSelector(state => state.calcsArray.calcsArray);
+    const calcsArray = useSelector((state:any) => state.calcsArray.calcsArray);
 
     useLayoutEffect(()=>{
         if(currentTheme==='dark'){
@@ -37,7 +41,7 @@ function AddButton({addNewCalc, currentTheme}){
 
     return(
         <Paper className="addButton" elevation={5} sx={{border:`1px solid ${borderColor}`}}>
-            <Typography variant="p">Add Calculator</Typography>
+            <Typography variant="body1">Add Calculator</Typography>
             <IconButton 
                 aria-label="Add Calculator"
                 onClick={handleClick}
