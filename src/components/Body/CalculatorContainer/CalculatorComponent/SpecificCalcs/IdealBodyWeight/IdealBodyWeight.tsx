@@ -234,17 +234,17 @@ function IdealBodyWeight(){
                 <div style={{marginRight:'5px'}}>
                     <Typography>Amputations?</Typography>
                     <FormGroup>
-                        <FormControlLabel control={<Checkbox onChange={handleLBKA} size='small'/>} label="L BKA (6%)" />
-                        <FormControlLabel control={<Checkbox onChange={handleRBKA} size='small'/>} label="R BKA (6%)" />
-                        <FormControlLabel control={<Checkbox onChange={handleLAKA} size='small'/>} label="L AKA (16%)" />
-                        <FormControlLabel control={<Checkbox onChange={handleRAKA} size='small'/>} label="R AKA (16%)" />
+                        <FormControlLabel control={<Checkbox disabled={LAKA ? true : false} onChange={handleLBKA} size='small'/>} label="L BKA (6%)" />
+                        <FormControlLabel control={<Checkbox disabled={RAKA ? true : false} onChange={handleRBKA} size='small'/>} label="R BKA (6%)" />
+                        <FormControlLabel control={<Checkbox disabled={LBKA ? true : false} onChange={handleLAKA} size='small'/>} label="L AKA (16%)" />
+                        <FormControlLabel control={<Checkbox disabled={RBKA ? true : false} onChange={handleRAKA} size='small'/>} label="R AKA (16%)" />
                     </FormGroup>
                 </div>
                 <div style={{marginLeft:'5px'}}>
                     <Typography>Paralyzations?</Typography>
                     <FormGroup>
-                        <FormControlLabel control={<Checkbox onChange={handleParaplegic}size='small'/>} label="Paraplegic (12.5%)" />
-                        <FormControlLabel control={<Checkbox onChange={handleQuadriplegic}size='small'/>} label="Quadriplegic (17.5%)" />
+                        <FormControlLabel control={<Checkbox disabled={quadriplegic ? true : false} onChange={handleParaplegic}size='small'/>} label="Paraplegic (12.5%)" />
+                        <FormControlLabel control={<Checkbox disabled={paraplegic ? true : false} onChange={handleQuadriplegic}size='small'/>} label="Quadriplegic (17.5%)" />
                     </FormGroup>
                 </div>
             </div>

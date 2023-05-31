@@ -241,11 +241,11 @@ function TubeFeed(){
                     </div>
                     <div style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', width:'100%'}}>
                         <IconButton onClick={function updateFavorites(){handleTubeFeedFavorite(Formulas[chosenFormula].name)}}>
-                            <FavoriteIcon color="primary" sx={tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}/>
-                            <FavoriteBorderIcon color="primary" sx={tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}/>
+                            <FavoriteIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}/>
+                            <FavoriteBorderIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}/>
                         </IconButton>
-                        <Typography sx={tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}>Add to Favorites</Typography>
-                        <Typography sx={tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}>Remove from Favorites</Typography>
+                        <Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}>Add to Favorites</Typography>
+                        <Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}>Remove from Favorites</Typography>
                     </div>
                 
                     

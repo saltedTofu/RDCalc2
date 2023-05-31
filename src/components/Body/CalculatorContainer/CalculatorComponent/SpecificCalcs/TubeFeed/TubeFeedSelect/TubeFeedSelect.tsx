@@ -28,7 +28,7 @@ function TubeFeedSelect({chosenFormula, handleFormulaChange, showOnlyFavorites, 
             >
                 {Object.entries(Formulas).map(([key]) => 
                     <MenuItem value={key} key={key} 
-                        sx={tubeFeedFavorites.includes((Formulas as any)[key].name)
+                        sx={ tubeFeedFavorites && tubeFeedFavorites.includes((Formulas as any)[key].name)
                             ? {display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center'}
                             : {display:'none'}
                         }>
@@ -36,7 +36,7 @@ function TubeFeedSelect({chosenFormula, handleFormulaChange, showOnlyFavorites, 
                         <FavoriteIcon 
                             color="primary"
                             sx={
-                                tubeFeedFavorites.includes((Formulas as any)[key].name)
+                                tubeFeedFavorites && tubeFeedFavorites.includes((Formulas as any)[key].name)
                                 ? {display:'inline-block', marginLeft:'10px'}
                                 : {display:'none'}
                             }/>
@@ -62,7 +62,7 @@ function TubeFeedSelect({chosenFormula, handleFormulaChange, showOnlyFavorites, 
                         <FavoriteIcon
                             color="primary"
                             sx={
-                                tubeFeedFavorites.includes((Formulas as any)[key].name)
+                                tubeFeedFavorites && tubeFeedFavorites.includes((Formulas as any)[key].name)
                                 ? {display:'inline-block', marginLeft:'10px'}
                                 : {display:'none'}
                             }/>
