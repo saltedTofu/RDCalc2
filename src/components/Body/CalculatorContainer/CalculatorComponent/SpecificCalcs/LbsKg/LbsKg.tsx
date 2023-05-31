@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react';
-import {Typography, TextField, Select, MenuItem, Paper} from '@mui/material';
+import {Typography, Paper} from '@mui/material';
 import '../../Calculator.css';
+import WeightInput from '../components/WeightInput';
 
 function LbsKg(){
-    const [input,setInput] = useState('');
+    const [input,setInput] = useState(0);
     const [unit,setUnit] = useState('Lbs');
     const [output,setOutput] = useState(0);
     const [outputUnit,setOutputUnit] = useState('Kg');
@@ -22,37 +23,14 @@ function LbsKg(){
         }
     },[unit,input])
 
-    const handleUnit = (event:any) => {
-        setUnit(event.target.value);
-    }
-    const handleInput = (event:any) => {
-        if(Number(event.target.value)<0){
-            setInput('0');
-        }
-        else if(Number(event.target.value)>9999){
-            setInput('9999');
-        }
-        else setInput(event.target.value);
-    }
-
     return(
         <div className='lbsKgConverter' data-testid="lbsKgConverter">
-            <div>
-                <TextField
-                    type="number"
-                    label="Weight"
-                    value={input}
-                    onChange={handleInput}
-                    sx={{width:'100px'}}
-                ></TextField>
-                <Select
-                    value={unit}
-                    onChange={handleUnit}
-                >
-                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                    <MenuItem value={'Kg'}>Kg</MenuItem>
-                </Select>
-            </div>
+            <WeightInput 
+                weight={input}
+                setWeight={setInput}
+                weightUnit={unit}
+                setWeightUnit={setUnit}
+            />
             <Paper sx={{padding:'10px', margin:'10px'}}>
                 <Typography variant="h6">{output} {outputUnit}</Typography>
             </Paper>

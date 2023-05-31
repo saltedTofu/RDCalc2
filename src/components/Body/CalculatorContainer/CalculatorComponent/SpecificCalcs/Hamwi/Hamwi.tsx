@@ -1,10 +1,11 @@
 import {useState, useEffect} from 'react';
-import { Slider, Typography, TextField, Paper, Select, MenuItem } from '@mui/material';
+import { Slider, Typography, TextField, Paper, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import '../../Calculator.css';
+import WeightInput from '../components/WeightInput';
 
 function Hamwi(){
 
-    const [weight,setWeight] = useState('');
+    const [weight,setWeight] = useState(0);
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [lowerCal,setLowerCal] = useState(25);
     const [higherCal,setHigherCal] = useState(30);
@@ -15,7 +16,7 @@ function Hamwi(){
 
     //Calorie Range Calculator
     useEffect(()=>{
-        let weightToUse=Number(weight);
+        let weightToUse=weight;
         if(weightUnit==='Lbs'){//convert to Kg
             weightToUse=weightToUse/2.2;
         }
@@ -26,7 +27,7 @@ function Hamwi(){
 
     //Protein Range Calculator
     useEffect(()=>{
-        let weightToUse=Number(weight);
+        let weightToUse=weight;
         if(weightUnit==='Lbs'){//convert to Kg
             weightToUse=weightToUse/2.2;
         }
@@ -36,17 +37,17 @@ function Hamwi(){
     },[lowerProtein,higherProtein,weight,weightUnit])
 
     //Event Handlers for changing inputs and updating State
-    const handleWeight = (event:any) => {
-        console.log('type: ' + typeof(event.target.value))
-        if(Number(event.target.value)<0){
-            setWeight('0');
+    const handleWeight = (event:React.ChangeEvent<HTMLInputElement>) => {
+        const parsedWeight = Number(event.target.value)
+        if(parsedWeight<0){
+            setWeight(0);
         }
-        if(Number(event.target.value)>9999){
-            setWeight('9999');
+        else if(parsedWeight>9999){
+            setWeight(9999);
         }
-        else setWeight(event.target.value);
+        else setWeight(parsedWeight);
     }
-    const handleWeightUnit = (event:any) => {
+    const handleWeightUnit = (event:SelectChangeEvent) => {
         setWeightUnit(event.target.value);
     }
     const handleLowerCal = (event:any) => {
@@ -64,25 +65,12 @@ function Hamwi(){
 
     return(
         <div className="hamwi">
-            <div style={{display:'flex', marginBottom:'10px'}}>
-                <TextField
-                    label='Weight'
-                    type="number"
-                    value={weight}
-                    onChange={handleWeight}
-                    sx={{width:'100px'}}
-                >
-                </TextField>
-                <Select
-                    id="weightUnitInput"
-                    value={weightUnit}
-                    label="Weight Unit"
-                    onChange={handleWeightUnit}
-                >
-                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                    <MenuItem value={'Kg'}>Kg</MenuItem>
-                </Select>
-            </div>
+            <WeightInput 
+                weight={weight}
+                setWeight={setWeight}
+                weightUnit={weightUnit}
+                setWeightUnit={setWeightUnit}
+            />
             <Typography>Kcal Range</Typography>
             <Slider 
                 aria-label="Lower Kcal Range"
