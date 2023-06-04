@@ -8,7 +8,7 @@ function IdealBodyWeight(){
     const [heightFeet,setHeightFeet] = useState(0);
     const [heightInches,setHeightInches] = useState(0);
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [weight,setWeight] = useState(0);
+    const [weight,setWeight] = useState("");
     const [IBW, setIBW] = useState('');
     const [percentIBW,setPercentIBW] = useState('');
     const [LBKA, setLBKA] = useState(false);

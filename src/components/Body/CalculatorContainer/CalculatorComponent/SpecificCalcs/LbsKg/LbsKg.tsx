@@ -4,7 +4,7 @@ import '../../Calculator.css';
 import WeightInput from '../components/WeightInput';
 
 function LbsKg(){
-    const [input,setInput] = useState(0);
+    const [input,setInput] = useState("");
     const [unit,setUnit] = useState('Lbs');
     const [output,setOutput] = useState(0);
     const [outputUnit,setOutputUnit] = useState('Kg');

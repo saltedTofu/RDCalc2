@@ -2,7 +2,6 @@ import {useState,useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import CalculatorComponent from './CalculatorComponent/CalculatorComponent';
 import CloseIcon from '@mui/icons-material/Close';
-import React from 'react';
 import {SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl, SelectChangeEvent} from '@mui/material';
 import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from '../../../redux/calcs';
 import './CalculatorComponent/CalculatorComponent';
@@ -52,8 +51,7 @@ const CalculatorContainer = (({id, name=''}:Props) => {
                         sx={{padding:"0"}} 
                         onClick={handleClose}
                     >
-                        <SvgIcon component={CloseIcon} fontSize="small">
-                        </SvgIcon>
+                        <SvgIcon component={CloseIcon} fontSize="small"></SvgIcon>
                     </IconButton>
                 </Paper>
                 <Paper className="selectCalc" sx={{marginBottom:'7px'}}>
@@ -74,6 +72,7 @@ const CalculatorContainer = (({id, name=''}:Props) => {
                             <MenuItem value={'Hamwi'}>Hamwi</MenuItem>
                             <MenuItem value={'PennState'}>Penn State</MenuItem>
                             <MenuItem value={'Mifflin'}>Mifflin</MenuItem>
+                            <MenuItem value={'InchesCm'}>Inches/Cm Converter</MenuItem>
                         </Select>
                     </FormControl>
                 </Paper>

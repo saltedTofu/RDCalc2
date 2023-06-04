@@ -7,6 +7,7 @@ import Mifflin from './SpecificCalcs/Mifflin/Mifflin';
 import PennState from './SpecificCalcs/PennState/PennState';
 import Notes from './SpecificCalcs/Notes/Notes';
 import TubeFeed from './SpecificCalcs/TubeFeed/TubeFeed';
+import InchesCm from './SpecificCalcs/InchesCm/InchesCm';
 
 interface Props {
     Calc:string;
@@ -54,9 +55,13 @@ function Calculator({Calc}:Props){
             <Mifflin />
         )
     }
+    else if(Calc==='InchesCm'){
+        return(
+            <InchesCm />
+        )
+    }
     return(
         <div>
-
         </div>
     )
 }

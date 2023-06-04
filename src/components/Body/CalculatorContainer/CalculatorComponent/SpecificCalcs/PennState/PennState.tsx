@@ -1,10 +1,11 @@
 import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem } from '@mui/material';
 import {useState, useEffect} from 'react';
+import WeightInput from '../components/WeightInput';
 //currently using 2003 penn state, need to add modified
 
 function PennState(){
     const [gender,setGender] = useState('');
-    const [weight,setWeight] = useState(0);
+    const [weight,setWeight] = useState("");
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [heightFeet,setHeightFeet] = useState(0);
     const [heightInches,setHeightInches] = useState(0);
@@ -19,17 +20,17 @@ function PennState(){
         let mifflinOutput=0;
         let pennOutput='';
         const heightInCm = ((heightFeet*12) + heightInches)*2.54;
-        const weightInKg = weightUnit==='Lbs' ? weight/2.205 : weight;
+        const weightInKg = weightUnit==='Lbs' ? Number(weight)/2.205 : weight;
         console.log(weightInKg);
         if(!gender){
             setPenn('Select Gender');
             return;
         }
         if(gender==='male'){
-            mifflinOutput =Math.floor(((10*weightInKg) + (6.25*heightInCm) - (5*age) + 5)*activityFactor);
+            mifflinOutput =Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*age) + 5)*activityFactor);
         }
         else if(gender==='female'){
-            mifflinOutput = Math.floor(((10*weightInKg) + (6.25*heightInCm) - (5*age) + - 161)*activityFactor);
+            mifflinOutput = Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*age) + - 161)*activityFactor);
         }
         let convertedTMax = tMax;
         if(tMaxUnit==='Fahrenheit'){
@@ -90,18 +91,6 @@ function PennState(){
         }
         else setHeightInches(Number(event.target.value));
     }
-    const handleWeightUnit = (event:any) => {
-        setWeightUnit(event.target.value);
-    }
-    const handleWeight = (event:any) => {
-        if(event.target.value<0){
-            setWeight(0);
-        }
-        else if(event.target.value>9999){
-            setWeight(9999);
-        }
-        else setWeight(event.target.value);
-    }
     const handleAge = (event:any) =>{
         if(event.target.value<0){
             setAge(0);
@@ -145,28 +134,14 @@ function PennState(){
                 >
                 </TextField>
             </div>
-            <div className="weightContainer">
-                <Typography>Current Weight</Typography>
-                <TextField
-                    placeholder='0'
-                    type="number"
-                    size="small"
-                    value={weight}
-                    onChange={handleWeight}
-                    sx={{width:'100px'}}
-                >
-                </TextField>
-                <Select
-                    id="weightUnitInput"
-                    value={weightUnit}
-                    onChange={handleWeightUnit}
-                    size="small"
-                    data-testid="units-select"
-                >
-                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                    <MenuItem value={'Kg'}>Kg</MenuItem>
-                </Select>
-            </div>
+            <WeightInput 
+                weight={weight}
+                setWeight={setWeight}
+                weightUnit={weightUnit}
+                setWeightUnit={setWeightUnit}
+                variant="small"
+                includeLabel={true}
+            />
             <div className="ageContainer">
                 <Typography>Age</Typography>
                 <TextField

@@ -31,6 +31,7 @@ function MobileCalculatorContainer(){
                             <MenuItem value={'Hamwi'}>Hamwi</MenuItem>
                             <MenuItem value={'PennState'}>Penn State</MenuItem>
                             <MenuItem value={'Mifflin'}>Mifflin</MenuItem>
+                            <MenuItem value={'InchesCm'}>Inches/Cm Converter</MenuItem>
                         </Select>
                     </FormControl>
                 </Paper>

@@ -4,8 +4,7 @@ import '../../Calculator.css';
 import WeightInput from '../components/WeightInput';
 
 function Hamwi(){
-
-    const [weight,setWeight] = useState(0);
+    const [weight,setWeight] = useState("");
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [lowerCal,setLowerCal] = useState(25);
     const [higherCal,setHigherCal] = useState(30);
@@ -16,7 +15,7 @@ function Hamwi(){
 
     //Calorie Range Calculator
     useEffect(()=>{
-        let weightToUse=weight;
+        let weightToUse=Number(weight);
         if(weightUnit==='Lbs'){//convert to Kg
             weightToUse=weightToUse/2.2;
         }
@@ -27,7 +26,7 @@ function Hamwi(){
 
     //Protein Range Calculator
     useEffect(()=>{
-        let weightToUse=weight;
+        let weightToUse=Number(weight);
         if(weightUnit==='Lbs'){//convert to Kg
             weightToUse=weightToUse/2.2;
         }
@@ -37,19 +36,6 @@ function Hamwi(){
     },[lowerProtein,higherProtein,weight,weightUnit])
 
     //Event Handlers for changing inputs and updating State
-    const handleWeight = (event:React.ChangeEvent<HTMLInputElement>) => {
-        const parsedWeight = Number(event.target.value)
-        if(parsedWeight<0){
-            setWeight(0);
-        }
-        else if(parsedWeight>9999){
-            setWeight(9999);
-        }
-        else setWeight(parsedWeight);
-    }
-    const handleWeightUnit = (event:SelectChangeEvent) => {
-        setWeightUnit(event.target.value);
-    }
     const handleLowerCal = (event:any) => {
         setLowerCal(Number(event.target.value));
     }
