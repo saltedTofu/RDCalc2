@@ -7,9 +7,10 @@ interface Props {
     setWeightUnit:any;
     variant?:"small" | "medium";
     includeLabel?:boolean;
+    style?:any;
 }
 
-function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="medium", includeLabel=false}:Props){
+function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="medium", includeLabel=false, style={}}:Props){
 
     const handleWeight = (event:React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.value.length>5){
@@ -23,7 +24,18 @@ function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="med
     }
 
     return (
-        <div style={{display:'flex', marginBottom:'10px', flexDirection:'row', justifyContent:'space-around', alignItems:'center', width:'85%', paddingTop:'10px', paddingBottom:'10px'}}>
+        <div 
+            style={{
+                display:'flex', 
+                marginBottom:'10px', 
+                flexDirection:'row', 
+                justifyContent:'space-around', 
+                alignItems:'center', 
+                width:'85%', 
+                paddingTop:'10px', 
+                paddingBottom:'10px', 
+                ...style
+                }}>
             {includeLabel && <Typography>Weight</Typography>}
             <TextField
                     type="number"

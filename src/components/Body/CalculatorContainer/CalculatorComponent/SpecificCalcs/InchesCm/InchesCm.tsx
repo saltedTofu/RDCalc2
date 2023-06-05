@@ -35,7 +35,9 @@ export default function InchesCm(){
             <div 
                 style={{
                     display:'flex', 
-                    flexDirection:'row'
+                    flexDirection:'row',
+                    width:'70%',
+                    justifyContent:'space-around',                    
                 }}
             >
                 <TextField

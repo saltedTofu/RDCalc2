@@ -30,6 +30,7 @@ function LbsKg(){
                 setWeight={setInput}
                 weightUnit={unit}
                 setWeightUnit={setUnit}
+                style={{width:'70%', marginBottom:'0px', marginTop:'0px'}}
             />
             <Paper sx={{padding:'10px', margin:'10px'}}>
                 <Typography variant="h6">{output} {outputUnit}</Typography>
