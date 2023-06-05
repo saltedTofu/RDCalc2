@@ -1,7 +1,8 @@
-import {Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel, TextField} from '@mui/material';
+import {Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel} from '@mui/material';
 import {useState, useEffect} from 'react';
 import '../../Calculator.css';
 import WeightInput from '../components/WeightInput';
+import HeightInput from '../components/HeightInput';
 
 function IdealBodyWeight(){
     const [gender,setGender] = useState('');
@@ -109,24 +110,6 @@ function IdealBodyWeight(){
     const handleGender = (event:any) => {
         setGender(event.target.value);
     }
-    const handleFeet = (event:any) => {
-        if(Number(event.target.value)<0){
-            setHeightFeet(0);
-        }
-        else if(Number(event.target.value)>8){
-            setHeightFeet(8);
-        }
-        else setHeightFeet(event.target.value);
-    }
-    const handleInches = (event:any) => {
-        if(event.target.value<0){
-            setHeightInches(0);
-        }
-        else if(event.target.value>11){
-            setHeightInches(11);
-        }
-        else setHeightInches(event.target.value);
-    }
     const handleLBKA = (event:any) => {
         if(event.target.checked){
             setLBKA(true);
@@ -176,27 +159,13 @@ function IdealBodyWeight(){
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
             </RadioGroup>  
-            <div id="heightContainer">
-                <Typography>Height</Typography>
-                <TextField 
-                    label="Feet"
-                    type="number"
-                    size="small"
-                    value={Number(heightFeet).toString()}
-                    onChange={handleFeet}
-                    sx={{width:'100px'}}
-                >
-                </TextField>
-                <TextField
-                    label="Inches"
-                    type="number"
-                    size="small"
-                    value={Number(heightInches).toString()}
-                    onChange={handleInches}
-                    sx={{width:'100px'}}
-                >
-                </TextField>
-            </div>
+            <HeightInput 
+                feet={heightFeet}
+                inches={heightInches}
+                setFeet={setHeightFeet}
+                setInches={setHeightInches}
+                includeLabel={true}
+            />
             <WeightInput 
                 weight={weight}
                 setWeight={setWeight}
