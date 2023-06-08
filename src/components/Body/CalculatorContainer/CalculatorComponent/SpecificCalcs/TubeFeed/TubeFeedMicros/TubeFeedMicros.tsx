@@ -1,6 +1,6 @@
 import {Popover,Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@mui/material';
 import {useState, useRef} from 'react'
-import {Formulas, FormulasType, Micros} from '../../../../../../../utils/TubeFeedFormulas'
+import {Formulas, FormulasType, Micros} from '../../../../../../../assets/TubeFeedFormulas'
 
 interface Props {
     chosenFormula:FormulasType;

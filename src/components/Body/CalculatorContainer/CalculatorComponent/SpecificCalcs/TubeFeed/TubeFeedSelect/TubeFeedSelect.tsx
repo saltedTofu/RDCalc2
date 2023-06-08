@@ -1,6 +1,6 @@
 import {FormControl, Select, MenuItem, InputLabel} from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { FormulasContainerType } from '../../../../../../../utils/TubeFeedFormulas';
+import { FormulasContainerType } from '../../../../../../../assets/TubeFeedFormulas';
 
 interface Props {
     chosenFormula: string;

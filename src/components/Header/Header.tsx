@@ -1,12 +1,12 @@
 import './Header.css';
 import {Button, Paper, Box, TextField, Select, MenuItem, Typography, Alert} from '@mui/material';
 import {useState, useLayoutEffect, useRef, useEffect, SetStateAction} from 'react';
-import Logo from '../../utils/logo.png';
+import Logo from '../../assets/logo.png';
 import {Link as RouterLink} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import { setGlobalUser } from '../../redux/calcs';
 import {useAuth} from '../../contexts/AuthContext';
-import Coffee from '../../utils/buyMeCoffee.png';
+import Coffee from '../../assets/buyMeCoffee.png';
 
 interface Props {
     currentTheme:string;

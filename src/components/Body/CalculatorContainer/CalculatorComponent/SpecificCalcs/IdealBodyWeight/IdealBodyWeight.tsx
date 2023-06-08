@@ -64,7 +64,6 @@ function IdealBodyWeight(){
         else{
             const convertedHeight=totalHeight*2.54/100;
             const calculatedBMI = Math.round(adjustedWeight/(convertedHeight*convertedHeight)*10)/10; //round to 1 decimal place
-            console.log(calculatedBMI);
             setBMI(String(calculatedBMI));
         }
 

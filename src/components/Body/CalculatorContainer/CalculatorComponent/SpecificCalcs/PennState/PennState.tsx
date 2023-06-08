@@ -22,7 +22,6 @@ function PennState(){
         let pennOutput='';
         const heightInCm = ((Number(heightFeet)*12) + Number(heightInches))*2.54;
         const weightInKg = weightUnit==='Lbs' ? Number(weight)/2.205 : weight;
-        console.log(weightInKg);
         if(!gender){
             setPenn('Select Gender');
             return;
