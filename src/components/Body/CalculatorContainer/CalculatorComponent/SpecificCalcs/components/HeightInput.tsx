@@ -1,10 +1,10 @@
 import { TextField, Typography } from "@mui/material";
-
+import { wholeNumberInputValidation} from "../../../../../../utils/wholeNumberInputValidation";
 
 interface Props{
-    feet:number;
+    feet:string;
     setFeet:any;
-    inches:number;
+    inches:string;
     setInches:any;
     includeLabel?:boolean;
 }
@@ -12,11 +12,13 @@ interface Props{
 export default function HeightInput({feet, setFeet, inches, setInches, includeLabel=false}:Props){
 
     const handleFeet = (event:React.ChangeEvent<HTMLInputElement>) => {
-        setFeet(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 1, 9);
+        setFeet(validatedString);
     }
     
     const handleInches = (event:React.ChangeEvent<HTMLInputElement>) => {
-        setInches(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 2, 11);
+        setInches(validatedString);
     }
 
     return(
@@ -34,17 +36,17 @@ export default function HeightInput({feet, setFeet, inches, setInches, includeLa
             {includeLabel && <Typography variant="body1">Height</Typography>}
             <TextField
                 label="Feet"
-                type="number"
-                value={Number(feet).toString()}
+                type="string"
+                value={feet}
                 onChange={handleFeet}
                 sx={{width:'100px'}}
                 size="small"
             ></TextField>
             <TextField
                 label="Inches"
-                type="number"
+                type="string"
                 size="small"
-                value={Number(inches).toString()}
+                value={inches}
                 onChange={handleInches}
                 sx={{width:'100px'}}
             ></TextField>

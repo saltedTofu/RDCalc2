@@ -1,5 +1,5 @@
 import { MenuItem, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
-import decimalInputValidation from "../../../../../../utils/decimalInputValidation";
+import {decimalInputValidation} from "../../../../../../utils/decimalInputValidation";
 
 interface Props {
     weight:string;
@@ -14,7 +14,7 @@ interface Props {
 function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="medium", includeLabel=false, style={}}:Props){
 
     const handleWeight = (event:React.ChangeEvent<HTMLInputElement>) => {
-        const validatedString = decimalInputValidation(event.target.value);
+        const validatedString = decimalInputValidation(event.target.value, 6, 9999);
         setWeight(validatedString);
     }
 

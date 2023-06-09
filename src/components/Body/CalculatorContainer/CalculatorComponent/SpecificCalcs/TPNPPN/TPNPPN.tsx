@@ -1,26 +1,29 @@
 import {Typography, Slider, Select, MenuItem, TextField, Paper } from '@mui/material';
 import {useState, useEffect} from 'react';
+import {decimalInputValidation} from '../../../../../../utils/decimalInputValidation';
+import WeightInput from '../components/WeightInput';
+import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
 
 function TPNPPN(){
 
-    const [dextrose,setDextrose] = useState(0);
-    const [aminoAcid,setAminoAcid] = useState(0);
+    const [dextrose,setDextrose] = useState("");
+    const [aminoAcid,setAminoAcid] = useState("");
     const [rate,setRate] = useState(0);
-    const [hrsDay,setHrsDay] = useState(0);
+    const [hrsDay,setHrsDay] = useState("");
     const [kcal,setKcal] = useState(0);
     const [protein,setProtein] = useState(0);
     const [volume,setVolume] = useState(0);
     const [carbohydrates,setCarbohydrates] = useState(0);
-    const [currentBodyWeight,setCurrentBodyWeight] = useState(0);
+    const [currentBodyWeight,setCurrentBodyWeight] = useState("");
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [GIR,setGIR] = useState(0);
     const [GIRError, setGIRError] = useState('');
 
     //Calculate TPN/PPN
     useEffect(()=>{
-        const totalVolume = rate*hrsDay;
-        const carbs = dextrose*totalVolume*.01; //338.64
-        const pro = aminoAcid*totalVolume*.01; //338.64
+        const totalVolume = rate*Number(hrsDay);
+        const carbs = Number(dextrose)*totalVolume*.01; //338.64
+        const pro = Number(aminoAcid)*totalVolume*.01; //338.64
         const calories =(carbs*3.4) + (pro*4);
         setKcal(Math.round(calories));
         setProtein(Math.round(pro));
@@ -30,86 +33,60 @@ function TPNPPN(){
 
     //Calculate GIR
     useEffect(()=>{
-        if(!currentBodyWeight || currentBodyWeight===0){
+        if(!currentBodyWeight || Number(currentBodyWeight)===0){
             setGIRError('Please Enter Current Body Weight');
             return;
         }
         setGIRError('');
-        let weightInKg;
+        let weightInKg:number;
         if(weightUnit==='Lbs'){
-            weightInKg=currentBodyWeight/2.205;
+            weightInKg=Number(currentBodyWeight)/2.205;
         }
         else{
-            weightInKg=currentBodyWeight;
+            weightInKg=Number(currentBodyWeight);
         }
-        const glucoseInfusionRate = (rate*dextrose*1000)/(weightInKg*60*100);
+        const glucoseInfusionRate = (rate*Number(dextrose)*1000)/(weightInKg*60*100);
         setGIR(Math.round(glucoseInfusionRate*10)/10);
     },[weightUnit,currentBodyWeight,carbohydrates, dextrose, rate])
 
     //Event Handlers
     const handleDextrose = (event:any) => {
-        if(event.target.value<0){
-            setDextrose(0);
-        }
-        else if(event.target.value>100){
-            setDextrose(100);
-        }
-        else setDextrose(event.target.value);
+        const validatedString = decimalInputValidation(event.target.value, 6, 99);
+        setDextrose(validatedString);
     }
     const handleAminoAcid = (event:any) => {
-        if(event.target.value<0){
-            setAminoAcid(0);
-        }
-        else if(event.target.value>100){
-            setAminoAcid(100);
-        }
-        else setAminoAcid(event.target.value);
+        const validatedString = decimalInputValidation(event.target.value, 6, 99);
+        setAminoAcid(validatedString);
     }
     const handleHrsDay = (event:any) => {
-        if(event.target.value<0){
-            setHrsDay(0);
-        }
-        else if(event.target.value>24){
-            setHrsDay(24);
-        }
-        else setHrsDay(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 2, 24)
+        setHrsDay(validatedString);
     }
     const handleRate = (event:any) => {
         setRate(event.target.value);
     }
-    const handleWeight = (event:any) => {
-        if(event.target.value<0){
-            setCurrentBodyWeight(0);
-        }
-        else if(event.target.value>9999){
-            setCurrentBodyWeight(9999);
-        }
-        else setCurrentBodyWeight(event.target.value);
-    }
-    const handleWeightUnit = (event:any) => {
-        setWeightUnit(event.target.value)
-    }
 
     return(
         <div className='tpnppnCalculator'>
-            <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+            <div style={{display:'flex', flexDirection:'row', alignItems:'center', width: '85%', justifyContent:'space-around'}}>
                 <TextField
+                    placeholder='0'
                     label="% Dextrose"
                     value={dextrose}
                     onChange={handleDextrose}
-                    type="number"
-                    sx={{marginTop:'15px', marginBottom:'15px', width:'100px'}}
+                    type="string"
+                    sx={{marginTop:'15px', marginBottom:'15px', width:'130px'}}
                 ></TextField>
                 <TextField
+                    autoFocus={true}
+                    placeholder='0'
                     label="% Amino Acid"
                     value={aminoAcid}
                     onChange={handleAminoAcid}
-                    type="number"
-                    sx={{marginTop:'15px', marginBottom:'15px', width:'100px'}}
+                    type="string"
+                    sx={{marginTop:'15px', marginBottom:'15px', width:'130px'}}
             ></TextField>
             </div>
-            
-
             <Slider
                 value={rate}
                 onChange={handleRate}
@@ -124,7 +101,7 @@ function TPNPPN(){
                 label="hrs/day"
                 value={hrsDay}
                 onChange={handleHrsDay}
-                type="number"
+                type="string"
             ></TextField>
             <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px', margin:'10px'}}>
                 <Typography variant="h6">{kcal} Kcal</Typography>
@@ -133,25 +110,13 @@ function TPNPPN(){
                 <Typography variant="h6">{volume}ml Total Volume</Typography>
             </Paper>
             <Typography variant="h5" sx={{marginBottom:'15px'}}>Glucose Infusion Rate</Typography>
-
-            <div className="weightContainer">
-                <Typography>Current Weight</Typography>
-                <TextField
-                    label={weightUnit}
-                    value={currentBodyWeight}
-                    onChange={handleWeight}
-                    type="number"
-                    sx={{width:'150px'}}
-                ></TextField>
-                <Select
-                    id="weightUnitInput"
-                    value={weightUnit}
-                    onChange={handleWeightUnit}
-                >
-                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                    <MenuItem value={'Kg'}>Kg</MenuItem>
-                </Select>
-            </div>
+            <WeightInput 
+                weight={currentBodyWeight}
+                setWeight={setCurrentBodyWeight}
+                weightUnit={weightUnit}
+                setWeightUnit={setWeightUnit}
+                variant="medium"
+            />
             <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px', margin:'10px'}}>
                 {GIRError ? <Typography variant="h6">{GIRError}</Typography> : <Typography variant="h6">{GIR} mg/kg/min</Typography>}
             </Paper>

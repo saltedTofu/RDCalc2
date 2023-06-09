@@ -6,8 +6,8 @@ import HeightInput from '../components/HeightInput';
 
 function IdealBodyWeight(){
     const [gender,setGender] = useState('');
-    const [heightFeet,setHeightFeet] = useState(0);
-    const [heightInches,setHeightInches] = useState(0);
+    const [heightFeet,setHeightFeet] = useState("");
+    const [heightInches,setHeightInches] = useState("");
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [weight,setWeight] = useState("");
     const [IBW, setIBW] = useState('');

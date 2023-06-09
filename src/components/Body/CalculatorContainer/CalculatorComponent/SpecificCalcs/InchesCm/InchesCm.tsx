@@ -1,9 +1,10 @@
 import { MenuItem, Paper, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
+import {decimalInputValidation} from "../../../../../../utils/decimalInputValidation";
 
 export default function InchesCm(){
 
-    const [input,setInput] = useState("0.0");
+    const [input,setInput] = useState("");
     const [unit,setUnit] = useState('Inches');
     const [output,setOutput] = useState(0);
     const [outputUnit,setOutputUnit] = useState('Cm');
@@ -23,7 +24,8 @@ export default function InchesCm(){
     },[unit,input])
 
     const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
-        setInput(event.target.value);
+        const validatedString = decimalInputValidation(event.target.value, 6, 9999);
+        setInput(validatedString);
     }
 
     const handleUnit = (event:SelectChangeEvent) => {
@@ -41,7 +43,7 @@ export default function InchesCm(){
                 }}
             >
                 <TextField
-                    type="number"
+                    type="string"
                     value={input}
                     onChange={handleChange}
                     sx={{width:'100px'}}
