@@ -4,7 +4,7 @@ export function wholeNumberInputValidation(rawString:string, maxChars:number, up
         rawString=rawString.slice(0,rawString.length-1);
         return rawString;
     }
-    const allowedChars = ['1','2','3','4','5','6','7','8','9'];
+    const allowedChars = ['1','2','3','4','5','6','7','8','9','0'];
 
     //check if number less than upper limit and an allowed character
     for(let i=0;i<allowedChars.length;i++){

@@ -2,15 +2,17 @@ import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField} from
 import {useState, useEffect} from 'react';
 import WeightInput from '../components/WeightInput';
 import HeightInput from '../components/HeightInput';
+import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
+import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
 
 function Mifflin(){
-    const [gender,setGender] = useState('');
+    const [gender,setGender] = useState("");
     const [weight,setWeight] = useState("");
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [heightFeet,setHeightFeet] = useState(0);
-    const [heightInches,setHeightInches] = useState(0);
-    const [age,setAge] = useState(0);
-    const [output,setOutput] = useState('');
+    const [heightFeet,setHeightFeet] = useState("");
+    const [heightInches,setHeightInches] = useState("");
+    const [age,setAge] = useState("");
+    const [output,setOutput] = useState("");
     const [activityFactor,setActivityFactor] = useState("1.2");
 
     useEffect(()=>{
@@ -22,31 +24,24 @@ function Mifflin(){
             return;
         }
         if(gender==='male'){
-            mifflinOutput = String(Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*age) + 5)*Number(activityFactor)));
+            mifflinOutput = String(Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*Number(age)) + 5)*Number(activityFactor)));
         }
         else if(gender==='female'){
-            mifflinOutput = String(Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*age) + - 161)*Number(activityFactor)));
+            mifflinOutput = String(Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*Number(age)) + - 161)*Number(activityFactor)));
         }
         setOutput(mifflinOutput + ' kcal');
     },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor])
 
     const handleActivityFactor = (event:any) => {
-        if(event.target.value.length>5){
-            return;
-        }
-        setActivityFactor(event.target.value);
+        const validatedString = decimalInputValidation(event.target.value, 3, 3)
+        setActivityFactor(validatedString);
     }
-   const handleGender = (event:any) => {
+    const handleGender = (event:any) => {
        setGender(event.target.value);
-   }
+    }
     const handleAge = (event:any) =>{
-        if(event.target.value<0){
-            setAge(0);
-        }
-        else if(event.target.value>123){
-            setAge(123);
-        }
-        else setAge(Number(event.target.value));
+        const validatedString = wholeNumberInputValidation(event.target.value, 3, 130)
+        setAge(validatedString);
     }
     return(
         <div className="mifflin">

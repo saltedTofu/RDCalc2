@@ -2,20 +2,22 @@ import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Sele
 import {useState, useEffect} from 'react';
 import WeightInput from '../components/WeightInput';
 import HeightInput from '../components/HeightInput';
+import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
+import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
 //currently using 2003 penn state, need to add modified
 
 function PennState(){
     const [gender,setGender] = useState('');
     const [weight,setWeight] = useState("");
     const [weightUnit,setWeightUnit] = useState('Lbs');
-    const [heightFeet,setHeightFeet] = useState(0);
-    const [heightInches,setHeightInches] = useState(0);
-    const [age,setAge] = useState(0);
+    const [heightFeet,setHeightFeet] = useState("");
+    const [heightInches,setHeightInches] = useState("");
+    const [age,setAge] = useState("");
     const [activityFactor,setActivityFactor] = useState("1.2");
-    const [penn,setPenn] = useState('');
-    const [tMax,setTmax] = useState(0);
+    const [penn,setPenn] = useState("");
+    const [tMax,setTmax] = useState("");
     const [tMaxUnit,setTMaxUnit] = useState('Celsius');
-    const [ve,setVe] = useState(0);
+    const [ve,setVe] = useState("");
 
     useEffect(()=>{
         let mifflinOutput=0;
@@ -27,16 +29,16 @@ function PennState(){
             return;
         }
         if(gender==='male'){
-            mifflinOutput =Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*age) + 5)*Number(activityFactor));
+            mifflinOutput =Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*Number(age)) + 5)*Number(activityFactor));
         }
         else if(gender==='female'){
-            mifflinOutput = Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*age) + - 161)*Number(activityFactor));
+            mifflinOutput = Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*Number(age)) + - 161)*Number(activityFactor));
         }
-        let convertedTMax = tMax;
+        let convertedTMax = Number(tMax);
         if(tMaxUnit==='Fahrenheit'){
             convertedTMax=(convertedTMax-32)*(5/9);
         }
-        pennOutput = String(Math.round(mifflinOutput*0.96 + convertedTMax*167 + ve*31 - 6212));
+        pennOutput = String(Math.round(mifflinOutput*0.96 + convertedTMax*167 + Number(ve)*31 - 6212));
         setPenn(pennOutput + ' kcal');
     },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor,tMax,tMaxUnit,ve])
 
@@ -44,40 +46,23 @@ function PennState(){
         setTMaxUnit(event.target.value);
     }
     const handleTmax = (event:any) => {
-        if(event.target.value<0){
-            setTmax(0);
-        }
-        else if(event.target.value>120){
-            setTmax(120);
-        }
-        else setTmax(event.target.value);
+        const validatedString = decimalInputValidation(event.target.value, 5, 199)
+        setTmax(validatedString);
     }
     const handleVe = (event:any) =>{
-        if(event.target.value<0){
-            setVe(0);
-        }
-        else if(event.target.value>100){
-            setVe(100);
-        }
-        else setVe(event.target.value);
+        const validatedString = decimalInputValidation(event.target.value, 5, 99)
+        setVe(validatedString);
     }
     const handleActivityFactor = (event:any) => {
-        if(event.target.value.length>5){
-            return;
-        }
-        setActivityFactor(event.target.value);
+        const validatedString = decimalInputValidation(event.target.value, 3, 3)
+        setActivityFactor(validatedString);
     }
    const handleGender = (event:any) => {
        setGender(event.target.value);
    }
     const handleAge = (event:any) =>{
-        if(event.target.value<0){
-            setAge(0);
-        }
-        else if(event.target.value>123){
-            setAge(123);
-        }
-        else setAge(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 3, 130)
+        setAge(validatedString);
     }
     return(
         <div className="pennState">

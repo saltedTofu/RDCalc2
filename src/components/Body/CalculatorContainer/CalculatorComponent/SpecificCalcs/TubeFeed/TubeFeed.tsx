@@ -9,26 +9,28 @@ import {useAuth} from '../../../../../../contexts/AuthContext';
 import '../../Calculator.css';
 import TubeFeedSelect from './TubeFeedSelect/TubeFeedSelect';
 import TubeFeedMicros from './TubeFeedMicros/TubeFeedMicros';
+import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
+import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
 
 function TubeFeed(){
     const [chosenFormula,setChosenFormula] = useState<FormulasType>('Compleat');
     const [tubeFeedFavorites,setTubeFeedFavorites] = useState<string[]>([]);
     const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
     const [feedingType,setFeedingType] = useState('continuous');
-    const [continuousRate,setContinuousRate] = useState(50);
-    const [bolusPerDay,setBolusPerDay] = useState(0);
-    const [bolusVolume, setBolusVolume] = useState(250);
+    const [continuousRate,setContinuousRate] = useState("50");
+    const [bolusPerDay,setBolusPerDay] = useState("");
+    const [bolusVolume, setBolusVolume] = useState("250");
     const [kcalProvided, setKcalProvided] = useState(0);
     const [proteinProvided, setProteinProvided] = useState(0);
     const [freeWater, setFreeWater] = useState(0);
-    const [hrsDay,setHrsDay] = useState(0);
+    const [hrsDay,setHrsDay] = useState("");
     const [bolusKcalProvided, setBolusKcalProvided] = useState(0);
     const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
     const [bolusFreeWater, setBolusFreeWater] = useState(0);
     const [modular,setModular] = useState<ModularsType>('none')
-    const [modularPerDay,setModularPerDay] = useState(0);
-    const [flushAmount,setFlushAmount] = useState(0);
-    const [flushPerDay,setFlushPerDay] = useState(0);
+    const [modularPerDay,setModularPerDay] = useState("");
+    const [flushAmount,setFlushAmount] = useState("");
+    const [flushPerDay,setFlushPerDay] = useState("");
     const [error,setError] = useState('');
     const [totalVolume,setTotalVolume] = useState(0)
 
@@ -46,34 +48,20 @@ function TubeFeed(){
         setChosenFormula(event.target.value);
     }
     const handleContinuousRate = (event:any) => {
-        if(event.target.value>100){
-            setContinuousRate(100);
-        }
-        else setContinuousRate(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 3, 999)
+        setContinuousRate(validatedString);
     }
     const handleHrsDay = (event:any) => {
-        if(event.target.value<1){
-            setHrsDay(0);
-        }
-        else if(event.target.value>24){
-            setHrsDay(24);
-        } 
-        else setHrsDay(event.target.value)
+        const validatedString = decimalInputValidation(event.target.value, 5, 24)
+        setHrsDay(validatedString)
     }
     const handleBolusVolume = (event:any) => {
-        if(event.target.value>1000){
-            setBolusVolume(1000)
-        }
-        else setBolusVolume(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 4, 999)
+        setBolusVolume(validatedString);
     }
     const handleBolusPerDay = (event:any) => {
-        if(event.target.value<1){
-            setBolusPerDay(0);
-        }
-        else if (event.target.value>24){
-            setBolusPerDay(24);
-        }
-        else setBolusPerDay(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 2, 24)
+        setBolusPerDay(validatedString);
     }
     const handleFeedingType = (event:any) => {
         setFeedingType(event.target.value);
@@ -82,31 +70,16 @@ function TubeFeed(){
         setModular(event.target.value);
     }
     const handleModularPerDay = (event:any) => {
-        if(event.target.value<0){
-            setModularPerDay(0);
-        }
-        else if(event.target.value>99){
-            setModularPerDay(99);
-        }
-        else setModularPerDay(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 2, 99)
+        setModularPerDay(validatedString);
     }
     const handleFlushAmount = (event:any) => {
-        if(event.target.value<0){
-            setFlushAmount(0);
-        }
-        else if(event.target.value>9999){
-            setFlushAmount(9999);
-        }
-        else setFlushAmount(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 4, 9999)
+        setFlushAmount(validatedString);
     }
     const handleFlushPerDay = (event:any) => {
-        if(event.target.value<0){
-            setFlushPerDay(0);
-        }
-        else if(event.target.value>49){
-            setFlushPerDay(49);
-        }
-        else setFlushPerDay(event.target.value);
+        const validatedString = wholeNumberInputValidation(event.target.value, 2, 99)
+        setFlushPerDay(validatedString);
     }
 
     const handleTubeFeedFavorite = async (formula:string) => {
@@ -131,10 +104,10 @@ function TubeFeed(){
 
     const handleTotalVolume = () => {
         if(feedingType==='continuous'){
-            setTotalVolume(continuousRate*hrsDay)
+            setTotalVolume(Number(continuousRate)*Number(hrsDay))
         }
         else{
-            setTotalVolume(bolusPerDay*bolusVolume)
+            setTotalVolume(Number(bolusPerDay)*Number(bolusVolume))
         }
     }
 
@@ -180,17 +153,17 @@ function TubeFeed(){
         let modularProtein=0;
         if(modular!=='none'){
             const chosenModular = Modulars[modular];
-            modularKcal=chosenModular.kcal * modularPerDay;
-            modularProtein=chosenModular.protein * modularPerDay;
+            modularKcal=chosenModular.kcal * Number(modularPerDay);
+            modularProtein=chosenModular.protein * Number(modularPerDay);
         }
         let flush=0;
         if(flushAmount){
             //handle flush amount
-            flush=flushAmount * flushPerDay;
+            flush=Number(flushAmount) * Number(flushPerDay);
         }
-        setKcalProvided(Math.round(modularKcal + formulaToUse.kcal/1000 * continuousRate * hrsDay));
-        setProteinProvided(Math.round(modularProtein + formulaToUse.protein/1000 * continuousRate * hrsDay));
-        setFreeWater(Math.round(flush + formulaToUse.water/1000 * continuousRate * hrsDay));
+        setKcalProvided(Math.round(modularKcal + formulaToUse.kcal/1000 * Number(continuousRate) * Number(hrsDay)));
+        setProteinProvided(Math.round(modularProtein + formulaToUse.protein/1000 * Number(continuousRate) * Number(hrsDay)));
+        setFreeWater(Math.round(flush + formulaToUse.water/1000 * Number(continuousRate) * Number(hrsDay)));
         handleTotalVolume();
     },[chosenFormula,continuousRate,hrsDay,modular,modularPerDay,flushAmount,flushPerDay])
     
@@ -204,17 +177,17 @@ function TubeFeed(){
         let modularProtein=0;
         if(modular!=='none'){
             const chosenModular = Modulars[modular];
-            modularKcal=chosenModular.kcal * modularPerDay;
-            modularProtein=chosenModular.protein * modularPerDay;
+            modularKcal=chosenModular.kcal * Number(modularPerDay);
+            modularProtein=chosenModular.protein * Number(modularPerDay);
         }
         let flush=0;
         if(flushAmount){
             //handle flush amount
-            flush=flushAmount * flushPerDay;
+            flush=Number(flushAmount) * Number(flushPerDay);
         }
-        setBolusKcalProvided(Math.round(modularKcal + formulaToUse.kcal/1000 * bolusPerDay * bolusVolume));
-        setBolusProteinProvided(Math.round(modularProtein + formulaToUse.protein/1000 * bolusPerDay * bolusVolume));
-        setBolusFreeWater(Math.round(flush + formulaToUse.water/1000 * bolusPerDay * bolusVolume));
+        setBolusKcalProvided(Math.round(modularKcal + formulaToUse.kcal/1000 * Number(bolusPerDay) * Number(bolusVolume)));
+        setBolusProteinProvided(Math.round(modularProtein + formulaToUse.protein/1000 * Number(bolusPerDay) * Number(bolusVolume)));
+        setBolusFreeWater(Math.round(flush + formulaToUse.water/1000 * Number(bolusPerDay) * Number(bolusVolume)));
         handleTotalVolume();
     },[bolusPerDay,bolusVolume,chosenFormula,modular,modularPerDay,flushAmount,flushPerDay])
 
@@ -270,17 +243,6 @@ function TubeFeed(){
                         : {display:'none'}
                     }
             >
-                <Slider
-                    aria-label="Continous Rate"
-                    defaultValue={50}
-                    value={continuousRate}
-                    onChange={handleContinuousRate}
-                    min={5}
-                    max={100}
-                    step={1}
-                    valueLabelDisplay="auto"
-                    sx={{width:'100%',marginBottom:'15px'}}
-                ></Slider>
                 <div>
                     <TextField sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} value={continuousRate} type="number" onChange={handleContinuousRate} label="ml/hr"></TextField>
                     <TextField 
@@ -375,17 +337,6 @@ function TubeFeed(){
                         : {display:'none'}
                     }
             >
-                <Slider
-                    aria-label="Bolus Volume"
-                    defaultValue={250}
-                    value={bolusVolume}
-                    onChange={handleBolusVolume}
-                    min={100}
-                    max={500}
-                    step={1}
-                    valueLabelDisplay="auto"
-                    sx={{width:'100%',marginBottom:'15px'}}
-                ></Slider>
                 <div>
                     <TextField sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} value={bolusVolume} type="number" onChange={handleBolusVolume} label="ml"></TextField>
                     <TextField 
