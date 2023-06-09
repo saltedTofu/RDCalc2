@@ -1,5 +1,5 @@
 import './MobileCalculatorContainer.css';
-import {Paper, FormControl, InputLabel, Select, MenuItem} from '@mui/material';
+import {Paper, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent} from '@mui/material';
 import CalculatorComponent from '../Body/CalculatorContainer/CalculatorComponent/CalculatorComponent'
 import {useState} from 'react';
 
@@ -7,7 +7,7 @@ function MobileCalculatorContainer(){
 
     const [chosenCalc, setChosenCalc] = useState('');
 
-    const handleChange = (event:any) =>{
+    const handleChange = (event:SelectChangeEvent) =>{
         setChosenCalc(event.target.value);
     }
 

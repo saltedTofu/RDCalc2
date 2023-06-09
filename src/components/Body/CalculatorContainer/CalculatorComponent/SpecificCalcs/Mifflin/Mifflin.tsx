@@ -32,14 +32,14 @@ function Mifflin(){
         setOutput(mifflinOutput + ' kcal');
     },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor])
 
-    const handleActivityFactor = (event:any) => {
+    const handleActivityFactor = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = decimalInputValidation(event.target.value, 3, 3)
         setActivityFactor(validatedString);
     }
-    const handleGender = (event:any) => {
+    const handleGender = (event: React.ChangeEvent<HTMLInputElement>) => {
        setGender(event.target.value);
     }
-    const handleAge = (event:any) =>{
+    const handleAge = (event:React.ChangeEvent<HTMLInputElement>) =>{
         const validatedString = wholeNumberInputValidation(event.target.value, 3, 130)
         setAge(validatedString);
     }

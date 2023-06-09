@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { Slider, Typography, TextField, Paper, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+import { Slider, Typography, Paper } from '@mui/material';
 import '../../Calculator.css';
 import WeightInput from '../components/WeightInput';
 

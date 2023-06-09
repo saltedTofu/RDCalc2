@@ -1,4 +1,4 @@
-import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem } from '@mui/material';
+import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import {useState, useEffect} from 'react';
 import WeightInput from '../components/WeightInput';
 import HeightInput from '../components/HeightInput';
@@ -42,25 +42,25 @@ function PennState(){
         setPenn(pennOutput + ' kcal');
     },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor,tMax,tMaxUnit,ve])
 
-    const handleTmaxUnit = (event:any) => {
+    const handleTmaxUnit = (event:SelectChangeEvent) => {
         setTMaxUnit(event.target.value);
     }
-    const handleTmax = (event:any) => {
+    const handleTmax = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = decimalInputValidation(event.target.value, 5, 199)
         setTmax(validatedString);
     }
-    const handleVe = (event:any) =>{
+    const handleVe = (event:React.ChangeEvent<HTMLInputElement>) =>{
         const validatedString = decimalInputValidation(event.target.value, 5, 99)
         setVe(validatedString);
     }
-    const handleActivityFactor = (event:any) => {
+    const handleActivityFactor = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = decimalInputValidation(event.target.value, 3, 3)
         setActivityFactor(validatedString);
     }
-   const handleGender = (event:any) => {
+   const handleGender = (event:SelectChangeEvent) => {
        setGender(event.target.value);
    }
-    const handleAge = (event:any) =>{
+    const handleAge = (event:React.ChangeEvent<HTMLInputElement>) =>{
         const validatedString = wholeNumberInputValidation(event.target.value, 3, 130)
         setAge(validatedString);
     }

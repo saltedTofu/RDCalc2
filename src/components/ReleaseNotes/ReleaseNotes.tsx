@@ -128,6 +128,7 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
                             <Typography sx={{fontWeight:'bold'}}>What's New</Typography>
                             <Typography>• Inches/Cm converter</Typography>
                             <Typography>• Improved input validation for calculators</Typography>
+                            <Typography>• Calculators are now alphabetized in the select component</Typography>
                             <Typography sx={{fontWeight:'bold'}}>Bug Fixes</Typography>
                             <Typography>• Various app architecture and optimization changes</Typography>
                             <Typography>• Paraplegic/Quadriplegic should now be exclusive and so should AKA/BKA for same leg</Typography>

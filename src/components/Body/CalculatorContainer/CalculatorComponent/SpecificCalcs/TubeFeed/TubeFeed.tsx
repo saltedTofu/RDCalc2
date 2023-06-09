@@ -1,4 +1,4 @@
-import { Alert, Snackbar, Checkbox, Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from '@mui/material';
+import { Alert, Snackbar, Checkbox, Paper, FormControl, Typography, Slider, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton, SelectChangeEvent} from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import {useState, useEffect} from 'react';
@@ -44,40 +44,40 @@ function TubeFeed(){
         setError('');
     }
 
-    const handleFormulaChange = (event:any) => {
+    const handleFormulaChange = (event: any) => {
         setChosenFormula(event.target.value);
     }
-    const handleContinuousRate = (event:any) => {
+    const handleContinuousRate = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = wholeNumberInputValidation(event.target.value, 3, 999)
         setContinuousRate(validatedString);
     }
-    const handleHrsDay = (event:any) => {
+    const handleHrsDay = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = decimalInputValidation(event.target.value, 5, 24)
         setHrsDay(validatedString)
     }
-    const handleBolusVolume = (event:any) => {
+    const handleBolusVolume = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = wholeNumberInputValidation(event.target.value, 4, 999)
         setBolusVolume(validatedString);
     }
-    const handleBolusPerDay = (event:any) => {
+    const handleBolusPerDay = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = wholeNumberInputValidation(event.target.value, 2, 24)
         setBolusPerDay(validatedString);
     }
-    const handleFeedingType = (event:any) => {
+    const handleFeedingType = (event: any) => {
         setFeedingType(event.target.value);
     }
     const handleModular = (event:any) => {
         setModular(event.target.value);
     }
-    const handleModularPerDay = (event:any) => {
+    const handleModularPerDay = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = wholeNumberInputValidation(event.target.value, 2, 99)
         setModularPerDay(validatedString);
     }
-    const handleFlushAmount = (event:any) => {
+    const handleFlushAmount = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = wholeNumberInputValidation(event.target.value, 4, 9999)
         setFlushAmount(validatedString);
     }
-    const handleFlushPerDay = (event:any) => {
+    const handleFlushPerDay = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = wholeNumberInputValidation(event.target.value, 2, 99)
         setFlushPerDay(validatedString);
     }

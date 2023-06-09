@@ -106,40 +106,40 @@ function IdealBodyWeight(){
         }
     },[gender,heightFeet,heightInches,weight,weightUnit,LBKA,RBKA,LAKA,RAKA,paraplegic,quadriplegic])
 
-    const handleGender = (event:any) => {
+    const handleGender = (event: React.ChangeEvent<HTMLInputElement>) => {
         setGender(event.target.value);
     }
-    const handleLBKA = (event:any) => {
+    const handleLBKA = (event: React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.checked){
             setLBKA(true);
         }
         else setLBKA(false);
     }
-    const handleRBKA = (event:any) => {
+    const handleRBKA = (event: React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.checked){
             setRBKA(true);
         }
         else setRBKA(false);
     }
-    const handleLAKA = (event:any) => {
+    const handleLAKA = (event: React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.checked){
             setLAKA(true);
         }
         else setLAKA(false);
     }
-    const handleRAKA = (event:any) => {
+    const handleRAKA = (event: React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.checked){
             setRAKA(true);
         }
         else setRAKA(false);
     }
-    const handleParaplegic = (event:any) => {
+    const handleParaplegic = (event: React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.checked){
             setParaplegic(true);
         }
         else setParaplegic(false);
     }
-    const handleQuadriplegic = (event:any) => {
+    const handleQuadriplegic = (event: React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.checked){
             setQuadriplegic(true);
         }

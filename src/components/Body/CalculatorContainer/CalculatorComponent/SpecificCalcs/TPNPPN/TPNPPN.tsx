@@ -50,15 +50,15 @@ function TPNPPN(){
     },[weightUnit,currentBodyWeight,carbohydrates, dextrose, rate])
 
     //Event Handlers
-    const handleDextrose = (event:any) => {
+    const handleDextrose = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = decimalInputValidation(event.target.value, 6, 99);
         setDextrose(validatedString);
     }
-    const handleAminoAcid = (event:any) => {
+    const handleAminoAcid = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = decimalInputValidation(event.target.value, 6, 99);
         setAminoAcid(validatedString);
     }
-    const handleHrsDay = (event:any) => {
+    const handleHrsDay = (event:React.ChangeEvent<HTMLInputElement>) => {
         const validatedString = wholeNumberInputValidation(event.target.value, 2, 24)
         setHrsDay(validatedString);
     }
