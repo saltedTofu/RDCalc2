@@ -41,6 +41,7 @@ export default function HeightInput({feet, setFeet, inches, setInches, includeLa
                 onChange={handleFeet}
                 sx={{width:'100px'}}
                 size="small"
+                autoComplete='off'
             ></TextField>
             <TextField
                 label="Inches"
@@ -49,6 +50,7 @@ export default function HeightInput({feet, setFeet, inches, setInches, includeLa
                 value={inches}
                 onChange={handleInches}
                 sx={{width:'100px'}}
+                autoComplete='off'
             ></TextField>
         </div>
     )

@@ -244,9 +244,18 @@ function TubeFeed(){
                     }
             >
                 <div>
-                    <TextField sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} value={continuousRate} type="number" onChange={handleContinuousRate} label="ml/hr"></TextField>
                     <TextField 
-                        type="number" 
+                        sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} 
+                        value={continuousRate} 
+                        type="string" 
+                        onChange={handleContinuousRate} 
+                        label="ml/hr"
+                        autoComplete='off'
+                    > 
+                    </TextField>
+                    <TextField
+                        autoComplete='off'
+                        type="string" 
                         label="hrs/day"
                         value={hrsDay}
                         onChange={handleHrsDay}
@@ -266,8 +275,9 @@ function TubeFeed(){
                         {Object.entries(Modulars).map(([key]) => <MenuItem key={key} value={key}>{(Modulars as any)[key].name}</MenuItem>)}
                     </Select>
                     <TextField
+                        autoComplete='off'
                         sx={{width:'100px',marginRight:'10px'}}
-                        type="number"
+                        type="string"
                         label="times/day"
                         value={modularPerDay}
                         onChange={handleModularPerDay}
@@ -275,15 +285,17 @@ function TubeFeed(){
                 </FormControl>
                 <FormControl sx={{display:'flex',flexDirection:'row', marginBottom:'20px'}}>
                     <TextField
-                        type="number"
+                        autoComplete='off'
+                        type="string"
                         label="Water Flush Volume (mL)"
                         sx={{marginRight:'10px'}}
                         value={flushAmount}
                         onChange={handleFlushAmount}
                     ></TextField>
                     <TextField
+                        autoComplete='off'
                         sx={{width:'100px'}}
-                        type="number"
+                        type="numstringber"
                         label="flushes/day"
                         value={flushPerDay}
                         onChange={handleFlushPerDay}
@@ -338,9 +350,16 @@ function TubeFeed(){
                     }
             >
                 <div>
-                    <TextField sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} value={bolusVolume} type="number" onChange={handleBolusVolume} label="ml"></TextField>
                     <TextField 
-                        type="number" 
+                        sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} 
+                        autoComplete='off'
+                        value={bolusVolume} 
+                        type="string" 
+                        onChange={handleBolusVolume} 
+                        label="ml"></TextField>
+                    <TextField 
+                        autoComplete='off'
+                        type="string" 
                         label="bolus/day"
                         value={bolusPerDay}
                         onChange={handleBolusPerDay}
@@ -361,7 +380,8 @@ function TubeFeed(){
                     </Select>
                     <TextField
                         sx={{width:'100px',marginRight:'10px'}}
-                        type="number"
+                        autoComplete='off'
+                        type="string"
                         label="times/day"
                         value={modularPerDay}
                         onChange={handleModularPerDay}
@@ -370,16 +390,18 @@ function TubeFeed(){
                 </FormControl>
                 <FormControl sx={{display:'flex',flexDirection:'row', marginBottom:'20px'}}>
                     <TextField
-                        type="number"
+                        type="string"
                         label="Water Flush Volume (mL)"
                         sx={{marginRight:'10px'}}
+                        autoComplete='off'
                         value={flushAmount}
                         onChange={handleFlushAmount}
                     ></TextField>
                     <TextField
                         sx={{width:'100px'}}
-                        type="number"
+                        type="string"
                         label="flushes/day"
+                        autoComplete='off'
                         value={flushPerDay}
                         onChange={handleFlushPerDay}
                     ></TextField>

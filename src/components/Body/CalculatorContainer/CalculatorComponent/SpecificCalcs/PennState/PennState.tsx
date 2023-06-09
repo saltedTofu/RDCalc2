@@ -95,6 +95,7 @@ function PennState(){
             <div className="ageContainer">
                 <Typography>Age</Typography>
                 <TextField
+                    autoComplete='off'
                     type='number'
                     label='Years'
                     size="small"
@@ -107,7 +108,8 @@ function PennState(){
             <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
                 <Typography>Activity Factor</Typography>
                 <TextField
-                    type="number"
+                    autoComplete='off'
+                    type="string"
                     size='small'
                     onChange={handleActivityFactor}
                     sx={{width:'100px', marginLeft:'10px'}}
@@ -118,7 +120,8 @@ function PennState(){
             <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
                 <Typography>TMax</Typography>
                 <TextField
-                        type="number"
+                        autoComplete='off'
+                        type="string"
                         size='small'
                         onChange={handleTmax}
                         sx={{width:'100px',marginLeft:'10px', marginRight:'5px'}}
@@ -140,7 +143,8 @@ function PennState(){
             <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
                 <Typography>Minute Ventilation</Typography>
                 <TextField
-                        type="number"
+                        autoComplete='off'
+                        type="string"
                         size='small'
                         onChange={handleVe}
                         sx={{width:'120px',marginLeft:'10px', marginRight:'5px'}}

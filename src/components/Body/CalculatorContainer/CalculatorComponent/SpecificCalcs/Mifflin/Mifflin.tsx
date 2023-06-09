@@ -74,11 +74,12 @@ function Mifflin(){
             <div className="ageContainer">
                 <Typography>Age</Typography>
                 <TextField
-                    type='number'
+                    autoComplete='off'
+                    type='string'
                     size="small"
                     onChange={handleAge}
                     sx={{width:'100px'}}
-                    value={Number(age).toString()}
+                    value={age}
                     label="Years"
                 >
                 </TextField>
@@ -86,7 +87,7 @@ function Mifflin(){
             <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
                 <Typography>Activity Factor</Typography>
                 <TextField
-                    type="number"
+                    type="string"
                     size='small'
                     onChange={handleActivityFactor}
                     sx={{width:'100px', marginLeft:'10px'}}

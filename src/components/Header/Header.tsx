@@ -113,7 +113,6 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
                 >
                     <MenuItem value='dark'>Dark</MenuItem>
                     <MenuItem value='lofi'>Lofi</MenuItem>
-                    <MenuItem value='banana'>Banana</MenuItem>
                 </Select>
             </div>
 

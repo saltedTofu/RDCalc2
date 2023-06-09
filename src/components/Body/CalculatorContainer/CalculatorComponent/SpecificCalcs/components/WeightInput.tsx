@@ -43,6 +43,7 @@ function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="med
                     sx={{width:'100px'}}
                     size={variant}
                     placeholder="0"
+                    autoComplete='off'
                 >
             </TextField>
             <Select

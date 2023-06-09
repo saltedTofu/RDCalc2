@@ -70,7 +70,7 @@ function TPNPPN(){
         <div className='tpnppnCalculator'>
             <div style={{display:'flex', flexDirection:'row', alignItems:'center', width: '85%', justifyContent:'space-around'}}>
                 <TextField
-                    placeholder='0'
+                    autoComplete='off'
                     label="% Dextrose"
                     value={dextrose}
                     onChange={handleDextrose}
@@ -78,8 +78,7 @@ function TPNPPN(){
                     sx={{marginTop:'15px', marginBottom:'15px', width:'130px'}}
                 ></TextField>
                 <TextField
-                    autoFocus={true}
-                    placeholder='0'
+                    autoComplete='off'
                     label="% Amino Acid"
                     value={aminoAcid}
                     onChange={handleAminoAcid}
@@ -102,6 +101,7 @@ function TPNPPN(){
                 value={hrsDay}
                 onChange={handleHrsDay}
                 type="string"
+                autoComplete='off'
             ></TextField>
             <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px', margin:'10px'}}>
                 <Typography variant="h6">{kcal} Kcal</Typography>

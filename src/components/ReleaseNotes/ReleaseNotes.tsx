@@ -123,21 +123,31 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
                     <TabPanel value={value} index={0}>
                         <Typography variant="h3" sx={styles.titleTypography}>Release Notes</Typography>
                         <Stack spacing={1} sx={styles.versionNote}>
-                            <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.0.0.1</Typography>
+                            <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.1</Typography>
+                            <Typography variant="h5">June 9, 2023</Typography>
+                            <Typography sx={{fontWeight:'bold'}}>What's New</Typography>
+                            <Typography>• Inches/Cm converter</Typography>
+                            <Typography>• Improved input validation for calculators</Typography>
+                            <Typography sx={{fontWeight:'bold'}}>Bug Fixes</Typography>
+                            <Typography>• Various app architecture and optimization changes</Typography>
+                            <Typography>• Paraplegic/Quadriplegic should now be exclusive and so should AKA/BKA for same leg</Typography>
+                        </Stack>
+                        <Stack spacing={1} sx={styles.versionNote}>
+                            <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.0.1</Typography>
                             <Typography variant="h5">August 11, 2022</Typography>
                             <Typography sx={{fontWeight:'bold'}}>Bug Fixes</Typography>
                             <Typography>• Fixed a bug where micronutrient amounts were calculated incorrectly</Typography>
                             <Typography>• Updated version number in footer</Typography>
                         </Stack>
                         <Stack spacing={1} sx={styles.versionNote}>
-                            <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.0.0.0</Typography>
+                            <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.0</Typography>
                             <Typography variant="h5">August 10, 2022</Typography>
                             <Typography sx={{fontWeight:'bold'}}>What's New</Typography>
                             <Typography>• Added release notes route (the page you are currently reading)</Typography>
                             <Typography>• Micronutrients added to tube feeding calculator</Typography>
                         </Stack>
                         <Stack spacing={1} sx={styles.versionNote}>
-                            <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 0.9.1.1</Typography>
+                            <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 0.9.1</Typography>
                             <Typography variant="h5">July 26, 2022</Typography>
                             <Typography sx={{fontWeight:'bold'}}>What's New</Typography>
                             <Typography>• Added version number to footer</Typography>
