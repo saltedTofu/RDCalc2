@@ -61,7 +61,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
         }
     },[currentTheme])
 
-    useEffect(()=>{
+    useLayoutEffect(()=>{
         if(currentUser){
             setUser(currentUser.email);
         }
@@ -119,21 +119,21 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
             <div style={{display: 'flex', flexDirection:'row', alignItems:'center', position:'absolute'}} id="donateDiv">
                 <a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer"><img src={Coffee} width="160px" alt="Donate Button" id="donateButton"></img></a>
             </div>
-            
             <div className="loginFields">
-                <Box style={{display: user ? "flex" : "none", alignItems:'center',justifyContent:'center'}}>
-                    <Typography>Hello, {user}</Typography>
-                    <Button variant="contained" onClick={handleLogout} sx={{margin:'10px'}} disabled={loading}>Logout</Button>
-                </Box>
-                <form id="notLoggedIn" onSubmit={handleLogin} style={{display: user ? "none" : "flex", alignItems:'center',justifyContent:'center'}}>
-                    {error && <Alert color="error">{error}</Alert>}
-                    <TextField className="autofillColor" label="Email" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef} id="emailInput"></TextField>
-                    <TextField className="autofillColor" label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password" id="passwordInput"></TextField>
-                    <Button sx={{marginLeft:'10px'}} type="submit" disabled={loading} >Log in</Button>
-                    <RouterLink to='/signup'>
-                        <Button variant="contained" sx={{margin:'10px'}} disabled={loading}>Sign Up</Button>
-                    </RouterLink>
-                </form>
+                {user 
+                    ?   (<Box style={{display: "flex", alignItems:'center',justifyContent:'center'}}>
+                            <Typography>Hello, {user}</Typography>
+                            <Button variant="contained" onClick={handleLogout} sx={{margin:'10px'}} disabled={loading}>Logout</Button>
+                        </Box>)
+                    :   (<form id="notLoggedIn" onSubmit={handleLogin} style={{display: "flex", alignItems:'center',justifyContent:'center'}}>
+                            {error && <Alert color="error">{error}</Alert>}
+                            <TextField className="autofillColor" label="Email" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={emailRef} id="emailInput"></TextField>
+                            <TextField className="autofillColor" label="Password" sx={{paddingRight:'5px', paddingLeft:'5px'}} inputRef={passwordRef} type="password" id="passwordInput"></TextField>
+                            <Button sx={{marginLeft:'10px'}} type="submit" disabled={loading} >Log in</Button>
+                            <RouterLink to='/signup'>
+                                <Button variant="contained" sx={{margin:'10px'}} disabled={loading}>Sign Up</Button>
+                            </RouterLink>
+                        </form>)}
             </div>
         </Paper>
     )
