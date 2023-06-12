@@ -121,7 +121,7 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
                         </Spacer>
                         <Stack spacing={1} sx={styles.versionNote}>
                             <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.1</Typography>
-                            <Typography variant="h5">June 9, 2023</Typography>
+                            <Typography variant="h5">June 13, 2023</Typography>
                             <Typography sx={{fontWeight:'bold'}}>What's New</Typography>
                             <Typography>• Inches/Cm converter</Typography>
                             <Typography>• Improved input validation for calculators</Typography>
@@ -129,6 +129,8 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
                             <Typography sx={{fontWeight:'bold'}}>Bug Fixes</Typography>
                             <Typography>• Various app architecture and optimization changes</Typography>
                             <Typography>• Paraplegic/Quadriplegic should now be exclusive and so should AKA/BKA for same leg</Typography>
+                            <Typography>• Fixed a bug where users with capital letters in their email would not be able to set favorite tube feeding formulas</Typography>
+                            <Typography>• Fixed spelling of "Diabetisource AC"</Typography>
                         </Stack>
                         <Stack spacing={1} sx={styles.versionNote}>
                             <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.0.1</Typography>

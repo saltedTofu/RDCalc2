@@ -3708,7 +3708,7 @@ let Compleat = new tubeFeed(1060,48,828, 'Compleat', 'https://www.nestlemedicalh
         unit:'mg'
     }
 });
-let DiabetisourceAC = new tubeFeed (1200,60,820, 'Diabetsource AC', 'https://www.nestlemedicalhub.com/products/diabetisource-ac',{
+let DiabetisourceAC = new tubeFeed (1200,60,820, 'Diabetisource AC', 'https://www.nestlemedicalhub.com/products/diabetisource-ac',{
     fat:{
         name:'Fat',
         amount:14.7*4,
