@@ -3,6 +3,7 @@ import {Paper, Typography, Stack, Box, Tabs, Tab} from '@mui/material';
 import {SetStateAction, useEffect,useState} from 'react'
 import PropTypes from 'prop-types'
 import Footer from '../Footer/Footer'
+import Spacer from '../Design/Spacer';
 
 function TabPanel(props:any) {
     const { children, value, index, ...other } = props;
@@ -97,31 +98,27 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
         },
         upcomingNote:{
             margin:'20px',
-         
             textAlign:'left'
         },
         titleTypography:{
             width:'80%',
             textAlign:'center',
-            marginTop:'25px',
-            marginBottom:'5px',
             fontWeight:'bold',
         }
     }
-
-
     return(
         <div>
             <Paper sx={styles.releaseNotes}>
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange} setCurrentTheme={setCurrentTheme}/>
                 <div style={styles.tabsAndPanels}>
-                    <Tabs orientation="vertical" onChange={handleChange} value={value} sx={{marginTop:'20%', minWidth:'110px'}}>
+                    <Tabs orientation="vertical" onChange={handleChange} value={value} sx={{paddingTop:'20%', minWidth:'110px'}}>
                         <Tab label="Release Notes" {...a11yProps(0)}/>
                         <Tab label="Upcoming Features" {...a11yProps(1)}/>
                     </Tabs>
-
                     <TabPanel value={value} index={0}>
-                        <Typography variant="h3" sx={styles.titleTypography}>Release Notes</Typography>
+                        <Spacer mt={32} mb={4}>
+                            <Typography variant="h3" sx={styles.titleTypography}>Release Notes</Typography>
+                        </Spacer>
                         <Stack spacing={1} sx={styles.versionNote}>
                             <Typography variant="h4" sx={{fontWeight:'bold'}}>Version 1.1</Typography>
                             <Typography variant="h5">June 9, 2023</Typography>

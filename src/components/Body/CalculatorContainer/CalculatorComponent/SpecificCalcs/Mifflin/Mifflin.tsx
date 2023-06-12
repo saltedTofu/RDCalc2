@@ -4,6 +4,7 @@ import WeightInput from '../components/WeightInput';
 import HeightInput from '../components/HeightInput';
 import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
 import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
+import Spacer from '../../../../../Design/Spacer';
 
 function Mifflin(){
     const [gender,setGender] = useState("");
@@ -44,7 +45,15 @@ function Mifflin(){
         setAge(validatedString);
     }
     return(
-        <div className="mifflin">
+        <div
+            style={{
+                display:'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width:'100%',
+            }}
+        >
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -56,22 +65,35 @@ function Mifflin(){
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
             </RadioGroup>
-            <HeightInput 
-                feet={heightFeet}
-                inches={heightInches}
-                setFeet={setHeightFeet}
-                setInches={setHeightInches}
-                includeLabel={true}
-            />
-            <WeightInput 
-                weight={weight}
-                setWeight={setWeight}
-                weightUnit={weightUnit}
-                setWeightUnit={setWeightUnit}
-                includeLabel={true}
-                variant="small"
-            />
-            <div className="ageContainer">
+            <Spacer mt={8} style={{width:'100%'}}>
+                <HeightInput 
+                    feet={heightFeet}
+                    inches={heightInches}
+                    setFeet={setHeightFeet}
+                    setInches={setHeightInches}
+                    includeLabel={true}
+                />
+            </Spacer>
+            <Spacer mt={16} style={{width:'100%'}}>
+                <WeightInput 
+                    weight={weight}
+                    setWeight={setWeight}
+                    weightUnit={weightUnit}
+                    setWeightUnit={setWeightUnit}
+                    includeLabel={true}
+                    variant="small"
+                />
+            </Spacer>
+            <Spacer
+                mt={16}
+                style={{
+                    display:'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-around',
+                    alignItems: 'center',
+                    width:'50%',
+                }}
+            >                
                 <Typography>Age</Typography>
                 <TextField
                     autoComplete='off'
@@ -83,21 +105,33 @@ function Mifflin(){
                     label="Years"
                 >
                 </TextField>
-            </div>
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
+            </Spacer>
+            <Spacer 
+                mt={16} 
+                style={{
+                    display:'flex', 
+                    alignItems:'center', 
+                    justifyContent:'center'
+                    }}
+            >
                 <Typography>Activity Factor</Typography>
-                <TextField
-                    type="string"
-                    size='small'
-                    onChange={handleActivityFactor}
-                    sx={{width:'100px', marginLeft:'10px'}}
-                    value={activityFactor}
-                    placeholder="1"
-                ></TextField>
-            </div>
-            <Paper sx={{margin:'10px',padding:'10px'}}>
-                <Typography variant="h6">{output}</Typography>
-            </Paper>
+                <Spacer ml={8}>
+                    <TextField
+                        type="string"
+                        size='small'
+                        onChange={handleActivityFactor}
+                        sx={{width:'100px'}}
+                        value={activityFactor}
+                        placeholder="1"
+                    ></TextField>
+                </Spacer>
+            </Spacer>
+            <Spacer mt={16} mb={16}>
+                <Paper sx={{padding:'10px'}}>
+                    <Typography variant="h6">{output}</Typography>
+                </Paper>
+            </Spacer>
+            
         </div>
     )
 }

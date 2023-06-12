@@ -1,6 +1,7 @@
 import { MenuItem, Paper, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import {decimalInputValidation} from "../../../../../../utils/decimalInputValidation";
+import Spacer from "../../../../../Design/Spacer";
 
 export default function InchesCm(){
 
@@ -33,13 +34,22 @@ export default function InchesCm(){
     }
 
     return(
-        <div className='lbsKgConverter' data-testid="inchesCmConverter">
-            <div 
+        <div
+        style={{
+            display:'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width:'93%',
+        }}
+        >
+            <div
+                data-testid="inchesCmConverter"
                 style={{
                     display:'flex', 
                     flexDirection:'row',
                     width:'70%',
-                    justifyContent:'space-around',                    
+                    justifyContent:'space-around',              
                 }}
             >
                 <TextField
@@ -58,9 +68,11 @@ export default function InchesCm(){
                     <MenuItem value="Cm">Cm</MenuItem>
                 </Select>
             </div>
-            <Paper sx={{padding:'10px', margin:'10px'}}>
-                <Typography variant="h6">{output} {outputUnit}</Typography>
-            </Paper>
+            <Spacer mt={8} mb={8} >
+                <Paper sx={{padding:'10px', width:'fit-content'}}>
+                    <Typography variant="h6">{output} {outputUnit}</Typography>
+                </Paper>
+            </Spacer>
         </div>
     )
 }

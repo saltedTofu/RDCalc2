@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import {useAuth} from '../../contexts/AuthContext';
 import './SignUp.css';
 import { useNavigate } from "react-router-dom";
+import Spacer from '../Design/Spacer';
 
 interface Props {
     currentTheme:string;
@@ -77,21 +78,43 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
                 <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange} setCurrentTheme={setCurrentTheme}/>
                 <div className="signUpForm">
                     <form onSubmit={handleSubmit}>
-                        <Typography variant="h2" sx={{marginTop:'20px', marginBottom:'20px', marginLeft:'5px'}}>Sign Up</Typography>
+                        <Spacer mt={16} mb={16}>
+                            <Typography variant="h2" sx={{marginLeft:'5px'}}>Sign Up</Typography>
+                        </Spacer>                        
                         <FormGroup sx={{width:'100%'}}>
-                            <FormControl><TextField label="Enter Email" sx={{marginTop:'20px', marginBottom:'20px'}} inputRef={emailRef}></TextField></FormControl>
+                            <FormControl>
+                                <Spacer mt={16} mb={16}>
+                                    <TextField label="Enter Email" inputRef={emailRef}></TextField>
+                                </Spacer>                                
+                            </FormControl>
                         </FormGroup>
                         <FormGroup sx={{width:'100%'}}>
-                            <FormControl><TextField label="Create Password" sx={{marginTop:'20px', marginBottom:'20px'}} type="password" inputRef={passwordRef}></TextField></FormControl>
+                            <FormControl>
+                                <Spacer mt={16} mb={16}>
+                                    <TextField label="Create Password" type="password" inputRef={passwordRef}></TextField>
+                                </Spacer>                                
+                            </FormControl>
                         </FormGroup>
                         <FormGroup sx={{width:'100%'}}>
-                            <FormControl><TextField label="Confirm Password" sx={{marginTop:'20px', marginBottom:'20px'}} type="password" inputRef={passwordConfirmRef}></TextField></FormControl>
+                            <FormControl>
+                                <Spacer mt={16} mb={16}>
+                                    <TextField label="Confirm Password" type="password" inputRef={passwordConfirmRef}></TextField>
+                                </Spacer>                                
+                            </FormControl>
                         </FormGroup>
-                        <Button disabled={loading} fullWidth variant="contained" sx={{marginTop:'20px', marginBottom:'30px'}} type="submit">Create Account</Button>
+                        <Spacer mt={16} mb={32}>
+                            <Button disabled={loading} fullWidth variant="contained" type="submit">Create Account</Button>
+                        </Spacer>                        
                     </form>
                 </div>
-                {error && <Alert sx={{marginTop:'15px'}} color="error">{error}</Alert>}
-                {success && <Alert sx={{marginTop:'15px'}} color="success">{success}</Alert>}
+                {error && 
+                    <Spacer mt={16}>
+                        <Alert color="error">{error}</Alert>
+                    </Spacer>}
+                {success && 
+                    <Spacer mt={16}>
+                        <Alert color="success">{success}</Alert>
+                    </Spacer>}
             </Paper>
         </div>
     )

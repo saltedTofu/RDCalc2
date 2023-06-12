@@ -6,11 +6,11 @@ import {useSelector} from 'react-redux';
 import {Formulas, FormulasType} from '../../../../../../assets/TubeFeedFormulas';
 import {Modulars, ModularsType} from '../../../../../../assets/Modulars';
 import {useAuth} from '../../../../../../contexts/AuthContext';
-import '../../Calculator.css';
 import TubeFeedSelect from './TubeFeedSelect/TubeFeedSelect';
 import TubeFeedMicros from './TubeFeedMicros/TubeFeedMicros';
 import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
 import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
+import Spacer from '../../../../../Design/Spacer';
 
 function TubeFeed(){
     const [chosenFormula,setChosenFormula] = useState<FormulasType>('Compleat');
@@ -192,260 +192,335 @@ function TubeFeed(){
     },[bolusPerDay,bolusVolume,chosenFormula,modular,modularPerDay,flushAmount,flushPerDay])
 
     return(
-        <div className='tubeFeedCalc'>
-            <FormControl sx={{marginBottom:'15px', display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}} >
-                <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center', marginBottom:'10px'}}>
-                    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-around', alignItems:'center', marginBottom:'5px'}}>
-                        <Checkbox
-                            checked={showOnlyFavorites}
-                            onChange={handleShowFavorites}
-                        />
-                        <Typography>Show Favorites Only</Typography>
-                    </div>
-                    <div style={{display:'flex',flexDirection:'row', justifyContent:'center',alignItems:'center'}}>
-                        <TubeFeedSelect 
-                            chosenFormula={chosenFormula}
-                            handleFormulaChange={handleFormulaChange}
-                            showOnlyFavorites={showOnlyFavorites}
-                            Formulas={Formulas}
-                            tubeFeedFavorites={tubeFeedFavorites}
-                        />
-                        
-                    </div>
-                    <div style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', width:'100%'}}>
-                        <IconButton onClick={function updateFavorites(){handleTubeFeedFavorite(Formulas[chosenFormula].name)}}>
-                            <FavoriteIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}/>
-                            <FavoriteBorderIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}/>
-                        </IconButton>
-                        <Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}>Add to Favorites</Typography>
-                        <Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}>Remove from Favorites</Typography>
-                    </div>
-                
-                    
-                </div>
-                
-                <ToggleButtonGroup 
-                    size="large" 
-                    aria-label="Choose feeding type"
-                    exclusive
-                    onChange={handleFeedingType}
-                    value={feedingType}
+        <div
+            style={{
+                display:'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width:'85%',
+            }}
+        >
+            <div>
+                <FormControl sx={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}} >
+                    <Spacer mb={8}>
+                        <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}}>
+                            <Spacer mb={8} style={{display:'flex', flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
+                                <Checkbox
+                                    checked={showOnlyFavorites}
+                                    onChange={handleShowFavorites}
+                                />
+                                <Typography>Show Favorites Only</Typography>                            
+                            </Spacer>
+                            <div style={{display:'flex',flexDirection:'row', justifyContent:'center',alignItems:'center'}}>
+                                <TubeFeedSelect 
+                                    chosenFormula={chosenFormula}
+                                    handleFormulaChange={handleFormulaChange}
+                                    showOnlyFavorites={showOnlyFavorites}
+                                    Formulas={Formulas}
+                                    tubeFeedFavorites={tubeFeedFavorites}
+                                />                                
+                            </div>
+                            <Spacer mt={8} style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', width:'100%'}}>
+                                <IconButton onClick={function updateFavorites(){handleTubeFeedFavorite(Formulas[chosenFormula].name)}}>
+                                    <FavoriteIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}/>
+                                    <FavoriteBorderIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}/>
+                                </IconButton>
+                                <Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}>Add to Favorites</Typography>
+                                <Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}>Remove from Favorites</Typography>
+                            </Spacer>
+                        </div>
+                    </Spacer>
+                    <ToggleButtonGroup 
+                        size="large" 
+                        aria-label="Choose feeding type"
+                        exclusive
+                        onChange={handleFeedingType}
+                        value={feedingType}
+                    >
+                        <ToggleButton value='continuous'>Continuous</ToggleButton>
+                        <ToggleButton value='bolus'>Bolus</ToggleButton>
+                    </ToggleButtonGroup>
+                </FormControl>
+            </div>
+            {feedingType==='continuous' && 
+                <Spacer 
+                    mt={16}
+                    style={{
+                        display:'flex', 
+                        flexDirection:'column', 
+                        justifyContent:'center', 
+                        alignItems:'center', 
+                        width:'100%',
+                    }}
                 >
-                    <ToggleButton value='continuous'>Continuous</ToggleButton>
-                    <ToggleButton value='bolus'>Bolus</ToggleButton>
-                </ToggleButtonGroup>
-            </FormControl>
-
-            <div 
-                style={
-                    feedingType==='continuous'
-                        ? {display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'100%'}
-                        : {display:'none'}
-                    }
-            >
-                <div>
-                    <TextField 
-                        sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} 
-                        value={continuousRate} 
-                        type="string" 
-                        onChange={handleContinuousRate} 
-                        label="ml/hr"
-                        autoComplete='off'
-                    > 
-                    </TextField>
-                    <TextField
-                        autoComplete='off'
-                        type="string" 
-                        label="hrs/day"
-                        value={hrsDay}
-                        onChange={handleHrsDay}
-                        sx={{width:'100px'}}
-                    ></TextField>
-                </div>
-                <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center',marginBottom:'20px', marginTop:'8px'}}>
-                    <InputLabel id="modular-label">Modular</InputLabel>
-                    <Select
-                        label="Modular"
-                        value={modular}
-                        onChange={handleModular}
-                        sx={{width:'175px',marginRight:'15px'}}
-                        MenuProps={{sx:{height:'600px'}}}
+                    <div
+                        style={{
+                            display:'flex',
+                            flexDirection:'row',
+                            alignItems:'center',
+                            justifyContent:'space-between',
+                        }}
                     >
-                        <MenuItem value={'none'} key={'none'}>None</MenuItem>
-                        {Object.entries(Modulars).map(([key]) => <MenuItem key={key} value={key}>{(Modulars as any)[key].name}</MenuItem>)}
-                    </Select>
-                    <TextField
-                        autoComplete='off'
-                        sx={{width:'100px',marginRight:'10px'}}
-                        type="string"
-                        label="times/day"
-                        value={modularPerDay}
-                        onChange={handleModularPerDay}
-                    ></TextField>
-                </FormControl>
-                <FormControl sx={{display:'flex',flexDirection:'row', marginBottom:'20px'}}>
-                    <TextField
-                        autoComplete='off'
-                        type="string"
-                        label="Water Flush Volume (mL)"
-                        sx={{marginRight:'10px'}}
-                        value={flushAmount}
-                        onChange={handleFlushAmount}
-                    ></TextField>
-                    <TextField
-                        autoComplete='off'
-                        sx={{width:'100px'}}
-                        type="numstringber"
-                        label="flushes/day"
-                        value={flushPerDay}
-                        onChange={handleFlushPerDay}
-                    ></TextField>
-                </FormControl>
-                <Paper className="tubeFeedOutput" sx={{marginBottom:'20px'}}>
-                    <Typography variant="h6">{kcalProvided} Kcal</Typography>
-                    <Typography variant="h6">{proteinProvided}g Protein</Typography>
-                    <Typography variant="h6">{freeWater}ml Free Water</Typography>
-                </Paper>
-                <TubeFeedMicros 
-                        chosenFormula={chosenFormula}
-                        totalVolume={totalVolume}
-                />
-                <div style={{display:'flex',flexDirection:'row', justifyContent:'space-around', width:'100%', paddingBottom:'10px'}}>
-                    <Link target="_blank" 
-                        sx={
-                            chosenFormula
-                            ? {display:'flex'}
-                            : {display:'none'}
-                        }
-                        href={
-                            chosenFormula
-                                ? Formulas[chosenFormula].reference
-                                : ''
-                        }
+                        <TextField 
+                            sx={{width:'100px', marginRight:'15px'}} 
+                            value={continuousRate} 
+                            type="string" 
+                            onChange={handleContinuousRate} 
+                            label="ml/hr"
+                            autoComplete='off'
+                        > 
+                        </TextField>                 
+                        <TextField
+                            autoComplete='off'
+                            type="string" 
+                            label="hrs/day"
+                            value={hrsDay}
+                            onChange={handleHrsDay}
+                            sx={{width:'100px'}}
+                        ></TextField>
+                    </div>
+                    <Spacer mt={16}>
+                        <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center'}}>
+                            <InputLabel id="modular-label">Modular</InputLabel>
+                            <Select
+                                label="Modular"
+                                value={modular}
+                                onChange={handleModular}
+                                sx={{width:'175px',marginRight:'15px'}}
+                                MenuProps={{sx:{height:'600px'}}}
+                            >
+                                <MenuItem value={'none'} key={'none'}>None</MenuItem>
+                                {Object.entries(Modulars).map(([key]) => <MenuItem key={key} value={key}>{(Modulars as any)[key].name}</MenuItem>)}
+                            </Select>
+                            <TextField
+                                autoComplete='off'
+                                sx={{width:'100px',marginRight:'10px'}}
+                                type="string"
+                                label="times/day"
+                                value={modularPerDay}
+                                onChange={handleModularPerDay}
+                            ></TextField>
+                        </FormControl>
+                    </Spacer>
+                    <Spacer mt={16}>
+                        <FormControl sx={{display:'flex',flexDirection:'row'}}>
+                            <TextField
+                                autoComplete='off'
+                                type="string"
+                                label="Water Flush Volume (mL)"
+                                sx={{marginRight:'10px'}}
+                                value={flushAmount}
+                                onChange={handleFlushAmount}
+                            ></TextField>
+                            <TextField
+                                autoComplete='off'
+                                sx={{width:'100px'}}
+                                type="numstringber"
+                                label="flushes/day"
+                                value={flushPerDay}
+                                onChange={handleFlushPerDay}
+                            ></TextField>
+                        </FormControl>
+                    </Spacer>
+                    <Spacer mt={16}>
+                        <Paper
+                            style={{
+                                display:'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'flex-start',
+                                padding:'10px',
+                            }}
+                        >
+                            <Typography variant="h6">{kcalProvided} Kcal</Typography>
+                            <Typography variant="h6">{proteinProvided}g Protein</Typography>
+                            <Typography variant="h6">{freeWater}ml Free Water</Typography>
+                        </Paper>
+                    </Spacer>
+                    <Spacer mt={16}>                                   
+                        <TubeFeedMicros 
+                                chosenFormula={chosenFormula}
+                                totalVolume={totalVolume}
+                        />
+                    </Spacer>
+                    <Spacer
+                        mt={16}
+                        mb={16} 
+                        style={{
+                            display:'flex',
+                            flexDirection:'row', 
+                            justifyContent:'space-around', 
+                            width:'100%', 
+                    }}>
+                        <Link target="_blank" 
+                            sx={
+                                chosenFormula
+                                ? {display:'flex'}
+                                : {display:'none'}
+                            }
+                            href={
+                                chosenFormula
+                                    ? Formulas[chosenFormula].reference
+                                    : ''
+                            }
+                        >
+                            Tube Feed Reference
+                        </Link>
+                        <Link  target="_blank" 
+                            sx={
+                                modular!=='none'
+                                ? {display:'flex'}
+                                : {display:'none'}
+                            }
+                            href={
+                                modular!=='none'
+                                    ? Modulars[modular].reference
+                                    : ''
+                            }
+                        >
+                            Modular Reference
+                        </Link>
+                    </Spacer>
+                </Spacer>
+            }
+            {feedingType==='bolus' && 
+                <Spacer
+                    mt={16}
+                    style={{
+                        display:'flex', 
+                        flexDirection:'column', 
+                        justifyContent:'center', 
+                        alignItems:'center', 
+                        width:'100%',
+                    }}
+                >       
+                    <div
+                        style={{
+                            display:'flex',
+                            flexDirection:'row',
+                            alignItems:'center',
+                            justifyContent:'space-between'
+                        }}
+                    >            
+                        <TextField 
+                            sx={{width:'100px', marginRight:'15px'}} 
+                            autoComplete='off'
+                            value={bolusVolume} 
+                            type="string" 
+                            onChange={handleBolusVolume} 
+                            label="ml">                        
+                        </TextField>                  
+                        <TextField 
+                            autoComplete='off'
+                            type="string" 
+                            label="bolus/day"
+                            value={bolusPerDay}
+                            onChange={handleBolusPerDay}
+                            sx={{width:'100px'}}>                    
+                        </TextField>     
+                    </div>                
+                    <Spacer mt={16}>
+                        <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center'}}>
+                            <InputLabel id="modular-label">Modular</InputLabel>
+                            <Select
+                                label="Modular"
+                                value={modular}
+                                onChange={handleModular}
+                                sx={{width:'175px',marginRight:'15px'}}
+                                MenuProps={{sx:{height:'600px'}}}
+                            >
+                                <MenuItem value={'none'} key="none">None</MenuItem>
+                                {Object.entries(Modulars).map(([key]) => <MenuItem value={key} key={key}>{(Modulars as any)[key].name}</MenuItem>)}
+                            </Select>
+                            <TextField
+                                sx={{width:'100px',marginRight:'10px'}}
+                                autoComplete='off'
+                                type="string"
+                                label="times/day"
+                                value={modularPerDay}
+                                onChange={handleModularPerDay}
+                            ></TextField>
+                            
+                        </FormControl>
+                    </Spacer>
+                    <Spacer mt={16}>
+                        <FormControl sx={{display:'flex',flexDirection:'row'}}>
+                            <TextField
+                                type="string"
+                                label="Water Flush Volume (mL)"
+                                sx={{marginRight:'10px'}}
+                                autoComplete='off'
+                                value={flushAmount}
+                                onChange={handleFlushAmount}
+                            ></TextField>
+                            <TextField
+                                sx={{width:'100px'}}
+                                type="string"
+                                label="flushes/day"
+                                autoComplete='off'
+                                value={flushPerDay}
+                                onChange={handleFlushPerDay}
+                            ></TextField>
+                        </FormControl>
+                    </Spacer>
+                    <Spacer mt={16}>
+                        <Paper
+                            sx={{
+                                padding:'10px'
+                            }}
+                        >
+                            <Typography variant="h6">{bolusKcalProvided} Kcal</Typography>
+                            <Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
+                            <Typography variant="h6">{bolusFreeWater}ml Free Water</Typography>
+                        </Paper>
+                    </Spacer>
+                    <Spacer mt={16}>
+                        <TubeFeedMicros 
+                                chosenFormula={chosenFormula}
+                                totalVolume={totalVolume}   
+                        />
+                    </Spacer>                
+                    <Spacer
+                        mt={16}
+                        mb={16}
+                        style={{
+                            display:'flex',
+                            flexDirection:'row', 
+                            justifyContent:'space-around', 
+                            width:'100%',                             
+                        }}
                     >
-                        Tube Feed Reference
-                    </Link>
-                    <Link  target="_blank" 
-                        sx={
-                            modular!=='none'
-                            ? {display:'flex'}
-                            : {display:'none'}
-                        }
-                        href={
-                            modular!=='none'
-                                ? Modulars[modular].reference
-                                : ''
-                        }
-                    >
-                        Modular Reference
-                    </Link>
-                </div>
-            </div>
-
-            <div 
-                style={
-                    feedingType==='bolus'
-                        ? {display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'100%'}
-                        : {display:'none'}
-                    }
-            >
-                <div>
-                    <TextField 
-                        sx={{marginBottom:'15px', width:'100px', marginRight:'15px'}} 
-                        autoComplete='off'
-                        value={bolusVolume} 
-                        type="string" 
-                        onChange={handleBolusVolume} 
-                        label="ml"></TextField>
-                    <TextField 
-                        autoComplete='off'
-                        type="string" 
-                        label="bolus/day"
-                        value={bolusPerDay}
-                        onChange={handleBolusPerDay}
-                        sx={{width:'100px'}}
-                    ></TextField>
-                </div>
-                <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center',marginBottom:'20px', marginTop:'8px'}}>
-                    <InputLabel id="modular-label">Modular</InputLabel>
-                    <Select
-                        label="Modular"
-                        value={modular}
-                        onChange={handleModular}
-                        sx={{width:'175px',marginRight:'15px'}}
-                        MenuProps={{sx:{height:'600px'}}}
-                    >
-                        <MenuItem value={'none'} key="none">None</MenuItem>
-                        {Object.entries(Modulars).map(([key]) => <MenuItem value={key} key={key}>{(Modulars as any)[key].name}</MenuItem>)}
-                    </Select>
-                    <TextField
-                        sx={{width:'100px',marginRight:'10px'}}
-                        autoComplete='off'
-                        type="string"
-                        label="times/day"
-                        value={modularPerDay}
-                        onChange={handleModularPerDay}
-                    ></TextField>
-                    
-                </FormControl>
-                <FormControl sx={{display:'flex',flexDirection:'row', marginBottom:'20px'}}>
-                    <TextField
-                        type="string"
-                        label="Water Flush Volume (mL)"
-                        sx={{marginRight:'10px'}}
-                        autoComplete='off'
-                        value={flushAmount}
-                        onChange={handleFlushAmount}
-                    ></TextField>
-                    <TextField
-                        sx={{width:'100px'}}
-                        type="string"
-                        label="flushes/day"
-                        autoComplete='off'
-                        value={flushPerDay}
-                        onChange={handleFlushPerDay}
-                    ></TextField>
-                </FormControl>
-                <Paper className="tubeFeedOutput" sx={{marginBottom:'20px'}}>
-                    <Typography variant="h6">{bolusKcalProvided} Kcal</Typography>
-                    <Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
-                    <Typography variant="h6">{bolusFreeWater}ml Free Water</Typography>
-                </Paper>
-                <TubeFeedMicros 
-                        chosenFormula={chosenFormula}
-                        totalVolume={totalVolume}   
-                />
-                <div style={{display:'flex',flexDirection:'row', justifyContent:'space-around', width:'100%', paddingBottom:'10px'}}>
-                    <Link target="_blank" 
-                        sx={
-                            chosenFormula
-                            ? {display:'flex'}
-                            : {display:'none'}
-                        }
-                        href={
-                            chosenFormula
-                                ? Formulas[chosenFormula].reference
-                                : ''
-                        }
-                    >
-                        Tube Feed Reference
-                    </Link>
-                    <Link  target="_blank" 
-                        sx={
-                            modular!=='none'
-                            ? {display:'flex'}
-                            : {display:'none'}
-                        }
-                        href={
-                            modular!=='none'
-                                ? Modulars[modular].reference
-                                : ''
-                        }
-                    >
-                        Modular Reference
-                    </Link>
-                </div>
-            </div>
+                        <Link target="_blank" 
+                            sx={
+                                chosenFormula
+                                ? {display:'flex'}
+                                : {display:'none'}
+                            }
+                            href={
+                                chosenFormula
+                                    ? Formulas[chosenFormula].reference
+                                    : ''
+                            }
+                        >
+                            Tube Feed Reference
+                        </Link>
+                        <Link  target="_blank" 
+                            sx={
+                                modular!=='none'
+                                ? {display:'flex'}
+                                : {display:'none'}
+                            }
+                            href={
+                                modular!=='none'
+                                    ? Modulars[modular].reference
+                                    : ''
+                            }
+                        >
+                            Modular Reference
+                        </Link>
+                    </Spacer>
+                </Spacer>}
             {error && <Snackbar  anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={true} onClose={handleCloseError} autoHideDuration={6000}><Alert severity='error'>{error}</Alert></Snackbar>}
         </div>
     )

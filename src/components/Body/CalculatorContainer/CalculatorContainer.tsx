@@ -6,6 +6,7 @@ import {SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl, S
 import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from '../../../redux/calcs';
 import './CalculatorComponent/CalculatorComponent';
 import './CalculatorContainer.css';
+import Spacer from '../../Design/Spacer';
 
 interface Props {
     id:number;
@@ -46,7 +47,7 @@ const CalculatorContainer = (({id, name=''}:Props) => {
     
     return(
             <Paper className="CalculatorContainer" elevation={5}>
-                <Paper className="handle" sx={{marginBottom:'7px'}}>
+                <Paper className="handle">
                     <IconButton 
                         sx={{padding:"0"}} 
                         onClick={handleClose}
@@ -54,28 +55,30 @@ const CalculatorContainer = (({id, name=''}:Props) => {
                         <SvgIcon component={CloseIcon} fontSize="small"></SvgIcon>
                     </IconButton>
                 </Paper>
-                <Paper className="selectCalc" sx={{marginBottom:'7px'}}>
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={chosenCalc}
-                            label="AddCalculator"
-                            onChange={handleChange}
-                        >
-                            <MenuItem value={'Hamwi'}>Hamwi</MenuItem>
-                            <MenuItem value={'IBW'}>Ideal Body Weight</MenuItem>
-                            <MenuItem value={'InchesCm'}>Inches/Cm Converter</MenuItem>
-                            <MenuItem value={'lbs/kg'}>Lbs/Kg Converter</MenuItem>
-                            <MenuItem value={'Mifflin'}>Mifflin</MenuItem>
-                            <MenuItem value={'Notes'}>Notepad</MenuItem>
-                            <MenuItem value={'PennState'}>Penn State</MenuItem>
-                            <MenuItem value={'TPN/PPN'}>TPN/PPN</MenuItem>
-                            <MenuItem value={'TubeFeeding'}>Tube Feeding</MenuItem>
-                        </Select>
-                    </FormControl>
-                </Paper>
+                <Spacer mt={8} mb={8}>
+                    <Paper className="selectCalc">
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={chosenCalc}
+                                label="AddCalculator"
+                                onChange={handleChange}
+                            >
+                                <MenuItem value={'Hamwi'}>Hamwi</MenuItem>
+                                <MenuItem value={'IBW'}>Ideal Body Weight</MenuItem>
+                                <MenuItem value={'InchesCm'}>Inches/Cm Converter</MenuItem>
+                                <MenuItem value={'lbs/kg'}>Lbs/Kg Converter</MenuItem>
+                                <MenuItem value={'Mifflin'}>Mifflin</MenuItem>
+                                <MenuItem value={'Notes'}>Notepad</MenuItem>
+                                <MenuItem value={'PennState'}>Penn State</MenuItem>
+                                <MenuItem value={'TPN/PPN'}>TPN/PPN</MenuItem>
+                                <MenuItem value={'TubeFeeding'}>Tube Feeding</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Paper>
+                </Spacer>
                 <CalculatorComponent 
                     Calc={chosenCalc}
                 />

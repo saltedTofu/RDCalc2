@@ -1,4 +1,3 @@
-import './Calculator.css';
 import IdealBodyWeight from './SpecificCalcs/IdealBodyWeight/IdealBodyWeight';
 import Hamwi from './SpecificCalcs/Hamwi/Hamwi';
 import TPNPPN from './SpecificCalcs/TPNPPN/TPNPPN';

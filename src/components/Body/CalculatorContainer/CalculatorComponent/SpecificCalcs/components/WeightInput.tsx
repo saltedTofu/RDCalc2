@@ -1,5 +1,6 @@
 import { MenuItem, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
 import {decimalInputValidation} from "../../../../../../utils/decimalInputValidation";
+import Spacer from "../../../../../Design/Spacer";
 
 interface Props {
     weight:string;
@@ -22,38 +23,35 @@ function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="med
         setWeightUnit(event.target.value);
     }
 
-    return (
+    return (     
         <div 
             style={{
                 display:'flex', 
-                marginBottom:'10px', 
                 flexDirection:'row', 
                 justifyContent:'space-around', 
                 alignItems:'center', 
-                width:'85%', 
-                paddingTop:'10px', 
-                paddingBottom:'10px', 
+                width:'100%',
                 ...style
-                }}>
-            {includeLabel && <Typography>Weight</Typography>}
-            <TextField
-                    type="string"
-                    value={weight}
-                    onChange={handleWeight}
-                    sx={{width:'100px'}}
-                    size={variant}
-                    placeholder="0"
-                    autoComplete='off'
-                >
-            </TextField>
-            <Select
-                    id="weightUnitInput"
-                    value={weightUnit}
-                    onChange={handleWeightUnit}
-                    size={variant}
-                >
-                    <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                    <MenuItem value={'Kg'}>Kg</MenuItem>
+        }}>
+                {includeLabel && <Typography>Weight</Typography>}
+                <TextField
+                        type="string"
+                        value={weight}
+                        onChange={handleWeight}
+                        sx={{width:'120px'}}
+                        size={variant}
+                        placeholder="0"
+                        autoComplete='off'
+                    >
+                </TextField>
+                <Select
+                        id="weightUnitInput"
+                        value={weightUnit}
+                        onChange={handleWeightUnit}
+                        size={variant}
+                    >
+                        <MenuItem value={'Lbs'}>Lbs</MenuItem>
+                        <MenuItem value={'Kg'}>Kg</MenuItem>
                 </Select>
         </div>
     )

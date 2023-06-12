@@ -13,7 +13,7 @@ function MobileCalculatorContainer(){
 
     return(
             <div className="mobileCalculatorContainer">
-                <Paper className="selectCalc" sx={{marginBottom:'7px'}}>
+                <Paper className="selectCalc">
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
                         <Select

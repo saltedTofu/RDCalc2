@@ -17,6 +17,7 @@ import '@fontsource/roboto/700.css';
 import MobileCalculatorContainer from './MobileCalculatorContainer/MobileCalculatorContainer';
 import './Home.css'
 import {useAuth} from '../contexts/AuthContext'
+import Spacer from './Design/Spacer';
 
 interface Props {
     currentTheme:string;
@@ -64,7 +65,9 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
                     <div style={{width:'240px'}} className="emptyDiv"></div>
                 </div>
                 <Body />
-                <MobileCalculatorContainer />
+                <Spacer mb={8}>
+                    <MobileCalculatorContainer />
+                </Spacer>                
                 <Footer />
             </Paper>
     )

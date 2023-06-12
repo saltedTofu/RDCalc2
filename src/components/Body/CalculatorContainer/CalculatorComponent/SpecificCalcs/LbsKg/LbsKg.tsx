@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Typography, Paper} from '@mui/material';
-import '../../Calculator.css';
 import WeightInput from '../components/WeightInput';
+import Spacer from '../../../../../Design/Spacer';
 
 function LbsKg(){
     const [input,setInput] = useState("");
@@ -24,17 +24,29 @@ function LbsKg(){
     },[unit,input])
 
     return(
-        <div className='lbsKgConverter' data-testid="lbsKgConverter">
+        <div 
+            data-testid="lbsKgConverter" 
+            style={{
+                display:'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width:'93%',
+            }}
+        >
             <WeightInput 
                 weight={input}
                 setWeight={setInput}
                 weightUnit={unit}
                 setWeightUnit={setUnit}
-                style={{width:'70%', marginBottom:'0px', marginTop:'0px'}}
+                style={{width:'70%'}}
             />
-            <Paper sx={{padding:'10px', margin:'10px'}}>
-                <Typography variant="h6">{output} {outputUnit}</Typography>
-            </Paper>
+            <Spacer mt={8} mb={8}>
+                <Paper sx={{padding:'10px'}}>
+                    <Typography variant="h6">{output} {outputUnit}</Typography>
+                </Paper>
+            </Spacer>
+            
         </div>
     )
 }

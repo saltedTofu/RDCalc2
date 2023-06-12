@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import {decimalInputValidation} from '../../../../../../utils/decimalInputValidation';
 import WeightInput from '../components/WeightInput';
 import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
+import Spacer from '../../../../../Design/Spacer';
 
 function TPNPPN(){
 
@@ -67,15 +68,33 @@ function TPNPPN(){
     }
 
     return(
-        <div className='tpnppnCalculator'>
-            <div style={{display:'flex', flexDirection:'row', alignItems:'center', width: '85%', justifyContent:'space-around'}}>
+        <div 
+            style={{
+                display:'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                width:'95%',
+            }}
+        >
+            <Spacer 
+                mt={8} 
+                style={{
+                    display:'flex', 
+                    flexDirection:'row', 
+                    alignItems:'center', 
+                    width: '85%', 
+                    justifyContent:'space-around'
+                }}
+            >
                 <TextField
                     autoComplete='off'
                     label="% Dextrose"
                     value={dextrose}
                     onChange={handleDextrose}
                     type="string"
-                    sx={{marginTop:'15px', marginBottom:'15px', width:'130px'}}
+                    sx={{width:'130px'}}
                 ></TextField>
                 <TextField
                     autoComplete='off'
@@ -83,43 +102,65 @@ function TPNPPN(){
                     value={aminoAcid}
                     onChange={handleAminoAcid}
                     type="string"
-                    sx={{marginTop:'15px', marginBottom:'15px', width:'130px'}}
-            ></TextField>
-            </div>
-            <Slider
-                value={rate}
-                onChange={handleRate}
-                min={5}
-                max={150}
-                step={1}
-                valueLabelDisplay="auto"
-                sx={{width:'85%'}}
-            ></Slider>
-            <Typography sx={{marginBottom:'15px'}}>{rate} ml/hr</Typography>
-            <TextField
-                label="hrs/day"
-                value={hrsDay}
-                onChange={handleHrsDay}
-                type="string"
-                autoComplete='off'
-            ></TextField>
-            <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px', margin:'10px'}}>
-                <Typography variant="h6">{kcal} Kcal</Typography>
-                <Typography variant="h6">{protein}g Protein</Typography>
-                <Typography variant="h6">{carbohydrates}g Dextrose</Typography>
-                <Typography variant="h6">{volume}ml Total Volume</Typography>
-            </Paper>
-            <Typography variant="h5" sx={{marginBottom:'15px'}}>Glucose Infusion Rate</Typography>
-            <WeightInput 
-                weight={currentBodyWeight}
-                setWeight={setCurrentBodyWeight}
-                weightUnit={weightUnit}
-                setWeightUnit={setWeightUnit}
-                variant="medium"
-            />
-            <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px', margin:'10px'}}>
-                {GIRError ? <Typography variant="h6">{GIRError}</Typography> : <Typography variant="h6">{GIR} mg/kg/min</Typography>}
-            </Paper>
+                    sx={{width:'130px'}}
+                ></TextField>
+            </Spacer>
+            <Spacer mt={16} style={{width:'100%'}}>
+                <Slider
+                    value={rate}
+                    onChange={handleRate}
+                    min={5}
+                    max={150}
+                    step={1}
+                    valueLabelDisplay="auto"
+                    sx={{width:'85%'}}
+                ></Slider>
+            </Spacer>
+            <Spacer mt={8}>
+                <Typography variant="h6">{rate} ml/hr</Typography>
+            </Spacer>
+            <Spacer mt={16}>       
+                <TextField
+                    label="hrs/day"
+                    value={hrsDay}
+                    onChange={handleHrsDay}
+                    type="string"
+                    autoComplete='off'
+                ></TextField>
+            </Spacer>  
+            <Spacer mt={16}>
+                <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px'}}>
+                    <Typography variant="h6">{kcal} Kcal</Typography>
+                    <Typography variant="h6">{protein}g Protein</Typography>
+                    <Typography variant="h6">{carbohydrates}g Dextrose</Typography>
+                    <Typography variant="h6">{volume}ml Total Volume</Typography>
+                </Paper>
+            </Spacer>
+            <Spacer mt={16}>
+                <Typography variant="h5">Glucose Infusion Rate</Typography>
+            </Spacer>
+            <Spacer mt={16} style={{width:'70%'}}>          
+                <WeightInput 
+                    weight={currentBodyWeight}
+                    setWeight={setCurrentBodyWeight}
+                    weightUnit={weightUnit}
+                    setWeightUnit={setWeightUnit}
+                    variant="medium"
+                />
+            </Spacer>
+            <Spacer mt={16} mb={16}>
+                <Paper 
+                    sx={{
+                        display:'flex',
+                        flexDirection:'column',
+                        justifyContent:'center',
+                        alignItems:'flex-start',
+                        padding:'10px'
+                    }}
+                >
+                    {GIRError ? <Typography variant="h6">{GIRError}</Typography> : <Typography variant="h6">{GIR} mg/kg/min</Typography>}
+                </Paper>
+            </Spacer>
             
         </div>
     )

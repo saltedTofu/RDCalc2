@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import { Slider, Typography, Paper } from '@mui/material';
-import '../../Calculator.css';
 import WeightInput from '../components/WeightInput';
+import Spacer from '../../../../../Design/Spacer';
 
 function Hamwi(){
     const [weight,setWeight] = useState("");
@@ -27,7 +27,7 @@ function Hamwi(){
     //Protein Range Calculator
     useEffect(()=>{
         let weightToUse=Number(weight);
-        if(weightUnit==='Lbs'){//convert to Kg
+        if(weightUnit==='Lbs'){
             weightToUse=weightToUse/2.2;
         }
         const lowerPro = Math.round(lowerProtein*weightToUse);
@@ -50,53 +50,75 @@ function Hamwi(){
     }
 
     return(
-        <div className="hamwi">
-            <WeightInput 
-                weight={weight}
-                setWeight={setWeight}
-                weightUnit={weightUnit}
-                setWeightUnit={setWeightUnit}
-            />
-            <Typography>Kcal Range</Typography>
-            <Slider 
-                aria-label="Lower Kcal Range"
-                defaultValue={lowerCal}
-                value={lowerCal} 
-                onChange={handleLowerCal}
-                min={10}
-                max={50}
-                valueLabelDisplay="auto"
-                sx={{width:'80%'}}
-            >
-            </Slider>
+        <div 
+            style={{
+                display:'flex',
+                flexDirection:'column',
+                justifyContent:'center',
+                alignItems:'center',
+                width:'100%',
+            }}
+        >
+            <Spacer mt={4}>
+                <WeightInput 
+                    weight={weight}
+                    setWeight={setWeight}
+                    weightUnit={weightUnit}
+                    setWeightUnit={setWeightUnit}
+                />
+            </Spacer>
+            <Spacer mt={4}>
+                <Typography variant="h5">Kcal Range</Typography>
+            </Spacer>
+            <Spacer mt={4}>
+                <Slider 
+                    aria-label="Lower Kcal Range"
+                    defaultValue={lowerCal}
+                    value={lowerCal} 
+                    onChange={handleLowerCal}
+                    min={10}
+                    max={50}
+                    valueLabelDisplay="auto"
+                    sx={{width:'300px'}}
+                >
+                </Slider>
+            </Spacer>                       
             <Typography>{lowerCal} kcal/kg</Typography>
-            <Slider 
-                aria-label="Higher Kcal Range"
-                defaultValue={higherCal}
-                value={higherCal}
-                onChange={handleHigherCal}
-                min={10}
-                max={50}
-                valueLabelDisplay="auto"
-                sx={{width:'80%'}}
-            >
-            </Slider>
+            <Spacer mt={4}>
+                <Slider 
+                    aria-label="Higher Kcal Range"
+                    defaultValue={higherCal}
+                    value={higherCal}
+                    onChange={handleHigherCal}
+                    min={10}
+                    max={50}
+                    valueLabelDisplay="auto"
+                    sx={{width:'300px'}}
+                >
+                </Slider>
+            </Spacer>
             <Typography>{higherCal} kcal/kg</Typography>
-            <Paper sx={{margin:'10px', padding:'10px'}}>
-                <Typography  variant="h6">{kcalRange} kcal</Typography>
-            </Paper>
-            <Typography>Protein Range</Typography>
-            <Slider
-                aria-label="Lower Protein Range"
-                defaultValue={lowerProtein}
-                value={lowerProtein}
-                onChange={handleLowerProtein}
-                min={0.1}
-                max={4.0}
-                step={0.1}
-                sx={{width:'80%'}}
-            ></Slider>
-            <Typography>{lowerProtein}</Typography>
+            <Spacer mt={4}>
+                <Paper sx={{padding:'10px'}}>
+                    <Typography  variant="h6">{kcalRange} kcal</Typography>
+                </Paper>
+            </Spacer>
+            <Spacer mt={4}>
+                <Typography variant="h5">Protein Range</Typography>
+            </Spacer>
+            <Spacer mt={4}>                      
+                <Slider
+                    aria-label="Lower Protein Range"
+                    defaultValue={lowerProtein}
+                    value={lowerProtein}
+                    onChange={handleLowerProtein}
+                    min={0.1}
+                    max={4.0}
+                    step={0.1}
+                    sx={{width:'300px'}}
+                ></Slider>
+            </Spacer>
+            <Typography>{lowerProtein}</Typography>          
             <Slider
                 aria-label="Higher Protein Range"
                 defaultValue={higherProtein}
@@ -105,12 +127,14 @@ function Hamwi(){
                 min={0.1}
                 max={4.0}
                 step={0.1}
-                sx={{width:'80%'}}
+                sx={{width:'300px'}}
             ></Slider>
             <Typography>{higherProtein}</Typography>
-            <Paper sx={{margin:'10px', padding:'10px'}}>
-                <Typography variant="h6">{proteinRange} g</Typography>
-            </Paper>
+            <Spacer mt={8} mb={8}>
+                <Paper sx={{padding:'10px'}}>
+                    <Typography variant="h6">{proteinRange} g</Typography>
+                </Paper>
+            </Spacer>
         </div>
     )
 }

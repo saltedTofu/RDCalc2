@@ -4,6 +4,7 @@ import WeightInput from '../components/WeightInput';
 import HeightInput from '../components/HeightInput';
 import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
 import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
+import Spacer from '../../../../../Design/Spacer';
 //currently using 2003 penn state, need to add modified
 
 function PennState(){
@@ -65,7 +66,15 @@ function PennState(){
         setAge(validatedString);
     }
     return(
-        <div className="pennState">
+        <div
+            style={{
+                display:'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width:'100%',
+            }}
+        >            
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -77,22 +86,35 @@ function PennState(){
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
             </RadioGroup>
-            <HeightInput 
-                feet={heightFeet}
-                inches={heightInches}
-                setFeet={setHeightFeet}
-                setInches={setHeightInches}
-                includeLabel={true}
-            />
-            <WeightInput 
-                weight={weight}
-                setWeight={setWeight}
-                weightUnit={weightUnit}
-                setWeightUnit={setWeightUnit}
-                variant="small"
-                includeLabel={true}
-            />
-            <div className="ageContainer">
+            <Spacer mt={8} style={{width:'85%'}}>
+                <HeightInput 
+                    feet={heightFeet}
+                    inches={heightInches}
+                    setFeet={setHeightFeet}
+                    setInches={setHeightInches}
+                    includeLabel={true}
+                />
+            </Spacer>
+            <Spacer mt={16} style={{width:'85%'}}>        
+                <WeightInput 
+                    weight={weight}
+                    setWeight={setWeight}
+                    weightUnit={weightUnit}
+                    setWeightUnit={setWeightUnit}
+                    variant="small"
+                    includeLabel={true}
+                />
+            </Spacer>            
+            <Spacer
+                mt={16}
+                style={{
+                    display:'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-around',
+                    alignItems: 'center',
+                    width:'60%',
+                }}
+            >
                 <Typography>Age</Typography>
                 <TextField
                     autoComplete='off'
@@ -104,43 +126,44 @@ function PennState(){
                     value={age}
                 >
                 </TextField>
-            </div>
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
+            </Spacer>
+            <Spacer mt={16} style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                 <Typography>Activity Factor</Typography>
-                <TextField
-                    autoComplete='off'
-                    type="string"
-                    size='small'
-                    onChange={handleActivityFactor}
-                    sx={{width:'100px', marginLeft:'10px'}}
-                    value={activityFactor}
-                    placeholder='1'
-                ></TextField>
-            </div>
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
+                <Spacer ml={8}>
+                    <TextField
+                        autoComplete='off'
+                        type="string"
+                        size='small'
+                        onChange={handleActivityFactor}
+                        sx={{width:'100px'}}
+                        value={activityFactor}
+                        placeholder='1'
+                    ></TextField>
+                </Spacer>
+            </Spacer>
+            <Spacer mt={16} style={{display:'flex', alignItems:'center', justifyContent:'space-around', width:'80%'}}>
                 <Typography>TMax</Typography>
                 <TextField
                         autoComplete='off'
                         type="string"
                         size='small'
-                        onChange={handleTmax}
-                        sx={{width:'100px',marginLeft:'10px', marginRight:'5px'}}
+                        onChange={handleTmax}                        
                         value={tMax}
                         label={tMaxUnit==='Fahrenheit' ? '°F' : '°C'}
+                        sx={{width:'100px'}}
                 ></TextField>
                 <Select
                         id="tMaxUnitInput"
                         value={tMaxUnit}
                         onChange={handleTmaxUnit}
-                        size="small"
-                        sx={{marginLeft:'5px'}}
+                        size="small"                      
                         data-testid='temperature-unit'
                     >
                         <MenuItem value={'Celsius'}>Celsius</MenuItem>
                         <MenuItem value={'Fahrenheit'}>Fahrenheit</MenuItem>
                 </Select>
-            </div>
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin: '10px'}}>
+            </Spacer>
+            <Spacer mt={16} style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                 <Typography>Minute Ventilation</Typography>
                 <TextField
                         autoComplete='off'
@@ -151,10 +174,12 @@ function PennState(){
                         value={ve}
                         label='VE in L/min'
                 ></TextField>
-            </div>
-            <Paper sx={{margin:'10px',padding:'10px'}}>
-                <Typography variant="h6">{penn}</Typography>
-            </Paper>
+            </Spacer>
+            <Spacer mt={16} mb={16}>
+                <Paper sx={{padding:'10px'}}>
+                    <Typography variant="h6">{penn}</Typography>
+                </Paper>
+            </Spacer>
         </div>
     )
 }

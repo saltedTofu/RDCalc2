@@ -1,24 +1,24 @@
 import {Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel} from '@mui/material';
 import {useState, useEffect} from 'react';
-import '../../Calculator.css';
 import WeightInput from '../components/WeightInput';
 import HeightInput from '../components/HeightInput';
+import Spacer from '../../../../../Design/Spacer';
 
 function IdealBodyWeight(){
-    const [gender,setGender] = useState('');
+    const [gender,setGender] = useState("");
     const [heightFeet,setHeightFeet] = useState("");
     const [heightInches,setHeightInches] = useState("");
     const [weightUnit,setWeightUnit] = useState('Lbs');
     const [weight,setWeight] = useState("");
-    const [IBW, setIBW] = useState('');
-    const [percentIBW,setPercentIBW] = useState('');
+    const [IBW, setIBW] = useState("");
+    const [percentIBW,setPercentIBW] = useState("");
     const [LBKA, setLBKA] = useState(false);
     const [RBKA, setRBKA] = useState(false);
     const [LAKA, setLAKA] = useState(false);
     const [RAKA, setRAKA] = useState(false);
     const [paraplegic, setParaplegic] = useState(false);
     const [quadriplegic, setQuadriplegic] = useState(false);
-    const [BMI,setBMI] = useState('');
+    const [BMI,setBMI] = useState("");
     const [adjusted,setAdjusted] = useState(false);
 
     useEffect(()=>{
@@ -35,7 +35,6 @@ function IdealBodyWeight(){
             setPercentIBW('Please Enter Weight');
         }
 
-        
         let totalHeight = (Number(heightFeet)*12) + Number(heightInches);
         let weightModifier = 1;
         if(LBKA) weightModifier -= .06;
@@ -146,7 +145,16 @@ function IdealBodyWeight(){
         else setQuadriplegic(false);
     }
     return(
-        <div id="ibwCalculator">
+        <div
+            style={{
+                display:'flex',
+                flexDirection: 'column',
+                width:'93%',
+                height:'90%',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -165,40 +173,74 @@ function IdealBodyWeight(){
                 setInches={setHeightInches}
                 includeLabel={true}
             />
-            <WeightInput 
-                weight={weight}
-                setWeight={setWeight}
-                weightUnit={weightUnit}
-                setWeightUnit={setWeightUnit}
-                variant="small"
-                includeLabel={true}
-            />
-            <div style={{display:'flex', flexDirection:'row', alignItems:'flex-start'}}>
-                <div style={{marginRight:'5px'}}>
-                    <Typography>Amputations?</Typography>
-                    <FormGroup>
-                        <FormControlLabel control={<Checkbox disabled={LAKA ? true : false} onChange={handleLBKA} size='small'/>} label="L BKA (6%)" />
-                        <FormControlLabel control={<Checkbox disabled={RAKA ? true : false} onChange={handleRBKA} size='small'/>} label="R BKA (6%)" />
-                        <FormControlLabel control={<Checkbox disabled={LBKA ? true : false} onChange={handleLAKA} size='small'/>} label="L AKA (16%)" />
-                        <FormControlLabel control={<Checkbox disabled={RBKA ? true : false} onChange={handleRAKA} size='small'/>} label="R AKA (16%)" />
-                    </FormGroup>
+            <Spacer mt={16}>
+                <WeightInput 
+                    weight={weight}
+                    setWeight={setWeight}
+                    weightUnit={weightUnit}
+                    setWeightUnit={setWeightUnit}
+                    variant="small"
+                    includeLabel={true}
+                    style={{width:'300px'}}
+                />
+            </Spacer>
+            <Spacer mt={16}>
+                <div 
+                    style={{
+                        display:'flex', 
+                        flexDirection:'row', 
+                        alignItems:'flex-start',
+                        justifyContent:'center',
+                        width:'100%',
+                        paddingLeft:'16px'
+                    }}
+                >
+                    <Spacer mr={4}>
+                        <Typography variant="h6">Amputations?</Typography>
+                        <FormGroup>
+                            <FormControlLabel control={<Checkbox disabled={LAKA ? true : false} onChange={handleLBKA} size='small'/>} label="L BKA (6%)" />
+                            <FormControlLabel control={<Checkbox disabled={RAKA ? true : false} onChange={handleRBKA} size='small'/>} label="R BKA (6%)" />
+                            <FormControlLabel control={<Checkbox disabled={LBKA ? true : false} onChange={handleLAKA} size='small'/>} label="L AKA (16%)" />
+                            <FormControlLabel control={<Checkbox disabled={RBKA ? true : false} onChange={handleRAKA} size='small'/>} label="R AKA (16%)" />
+                        </FormGroup>
+                    </Spacer>
+                    <Spacer ml={4}>
+                        <Typography variant="h6">Paralyzations?</Typography>
+                        <FormGroup>
+                            <FormControlLabel control={<Checkbox disabled={quadriplegic ? true : false} onChange={handleParaplegic}size='small'/>} label="Paraplegic (12.5%)" />
+                            <FormControlLabel control={<Checkbox disabled={paraplegic ? true : false} onChange={handleQuadriplegic}size='small'/>} label="Quadriplegic (17.5%)" />
+                        </FormGroup>
+                    </Spacer>
                 </div>
-                <div style={{marginLeft:'5px'}}>
-                    <Typography>Paralyzations?</Typography>
-                    <FormGroup>
-                        <FormControlLabel control={<Checkbox disabled={quadriplegic ? true : false} onChange={handleParaplegic}size='small'/>} label="Paraplegic (12.5%)" />
-                        <FormControlLabel control={<Checkbox disabled={paraplegic ? true : false} onChange={handleQuadriplegic}size='small'/>} label="Quadriplegic (17.5%)" />
-                    </FormGroup>
-                </div>
-            </div>
-            <Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',padding:'10px'}}>
-                <Typography variant="h6">IBW={IBW}</Typography>
-                <Typography variant="h6">%IBW={percentIBW}</Typography>
-                <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-                    {adjusted && <Typography sx={{marginRight:'5px'}}>(adjusted)</Typography>}
-                    <Typography variant="h6">BMI={BMI}</Typography>
-                </div>
-            </Paper>
+            </Spacer>
+            <Spacer mb={16} mt={8}>
+                <Paper 
+                    sx={{
+                        display:'flex',
+                        flexDirection:'column',
+                        justifyContent:'center',
+                        alignItems:'center',
+                        padding:'10px'
+                    }}
+                >
+                    <Typography variant="h6">IBW={IBW}</Typography>
+                    <Typography variant="h6">%IBW={percentIBW}</Typography>
+                    <div 
+                        style={{
+                            display:'flex', 
+                            alignItems:'center', 
+                            justifyContent:'center'
+                        }}
+                    >
+                        {adjusted &&
+                            <Spacer mr={4}>
+                                <Typography>(adjusted)</Typography>
+                            </Spacer>                        
+                        }
+                        <Typography variant="h6">BMI={BMI}</Typography>
+                    </div>
+                </Paper>
+            </Spacer>
         </div>
     )
 }

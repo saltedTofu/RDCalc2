@@ -28,9 +28,7 @@ export default function HeightInput({feet, setFeet, inches, setInches, includeLa
                 flexDirection:'row',
                 alignItems:'center',
                 justifyContent:'space-around',
-                width:'85%',
-                paddingTop:'10px',
-                paddingBottom:'10px'
+                width:'100%',
             }}
         >
             {includeLabel && <Typography variant="body1">Height</Typography>}
