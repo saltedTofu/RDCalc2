@@ -20,7 +20,7 @@ const analytics = getAnalytics(app);
 async function addNewUser(user){
   try {
     const docRef = await setDoc(doc(db,'users',user), {
-      user:user,
+      user,
       tubeFeedFavorites: [],
       theme:'dark'
     });
@@ -30,9 +30,13 @@ async function addNewUser(user){
 
 //get tube feed favorites
 async function getCurrentTubeFeedFavorites(user){
-  const querySnapshot = await getDoc(doc(db,'users',user));
-  const tubeFeedFavorites = querySnapshot.data().tubeFeedFavorites;
-  return tubeFeedFavorites;
+  try{
+    const querySnapshot = await getDoc(doc(db,'users',user));
+    const tubeFeedFavorites = querySnapshot.data().tubeFeedFavorites;
+    return tubeFeedFavorites;
+  }catch(e){
+    //return an error
+  }
 }
 
 //add or remove favorite to tube feeds

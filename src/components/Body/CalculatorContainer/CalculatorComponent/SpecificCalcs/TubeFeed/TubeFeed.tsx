@@ -221,7 +221,16 @@ function TubeFeed(){
                                     tubeFeedFavorites={tubeFeedFavorites}
                                 />                                
                             </div>
-                            <Spacer mt={8} style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', width:'100%'}}>
+                            <Spacer 
+                                mt={8} 
+                                style={{
+                                    display:'flex', 
+                                    flexDirection:'row', 
+                                    justifyContent:'center', 
+                                    alignItems:'center', 
+                                    width:'100%'
+                                }}
+                            >
                                 <IconButton onClick={function updateFavorites(){handleTubeFeedFavorite(Formulas[chosenFormula].name)}}>
                                     <FavoriteIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}/>
                                     <FavoriteBorderIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}/>
@@ -404,7 +413,10 @@ function TubeFeed(){
                         }}
                     >            
                         <TextField 
-                            sx={{width:'100px', marginRight:'15px'}} 
+                            sx={{
+                                width:'100px', 
+                                marginRight:'15px'
+                            }} 
                             autoComplete='off'
                             value={bolusVolume} 
                             type="string" 
@@ -421,7 +433,13 @@ function TubeFeed(){
                         </TextField>     
                     </div>                
                     <Spacer mt={16}>
-                        <FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center'}}>
+                        <FormControl 
+                            sx={{
+                                display:'flex',
+                                flexDirection:'row',
+                                justifyContent:'space-between', 
+                                alignItems:'center'
+                            }}>
                             <InputLabel id="modular-label">Modular</InputLabel>
                             <Select
                                 label="Modular"
@@ -445,7 +463,11 @@ function TubeFeed(){
                         </FormControl>
                     </Spacer>
                     <Spacer mt={16}>
-                        <FormControl sx={{display:'flex',flexDirection:'row'}}>
+                        <FormControl 
+                            sx={{
+                                display:'flex',
+                                flexDirection:'row'
+                            }}>
                             <TextField
                                 type="string"
                                 label="Water Flush Volume (mL)"

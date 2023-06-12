@@ -59,8 +59,9 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
         try{
             setError('');
             setLoading(true);
-            await signup(emailRef.current.value, passwordRef.current.value);
-            await addUser(emailRef.current.value);
+            const validatedUserString = emailRef.current.value.toLowerCase();
+            await signup(validatedUserString, passwordRef.current.value);
+            await addUser(validatedUserString);
         } catch {
             setSuccess('');
             setError('Failed to create an account');
