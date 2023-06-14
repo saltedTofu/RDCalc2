@@ -1,4 +1,4 @@
-import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem, SelectChangeEvent, ToggleButtonGroup, ToggleButton } from '@mui/material';
 import {useState, useEffect} from 'react';
 import WeightInput from '../components/WeightInput';
 import HeightInput from '../components/HeightInput';
@@ -19,6 +19,7 @@ function PennState(){
     const [tMax,setTmax] = useState("");
     const [tMaxUnit,setTMaxUnit] = useState('Celsius');
     const [ve,setVe] = useState("");
+    const [version, setVersion] = useState("original");
 
     useEffect(()=>{
         let mifflinOutput=0;
@@ -39,9 +40,15 @@ function PennState(){
         if(tMaxUnit==='Fahrenheit'){
             convertedTMax=(convertedTMax-32)*(5/9);
         }
-        pennOutput = String(Math.round(mifflinOutput*0.96 + convertedTMax*167 + Number(ve)*31 - 6212));
+        if(version==="original"){
+            pennOutput = String(Math.round(mifflinOutput*0.96 + convertedTMax*167 + Number(ve)*31 - 6212));
+        }
+        else{ //modified
+            pennOutput = String(Math.round(mifflinOutput*0.71 + convertedTMax*85 + Number(ve)*64 - 3085));
+        }
         setPenn(pennOutput + ' kcal');
-    },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor,tMax,tMaxUnit,ve])
+
+    },[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor,tMax,tMaxUnit,ve, version])
 
     const handleTmaxUnit = (event:SelectChangeEvent) => {
         setTMaxUnit(event.target.value);
@@ -65,6 +72,9 @@ function PennState(){
         const validatedString = wholeNumberInputValidation(event.target.value, 3, 130)
         setAge(validatedString);
     }
+    const handleVersion = (event: any) => {
+        setVersion(event.target.value);
+    }
     return(
         <div
             style={{
@@ -74,18 +84,32 @@ function PennState(){
                 alignItems: 'center',
                 width:'100%',
             }}
-        >            
-            <RadioGroup
-                aria-labelledby="demo-controlled-radio-buttons-group"
-                name="controlled-radio-buttons-group"
-                id="gender-select"
-                value={gender}
-                onChange={handleGender}
-                sx={{flexDirection:'row'}}
-            >
-                <FormControlLabel value="female" control={<Radio />} label="Female" />
-                <FormControlLabel value="male" control={<Radio />} label="Male" />
-            </RadioGroup>
+        >
+            <Spacer mt={8}>
+                <ToggleButtonGroup
+                    size="large" 
+                    aria-label="Choose 2003 or 2010 penn state"
+                    exclusive
+                    onChange={handleVersion}
+                    value={version}
+                >
+                    <ToggleButton value="original">Original (2003)</ToggleButton>
+                    <ToggleButton value="modified">Modified (2010)</ToggleButton>
+                </ToggleButtonGroup>
+            </Spacer>
+            <Spacer mt={8}>
+                <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
+                    name="controlled-radio-buttons-group"
+                    id="gender-select"
+                    value={gender}
+                    onChange={handleGender}
+                    sx={{flexDirection:'row'}}
+                >
+                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                </RadioGroup>
+            </Spacer>
             <Spacer mt={8} style={{width:'85%'}}>
                 <HeightInput 
                     feet={heightFeet}
