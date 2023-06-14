@@ -1,7 +1,7 @@
-import './MobileCalculatorContainer.css';
 import {Paper, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent} from '@mui/material';
 import CalculatorComponent from '../Body/CalculatorContainer/CalculatorComponent/CalculatorComponent'
 import {useState} from 'react';
+import Spacer from '../Design/Spacer';
 
 function MobileCalculatorContainer(){
 
@@ -12,7 +12,17 @@ function MobileCalculatorContainer(){
     }
 
     return(
-            <div className="mobileCalculatorContainer">
+            <div
+                style={{
+                    display:'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    alignItems: 'center',
+                    marginTop:'5%',
+                    width:'100%',
+                    minHeight: '100vh',
+                }}
+            >
                 <Paper className="selectCalc">
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
@@ -35,9 +45,11 @@ function MobileCalculatorContainer(){
                         </Select>
                     </FormControl>
                 </Paper>
-                <CalculatorComponent 
-                    Calc={chosenCalc}
-                />
+                <Spacer mt={8} style={{width:'100%', display:'flex', justifyContent:'center'}}>
+                    <CalculatorComponent 
+                        Calc={chosenCalc}
+                    />
+                </Spacer>
             </div>
     )
    

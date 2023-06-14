@@ -55,7 +55,7 @@ const CalculatorContainer = (({id, name=''}:Props) => {
                         <SvgIcon component={CloseIcon} fontSize="small"></SvgIcon>
                     </IconButton>
                 </Paper>
-                <Spacer mt={8} mb={8}>
+                <Spacer mt={8}>
                     <Paper className="selectCalc">
                         <FormControl fullWidth>
                             <InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
@@ -79,9 +79,12 @@ const CalculatorContainer = (({id, name=''}:Props) => {
                         </FormControl>
                     </Paper>
                 </Spacer>
-                <CalculatorComponent 
-                    Calc={chosenCalc}
-                />
+                <Spacer mt={8} style={{width:'100%', display:'flex', justifyContent:'center'}}>
+                    <CalculatorComponent 
+                        Calc={chosenCalc}
+                    />
+                </Spacer>
+                
             </Paper>
     )
 })

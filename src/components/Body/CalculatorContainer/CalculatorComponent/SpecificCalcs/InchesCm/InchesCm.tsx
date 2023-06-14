@@ -35,13 +35,13 @@ export default function InchesCm(){
 
     return(
         <div
-        style={{
-            display:'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width:'93%',
-        }}
+            style={{
+                display:'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width:'93%',
+            }}
         >
             <div
                 data-testid="inchesCmConverter"

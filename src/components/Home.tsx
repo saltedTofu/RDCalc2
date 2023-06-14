@@ -18,6 +18,8 @@ import MobileCalculatorContainer from './MobileCalculatorContainer/MobileCalcula
 import './Home.css'
 import {useAuth} from '../contexts/AuthContext'
 import Spacer from './Design/Spacer';
+import { useWindowSize } from '../hooks/useWindowSize';
+import { mobileWidth } from '../constants/mobileWidth';
 
 interface Props {
     currentTheme:string;
@@ -30,6 +32,7 @@ interface Props {
 }
 function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 
+    const width = useWindowSize();
     const {changeTheme} = useAuth();
     const calcCounter = useSelector((state:any) => state.calcsArray.calcCounter);
     const globalUser = useSelector((state:any) => state.calcsArray.globalUser);
@@ -64,10 +67,11 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
                     </RouterLink>
                     <div style={{width:'240px'}} className="emptyDiv"></div>
                 </div>
-                <Body />
-                <Spacer mb={8}>
-                    <MobileCalculatorContainer />
-                </Spacer>                
+                {width > mobileWidth && <Body />}
+                {width <= mobileWidth && 
+                    <Spacer mb={8} style={{width:'100%'}}>
+                        <MobileCalculatorContainer />
+                    </Spacer> }               
                 <Footer />
             </Paper>
     )
