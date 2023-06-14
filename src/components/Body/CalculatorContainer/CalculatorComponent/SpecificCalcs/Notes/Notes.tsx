@@ -1,5 +1,4 @@
-import {Typography, Slider, Select, MenuItem, TextField, InputLabel } from '@mui/material';
-import {useState, useEffect} from 'react';
+import {TextField} from '@mui/material';
 
 function Notes(){
     const styles={
@@ -13,6 +12,7 @@ function Notes(){
                 multiline
                 minRows={15}
                 data-testid="notes"
+                autoComplete='off'
             ></TextField>
         </div>
     )

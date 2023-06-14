@@ -159,8 +159,8 @@ function PennState(){
                         size="small"                      
                         data-testid='temperature-unit'
                     >
-                        <MenuItem value={'Celsius'}>Celsius</MenuItem>
-                        <MenuItem value={'Fahrenheit'}>Fahrenheit</MenuItem>
+                        <MenuItem value={'Celsius'} data-testid="celsius-select">Celsius</MenuItem>
+                        <MenuItem value={'Fahrenheit'} data-testid="fahrenheit-select">Fahrenheit</MenuItem>
                 </Select>
             </Spacer>
             <Spacer mt={16} style={{display:'flex', alignItems:'center', justifyContent:'center'}}>

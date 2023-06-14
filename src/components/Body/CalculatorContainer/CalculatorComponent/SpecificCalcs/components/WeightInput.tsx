@@ -49,9 +49,10 @@ function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="med
                         value={weightUnit}
                         onChange={handleWeightUnit}
                         size={variant}
+                        data-testid="units-select"
                     >
-                        <MenuItem value={'Lbs'}>Lbs</MenuItem>
-                        <MenuItem value={'Kg'}>Kg</MenuItem>
+                        <MenuItem value={'Lbs'} data-testid="lbs-select">Lbs</MenuItem>
+                        <MenuItem value={'Kg'} data-testid="kg-select">Kg</MenuItem>
                 </Select>
         </div>
     )

@@ -122,7 +122,7 @@ function Mifflin(){
                         onChange={handleActivityFactor}
                         sx={{width:'100px'}}
                         value={activityFactor}
-                        placeholder="1"
+                        data-testid="activity-factor"
                     ></TextField>
                 </Spacer>
             </Spacer>

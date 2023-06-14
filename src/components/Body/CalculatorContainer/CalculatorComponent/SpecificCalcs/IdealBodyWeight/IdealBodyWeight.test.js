@@ -1,7 +1,5 @@
-import React from 'react';
 import IdealBodyWeight from './IdealBodyWeight';
-import {getByRole, fireEvent, render, screen, waitFor, within} from '@testing-library/react';
-import UserEvent from "@testing-library/user-event";
+import {render, screen, waitFor, fireEvent, within, getByRole} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
@@ -17,16 +15,15 @@ test('Properly calculates a 5 foot 10 male that weighs 100# with no amp/par usin
     expect(screen.getByText("BMI=14.3")).toBeInTheDocument()
 })
 
-test('Properly calculates a 5 foot 10 male that weighs 100# with no amp/par using kg input',async ()=>{
+test('Properly calculates a 5 foot 10 male that weighs 100Kg with no amp/par using kg input',async ()=>{
     render(<IdealBodyWeight />)
     userEvent.click(screen.getByLabelText('Male'))
     userEvent.type(screen.getByLabelText(/Feet/i),'5')
     userEvent.type(screen.getByLabelText(/Inches/i),'10')
     userEvent.type(screen.getByPlaceholderText('0'),'100')
-    UserEvent.click(getByRole(screen.getByTestId("units-select"), "button"));
-    await waitFor(() => UserEvent.click(screen.getByTestId('kg-select')));
+    fireEvent.mouseDown(screen.getByRole("button"));
+    fireEvent.click(screen.getByTestId("kg-select"));
 
-    //expect(screen.getByRole("heading")).toHaveTextContent('2671 kcal');
     expect(screen.getByText("IBW=166 lbs or 75 kg")).toBeInTheDocument()
     expect(screen.getByText("%IBW=133%")).toBeInTheDocument()
     expect(screen.getByText("BMI=31.6")).toBeInTheDocument()
@@ -97,7 +94,7 @@ test('Properly calculates a 5 foot 2 male that weighs 115lbs with LBKA+RBKA usin
     expect(screen.getByText("(adjusted)")).toBeInTheDocument()
 })
 
-test('Properly calculates a 6 foot 7 female that weighs 50# with LBKA+RBKA+LAKA using lbs input',async ()=>{
+test('Properly calculates a 6 foot 7 female that weighs 50# with LBKA+RBKA using lbs input',async ()=>{
     render(<IdealBodyWeight />)
     userEvent.click(screen.getByLabelText('Female'))
     userEvent.type(screen.getByLabelText(/Feet/i),'6')
@@ -105,64 +102,57 @@ test('Properly calculates a 6 foot 7 female that weighs 50# with LBKA+RBKA+LAKA 
     userEvent.type(screen.getByPlaceholderText('0'),'50')
     userEvent.click(screen.getByLabelText("L BKA (6%)"))
     userEvent.click(screen.getByLabelText("R BKA (6%)"))
-    userEvent.click(screen.getByLabelText("L AKA (16%)"))
 
-    expect(screen.getByText("IBW=140 lbs or 64 kg")).toBeInTheDocument()
-    expect(screen.getByText("%IBW=36%")).toBeInTheDocument()
-    expect(screen.getByText("BMI=7.2")).toBeInTheDocument()
+    expect(screen.getByText("IBW=172 lbs or 78 kg")).toBeInTheDocument()
+    expect(screen.getByText("%IBW=29%")).toBeInTheDocument()
+    expect(screen.getByText("BMI=6.3")).toBeInTheDocument()
     expect(screen.getByText("(adjusted)")).toBeInTheDocument()
 })
 
-test('Properly calculates a 7 foot 8 male that weighs 600# with LBKA+RBKA+LAKA+RAKA using lbs input',async ()=>{
+test('Properly calculates a 7 foot 8 male that weighs 600# with LAKA+RAKA using lbs input',async ()=>{
     render(<IdealBodyWeight />)
     userEvent.click(screen.getByLabelText('Male'))
     userEvent.type(screen.getByLabelText(/Feet/i),'7')
     userEvent.type(screen.getByLabelText(/Inches/i),'8')
     userEvent.type(screen.getByPlaceholderText('0'),'600')
-    userEvent.click(screen.getByLabelText("L BKA (6%)"))
-    userEvent.click(screen.getByLabelText("R BKA (6%)"))
     userEvent.click(screen.getByLabelText("L AKA (16%)"))
     userEvent.click(screen.getByLabelText("R AKA (16%)"))
 
-    expect(screen.getByText("IBW=167 lbs or 76 kg")).toBeInTheDocument()
-    expect(screen.getByText("%IBW=359%")).toBeInTheDocument()
-    expect(screen.getByText("BMI=71.8")).toBeInTheDocument()
+    expect(screen.getByText("IBW=203 lbs or 92 kg")).toBeInTheDocument()
+    expect(screen.getByText("%IBW=296%")).toBeInTheDocument()
+    expect(screen.getByText("BMI=65.8")).toBeInTheDocument()
     expect(screen.getByText("(adjusted)")).toBeInTheDocument()
 })
 
-test('Properly calculates a 8 foot 11 female that weighs 10# with LBKA+RBKA+LAKA+RAKA+Paraplegic using lbs input',async ()=>{
+test('Properly calculates a 8 foot 11 female that weighs 10# with LAKA+RAKA+Paraplegic using lbs input',async ()=>{
     render(<IdealBodyWeight />)
     userEvent.click(screen.getByLabelText('Female'))
     userEvent.type(screen.getByLabelText(/Feet/i),'8')
     userEvent.type(screen.getByLabelText(/Inches/i),'11')
     userEvent.type(screen.getByPlaceholderText('0'),'10')
-    userEvent.click(screen.getByLabelText("L BKA (6%)"))
-    userEvent.click(screen.getByLabelText("R BKA (6%)"))
     userEvent.click(screen.getByLabelText("L AKA (16%)"))
     userEvent.click(screen.getByLabelText("R AKA (16%)"))
     userEvent.click(screen.getByLabelText("Paraplegic (12.5%)"))
 
-    expect(screen.getByText("IBW=146 lbs or 66 kg")).toBeInTheDocument()
-    expect(screen.getByText("%IBW=7%")).toBeInTheDocument()
-    expect(screen.getByText("BMI=1")).toBeInTheDocument()
+    expect(screen.getByText("IBW=186 lbs or 85 kg")).toBeInTheDocument()
+    expect(screen.getByText("%IBW=5%")).toBeInTheDocument()
+    expect(screen.getByText("BMI=0.9")).toBeInTheDocument()
     expect(screen.getByText("(adjusted)")).toBeInTheDocument()
 })
 
-test('Properly calculates a 4 foot 2 Male that weighs 999# with LBKA+RBKA+LAKA+RAKA+Quadriplegic using lbs input',async ()=>{
+test('Properly calculates a 4 foot 2 Male that weighs 999# with LBKA+RAKA+Quadriplegic using lbs input',async ()=>{
     render(<IdealBodyWeight />)
     userEvent.click(screen.getByLabelText('Male'))
     userEvent.type(screen.getByLabelText(/Feet/i),'4')
     userEvent.type(screen.getByLabelText(/Inches/i),'2')
     userEvent.type(screen.getByPlaceholderText('0'),'999')
     userEvent.click(screen.getByLabelText("L BKA (6%)"))
-    userEvent.click(screen.getByLabelText("R BKA (6%)"))
-    userEvent.click(screen.getByLabelText("L AKA (16%)"))
     userEvent.click(screen.getByLabelText("R AKA (16%)"))
     userEvent.click(screen.getByLabelText("Quadriplegic (17.5%)"))
 
-    expect(screen.getByText("IBW=33 lbs or 15 kg")).toBeInTheDocument()
-    expect(screen.getByText("%IBW=3027%")).toBeInTheDocument()
-    expect(screen.getByText("BMI=453.7")).toBeInTheDocument()
+    expect(screen.getByText("IBW=52 lbs or 24 kg")).toBeInTheDocument()
+    expect(screen.getByText("%IBW=1921%")).toBeInTheDocument()
+    expect(screen.getByText("BMI=391.9")).toBeInTheDocument()
     expect(screen.getByText("(adjusted)")).toBeInTheDocument()
 })
 
