@@ -56,9 +56,6 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
         else if(currentTheme==='lofi'){
             setIconBackground('#9E6196') //light pink
         }
-        else if(currentTheme==='banana'){
-            setIconBackground('#fcba03') //yellow
-        }
     },[currentTheme])
 
     useLayoutEffect(()=>{

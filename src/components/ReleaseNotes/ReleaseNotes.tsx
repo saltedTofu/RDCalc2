@@ -4,6 +4,8 @@ import {SetStateAction, useEffect,useState} from 'react'
 import PropTypes from 'prop-types'
 import Footer from '../Footer/Footer'
 import Spacer from '../Design/Spacer';
+import { useAuth } from '../../contexts/AuthContext';
+import { useSelector } from 'react-redux';
 
 function TabPanel(props:any) {
     const { children, value, index, ...other } = props;
@@ -51,24 +53,30 @@ interface ReleaseNotesProps {
 
 function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseNotesProps){
 
+    const {changeTheme} = useAuth();
     const [backgroundColor,setBackgroundColor]=useState('#333333')
     const [value,setValue] = useState(0)
+    const globalUser = useSelector((state:any) => state.calcsArray.globalUser);
 
     useEffect(()=>{
         if(currentTheme==='dark'){
             setBackgroundColor('#1E1E1E')
         }
-        if(currentTheme==='lofi'){
+        else if(currentTheme==='lofi'){
             setBackgroundColor('#300E3F')
-        }
-        if(currentTheme==='banana'){
-            setBackgroundColor('#fcba03')
         }
     },[currentTheme])
 
     const handleChange = (event:React.SyntheticEvent, newValue:number) => {
         setValue(newValue)
     }
+
+    useEffect(()=>{ //updates users theme in the DB
+        if(globalUser){
+            changeTheme(globalUser,currentTheme)
+        }
+    },[currentTheme, changeTheme])
+
     const styles:any={
         releaseNotes:{
             backgroundColor:backgroundColor,
@@ -109,7 +117,11 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
     return(
         <div>
             <Paper sx={styles.releaseNotes}>
-                <Header currentTheme={currentTheme} handleThemeChange={handleThemeChange} setCurrentTheme={setCurrentTheme}/>
+                <Header 
+                    currentTheme={currentTheme} 
+                    handleThemeChange={handleThemeChange} 
+                    setCurrentTheme={setCurrentTheme}
+                />
                 <div style={styles.tabsAndPanels}>
                     <Tabs orientation="vertical" onChange={handleChange} value={value} sx={{paddingTop:'20%', minWidth:'110px'}}>
                         <Tab label="Release Notes" {...a11yProps(0)}/>

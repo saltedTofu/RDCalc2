@@ -34,9 +34,6 @@ function App() {
     else if(currentTheme==='pink'){
       setThemeObject(millenialPinkTheme);
     }
-    else if(currentTheme==='banana'){
-      setThemeObject(bananaTheme);
-    }
   },[currentTheme])
 
   const handleThemeChange = (event: { target: { value: SetStateAction<string>; }; }) => {
