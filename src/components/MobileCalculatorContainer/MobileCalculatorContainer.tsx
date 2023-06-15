@@ -33,15 +33,15 @@ function MobileCalculatorContainer(){
                             label="AddCalculator"
                             onChange={handleChange}
                         >
-                            <MenuItem value={'IBW'}>Ideal Body Weight</MenuItem>
-                            <MenuItem value={'TubeFeeding'}>Tube Feeding</MenuItem>
-                            <MenuItem value={'TPN/PPN'}>TPN/PPN</MenuItem>
-                            <MenuItem value={'Notes'}>Notepad</MenuItem>
-                            <MenuItem value={'lbs/kg'}>Lbs/Kg Converter</MenuItem>
                             <MenuItem value={'Hamwi'}>Hamwi</MenuItem>
-                            <MenuItem value={'PennState'}>Penn State</MenuItem>
-                            <MenuItem value={'Mifflin'}>Mifflin</MenuItem>
+                            <MenuItem value={'IBW'}>Ideal Body Weight</MenuItem>
                             <MenuItem value={'InchesCm'}>Inches/Cm Converter</MenuItem>
+                            <MenuItem value={'lbs/kg'}>Lbs/Kg Converter</MenuItem>
+                            <MenuItem value={'Mifflin'}>Mifflin</MenuItem>
+                            <MenuItem value={'Notes'}>Notepad</MenuItem>
+                            <MenuItem value={'PennState'}>Penn State</MenuItem>
+                            <MenuItem value={'TPN/PPN'}>TPN/PPN</MenuItem>
+                            <MenuItem value={'TubeFeeding'}>Tube Feeding</MenuItem>
                         </Select>
                     </FormControl>
                 </Paper>
