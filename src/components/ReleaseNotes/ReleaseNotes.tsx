@@ -6,6 +6,8 @@ import Footer from '../Footer/Footer'
 import Spacer from '../Design/Spacer';
 import { useAuth } from '../../contexts/AuthContext';
 import { useSelector } from 'react-redux';
+import { useWindowSize } from '../../hooks/useWindowSize';
+import { mobileWidth } from '../../constants/mobileWidth';
 
 function TabPanel(props:any) {
     const { children, value, index, ...other } = props;
@@ -57,6 +59,7 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
     const [backgroundColor,setBackgroundColor]=useState('#333333')
     const [value,setValue] = useState(0)
     const globalUser = useSelector((state:any) => state.calcsArray.globalUser);
+    const width = useWindowSize();
 
     useEffect(()=>{
         if(currentTheme==='dark'){
@@ -122,8 +125,28 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
                     handleThemeChange={handleThemeChange} 
                     setCurrentTheme={setCurrentTheme}
                 />
-                <div style={styles.tabsAndPanels}>
-                    <Tabs orientation="vertical" onChange={handleChange} value={value} sx={{paddingTop:'20%', minWidth:'110px'}}>
+                <div 
+                    style={width <= mobileWidth 
+                        ? {
+                            display:'flex',
+                            flexDirection:'column',
+                            justifyContent:'flex-start',
+                            alignItems:'center',
+                            width:'100%',
+                            height:'100%',
+                            minHeight:'100vh',
+                        } 
+                        : {
+                            display:'flex',
+                            flexDirection:'row',
+                            justifyContent:'flex-start',
+                            alignItems:'flex-start',
+                            width:'100%',
+                            height:'100%',
+                            minHeight:'100vh'
+                        }}
+                >
+                    <Tabs orientation={width <= mobileWidth ? "horizontal" : "vertical"} onChange={handleChange} value={value} sx={width <= mobileWidth ? {} : {paddingTop:'20%', minWidth:'110px'}}>
                         <Tab label="Release Notes" {...a11yProps(0)}/>
                         <Tab label="Upcoming Features" {...a11yProps(1)}/>
                     </Tabs>
