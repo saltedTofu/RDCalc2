@@ -13,12 +13,10 @@ test("properly calculates 5'10 male 125kg 28y 1.2 af", async () => {
   userEvent.type(screen.getByLabelText(/Inches/i),'10')
   userEvent.type(screen.getByPlaceholderText('0'),'125')
   userEvent.type(screen.getByLabelText('Years'),'28')
-
   const activityInput = screen.getByDisplayValue('1.2')
   userEvent.clear(activityInput)
   userEvent.type(activityInput, "1.2")
-
-  fireEvent.mouseDown(screen.getByRole("button"));
+  fireEvent.mouseDown(screen.getByText("Lbs"));
   fireEvent.click(screen.getByTestId("kg-select"));
 
   expect(screen.getByText("2671 kcal")).toBeInTheDocument()
@@ -34,7 +32,7 @@ test("properly calculates 8'11 male 9999kg 130y 3.0 af", async () => {
     const activityInput = screen.getByDisplayValue('1.2')
     userEvent.clear(activityInput)
     userEvent.type(activityInput, "3.0")
-    fireEvent.mouseDown(screen.getByRole("button"));
+    fireEvent.mouseDown(screen.getByText("Lbs"));
     fireEvent.click(screen.getByTestId("kg-select"));
   
     expect(screen.getByText("303130 kcal")).toBeInTheDocument()

@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import WeightInput from '../components/WeightInput';
 import HeightInput from '../components/HeightInput';
 import Spacer from '../../../../../Design/Spacer';
+import FormulaPopover from '../components/FormulaPopover';
 
 function IdealBodyWeight(){
     const [gender,setGender] = useState("");
@@ -154,7 +155,7 @@ function IdealBodyWeight(){
                 justifyContent: 'center',
                 alignItems: 'center',
             }}
-        >
+        >            
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -165,14 +166,16 @@ function IdealBodyWeight(){
             >
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
-            </RadioGroup>  
-            <HeightInput 
-                feet={heightFeet}
-                inches={heightInches}
-                setFeet={setHeightFeet}
-                setInches={setHeightInches}
-                includeLabel={true}
-            />
+            </RadioGroup>
+            <Spacer mt={8} style={{width:'100%'}}>
+                <HeightInput 
+                    feet={heightFeet}
+                    inches={heightInches}
+                    setFeet={setHeightFeet}
+                    setInches={setHeightInches}
+                    includeLabel={true}
+                />
+            </Spacer>            
             <Spacer mt={16}>
                 <WeightInput 
                     weight={weight}
@@ -213,7 +216,7 @@ function IdealBodyWeight(){
                     </Spacer>
                 </div>
             </Spacer>
-            <Spacer mb={16} mt={8}>
+            <Spacer mt={8}>
                 <Paper 
                     sx={{
                         display:'flex',
@@ -241,6 +244,29 @@ function IdealBodyWeight(){
                     </div>
                 </Paper>
             </Spacer>
+            <Spacer mt={16} mb={16}>
+                <FormulaPopover>
+                    <div
+                        style={{
+                            display:'flex'
+                        }}
+                    >
+                        <Typography variant="body1" sx={{fontWeight:'bold', textDecoration:'underline', paddingRight:'4px'}}>Male:</Typography>
+                        <Typography variant="body1">106 + 6 × (Inches taller than 5 feet)</Typography>
+                    </div>
+                    <Spacer
+                        mt={4}
+                        style={{
+                            display:'flex'
+                        }}
+                    >
+                        <Typography variant="body1" sx={{fontWeight:'bold', textDecoration:'underline', paddingRight:'4px'}}>Female:</Typography>
+                        <Typography variant="body1">100 + 5 × (Inches taller than 5 feet)</Typography>
+                    </Spacer>
+                    
+                </FormulaPopover>
+            </Spacer>
+            
         </div>
     )
 }

@@ -21,7 +21,7 @@ test('Properly calculates a 5 foot 10 male that weighs 100Kg with no amp/par usi
     userEvent.type(screen.getByLabelText(/Feet/i),'5')
     userEvent.type(screen.getByLabelText(/Inches/i),'10')
     userEvent.type(screen.getByPlaceholderText('0'),'100')
-    fireEvent.mouseDown(screen.getByRole("button"));
+    fireEvent.mouseDown(screen.getByText("Lbs"));
     fireEvent.click(screen.getByTestId("kg-select"));
 
     expect(screen.getByText("IBW=166 lbs or 75 kg")).toBeInTheDocument()

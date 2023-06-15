@@ -5,7 +5,7 @@ import HeightInput from '../components/HeightInput';
 import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
 import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
 import Spacer from '../../../../../Design/Spacer';
-//currently using 2003 penn state, need to add modified
+import FormulaPopover from '../components/FormulaPopover';
 
 function PennState(){
     const [gender,setGender] = useState('');
@@ -84,7 +84,7 @@ function PennState(){
                 alignItems: 'center',
                 width:'100%',
             }}
-        >
+        >            
             <Spacer mt={8}>
                 <ToggleButtonGroup
                     size="large" 
@@ -199,10 +199,31 @@ function PennState(){
                         label='VE in L/min'
                 ></TextField>
             </Spacer>
-            <Spacer mt={16} mb={16}>
+            <Spacer mt={16}>
                 <Paper sx={{padding:'10px'}}>
                     <Typography variant="h6">{penn}</Typography>
                 </Paper>
+            </Spacer>
+            <Spacer mt={16} mb={16}>            
+                <FormulaPopover>
+                    <div
+                        style={{
+                            display:'flex'
+                        }}
+                    >
+                        <Typography variant="body1" sx={{fontWeight:'bold', textDecoration:'underline', paddingRight:'4px'}}>Original (2003):</Typography>
+                        <Typography variant="body1">Mifflin(0.96) + Tmax(167) + Ve(31) - 6,212</Typography>
+                    </div>
+                    <Spacer
+                        mt={4}
+                        style={{
+                            display:'flex'
+                        }}
+                    >
+                        <Typography variant="body1" sx={{fontWeight:'bold', textDecoration:'underline', paddingRight:'4px'}}>Modified (2010):</Typography>
+                        <Typography variant="body1">Mifflin(0.71) + Tmax(85) + Ve(64) - 3,085</Typography>
+                    </Spacer>                
+                </FormulaPopover>
             </Spacer>
         </div>
     )

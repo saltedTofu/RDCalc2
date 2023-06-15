@@ -5,6 +5,7 @@ import HeightInput from '../components/HeightInput';
 import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
 import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
 import Spacer from '../../../../../Design/Spacer';
+import FormulaPopover from '../components/FormulaPopover';
 
 function Mifflin(){
     const [gender,setGender] = useState("");
@@ -53,7 +54,7 @@ function Mifflin(){
                 alignItems: 'center',
                 width:'100%',
             }}
-        >
+        >            
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -126,10 +127,31 @@ function Mifflin(){
                     ></TextField>
                 </Spacer>
             </Spacer>
-            <Spacer mt={16} mb={16}>
+            <Spacer mt={16}>
                 <Paper sx={{padding:'10px'}}>
                     <Typography variant="h6">{output}</Typography>
                 </Paper>
+            </Spacer>
+            <Spacer mt={16} mb={16}>            
+                <FormulaPopover>
+                    <div
+                        style={{
+                            display:'flex'
+                        }}
+                    >
+                        <Typography variant="body1" sx={{fontWeight:'bold', textDecoration:'underline', paddingRight:'4px'}}>Male: </Typography>
+                        <Typography variant="body1">(10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5</Typography>
+                    </div>
+                    <Spacer
+                        mt={4}
+                        style={{
+                            display:'flex'
+                        }}
+                    >
+                        <Typography variant="body1" sx={{fontWeight:'bold', textDecoration:'underline', paddingRight:'4px'}}>Female: </Typography>
+                        <Typography variant="body1">(10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161</Typography>
+                    </Spacer>
+                </FormulaPopover>
             </Spacer>
             
         </div>
