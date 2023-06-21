@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-import Body from './Body';
-import {render} from '@testing-library/react';
-import '@testing-library/jest-dom';
+import Body from "./Body";
+import {render} from "@testing-library/react";
+import "@testing-library/jest-dom";
 
-test('renders',()=>{
+test("renders",()=>{
 
 	render(<Body />);
     

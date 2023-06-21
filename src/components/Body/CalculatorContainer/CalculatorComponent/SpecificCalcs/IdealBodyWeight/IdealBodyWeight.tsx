@@ -1,39 +1,39 @@
-import {Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel} from '@mui/material';
-import {useState, useEffect} from 'react';
-import WeightInput from '../components/WeightInput';
-import HeightInput from '../components/HeightInput';
-import Spacer from '../../../../../Design/Spacer';
-import FormulaPopover from '../components/FormulaPopover';
+import {Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel} from "@mui/material";
+import {useState, useEffect} from "react";
+import WeightInput from "../components/WeightInput";
+import HeightInput from "../components/HeightInput";
+import Spacer from "../../../../../Design/Spacer";
+import FormulaPopover from "../components/FormulaPopover";
 
 function IdealBodyWeight(){
-	const [gender,setGender] = useState('');
-	const [heightFeet,setHeightFeet] = useState('');
-	const [heightInches,setHeightInches] = useState('');
-	const [weightUnit,setWeightUnit] = useState('Lbs');
-	const [weight,setWeight] = useState('');
-	const [IBW, setIBW] = useState('');
-	const [percentIBW,setPercentIBW] = useState('');
+	const [gender,setGender] = useState("");
+	const [heightFeet,setHeightFeet] = useState("");
+	const [heightInches,setHeightInches] = useState("");
+	const [weightUnit,setWeightUnit] = useState("Lbs");
+	const [weight,setWeight] = useState("");
+	const [IBW, setIBW] = useState("");
+	const [percentIBW,setPercentIBW] = useState("");
 	const [LBKA, setLBKA] = useState(false);
 	const [RBKA, setRBKA] = useState(false);
 	const [LAKA, setLAKA] = useState(false);
 	const [RAKA, setRAKA] = useState(false);
 	const [paraplegic, setParaplegic] = useState(false);
 	const [quadriplegic, setQuadriplegic] = useState(false);
-	const [BMI,setBMI] = useState('');
+	const [BMI,setBMI] = useState("");
 	const [adjusted,setAdjusted] = useState(false);
 
 	useEffect(()=>{
 		if(!gender){
-			setIBW('Please Select Gender');
+			setIBW("Please Select Gender");
 			return;
 		}
 		else if(!heightFeet){
-			setIBW('Please Enter Height');
-			setPercentIBW('Please Enter Height');
+			setIBW("Please Enter Height");
+			setPercentIBW("Please Enter Height");
 			return;
 		}
 		else if(!weight){
-			setPercentIBW('Please Enter Weight');
+			setPercentIBW("Please Enter Weight");
 		}
 
 		const totalHeight = (Number(heightFeet)*12) + Number(heightInches);
@@ -55,7 +55,7 @@ function IdealBodyWeight(){
 		else{
 			setAdjusted(false);
 		}
-		if(weightUnit==='Lbs'){
+		if(weightUnit==="Lbs"){
 			const convertedWeight=Number(adjustedWeight)/2.205;
 			const convertedHeight=totalHeight*2.54/100;
 			const calculatedBMI = Math.round(convertedWeight/(convertedHeight*convertedHeight)*10)/10; //round to 1 decimal place
@@ -69,40 +69,40 @@ function IdealBodyWeight(){
 
 		if(totalHeight<60){
 			const inchesBelowFiveFeet = 60-totalHeight; 
-			if(gender==='male'){
+			if(gender==="male"){
 				const IBWMale = Math.round((106-2*(inchesBelowFiveFeet))*weightModifier);
-				setIBW(IBWMale + ' lbs or ' + Math.round(IBWMale/2.2) + ' kg');
-				if(weightUnit==='Kg'){
-					setPercentIBW(Math.round((Number(weight)*2.2)/IBWMale*100) + '%');
+				setIBW(IBWMale + " lbs or " + Math.round(IBWMale/2.2) + " kg");
+				if(weightUnit==="Kg"){
+					setPercentIBW(Math.round((Number(weight)*2.2)/IBWMale*100) + "%");
 				}
-				else setPercentIBW(Math.round(Number(weight)/IBWMale*100) + '%');
+				else setPercentIBW(Math.round(Number(weight)/IBWMale*100) + "%");
 			}
-			else if(gender==='female'){
+			else if(gender==="female"){
 				const IBWFemale = Math.round((100-2*(inchesBelowFiveFeet))*weightModifier);
-				setIBW(IBWFemale + 'lbs or ' + Math.round(IBWFemale/2.2) + ' kg');
-				if(weightUnit==='Kg'){
-					setPercentIBW(Math.round((Number(weight)*2.2)/IBWFemale*100) + '%');
+				setIBW(IBWFemale + "lbs or " + Math.round(IBWFemale/2.2) + " kg");
+				if(weightUnit==="Kg"){
+					setPercentIBW(Math.round((Number(weight)*2.2)/IBWFemale*100) + "%");
 				}
-				else setPercentIBW(Math.round(Number(weight)/IBWFemale*100) + '%');
+				else setPercentIBW(Math.round(Number(weight)/IBWFemale*100) + "%");
 			}
 			return;
 		}
-		if(gender==='male'){
+		if(gender==="male"){
 			const IBWMale = Math.round((106 + 6*(totalHeight-60))*weightModifier); //works if over 5 feet
-			setIBW(IBWMale + ' lbs or ' + Math.round(IBWMale/2.2) + ' kg');
-			if(weightUnit==='Kg'){
-				setPercentIBW(Math.round((Number(weight)*2.2)/IBWMale*100) + '%');
+			setIBW(IBWMale + " lbs or " + Math.round(IBWMale/2.2) + " kg");
+			if(weightUnit==="Kg"){
+				setPercentIBW(Math.round((Number(weight)*2.2)/IBWMale*100) + "%");
 			}
-			else setPercentIBW(Math.round(Number(weight)/IBWMale*100) + '%');
+			else setPercentIBW(Math.round(Number(weight)/IBWMale*100) + "%");
 			
 		}
-		else if(gender==='female'){
+		else if(gender==="female"){
 			const IBWFemale = Math.round((100 + 5*(totalHeight-60))*weightModifier); //works if over 5 feet
-			setIBW(IBWFemale + ' lbs or ' + Math.round(IBWFemale/2.2) + ' kg');
-			if(weightUnit==='Kg'){
-				setPercentIBW(Math.round((Number(weight)*2.2)/IBWFemale*100) + '%');
+			setIBW(IBWFemale + " lbs or " + Math.round(IBWFemale/2.2) + " kg");
+			if(weightUnit==="Kg"){
+				setPercentIBW(Math.round((Number(weight)*2.2)/IBWFemale*100) + "%");
 			}
-			else setPercentIBW(Math.round(Number(weight)/IBWFemale*100) + '%');
+			else setPercentIBW(Math.round(Number(weight)/IBWFemale*100) + "%");
 		}
 	},[gender,heightFeet,heightInches,weight,weightUnit,LBKA,RBKA,LAKA,RAKA,paraplegic,quadriplegic]);
 
@@ -148,12 +148,12 @@ function IdealBodyWeight(){
 	return(
 		<div
 			style={{
-				display:'flex',
-				flexDirection: 'column',
-				width:'93%',
-				height:'90%',
-				justifyContent: 'center',
-				alignItems: 'center',
+				display:"flex",
+				flexDirection: "column",
+				width:"93%",
+				height:"90%",
+				justifyContent: "center",
+				alignItems: "center",
 			}}
 		>            
 			<RadioGroup
@@ -162,12 +162,12 @@ function IdealBodyWeight(){
 				id="gender-select"
 				value={gender}
 				onChange={handleGender}
-				sx={{flexDirection:'row'}}
+				sx={{flexDirection:"row"}}
 			>
 				<FormControlLabel value="female" control={<Radio />} label="Female" />
 				<FormControlLabel value="male" control={<Radio />} label="Male" />
 			</RadioGroup>
-			<Spacer mt={8} style={{width:'100%'}}>
+			<Spacer mt={8} style={{width:"100%"}}>
 				<HeightInput 
 					feet={heightFeet}
 					inches={heightInches}
@@ -184,18 +184,18 @@ function IdealBodyWeight(){
 					setWeightUnit={setWeightUnit}
 					variant="small"
 					includeLabel={true}
-					style={{width:'300px'}}
+					style={{width:"300px"}}
 				/>
 			</Spacer>
 			<Spacer mt={16}>
 				<div 
 					style={{
-						display:'flex', 
-						flexDirection:'row', 
-						alignItems:'flex-start',
-						justifyContent:'center',
-						width:'100%',
-						paddingLeft:'16px'
+						display:"flex", 
+						flexDirection:"row", 
+						alignItems:"flex-start",
+						justifyContent:"center",
+						width:"100%",
+						paddingLeft:"16px"
 					}}
 				>
 					<Spacer mr={4}>
@@ -219,20 +219,20 @@ function IdealBodyWeight(){
 			<Spacer mt={8}>
 				<Paper 
 					sx={{
-						display:'flex',
-						flexDirection:'column',
-						justifyContent:'center',
-						alignItems:'center',
-						padding:'10px'
+						display:"flex",
+						flexDirection:"column",
+						justifyContent:"center",
+						alignItems:"center",
+						padding:"10px"
 					}}
 				>
 					<Typography variant="h6">IBW={IBW}</Typography>
 					<Typography variant="h6">%IBW={percentIBW}</Typography>
 					<div 
 						style={{
-							display:'flex', 
-							alignItems:'center', 
-							justifyContent:'center'
+							display:"flex", 
+							alignItems:"center", 
+							justifyContent:"center"
 						}}
 					>
 						{adjusted &&
@@ -248,19 +248,19 @@ function IdealBodyWeight(){
 				<FormulaPopover>
 					<div
 						style={{
-							display:'flex'
+							display:"flex"
 						}}
 					>
-						<Typography variant="body1" sx={{fontWeight:'bold', textDecoration:'underline', paddingRight:'4px'}}>Male:</Typography>
+						<Typography variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Male:</Typography>
 						<Typography variant="body1">106 + 6 × (Inches taller than 5 feet)</Typography>
 					</div>
 					<Spacer
 						mt={4}
 						style={{
-							display:'flex'
+							display:"flex"
 						}}
 					>
-						<Typography variant="body1" sx={{fontWeight:'bold', textDecoration:'underline', paddingRight:'4px'}}>Female:</Typography>
+						<Typography variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Female:</Typography>
 						<Typography variant="body1">100 + 5 × (Inches taller than 5 feet)</Typography>
 					</Spacer>
 					

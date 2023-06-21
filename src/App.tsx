@@ -1,55 +1,55 @@
-import './App.css';
-import SignUp from './components/SignUp/SignUp';
-import Home from './components/Home';
-import ReleaseNotes from './components/ReleaseNotes/ReleaseNotes';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import '../node_modules/react-grid-layout/css/styles.css';
-import {ThemeProvider } from '@mui/material/styles';
-import darkTheme from './themes/dark';
-import lofiTheme from './themes/lofi.js';
-import christmasTheme from './themes/christmas.js';
-import millenialPinkTheme from './themes/millenialPink.js';
-import bananaTheme from './themes/banana.js';
-import {useState, useEffect, SetStateAction} from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import {AuthProvider} from './contexts/AuthContext';
+import "./App.css";
+import SignUp from "./components/SignUp/SignUp";
+import Home from "./components/Home";
+import ReleaseNotes from "./components/ReleaseNotes/ReleaseNotes";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "../node_modules/react-grid-layout/css/styles.css";
+import {ThemeProvider } from "@mui/material/styles";
+import darkTheme from "./themes/dark";
+import lofiTheme from "./themes/lofi.js";
+import christmasTheme from "./themes/christmas.js";
+import millenialPinkTheme from "./themes/millenialPink.js";
+import bananaTheme from "./themes/banana.js";
+import {useState, useEffect, SetStateAction} from "react";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {AuthProvider} from "./contexts/AuthContext";
 
 function App() {
-	const [currentTheme,setCurrentTheme] = useState('dark');
+	const [currentTheme,setCurrentTheme] = useState("dark");
 	const [themeObject,setThemeObject] = useState(darkTheme);
 
 	useEffect(()=>{
-		if(currentTheme==='dark'){
+		if(currentTheme==="dark"){
 			setThemeObject(darkTheme);
 		}
-		else if(currentTheme==='lofi'){
+		else if(currentTheme==="lofi"){
 			setThemeObject(lofiTheme);
 		}
-		else if(currentTheme==='christmas'){
+		else if(currentTheme==="christmas"){
 			setThemeObject(christmasTheme);
 		}
-		else if(currentTheme==='pink'){
+		else if(currentTheme==="pink"){
 			setThemeObject(millenialPinkTheme);
 		}
 	},[currentTheme]);
 
 	const handleThemeChange = (event: { target: { value: SetStateAction<string>; }; }) => {
-		if(event.target.value==='dark'){
+		if(event.target.value==="dark"){
 			setThemeObject(darkTheme);
 		}
-		else if(event.target.value==='lofi'){
+		else if(event.target.value==="lofi"){
 			setThemeObject(lofiTheme);
 		}
-		else if(event.target.value==='banana'){
+		else if(event.target.value==="banana"){
 			setThemeObject(bananaTheme);
 		}
-		else if(event.target.value==='christmas'){
+		else if(event.target.value==="christmas"){
 			setThemeObject(christmasTheme);
 		}
-		else if(event.target.value==='pink'){
+		else if(event.target.value==="pink"){
 			setThemeObject(millenialPinkTheme);
 		}
 		setCurrentTheme(event.target.value);

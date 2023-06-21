@@ -1,17 +1,17 @@
-import { MenuItem, Select, SelectChangeEvent, TextField, Typography } from '@mui/material';
-import {decimalInputValidation} from '../../../../../../utils/decimalInputValidation';
+import { MenuItem, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
+import {decimalInputValidation} from "../../../../../../utils/decimalInputValidation";
 
 interface Props {
     weight:string;
     setWeight:any;
     weightUnit:any;
     setWeightUnit:any;
-    variant?:'small' | 'medium';
+    variant?:"small" | "medium";
     includeLabel?:boolean;
     style?:any;
 }
 
-function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant='medium', includeLabel=false, style={}}:Props){
+function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="medium", includeLabel=false, style={}}:Props){
 
 	const handleWeight = (event:React.ChangeEvent<HTMLInputElement>) => {
 		const validatedString = decimalInputValidation(event.target.value, 6, 9999);
@@ -25,11 +25,11 @@ function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant='med
 	return (     
 		<div 
 			style={{
-				display:'flex', 
-				flexDirection:'row', 
-				justifyContent:'space-around', 
-				alignItems:'center', 
-				width:'100%',
+				display:"flex", 
+				flexDirection:"row", 
+				justifyContent:"space-around", 
+				alignItems:"center", 
+				width:"100%",
 				...style
 			}}>
 			{includeLabel && <Typography>Weight</Typography>}
@@ -37,7 +37,7 @@ function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant='med
 				type="string"
 				value={weight}
 				onChange={handleWeight}
-				sx={{width:'120px'}}
+				sx={{width:"120px"}}
 				size={variant}
 				placeholder="0"
 				autoComplete='off'
@@ -50,8 +50,8 @@ function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant='med
 				size={variant}
 				data-testid="units-select"
 			>
-				<MenuItem value={'Lbs'} data-testid="lbs-select">Lbs</MenuItem>
-				<MenuItem value={'Kg'} data-testid="kg-select">Kg</MenuItem>
+				<MenuItem value={"Lbs"} data-testid="lbs-select">Lbs</MenuItem>
+				<MenuItem value={"Kg"} data-testid="kg-select">Kg</MenuItem>
 			</Select>
 		</div>
 	);

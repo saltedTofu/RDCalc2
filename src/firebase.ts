@@ -1,7 +1,7 @@
-import firebase from  'firebase/compat/app';
-import {getFirestore, setDoc, doc, updateDoc, getDoc, DocumentData, DocumentSnapshot} from 'firebase/firestore';
-import { getAnalytics } from 'firebase/analytics';
-import 'firebase/compat/auth';
+import firebase from  "firebase/compat/app";
+import {getFirestore, setDoc, doc, updateDoc, getDoc, DocumentData, DocumentSnapshot} from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
+import "firebase/compat/auth";
 
 const app = firebase.initializeApp({
 	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -19,10 +19,10 @@ getAnalytics(app);
 //add new user
 async function addNewUser(user:any){
 	try {
-		await setDoc(doc(db,'users',user), {
+		await setDoc(doc(db,"users",user), {
 			user,
 			tubeFeedFavorites: [],
-			theme:'dark'
+			theme:"dark"
 		});
 	} catch (e) {
 		console.log(e);
@@ -32,7 +32,7 @@ async function addNewUser(user:any){
 //get tube feed favorites
 async function getCurrentTubeFeedFavorites(user:any){
 	try{
-		const querySnapshot: DocumentSnapshot<DocumentData> = await getDoc(doc(db,'users',user));
+		const querySnapshot: DocumentSnapshot<DocumentData> = await getDoc(doc(db,"users",user));
 		const tubeFeedFavorites = querySnapshot?.data()?.tubeFeedFavorites;
 		return tubeFeedFavorites;
 	}catch(e){
@@ -50,7 +50,7 @@ async function addTubeFeedFavorite(user:any,formula:any){
 		currentTubeFeedFavorites = [...currentTubeFeedFavorites,formula];
 		currentTubeFeedFavorites.sort();
 	}
-	await updateDoc(doc(db, 'users',user),{
+	await updateDoc(doc(db, "users",user),{
 		tubeFeedFavorites:currentTubeFeedFavorites
 	});
 	return currentTubeFeedFavorites;
@@ -58,13 +58,13 @@ async function addTubeFeedFavorite(user:any,formula:any){
 
 //adjust saved theme
 async function changeTheme(user:any,theme:any){
-	await updateDoc(doc(db, 'users',user),{
+	await updateDoc(doc(db, "users",user),{
 		theme:theme
 	});
 }
 
 async function getTheme(user:any){
-	const querySnapshot = await getDoc(doc(db,'users',user));
+	const querySnapshot = await getDoc(doc(db,"users",user));
 	const savedTheme = querySnapshot?.data()?.theme;
 	return savedTheme;
 }

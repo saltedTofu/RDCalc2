@@ -1,39 +1,39 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const dark = createTheme({
 	components:{
 		MuiChip:{
 			styleOverrides:{
 				outlined:{
-					border:'none'
+					border:"none"
 				}
 			}
 		}
 	},
 	typography:{
 		button:{
-			textTransform:'none'
+			textTransform:"none"
 		},
 		h1:{
-			fontSize:'12rem'
+			fontSize:"12rem"
 		}
 	},
 	palette: {
-		mode:'dark',
+		mode:"dark",
 		text: {
-			primary:'#fafafa', //white
+			primary:"#fafafa", //white
 		},
 		primary: { //color of buttons
-			light: '#ffffff',
-			main: '#0288d1', //light blue
-			dark: '#c7c7c7',
-			contrastText: '#212121', //black
+			light: "#ffffff",
+			main: "#0288d1", //light blue
+			dark: "#c7c7c7",
+			contrastText: "#212121", //black
 		},
 		secondary: {
-			light: '#484848',
-			main: '#212121',
-			dark: '#000000',
-			contrastText: '#fafafa',
+			light: "#484848",
+			main: "#212121",
+			dark: "#000000",
+			contrastText: "#fafafa",
 		}
 	},
 });

@@ -1,37 +1,37 @@
-import { Alert, Snackbar, Checkbox, Paper, FormControl, Typography, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import {useState, useEffect} from 'react';
-import {useSelector} from 'react-redux';
-import {Formulas, FormulasType} from '../../../../../../assets/TubeFeedFormulas';
-import {Modulars, ModularsType} from '../../../../../../assets/Modulars';
-import {useAuth} from '../../../../../../contexts/AuthContext';
-import TubeFeedSelect from './TubeFeedSelect/TubeFeedSelect';
-import TubeFeedMicros from './TubeFeedMicros/TubeFeedMicros';
-import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
-import { decimalInputValidation } from '../../../../../../utils/decimalInputValidation';
-import Spacer from '../../../../../Design/Spacer';
+import { Alert, Snackbar, Checkbox, Paper, FormControl, Typography, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import {useState, useEffect} from "react";
+import {useSelector} from "react-redux";
+import {Formulas, FormulasType} from "../../../../../../assets/TubeFeedFormulas";
+import {Modulars, ModularsType} from "../../../../../../assets/Modulars";
+import {useAuth} from "../../../../../../contexts/AuthContext";
+import TubeFeedSelect from "./TubeFeedSelect/TubeFeedSelect";
+import TubeFeedMicros from "./TubeFeedMicros/TubeFeedMicros";
+import { wholeNumberInputValidation } from "../../../../../../utils/wholeNumberInputValidation";
+import { decimalInputValidation } from "../../../../../../utils/decimalInputValidation";
+import Spacer from "../../../../../Design/Spacer";
 
 function TubeFeed(){
-	const [chosenFormula,setChosenFormula] = useState<FormulasType>('Compleat');
+	const [chosenFormula,setChosenFormula] = useState<FormulasType>("Compleat");
 	const [tubeFeedFavorites,setTubeFeedFavorites] = useState<string[]>([]);
 	const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
-	const [feedingType,setFeedingType] = useState('continuous');
-	const [continuousRate,setContinuousRate] = useState('50');
-	const [bolusPerDay,setBolusPerDay] = useState('');
-	const [bolusVolume, setBolusVolume] = useState('250');
+	const [feedingType,setFeedingType] = useState("continuous");
+	const [continuousRate,setContinuousRate] = useState("50");
+	const [bolusPerDay,setBolusPerDay] = useState("");
+	const [bolusVolume, setBolusVolume] = useState("250");
 	const [kcalProvided, setKcalProvided] = useState(0);
 	const [proteinProvided, setProteinProvided] = useState(0);
 	const [freeWater, setFreeWater] = useState(0);
-	const [hrsDay,setHrsDay] = useState('');
+	const [hrsDay,setHrsDay] = useState("");
 	const [bolusKcalProvided, setBolusKcalProvided] = useState(0);
 	const [bolusProteinProvided, setBolusProteinProvided] = useState(0);
 	const [bolusFreeWater, setBolusFreeWater] = useState(0);
-	const [modular,setModular] = useState<ModularsType>('none');
-	const [modularPerDay,setModularPerDay] = useState('');
-	const [flushAmount,setFlushAmount] = useState('');
-	const [flushPerDay,setFlushPerDay] = useState('');
-	const [error,setError] = useState('');
+	const [modular,setModular] = useState<ModularsType>("none");
+	const [modularPerDay,setModularPerDay] = useState("");
+	const [flushAmount,setFlushAmount] = useState("");
+	const [flushPerDay,setFlushPerDay] = useState("");
+	const [error,setError] = useState("");
 	const [totalVolume,setTotalVolume] = useState(0);
 
 	//global state from redux
@@ -43,7 +43,7 @@ function TubeFeed(){
 	const getTubeFeedFavorites = Auth?.getTubeFeedFavorites;
 
 	const handleCloseError = () => {
-		setError('');
+		setError("");
 	};
 
 	const handleFormulaChange = (event: any) => {
@@ -90,7 +90,7 @@ function TubeFeed(){
 			setTubeFeedFavorites(favoritesArray);
 		}
 		else{
-			setError('Please Sign In To Save Favorites');
+			setError("Please Sign In To Save Favorites");
 		}
 	};
 
@@ -99,13 +99,13 @@ function TubeFeed(){
 			setShowOnlyFavorites(!showOnlyFavorites);
 		}
 		else{
-			setError('Please Sign In To Show Favorites');
+			setError("Please Sign In To Show Favorites");
 			//error
 		}
 	};
 
 	const handleTotalVolume = () => {
-		if(feedingType==='continuous'){
+		if(feedingType==="continuous"){
 			setTotalVolume(Number(continuousRate)*Number(hrsDay));
 		}
 		else{
@@ -153,7 +153,7 @@ function TubeFeed(){
 		}
 		let modularKcal=0;
 		let modularProtein=0;
-		if(modular!=='none'){
+		if(modular!=="none"){
 			const chosenModular = Modulars[modular];
 			modularKcal=chosenModular.kcal * Number(modularPerDay);
 			modularProtein=chosenModular.protein * Number(modularPerDay);
@@ -177,7 +177,7 @@ function TubeFeed(){
 		}
 		let modularKcal=0;
 		let modularProtein=0;
-		if(modular!=='none'){
+		if(modular!=="none"){
 			const chosenModular = Modulars[modular];
 			modularKcal=chosenModular.kcal * Number(modularPerDay);
 			modularProtein=chosenModular.protein * Number(modularPerDay);
@@ -196,25 +196,25 @@ function TubeFeed(){
 	return(
 		<div
 			style={{
-				display:'flex',
-				flexDirection: 'column',
-				justifyContent: 'center',
-				alignItems: 'center',
-				width:'85%',
+				display:"flex",
+				flexDirection: "column",
+				justifyContent: "center",
+				alignItems: "center",
+				width:"85%",
 			}}
 		>
 			<div>
-				<FormControl sx={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}} >
+				<FormControl sx={{display:"flex", flexDirection:"column",justifyContent:"center", alignItems:"center"}} >
 					<Spacer mb={8}>
-						<div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center'}}>
-							<Spacer mb={8} style={{display:'flex', flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
+						<div style={{display:"flex", flexDirection:"column",justifyContent:"center", alignItems:"center"}}>
+							<Spacer mb={8} style={{display:"flex", flexDirection:"row", justifyContent:"space-around", alignItems:"center"}}>
 								<Checkbox
 									checked={showOnlyFavorites}
 									onChange={handleShowFavorites}
 								/>
 								<Typography>Show Favorites Only</Typography>                            
 							</Spacer>
-							<div style={{display:'flex',flexDirection:'row', justifyContent:'center',alignItems:'center'}}>
+							<div style={{display:"flex",flexDirection:"row", justifyContent:"center",alignItems:"center"}}>
 								<TubeFeedSelect 
 									chosenFormula={chosenFormula}
 									handleFormulaChange={handleFormulaChange}
@@ -226,19 +226,19 @@ function TubeFeed(){
 							<Spacer 
 								mt={8} 
 								style={{
-									display:'flex', 
-									flexDirection:'row', 
-									justifyContent:'center', 
-									alignItems:'center', 
-									width:'100%'
+									display:"flex", 
+									flexDirection:"row", 
+									justifyContent:"center", 
+									alignItems:"center", 
+									width:"100%"
 								}}
 							>
 								<IconButton onClick={function updateFavorites(){handleTubeFeedFavorite(Formulas[chosenFormula].name);}}>
-									<FavoriteIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}/>
-									<FavoriteBorderIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}/>
+									<FavoriteIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"block"} : {display:"none"}}/>
+									<FavoriteBorderIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"none"} : {display:"block"}}/>
 								</IconButton>
-								<Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'none'} : {display:'block'}}>Add to Favorites</Typography>
-								<Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:'block'} : {display:'none'}}>Remove from Favorites</Typography>
+								<Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"none"} : {display:"block"}}>Add to Favorites</Typography>
+								<Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"block"} : {display:"none"}}>Remove from Favorites</Typography>
 							</Spacer>
 						</div>
 					</Spacer>
@@ -254,27 +254,27 @@ function TubeFeed(){
 					</ToggleButtonGroup>
 				</FormControl>
 			</div>
-			{feedingType==='continuous' && 
+			{feedingType==="continuous" && 
 				<Spacer 
 					mt={16}
 					style={{
-						display:'flex', 
-						flexDirection:'column', 
-						justifyContent:'center', 
-						alignItems:'center', 
-						width:'100%',
+						display:"flex", 
+						flexDirection:"column", 
+						justifyContent:"center", 
+						alignItems:"center", 
+						width:"100%",
 					}}
 				>
 					<div
 						style={{
-							display:'flex',
-							flexDirection:'row',
-							alignItems:'center',
-							justifyContent:'space-between',
+							display:"flex",
+							flexDirection:"row",
+							alignItems:"center",
+							justifyContent:"space-between",
 						}}
 					>
 						<TextField 
-							sx={{width:'100px', marginRight:'15px'}} 
+							sx={{width:"100px", marginRight:"15px"}} 
 							value={continuousRate} 
 							type="string" 
 							onChange={handleContinuousRate} 
@@ -288,25 +288,25 @@ function TubeFeed(){
 							label="hrs/day"
 							value={hrsDay}
 							onChange={handleHrsDay}
-							sx={{width:'100px'}}
+							sx={{width:"100px"}}
 						></TextField>
 					</div>
 					<Spacer mt={16}>
-						<FormControl sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center'}}>
+						<FormControl sx={{display:"flex",flexDirection:"row",justifyContent:"space-between", alignItems:"center"}}>
 							<InputLabel id="modular-label">Modular</InputLabel>
 							<Select
 								label="Modular"
 								value={modular}
 								onChange={handleModular}
-								sx={{width:'175px',marginRight:'15px'}}
-								MenuProps={{sx:{height:'600px'}}}
+								sx={{width:"175px",marginRight:"15px"}}
+								MenuProps={{sx:{height:"600px"}}}
 							>
-								<MenuItem value={'none'} key={'none'}>None</MenuItem>
+								<MenuItem value={"none"} key={"none"}>None</MenuItem>
 								{Object.entries(Modulars).map(([key]) => <MenuItem key={key} value={key}>{(Modulars as any)[key].name}</MenuItem>)}
 							</Select>
 							<TextField
 								autoComplete='off'
-								sx={{width:'100px',marginRight:'10px'}}
+								sx={{width:"100px",marginRight:"10px"}}
 								type="string"
 								label="times/day"
 								value={modularPerDay}
@@ -315,18 +315,18 @@ function TubeFeed(){
 						</FormControl>
 					</Spacer>
 					<Spacer mt={16}>
-						<FormControl sx={{display:'flex',flexDirection:'row'}}>
+						<FormControl sx={{display:"flex",flexDirection:"row"}}>
 							<TextField
 								autoComplete='off'
 								type="string"
 								label="Water Flush Volume (mL)"
-								sx={{marginRight:'10px'}}
+								sx={{marginRight:"10px"}}
 								value={flushAmount}
 								onChange={handleFlushAmount}
 							></TextField>
 							<TextField
 								autoComplete='off'
-								sx={{width:'100px'}}
+								sx={{width:"100px"}}
 								type="numstringber"
 								label="flushes/day"
 								value={flushPerDay}
@@ -337,11 +337,11 @@ function TubeFeed(){
 					<Spacer mt={16}>
 						<Paper
 							style={{
-								display:'flex',
-								flexDirection: 'column',
-								justifyContent: 'center',
-								alignItems: 'flex-start',
-								padding:'10px',
+								display:"flex",
+								flexDirection: "column",
+								justifyContent: "center",
+								alignItems: "flex-start",
+								padding:"10px",
 							}}
 						>
 							<Typography variant="h6">{kcalProvided} Kcal</Typography>
@@ -359,35 +359,35 @@ function TubeFeed(){
 						mt={16}
 						mb={16} 
 						style={{
-							display:'flex',
-							flexDirection:'row', 
-							justifyContent:'space-around', 
-							width:'100%', 
+							display:"flex",
+							flexDirection:"row", 
+							justifyContent:"space-around", 
+							width:"100%", 
 						}}>
 						<Link target="_blank" 
 							sx={
 								chosenFormula
-									? {display:'flex'}
-									: {display:'none'}
+									? {display:"flex"}
+									: {display:"none"}
 							}
 							href={
 								chosenFormula
 									? Formulas[chosenFormula].reference
-									: ''
+									: ""
 							}
 						>
 							Tube Feed Reference
 						</Link>
 						<Link  target="_blank" 
 							sx={
-								modular!=='none'
-									? {display:'flex'}
-									: {display:'none'}
+								modular!=="none"
+									? {display:"flex"}
+									: {display:"none"}
 							}
 							href={
-								modular!=='none'
+								modular!=="none"
 									? Modulars[modular].reference
-									: ''
+									: ""
 							}
 						>
 							Modular Reference
@@ -395,29 +395,29 @@ function TubeFeed(){
 					</Spacer>
 				</Spacer>
 			}
-			{feedingType==='bolus' && 
+			{feedingType==="bolus" && 
 				<Spacer
 					mt={16}
 					style={{
-						display:'flex', 
-						flexDirection:'column', 
-						justifyContent:'center', 
-						alignItems:'center', 
-						width:'100%',
+						display:"flex", 
+						flexDirection:"column", 
+						justifyContent:"center", 
+						alignItems:"center", 
+						width:"100%",
 					}}
 				>       
 					<div
 						style={{
-							display:'flex',
-							flexDirection:'row',
-							alignItems:'center',
-							justifyContent:'space-between'
+							display:"flex",
+							flexDirection:"row",
+							alignItems:"center",
+							justifyContent:"space-between"
 						}}
 					>            
 						<TextField 
 							sx={{
-								width:'100px', 
-								marginRight:'15px'
+								width:"100px", 
+								marginRight:"15px"
 							}} 
 							autoComplete='off'
 							value={bolusVolume} 
@@ -431,30 +431,30 @@ function TubeFeed(){
 							label="bolus/day"
 							value={bolusPerDay}
 							onChange={handleBolusPerDay}
-							sx={{width:'100px'}}>                    
+							sx={{width:"100px"}}>                    
 						</TextField>     
 					</div>                
 					<Spacer mt={16}>
 						<FormControl 
 							sx={{
-								display:'flex',
-								flexDirection:'row',
-								justifyContent:'space-between', 
-								alignItems:'center'
+								display:"flex",
+								flexDirection:"row",
+								justifyContent:"space-between", 
+								alignItems:"center"
 							}}>
 							<InputLabel id="modular-label">Modular</InputLabel>
 							<Select
 								label="Modular"
 								value={modular}
 								onChange={handleModular}
-								sx={{width:'175px',marginRight:'15px'}}
-								MenuProps={{sx:{height:'600px'}}}
+								sx={{width:"175px",marginRight:"15px"}}
+								MenuProps={{sx:{height:"600px"}}}
 							>
-								<MenuItem value={'none'} key="none">None</MenuItem>
+								<MenuItem value={"none"} key="none">None</MenuItem>
 								{Object.entries(Modulars).map(([key]) => <MenuItem value={key} key={key}>{(Modulars as any)[key].name}</MenuItem>)}
 							</Select>
 							<TextField
-								sx={{width:'100px',marginRight:'10px'}}
+								sx={{width:"100px",marginRight:"10px"}}
 								autoComplete='off'
 								type="string"
 								label="times/day"
@@ -467,19 +467,19 @@ function TubeFeed(){
 					<Spacer mt={16}>
 						<FormControl 
 							sx={{
-								display:'flex',
-								flexDirection:'row'
+								display:"flex",
+								flexDirection:"row"
 							}}>
 							<TextField
 								type="string"
 								label="Water Flush Volume (mL)"
-								sx={{marginRight:'10px'}}
+								sx={{marginRight:"10px"}}
 								autoComplete='off'
 								value={flushAmount}
 								onChange={handleFlushAmount}
 							></TextField>
 							<TextField
-								sx={{width:'100px'}}
+								sx={{width:"100px"}}
 								type="string"
 								label="flushes/day"
 								autoComplete='off'
@@ -491,7 +491,7 @@ function TubeFeed(){
 					<Spacer mt={16}>
 						<Paper
 							sx={{
-								padding:'10px'
+								padding:"10px"
 							}}
 						>
 							<Typography variant="h6">{bolusKcalProvided} Kcal</Typography>
@@ -509,43 +509,43 @@ function TubeFeed(){
 						mt={16}
 						mb={16}
 						style={{
-							display:'flex',
-							flexDirection:'row', 
-							justifyContent:'space-around', 
-							width:'100%',                             
+							display:"flex",
+							flexDirection:"row", 
+							justifyContent:"space-around", 
+							width:"100%",                             
 						}}
 					>
 						<Link target="_blank" 
 							sx={
 								chosenFormula
-									? {display:'flex'}
-									: {display:'none'}
+									? {display:"flex"}
+									: {display:"none"}
 							}
 							href={
 								chosenFormula
 									? Formulas[chosenFormula].reference
-									: ''
+									: ""
 							}
 						>
 							Tube Feed Reference
 						</Link>
 						<Link  target="_blank" 
 							sx={
-								modular!=='none'
-									? {display:'flex'}
-									: {display:'none'}
+								modular!=="none"
+									? {display:"flex"}
+									: {display:"none"}
 							}
 							href={
-								modular!=='none'
+								modular!=="none"
 									? Modulars[modular].reference
-									: ''
+									: ""
 							}
 						>
 							Modular Reference
 						</Link>
 					</Spacer>
 				</Spacer>}
-			{error && <Snackbar  anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={true} onClose={handleCloseError} autoHideDuration={6000}><Alert severity='error'>{error}</Alert></Snackbar>}
+			{error && <Snackbar  anchorOrigin={{ vertical: "top", horizontal: "right" }} open={true} onClose={handleCloseError} autoHideDuration={6000}><Alert severity='error'>{error}</Alert></Snackbar>}
 		</div>
 	);
 }

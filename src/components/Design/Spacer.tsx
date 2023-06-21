@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactNode } from "react";
 
 interface Props{
     mb?: 2 | 4 | 8 | 16 | 16 | 32 | 64;

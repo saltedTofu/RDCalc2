@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
-import AddButton from './AddButton';
-import {render} from '@testing-library/react';
-import '@testing-library/jest-dom';
+import AddButton from "./AddButton";
+import {render} from "@testing-library/react";
+import "@testing-library/jest-dom";
 
-test('renders',()=>{
+test("renders",()=>{
 	render(<AddButton />);
 });

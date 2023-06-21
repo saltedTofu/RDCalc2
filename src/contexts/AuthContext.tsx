@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect, ReactNode } from 'react';
-import { auth, addNewUserDB, addTubeFeedFavoriteDB, getCurrentTubeFeedFavoritesDB, changeThemeDB, getThemeDB} from '../firebase';
+import React, { useContext, useState, useEffect, ReactNode } from "react";
+import { auth, addNewUserDB, addTubeFeedFavoriteDB, getCurrentTubeFeedFavoritesDB, changeThemeDB, getThemeDB} from "../firebase";
 
 interface AuthContext {
 	currentUser:any;

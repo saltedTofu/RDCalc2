@@ -1,11 +1,11 @@
-import {Paper, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent} from '@mui/material';
-import CalculatorComponent from '../Body/CalculatorContainer/CalculatorComponent/CalculatorComponent';
-import {useState} from 'react';
-import Spacer from '../Design/Spacer';
+import {Paper, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent} from "@mui/material";
+import CalculatorComponent from "../Body/CalculatorContainer/CalculatorComponent/CalculatorComponent";
+import {useState} from "react";
+import Spacer from "../Design/Spacer";
 
 function MobileCalculatorContainer(){
 
-	const [chosenCalc, setChosenCalc] = useState('');
+	const [chosenCalc, setChosenCalc] = useState("");
 
 	const handleChange = (event:SelectChangeEvent) =>{
 		setChosenCalc(event.target.value);
@@ -14,13 +14,13 @@ function MobileCalculatorContainer(){
 	return(
 		<div
 			style={{
-				display:'flex',
-				flexDirection: 'column',
-				justifyContent: 'flex-start',
-				alignItems: 'center',
-				marginTop:'5%',
-				width:'100%',
-				minHeight: '100vh',
+				display:"flex",
+				flexDirection: "column",
+				justifyContent: "flex-start",
+				alignItems: "center",
+				marginTop:"5%",
+				width:"100%",
+				minHeight: "100vh",
 			}}
 		>
 			<Paper className="selectCalc">
@@ -33,19 +33,19 @@ function MobileCalculatorContainer(){
 						label="AddCalculator"
 						onChange={handleChange}
 					>
-						<MenuItem value={'Hamwi'}>Hamwi</MenuItem>
-						<MenuItem value={'IBW'}>Ideal Body Weight</MenuItem>
-						<MenuItem value={'InchesCm'}>Inches/Cm Converter</MenuItem>
-						<MenuItem value={'lbs/kg'}>Lbs/Kg Converter</MenuItem>
-						<MenuItem value={'Mifflin'}>Mifflin</MenuItem>
-						<MenuItem value={'Notes'}>Notepad</MenuItem>
-						<MenuItem value={'PennState'}>Penn State</MenuItem>
-						<MenuItem value={'TPN/PPN'}>TPN/PPN</MenuItem>
-						<MenuItem value={'TubeFeeding'}>Tube Feeding</MenuItem>
+						<MenuItem value={"Hamwi"}>Hamwi</MenuItem>
+						<MenuItem value={"IBW"}>Ideal Body Weight</MenuItem>
+						<MenuItem value={"InchesCm"}>Inches/Cm Converter</MenuItem>
+						<MenuItem value={"lbs/kg"}>Lbs/Kg Converter</MenuItem>
+						<MenuItem value={"Mifflin"}>Mifflin</MenuItem>
+						<MenuItem value={"Notes"}>Notepad</MenuItem>
+						<MenuItem value={"PennState"}>Penn State</MenuItem>
+						<MenuItem value={"TPN/PPN"}>TPN/PPN</MenuItem>
+						<MenuItem value={"TubeFeeding"}>Tube Feeding</MenuItem>
 					</Select>
 				</FormControl>
 			</Paper>
-			<Spacer mt={8} style={{width:'100%', display:'flex', justifyContent:'center'}}>
+			<Spacer mt={8} style={{width:"100%", display:"flex", justifyContent:"center"}}>
 				<CalculatorComponent 
 					Calc={chosenCalc}
 				/>

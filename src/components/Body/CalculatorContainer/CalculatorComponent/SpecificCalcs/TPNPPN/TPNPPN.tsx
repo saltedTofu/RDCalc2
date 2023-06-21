@@ -1,24 +1,24 @@
-import {Typography, Slider, TextField, Paper } from '@mui/material';
-import {useState, useEffect} from 'react';
-import {decimalInputValidation} from '../../../../../../utils/decimalInputValidation';
-import WeightInput from '../components/WeightInput';
-import { wholeNumberInputValidation } from '../../../../../../utils/wholeNumberInputValidation';
-import Spacer from '../../../../../Design/Spacer';
+import {Typography, Slider, TextField, Paper } from "@mui/material";
+import {useState, useEffect} from "react";
+import {decimalInputValidation} from "../../../../../../utils/decimalInputValidation";
+import WeightInput from "../components/WeightInput";
+import { wholeNumberInputValidation } from "../../../../../../utils/wholeNumberInputValidation";
+import Spacer from "../../../../../Design/Spacer";
 
 function TPNPPN(){
 
-	const [dextrose,setDextrose] = useState('');
-	const [aminoAcid,setAminoAcid] = useState('');
+	const [dextrose,setDextrose] = useState("");
+	const [aminoAcid,setAminoAcid] = useState("");
 	const [rate,setRate] = useState(0);
-	const [hrsDay,setHrsDay] = useState('');
+	const [hrsDay,setHrsDay] = useState("");
 	const [kcal,setKcal] = useState(0);
 	const [protein,setProtein] = useState(0);
 	const [volume,setVolume] = useState(0);
 	const [carbohydrates,setCarbohydrates] = useState(0);
-	const [currentBodyWeight,setCurrentBodyWeight] = useState('');
-	const [weightUnit,setWeightUnit] = useState('Lbs');
+	const [currentBodyWeight,setCurrentBodyWeight] = useState("");
+	const [weightUnit,setWeightUnit] = useState("Lbs");
 	const [GIR,setGIR] = useState(0);
-	const [GIRError, setGIRError] = useState('');
+	const [GIRError, setGIRError] = useState("");
 
 	//Calculate TPN/PPN
 	useEffect(()=>{
@@ -35,12 +35,12 @@ function TPNPPN(){
 	//Calculate GIR
 	useEffect(()=>{
 		if(!currentBodyWeight || Number(currentBodyWeight)===0){
-			setGIRError('Please Enter Current Body Weight');
+			setGIRError("Please Enter Current Body Weight");
 			return;
 		}
-		setGIRError('');
+		setGIRError("");
 		let weightInKg:number;
-		if(weightUnit==='Lbs'){
+		if(weightUnit==="Lbs"){
 			weightInKg=Number(currentBodyWeight)/2.205;
 		}
 		else{
@@ -70,22 +70,22 @@ function TPNPPN(){
 	return(
 		<div 
 			style={{
-				display:'flex',
-				flexDirection: 'column',
-				alignItems: 'center',
-				justifyContent: 'center',
-				textAlign: 'center',
-				width:'95%',
+				display:"flex",
+				flexDirection: "column",
+				alignItems: "center",
+				justifyContent: "center",
+				textAlign: "center",
+				width:"95%",
 			}}
 		>
 			<Spacer 
 				mt={8} 
 				style={{
-					display:'flex', 
-					flexDirection:'row', 
-					alignItems:'center', 
-					width: '85%', 
-					justifyContent:'space-around'
+					display:"flex", 
+					flexDirection:"row", 
+					alignItems:"center", 
+					width: "85%", 
+					justifyContent:"space-around"
 				}}
 			>
 				<TextField
@@ -94,7 +94,7 @@ function TPNPPN(){
 					value={dextrose}
 					onChange={handleDextrose}
 					type="string"
-					sx={{width:'130px'}}
+					sx={{width:"130px"}}
 				></TextField>
 				<TextField
 					autoComplete='off'
@@ -102,10 +102,10 @@ function TPNPPN(){
 					value={aminoAcid}
 					onChange={handleAminoAcid}
 					type="string"
-					sx={{width:'130px'}}
+					sx={{width:"130px"}}
 				></TextField>
 			</Spacer>
-			<Spacer mt={16} style={{width:'100%'}}>
+			<Spacer mt={16} style={{width:"100%"}}>
 				<Slider
 					value={rate}
 					onChange={handleRate}
@@ -113,7 +113,7 @@ function TPNPPN(){
 					max={150}
 					step={1}
 					valueLabelDisplay="auto"
-					sx={{width:'85%'}}
+					sx={{width:"85%"}}
 				></Slider>
 			</Spacer>
 			<Spacer mt={8}>
@@ -129,7 +129,7 @@ function TPNPPN(){
 				></TextField>
 			</Spacer>  
 			<Spacer mt={16}>
-				<Paper sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'flex-start',padding:'10px'}}>
+				<Paper sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"flex-start",padding:"10px"}}>
 					<Typography variant="h6">{kcal} Kcal</Typography>
 					<Typography variant="h6">{protein}g Protein</Typography>
 					<Typography variant="h6">{carbohydrates}g Dextrose</Typography>
@@ -139,7 +139,7 @@ function TPNPPN(){
 			<Spacer mt={16}>
 				<Typography variant="h5">Glucose Infusion Rate</Typography>
 			</Spacer>
-			<Spacer mt={16} style={{width:'70%'}}>          
+			<Spacer mt={16} style={{width:"70%"}}>          
 				<WeightInput 
 					weight={currentBodyWeight}
 					setWeight={setCurrentBodyWeight}
@@ -151,11 +151,11 @@ function TPNPPN(){
 			<Spacer mt={16} mb={16}>
 				<Paper 
 					sx={{
-						display:'flex',
-						flexDirection:'column',
-						justifyContent:'center',
-						alignItems:'flex-start',
-						padding:'10px'
+						display:"flex",
+						flexDirection:"column",
+						justifyContent:"center",
+						alignItems:"flex-start",
+						padding:"10px"
 					}}
 				>
 					{GIRError ? <Typography variant="h6">{GIRError}</Typography> : <Typography variant="h6">{GIR} mg/kg/min</Typography>}

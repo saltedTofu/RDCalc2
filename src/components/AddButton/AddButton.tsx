@@ -1,8 +1,8 @@
-import './AddButton.css';
-import AddIcon from '@mui/icons-material/Add';
-import { SvgIcon, IconButton, Typography, Paper, Alert, Snackbar } from '@mui/material';
-import {useState, useLayoutEffect} from 'react';
-import {useSelector} from 'react-redux';
+import "./AddButton.css";
+import AddIcon from "@mui/icons-material/Add";
+import { SvgIcon, IconButton, Typography, Paper, Alert, Snackbar } from "@mui/material";
+import {useState, useLayoutEffect} from "react";
+import {useSelector} from "react-redux";
 
 interface Props {
     addNewCalc: () => void;
@@ -10,25 +10,25 @@ interface Props {
 }
 
 function AddButton({addNewCalc, currentTheme}:Props){
-	const [borderColor, setBorderColor] = useState('#0288d1');
-	const [error,setError] = useState('');
+	const [borderColor, setBorderColor] = useState("#0288d1");
+	const [error,setError] = useState("");
 	const calcsArray = useSelector((state:any) => state.calcsArray.calcsArray);
 
 	useLayoutEffect(()=>{
-		if(currentTheme==='dark'){
-			setBorderColor('#0288d1'); //blue
+		if(currentTheme==="dark"){
+			setBorderColor("#0288d1"); //blue
 		}
-		else if(currentTheme==='lofi'){
-			setBorderColor('#9E6196'); //light pink
+		else if(currentTheme==="lofi"){
+			setBorderColor("#9E6196"); //light pink
 		}
-		else if(currentTheme==='banana'){
-			setBorderColor('#212121'); //light pink
+		else if(currentTheme==="banana"){
+			setBorderColor("#212121"); //light pink
 		}
 	},[currentTheme]);
 
 	const handleClick = () => {
 		if(calcsArray.length>5){
-			setError('Too many calculators! The maximum amount is 6.');
+			setError("Too many calculators! The maximum amount is 6.");
 		}
 		else{
 			addNewCalc();
@@ -36,7 +36,7 @@ function AddButton({addNewCalc, currentTheme}:Props){
 	};
 
 	const handleCloseError = () => {
-		setError('');
+		setError("");
 	};
 
 	return(
@@ -51,7 +51,7 @@ function AddButton({addNewCalc, currentTheme}:Props){
 				</SvgIcon>
 			</IconButton>
             
-			{error && <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={true} autoHideDuration={6000} onClose={handleCloseError}><Alert severity="error"  >{error}</Alert></Snackbar>}
+			{error && <Snackbar anchorOrigin={{ vertical: "top", horizontal: "right" }} open={true} autoHideDuration={6000} onClose={handleCloseError}><Alert severity="error"  >{error}</Alert></Snackbar>}
 		</Paper>
 	);
 }

@@ -1,5 +1,5 @@
-import {configureStore} from '@reduxjs/toolkit';
-import calcsArrayReducer from './calcs';
+import {configureStore} from "@reduxjs/toolkit";
+import calcsArrayReducer from "./calcs";
 
 const store = configureStore({
 	reducer: {

@@ -1,5 +1,5 @@
-import { TextField, Typography } from '@mui/material';
-import { wholeNumberInputValidation} from '../../../../../../utils/wholeNumberInputValidation';
+import { TextField, Typography } from "@mui/material";
+import { wholeNumberInputValidation} from "../../../../../../utils/wholeNumberInputValidation";
 
 interface Props{
     feet:string;
@@ -24,11 +24,11 @@ export default function HeightInput({feet, setFeet, inches, setInches, includeLa
 	return(
 		<div 
 			style={{
-				display:'flex', 
-				flexDirection:'row',
-				alignItems:'center',
-				justifyContent:'space-around',
-				width:'100%',
+				display:"flex", 
+				flexDirection:"row",
+				alignItems:"center",
+				justifyContent:"space-around",
+				width:"100%",
 			}}
 		>
 			{includeLabel && <Typography variant="body1">Height</Typography>}
@@ -37,7 +37,7 @@ export default function HeightInput({feet, setFeet, inches, setInches, includeLa
 				type="string"
 				value={feet}
 				onChange={handleFeet}
-				sx={{width:'100px'}}
+				sx={{width:"100px"}}
 				size="small"
 				autoComplete='off'
 			></TextField>
@@ -47,7 +47,7 @@ export default function HeightInput({feet, setFeet, inches, setInches, includeLa
 				size="small"
 				value={inches}
 				onChange={handleInches}
-				sx={{width:'100px'}}
+				sx={{width:"100px"}}
 				autoComplete='off'
 			></TextField>
 		</div>

@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
-import '@testing-library/jest-dom';
-import {configure} from '@testing-library/react';
+import "@testing-library/jest-dom";
+import {configure} from "@testing-library/react";
 
-configure({testIdAttribute: 'data-my-test-id'});
+configure({testIdAttribute: "data-my-test-id"});
 
 
 // test('renders',()=>{

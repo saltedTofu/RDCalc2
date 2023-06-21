@@ -1,12 +1,12 @@
-import IdealBodyWeight from './SpecificCalcs/IdealBodyWeight/IdealBodyWeight';
-import Hamwi from './SpecificCalcs/Hamwi/Hamwi';
-import TPNPPN from './SpecificCalcs/TPNPPN/TPNPPN';
-import LbsKg from './SpecificCalcs/LbsKg/LbsKg';
-import Mifflin from './SpecificCalcs/Mifflin/Mifflin';
-import PennState from './SpecificCalcs/PennState/PennState';
-import Notes from './SpecificCalcs/Notes/Notes';
-import TubeFeed from './SpecificCalcs/TubeFeed/TubeFeed';
-import InchesCm from './SpecificCalcs/InchesCm/InchesCm';
+import IdealBodyWeight from "./SpecificCalcs/IdealBodyWeight/IdealBodyWeight";
+import Hamwi from "./SpecificCalcs/Hamwi/Hamwi";
+import TPNPPN from "./SpecificCalcs/TPNPPN/TPNPPN";
+import LbsKg from "./SpecificCalcs/LbsKg/LbsKg";
+import Mifflin from "./SpecificCalcs/Mifflin/Mifflin";
+import PennState from "./SpecificCalcs/PennState/PennState";
+import Notes from "./SpecificCalcs/Notes/Notes";
+import TubeFeed from "./SpecificCalcs/TubeFeed/TubeFeed";
+import InchesCm from "./SpecificCalcs/InchesCm/InchesCm";
 
 interface Props {
     Calc:string;
@@ -14,47 +14,47 @@ interface Props {
 
 function Calculator({Calc}:Props){
 
-	if(Calc==='IBW'){
+	if(Calc==="IBW"){
 		return(
 			<IdealBodyWeight />
 		);
 	}
-	else if(Calc==='TubeFeeding'){
+	else if(Calc==="TubeFeeding"){
 		return(
 			<TubeFeed />
 		);
 	}
-	else if(Calc==='TPN/PPN'){
+	else if(Calc==="TPN/PPN"){
 		return(
 			<TPNPPN />
 		);
 	}
-	else if(Calc==='Notes'){
+	else if(Calc==="Notes"){
 		return(
 			<Notes />
 		);
 	}
-	else if(Calc==='lbs/kg'){
+	else if(Calc==="lbs/kg"){
 		return(
 			<LbsKg />
 		);
 	}
-	else if(Calc==='Hamwi'){
+	else if(Calc==="Hamwi"){
 		return(
 			<Hamwi />
 		);
 	}
-	else if(Calc==='PennState'){
+	else if(Calc==="PennState"){
 		return(
 			<PennState />
 		);
 	}
-	else if(Calc==='Mifflin'){
+	else if(Calc==="Mifflin"){
 		return(
 			<Mifflin />
 		);
 	}
-	else if(Calc==='InchesCm'){
+	else if(Calc==="InchesCm"){
 		return(
 			<InchesCm />
 		);

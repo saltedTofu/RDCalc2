@@ -1,5 +1,5 @@
-import {Popover,Button} from '@mui/material';
-import {useState, useRef, ReactNode} from 'react';
+import {Popover,Button} from "@mui/material";
+import {useState, useRef, ReactNode} from "react";
 
 interface Props {
     children:ReactNode;
@@ -28,15 +28,15 @@ function FormulaPopover({children}:Props){
 				anchorEl={buttonRef.current}
 				onClose={handleClosePopover}
 				anchorOrigin={{
-					vertical: 'center',
-					horizontal: 'right',
+					vertical: "center",
+					horizontal: "right",
 				}}
 				transformOrigin={{
-					vertical:'bottom',
-					horizontal:'left'
+					vertical:"bottom",
+					horizontal:"left"
 				}}
 			>
-				<div style={{padding:'20px'}}>
+				<div style={{padding:"20px"}}>
 					{children}
 				</div>
 			</Popover>

@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 /*
 dark purp #300E3F
 pink #9E6196
@@ -8,35 +8,35 @@ const lofi = createTheme({
 		MuiChip:{
 			styleOverrides:{
 				outlined:{
-					border:'none' //outlined border of chip
+					border:"none" //outlined border of chip
 				}
 			}
 		}
 	},
 	typography:{
 		button:{
-			textTransform:'none'
+			textTransform:"none"
 		},
 		h1:{
-			fontSize:'12rem'
+			fontSize:"12rem"
 		}
 	},
 	palette: {
-		mode:'dark',
+		mode:"dark",
 		background:{
-			paper:'#300E3F' //purple
+			paper:"#300E3F" //purple
 		},
 		text: {
-			primary:'#fafafa', //white
-			secondary: '#fafafa'
+			primary:"#fafafa", //white
+			secondary: "#fafafa"
 		},
 		primary: { //color of buttons, checkbox
-			main: '#9E6196', //light pink
-			contrastText: '#121212', //white
+			main: "#9E6196", //light pink
+			contrastText: "#121212", //white
 		},
 		secondary: { 
-			main: '#300E3F', //purple
-			contrastText: '#fafafa' //white
+			main: "#300E3F", //purple
+			contrastText: "#fafafa" //white
 		}
 	}
 });

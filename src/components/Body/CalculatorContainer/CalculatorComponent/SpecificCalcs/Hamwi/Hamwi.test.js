@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-import Hamwi from './Hamwi';
-import {render} from '@testing-library/react';
-import '@testing-library/jest-dom';
+import Hamwi from "./Hamwi";
+import {render} from "@testing-library/react";
+import "@testing-library/jest-dom";
 
-test('renders',()=>{
+test("renders",()=>{
     
 	render(<Hamwi />);
 

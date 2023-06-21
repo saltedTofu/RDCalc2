@@ -1,13 +1,13 @@
-import {createSlice} from '@reduxjs/toolkit';
-import CalculatorContainer from '../components/Body/CalculatorContainer/CalculatorContainer';
+import {createSlice} from "@reduxjs/toolkit";
+import CalculatorContainer from "../components/Body/CalculatorContainer/CalculatorContainer";
 
 export const calcsArraySlice = createSlice({
-	name:'calcs',
+	name:"calcs",
 	initialState: {
 		calcsArray:[],
 		calcNamesArray:[],
 		calcCounter:0,
-		globalUser:''
+		globalUser:""
 	},
 	reducers:{
 		addCalc: (state,action) => {

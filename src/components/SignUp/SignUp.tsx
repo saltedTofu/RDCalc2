@@ -1,10 +1,10 @@
-import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert} from '@mui/material';
-import {useRef, useState, useEffect, SetStateAction} from 'react';
-import Header from '../Header/Header';
-import {useAuth} from '../../contexts/AuthContext';
-import './SignUp.css';
-import { useNavigate } from 'react-router-dom';
-import Spacer from '../Design/Spacer';
+import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert} from "@mui/material";
+import {useRef, useState, useEffect, SetStateAction} from "react";
+import Header from "../Header/Header";
+import {useAuth} from "../../contexts/AuthContext";
+import "./SignUp.css";
+import { useNavigate } from "react-router-dom";
+import Spacer from "../Design/Spacer";
 
 interface Props {
 	currentTheme:string;
@@ -22,26 +22,26 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 	const emailRef = useRef<HTMLInputElement>();
 	const passwordRef = useRef<HTMLInputElement>();
 	const passwordConfirmRef = useRef<HTMLInputElement>();
-	const [backgroundColor,setBackgroundColor]=useState('#333333');
+	const [backgroundColor,setBackgroundColor]=useState("#333333");
 	const {signup, addUser} = useAuth();
-	const [error,setError] = useState('');
-	const [success,setSuccess] = useState('');
+	const [error,setError] = useState("");
+	const [success,setSuccess] = useState("");
 	const [loading,setLoading] = useState(false);
 
 	const navigate = useNavigate();
 
 	useEffect(()=>{
-		if(currentTheme==='dark'){
-			setBackgroundColor('#1E1E1E');
+		if(currentTheme==="dark"){
+			setBackgroundColor("#1E1E1E");
 		}
-		if(currentTheme==='lofi'){
-			setBackgroundColor('#300E3F');
+		if(currentTheme==="lofi"){
+			setBackgroundColor("#300E3F");
 		}
 	},[currentTheme]);
 
 	useEffect(()=>{
 		if(success){
-			return navigate('/');
+			return navigate("/");
 		}
 	},[success]);
 
@@ -51,26 +51,26 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 			return;
 		}
 		if(passwordRef.current.value !== passwordConfirmRef.current.value){
-			return setError('Passwords do not match');
+			return setError("Passwords do not match");
 		}
 		if(!emailRef.current.value){
-			return setError('Please enter an email address');
+			return setError("Please enter an email address");
 		}
 		try{
-			setError('');
+			setError("");
 			setLoading(true);
 			const validatedUserString = emailRef.current.value.toLowerCase();
 			await signup(validatedUserString, passwordRef.current.value);
 			await addUser(validatedUserString);
 		} catch {
-			setSuccess('');
-			setError('Failed to create an account');
+			setSuccess("");
+			setError("Failed to create an account");
 			setLoading(false);
 			return;
 		}
-		setError('');
+		setError("");
 		setLoading(false);
-		setSuccess('Account Created');
+		setSuccess("Account Created");
 	};
 
 	return(
@@ -80,23 +80,23 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 				<div className="signUpForm">
 					<form onSubmit={handleSubmit}>
 						<Spacer mt={16} mb={16}>
-							<Typography variant="h2" sx={{marginLeft:'5px'}}>Sign Up</Typography>
+							<Typography variant="h2" sx={{marginLeft:"5px"}}>Sign Up</Typography>
 						</Spacer>                        
-						<FormGroup sx={{width:'100%'}}>
+						<FormGroup sx={{width:"100%"}}>
 							<FormControl>
 								<Spacer mt={16} mb={16}>
 									<TextField label="Enter Email" inputRef={emailRef}></TextField>
 								</Spacer>                                
 							</FormControl>
 						</FormGroup>
-						<FormGroup sx={{width:'100%'}}>
+						<FormGroup sx={{width:"100%"}}>
 							<FormControl>
 								<Spacer mt={16} mb={16}>
 									<TextField label="Create Password" type="password" inputRef={passwordRef}></TextField>
 								</Spacer>                                
 							</FormControl>
 						</FormGroup>
-						<FormGroup sx={{width:'100%'}}>
+						<FormGroup sx={{width:"100%"}}>
 							<FormControl>
 								<Spacer mt={16} mb={16}>
 									<TextField label="Confirm Password" type="password" inputRef={passwordConfirmRef}></TextField>

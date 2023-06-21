@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-import Footer from './Footer';
-import '@testing-library/jest-dom';
+import Footer from "./Footer";
+import "@testing-library/jest-dom";
 
-test('renders',()=>{
+test("renders",()=>{
 	<Footer />;
 });

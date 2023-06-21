@@ -1,22 +1,22 @@
-import {useState, useEffect} from 'react';
-import { Slider, Typography, Paper } from '@mui/material';
-import WeightInput from '../components/WeightInput';
-import Spacer from '../../../../../Design/Spacer';
+import {useState, useEffect} from "react";
+import { Slider, Typography, Paper } from "@mui/material";
+import WeightInput from "../components/WeightInput";
+import Spacer from "../../../../../Design/Spacer";
 
 function Hamwi(){
-	const [weight,setWeight] = useState('');
-	const [weightUnit,setWeightUnit] = useState('Lbs');
+	const [weight,setWeight] = useState("");
+	const [weightUnit,setWeightUnit] = useState("Lbs");
 	const [lowerCal,setLowerCal] = useState(25);
 	const [higherCal,setHigherCal] = useState(30);
 	const [lowerProtein, setLowerProtein] = useState(1.0);
 	const [higherProtein, setHigherProtein] = useState(1.2);
-	const [kcalRange,setKcalRange] = useState('');
-	const [proteinRange,setProteinRange] = useState('');
+	const [kcalRange,setKcalRange] = useState("");
+	const [proteinRange,setProteinRange] = useState("");
 
 	//Calorie Range Calculator
 	useEffect(()=>{
 		let weightToUse=Number(weight);
-		if(weightUnit==='Lbs'){//convert to Kg
+		if(weightUnit==="Lbs"){//convert to Kg
 			weightToUse=weightToUse/2.2;
 		}
 		const lowerKcal = Math.round(lowerCal*weightToUse);
@@ -27,7 +27,7 @@ function Hamwi(){
 	//Protein Range Calculator
 	useEffect(()=>{
 		let weightToUse=Number(weight);
-		if(weightUnit==='Lbs'){
+		if(weightUnit==="Lbs"){
 			weightToUse=weightToUse/2.2;
 		}
 		const lowerPro = Math.round(lowerProtein*weightToUse);
@@ -52,11 +52,11 @@ function Hamwi(){
 	return(
 		<div 
 			style={{
-				display:'flex',
-				flexDirection:'column',
-				justifyContent:'center',
-				alignItems:'center',
-				width:'100%',
+				display:"flex",
+				flexDirection:"column",
+				justifyContent:"center",
+				alignItems:"center",
+				width:"100%",
 			}}
 		>
 			<Spacer mt={4}>
@@ -79,7 +79,7 @@ function Hamwi(){
 					min={10}
 					max={50}
 					valueLabelDisplay="auto"
-					sx={{width:'300px'}}
+					sx={{width:"300px"}}
 				>
 				</Slider>
 			</Spacer>                       
@@ -93,13 +93,13 @@ function Hamwi(){
 					min={10}
 					max={50}
 					valueLabelDisplay="auto"
-					sx={{width:'300px'}}
+					sx={{width:"300px"}}
 				>
 				</Slider>
 			</Spacer>
 			<Typography>{higherCal} kcal/kg</Typography>
 			<Spacer mt={4}>
-				<Paper sx={{padding:'10px'}}>
+				<Paper sx={{padding:"10px"}}>
 					<Typography  variant="h6">{kcalRange} kcal</Typography>
 				</Paper>
 			</Spacer>
@@ -115,7 +115,7 @@ function Hamwi(){
 					min={0.1}
 					max={4.0}
 					step={0.1}
-					sx={{width:'300px'}}
+					sx={{width:"300px"}}
 				></Slider>
 			</Spacer>
 			<Typography>{lowerProtein}</Typography>          
@@ -127,11 +127,11 @@ function Hamwi(){
 				min={0.1}
 				max={4.0}
 				step={0.1}
-				sx={{width:'300px'}}
+				sx={{width:"300px"}}
 			></Slider>
 			<Typography>{higherProtein}</Typography>
 			<Spacer mt={8} mb={8}>
-				<Paper sx={{padding:'10px'}}>
+				<Paper sx={{padding:"10px"}}>
 					<Typography variant="h6">{proteinRange} g</Typography>
 				</Paper>
 			</Spacer>

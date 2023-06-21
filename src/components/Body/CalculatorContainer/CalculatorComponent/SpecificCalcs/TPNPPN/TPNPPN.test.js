@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-import TPNPPN from './TPNPPN';
-import {render} from '@testing-library/react';
-import '@testing-library/jest-dom';
+import TPNPPN from "./TPNPPN";
+import {render} from "@testing-library/react";
+import "@testing-library/jest-dom";
 
-test('renders',()=>{
+test("renders",()=>{
 
 	render(<TPNPPN />);
     

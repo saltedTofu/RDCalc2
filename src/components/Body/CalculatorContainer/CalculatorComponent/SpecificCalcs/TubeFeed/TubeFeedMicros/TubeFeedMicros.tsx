@@ -1,6 +1,6 @@
-import {Popover,Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@mui/material';
-import {useState, useRef} from 'react';
-import {Formulas, FormulasType} from '../../../../../../../assets/TubeFeedFormulas';
+import {Popover,Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from "@mui/material";
+import {useState, useRef} from "react";
+import {Formulas, FormulasType} from "../../../../../../../assets/TubeFeedFormulas";
 
 interface Props {
     chosenFormula:FormulasType;
@@ -30,15 +30,15 @@ function TubeFeedMicros({chosenFormula,totalVolume}:Props){
 				anchorEl={buttonRef.current}
 				onClose={handleClosePopover}
 				anchorOrigin={{
-					vertical: 'center',
-					horizontal: 'right',
+					vertical: "center",
+					horizontal: "right",
 				}}
 				transformOrigin={{
-					vertical:'bottom',
-					horizontal:'left'
+					vertical:"bottom",
+					horizontal:"left"
 				}}
 			>
-				<TableContainer component={Paper} sx={{height:'500px'}}>
+				<TableContainer component={Paper} sx={{height:"500px"}}>
 					<Table aria-label="micronutrient table" size='medium' stickyHeader>
 						<TableHead>
 							<TableRow>
@@ -49,7 +49,7 @@ function TubeFeedMicros({chosenFormula,totalVolume}:Props){
 							{Object.keys(Formulas[chosenFormula].micros).map((nutrient:string) => (
 								<TableRow key={nutrient}>
 									<TableCell component="th" scope="row">{(Formulas as any)[chosenFormula].micros[nutrient].name}</TableCell>
-									<TableCell align="right">{Math.round((Formulas as any)[chosenFormula].micros[nutrient].amount*(totalVolume/1000)*100)/100 + ' ' + (Formulas as any)[chosenFormula].micros[nutrient].unit}</TableCell>
+									<TableCell align="right">{Math.round((Formulas as any)[chosenFormula].micros[nutrient].amount*(totalVolume/1000)*100)/100 + " " + (Formulas as any)[chosenFormula].micros[nutrient].unit}</TableCell>
 								</TableRow>
 							))}
 						</TableBody>
