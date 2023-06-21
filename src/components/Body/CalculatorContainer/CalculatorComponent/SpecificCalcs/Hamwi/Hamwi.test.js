@@ -1,11 +1,10 @@
-import React from 'react';
+/* eslint-disable no-undef */
 import Hamwi from './Hamwi';
-import {render, screen} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import {render} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 test('renders',()=>{
     
-    render(<Hamwi />)
+	render(<Hamwi />);
 
-})
+});

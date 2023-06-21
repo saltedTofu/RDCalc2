@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, ReactNode } from 'react';
 
 interface Props{
     mb?: 2 | 4 | 8 | 16 | 16 | 32 | 64;
@@ -10,17 +10,17 @@ interface Props{
 }
 
 export default function Spacer({children, mb, mt, ml, mr, style}:Props){
-    return(
-        <div 
-            style={{
-                marginBottom:mb,
-                marginTop:mt,
-                marginLeft:ml,
-                marginRight:mr,
-                ...style
-            }}
-        >
-            {children}
-        </div>
-    )
+	return(
+		<div 
+			style={{
+				marginBottom:mb,
+				marginTop:mt,
+				marginLeft:ml,
+				marginRight:mr,
+				...style
+			}}
+		>
+			{children}
+		</div>
+	);
 }

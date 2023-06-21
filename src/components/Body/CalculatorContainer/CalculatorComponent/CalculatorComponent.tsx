@@ -14,54 +14,54 @@ interface Props {
 
 function Calculator({Calc}:Props){
 
-    if(Calc==='IBW'){
-        return(
-            <IdealBodyWeight />
-        )
-    }
-    else if(Calc==='TubeFeeding'){
-        return(
-            <TubeFeed />
-        )
-    }
-    else if(Calc==='TPN/PPN'){
-        return(
-            <TPNPPN />
-        )
-    }
-    else if(Calc==='Notes'){
-        return(
-            <Notes />
-        )
-    }
-    else if(Calc==='lbs/kg'){
-        return(
-            <LbsKg />
-        )
-    }
-    else if(Calc==='Hamwi'){
-        return(
-            <Hamwi />
-        )
-    }
-    else if(Calc==='PennState'){
-        return(
-            <PennState />
-        )
-    }
-    else if(Calc==='Mifflin'){
-        return(
-            <Mifflin />
-        )
-    }
-    else if(Calc==='InchesCm'){
-        return(
-            <InchesCm />
-        )
-    }
-    return(
-        <div>
-        </div>
-    )
+	if(Calc==='IBW'){
+		return(
+			<IdealBodyWeight />
+		);
+	}
+	else if(Calc==='TubeFeeding'){
+		return(
+			<TubeFeed />
+		);
+	}
+	else if(Calc==='TPN/PPN'){
+		return(
+			<TPNPPN />
+		);
+	}
+	else if(Calc==='Notes'){
+		return(
+			<Notes />
+		);
+	}
+	else if(Calc==='lbs/kg'){
+		return(
+			<LbsKg />
+		);
+	}
+	else if(Calc==='Hamwi'){
+		return(
+			<Hamwi />
+		);
+	}
+	else if(Calc==='PennState'){
+		return(
+			<PennState />
+		);
+	}
+	else if(Calc==='Mifflin'){
+		return(
+			<Mifflin />
+		);
+	}
+	else if(Calc==='InchesCm'){
+		return(
+			<InchesCm />
+		);
+	}
+	return(
+		<div>
+		</div>
+	);
 }
 export default Calculator;

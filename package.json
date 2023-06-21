@@ -33,6 +33,7 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
+    "lint": "npx eslint src",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "cross-env DEBUG_PRINT_LIMIT=40000 react-scripts test",
@@ -64,7 +65,11 @@
     "@types/react-redux": "^7.1.25",
     "@types/redux": "^3.6.0",
     "@types/redux-thunk": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
     "cross-env": "^7.0.3",
+    "eslint": "^8.43.0",
+    "eslint-plugin-react": "^7.32.2",
     "jest-dom": "^4.0.0",
     "react-test-renderer": "^18.2.0"
   }

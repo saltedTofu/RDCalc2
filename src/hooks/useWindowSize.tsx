@@ -2,21 +2,21 @@ import {useState, useEffect} from 'react';
 
 export function useWindowSize(){
 
-    const [width, setWidth] = useState(0)
+	const [width, setWidth] = useState(0);
 
-    useEffect(() => { 
+	useEffect(() => { 
 
-        updateDimensions();
-        window.addEventListener('resize', updateDimensions);
-        return () => 
-            window.removeEventListener('resize',updateDimensions);
-    }, [])
+		updateDimensions();
+		window.addEventListener('resize', updateDimensions);
+		return () => 
+			window.removeEventListener('resize',updateDimensions);
+	}, []);
 
-    const updateDimensions = () => {
-        const outerWidth = window.outerWidth
-        setWidth(outerWidth)
-    }
+	const updateDimensions = () => {
+		const outerWidth = window.outerWidth;
+		setWidth(outerWidth);
+	};
     
     
-    return width;
+	return width;
 }

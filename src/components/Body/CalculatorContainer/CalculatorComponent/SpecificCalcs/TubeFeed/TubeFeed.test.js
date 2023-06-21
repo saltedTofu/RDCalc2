@@ -1,11 +1,8 @@
-import React from 'react';
-import TubeFeed from './TubeFeed';
-import {render, screen} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+/* eslint-disable no-undef */
 import '@testing-library/jest-dom';
-import {configure} from '@testing-library/react'
+import {configure} from '@testing-library/react';
 
-configure({testIdAttribute: 'data-my-test-id'})
+configure({testIdAttribute: 'data-my-test-id'});
 
 
 // test('renders',()=>{
