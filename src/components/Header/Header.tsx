@@ -21,7 +21,11 @@ interface Props {
 
 function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 
-	const {login, currentUser, logout, getTheme} = useAuth();
+	const Auth = useAuth();
+	const login = Auth?.login;
+	const currentUser = Auth?.currentUser;
+	const logout = Auth?.logout;
+	const getTheme = Auth?.getTheme;
 
 	//global state from redux
 	const dispatch = useDispatch();

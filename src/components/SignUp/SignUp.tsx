@@ -23,10 +23,12 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 	const passwordRef = useRef<HTMLInputElement>();
 	const passwordConfirmRef = useRef<HTMLInputElement>();
 	const [backgroundColor,setBackgroundColor]=useState("#333333");
-	const {signup, addUser} = useAuth();
 	const [error,setError] = useState("");
 	const [success,setSuccess] = useState("");
 	const [loading,setLoading] = useState(false);
+	const Auth = useAuth();
+	const signup = Auth?.signup;
+	const addUser = Auth?.addUser;
 
 	const navigate = useNavigate();
 

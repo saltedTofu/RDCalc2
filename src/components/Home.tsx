@@ -33,10 +33,11 @@ interface Props {
 function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 
 	const width = useWindowSize();
-	const {changeTheme} = useAuth();
 	const calcCounter = useSelector((state:any) => state.calcsArray.calcCounter);
 	const globalUser = useSelector((state:any) => state.calcsArray.globalUser);
 	const dispatch = useDispatch();
+	const Auth = useAuth();
+	const changeTheme = Auth?.changeTheme;
 
 	const addNewCalc = () => {
 		dispatch(addCalc(<div key={calcCounter} data-grid={{ x: 0, y: 0, w: 4, h: 3, minW:4, maxW:4, minH:3}} id={calcCounter}>{<CalculatorContainer  key={calcCounter} id={calcCounter}/>}</div>));
