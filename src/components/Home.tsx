@@ -45,9 +45,12 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	};
 
 	useEffect(()=>{ //updates users theme in the DB
-		if(globalUser){
-			changeTheme(globalUser,currentTheme);
+		async function updateThemePreference(){
+			if(globalUser){
+				await changeTheme(globalUser,currentTheme);				
+			}
 		}
+		updateThemePreference();
 	},[currentTheme, changeTheme]);
 
 	return(
@@ -55,7 +58,7 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 			<Header 
 				currentTheme={currentTheme} 
 				handleThemeChange={handleThemeChange}
-				setCurrentTheme={setCurrentTheme} 
+				setCurrentTheme={setCurrentTheme}
 			/>
 			<div id='warningAddNotes'>
 				<Alert className="doubleCheckWarning" color="info"sx={{width:"400px"}}>Please Note: All calculations should be double checked for accuracy</Alert>

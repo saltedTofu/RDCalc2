@@ -10,9 +10,6 @@ import "../node_modules/react-grid-layout/css/styles.css";
 import {ThemeProvider } from "@mui/material/styles";
 import darkTheme from "./themes/dark";
 import lofiTheme from "./themes/lofi.js";
-import christmasTheme from "./themes/christmas.js";
-import millenialPinkTheme from "./themes/millenialPink.js";
-import bananaTheme from "./themes/banana.js";
 import {useState, useEffect, SetStateAction} from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {AuthProvider} from "./contexts/AuthContext";
@@ -28,12 +25,6 @@ function App() {
 		else if(currentTheme==="lofi"){
 			setThemeObject(lofiTheme);
 		}
-		else if(currentTheme==="christmas"){
-			setThemeObject(christmasTheme);
-		}
-		else if(currentTheme==="pink"){
-			setThemeObject(millenialPinkTheme);
-		}
 	},[currentTheme]);
 
 	const handleThemeChange = (event: { target: { value: SetStateAction<string>; }; }) => {
@@ -42,15 +33,6 @@ function App() {
 		}
 		else if(event.target.value==="lofi"){
 			setThemeObject(lofiTheme);
-		}
-		else if(event.target.value==="banana"){
-			setThemeObject(bananaTheme);
-		}
-		else if(event.target.value==="christmas"){
-			setThemeObject(christmasTheme);
-		}
-		else if(event.target.value==="pink"){
-			setThemeObject(millenialPinkTheme);
 		}
 		setCurrentTheme(event.target.value);
 	};

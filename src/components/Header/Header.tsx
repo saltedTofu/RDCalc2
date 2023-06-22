@@ -16,7 +16,6 @@ interface Props {
             value: SetStateAction<string>;
         };
     }) => void
-
 }
 
 function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
@@ -105,7 +104,6 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 					<img src={Logo} alt="dietitian calc" id='logoImage'/>
 				</div>
 			</RouterLink>
-            
 			<div style={{display: "flex", flexDirection:"row", alignItems:"center", position:"absolute", left:"100px"}}>
 				<Typography style={{marginRight:"10px"}}>Theme</Typography>
 				<Select
@@ -116,7 +114,6 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 					<MenuItem value='lofi'>Lofi</MenuItem>
 				</Select>
 			</div>
-
 			<div style={{display: "flex", flexDirection:"row", alignItems:"center", position:"absolute"}} id="donateDiv">
 				<a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer"><img src={Coffee} width="160px" alt="Donate Button" id="donateButton"></img></a>
 			</div>

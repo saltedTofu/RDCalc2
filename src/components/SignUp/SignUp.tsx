@@ -88,7 +88,11 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 					justifyContent: "flex-start",
 				}}
 			>
-				<Header currentTheme={currentTheme} handleThemeChange={handleThemeChange} setCurrentTheme={setCurrentTheme}/>
+				<Header 
+					currentTheme={currentTheme} 
+					handleThemeChange={handleThemeChange} 
+					setCurrentTheme={setCurrentTheme}
+				/>
 				<div
 					style={{
 						width:"100%",

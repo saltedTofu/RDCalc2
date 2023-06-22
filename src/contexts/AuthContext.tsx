@@ -44,8 +44,8 @@ export function AuthProvider({ children }:Props) {
 		return auth.signOut(auth);
 	}
 
-	function changeTheme(user:any,theme:any){
-		return changeThemeDB(user,theme);
+	async function changeTheme(user:any,theme:any){
+		return await changeThemeDB(user,theme);
 	}
 
 	function getTheme(user:any){
