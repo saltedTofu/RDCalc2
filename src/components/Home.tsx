@@ -61,19 +61,21 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 				setCurrentTheme={setCurrentTheme}
 			/>
 			<div id='warningAddNotes'>
-				<Alert className="doubleCheckWarning" color="info"sx={{width:"400px"}}>Please Note: All calculations should be double checked for accuracy</Alert>
+				<Alert className="doubleCheckWarning" color="info" sx={width > mobileWidth ? {width:"400px"} : {width:"100%"}}>Please Note: All calculations should be double checked for accuracy</Alert>
 				<AddButton
 					addNewCalc={addNewCalc}
 					currentTheme={currentTheme}
 				/>
-				<RouterLink to='/release-notes'>
-					<Link>Release Notes</Link>
-				</RouterLink>
+				<Spacer mt={width <= mobileWidth? 16 : undefined}>
+					<RouterLink to='/release-notes'>
+						<Link>Release Notes</Link>
+					</RouterLink>
+				</Spacer>
 				<div style={{width:"240px"}} className="emptyDiv"></div>
 			</div>
 			{width > mobileWidth && <Body />}
 			{width <= mobileWidth && 
-					<Spacer mb={8} style={{width:"100%"}}>
+					<Spacer mt={16} mb={8} style={{width:"100%"}}>
 						<MobileCalculatorContainer />
 					</Spacer> }
 			<Footer />

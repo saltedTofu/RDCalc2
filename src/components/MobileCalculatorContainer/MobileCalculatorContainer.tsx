@@ -12,15 +12,17 @@ function MobileCalculatorContainer(){
 	};
 
 	return(
-		<div
+		<Paper
+			elevation={5}
+			square={true}
 			style={{
 				display:"flex",
 				flexDirection: "column",
 				justifyContent: "flex-start",
 				alignItems: "center",
-				marginTop:"5%",
 				width:"100%",
 				minHeight: "100vh",
+				paddingTop:"20px",
 			}}
 		>
 			<Paper className="selectCalc">
@@ -50,7 +52,7 @@ function MobileCalculatorContainer(){
 					Calc={chosenCalc}
 				/>
 			</Spacer>
-		</div>
+		</Paper>
 	);
    
 }

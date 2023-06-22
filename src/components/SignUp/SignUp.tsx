@@ -1,4 +1,4 @@
-import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert, Box} from "@mui/material";
+import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert} from "@mui/material";
 import {useRef, useState, useEffect, SetStateAction} from "react";
 import Header from "../Header/Header";
 import {useAuth} from "../../contexts/AuthContext";
@@ -65,7 +65,8 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 
 	return(
 		<div>
-			<Box 
+			<Paper
+				square={true}
 				sx={{
 					width:"100vw",
 					minHeight:"100vh",
@@ -141,7 +142,7 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 					<Spacer mt={16}>
 						<Alert color="success">{success}</Alert>
 					</Spacer>}
-			</Box>
+			</Paper>
 		</div>
 	);
 }
