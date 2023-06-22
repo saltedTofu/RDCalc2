@@ -18,7 +18,7 @@ test("properly calculates 5'10 male 125kg 28y 1.2 af 98C 7VE", async () => {
 	userEvent.type(activityInput, "1.2");
 	userEvent.type(screen.getByLabelText("°C"),"98");
 	userEvent.type(screen.getByLabelText("VE in L/min"),"7");
-	fireEvent.mouseDown(screen.getAllByRole("button")[4]);
+	fireEvent.mouseDown(screen.getByText("Celsius"));
 	fireEvent.click(screen.getByTestId("fahrenheit-select"));
 
 	expect(screen.getByText("1905 kcal")).toBeInTheDocument();
@@ -37,7 +37,7 @@ test("properly calculates 4'2 female 300# 90y 1.9 af", async () => {
 	userEvent.type(activityInput, "1.9");
 	userEvent.type(screen.getByLabelText("°C"),"98");
 	userEvent.type(screen.getByLabelText("VE in L/min"),"7");
-	fireEvent.mouseDown(screen.getAllByRole("button")[4]);
+	fireEvent.mouseDown(screen.getByText("Celsius"));
 	fireEvent.click(screen.getByTestId("fahrenheit-select"));
     
 	expect(screen.getByText("2943 kcal")).toBeInTheDocument();
@@ -55,7 +55,7 @@ test("properly calculates 5'10 male 120kg 28y 1.0 af 40*C 1.2Ve using modified (
 	const activityInput = screen.getByDisplayValue("1.2");
 	userEvent.clear(activityInput);
 	userEvent.type(activityInput, "1.0");
-	fireEvent.mouseDown(screen.getAllByRole("button")[3]);
+	fireEvent.mouseDown(screen.getByText("Lbs"));
 	fireEvent.click(screen.getByTestId("kg-select"));
 	userEvent.type(screen.getByLabelText("°C"),"40");
 	userEvent.type(screen.getByLabelText("VE in L/min"),"1.2");

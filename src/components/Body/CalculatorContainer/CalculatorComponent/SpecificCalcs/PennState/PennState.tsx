@@ -1,5 +1,5 @@
 import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem, SelectChangeEvent, ToggleButtonGroup, ToggleButton } from "@mui/material";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useMemo} from "react";
 import WeightInput from "../components/WeightInput";
 import HeightInput from "../components/HeightInput";
 import { decimalInputValidation } from "../../../../../../utils/decimalInputValidation";
@@ -20,35 +20,38 @@ function PennState(){
 	const [tMaxUnit,setTMaxUnit] = useState("Celsius");
 	const [ve,setVe] = useState("");
 	const [version, setVersion] = useState("original");
+	const [mifflin, setMifflin] = useState(0);
 
-	useEffect(()=>{
+	useMemo(()=>{
+		//calculate mifflin
 		let mifflinOutput=0;
-		let pennOutput="";
 		const heightInCm = ((Number(heightFeet)*12) + Number(heightInches))*2.54;
 		const weightInKg = weightUnit==="Lbs" ? Number(weight)/2.205 : weight;
-		if(!gender){
-			setPenn("Select Gender");
-			return;
-		}
 		if(gender==="male"){
-			mifflinOutput =Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*Number(age)) + 5)*Number(activityFactor));
+			mifflinOutput = Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*Number(age)) + 5)*Number(activityFactor));
 		}
 		else if(gender==="female"){
 			mifflinOutput = Math.floor(((10*Number(weightInKg)) + (6.25*heightInCm) - (5*Number(age)) + - 161)*Number(activityFactor));
 		}
+		setMifflin(mifflinOutput);
+
+	},[gender, weight, weightUnit, heightFeet, heightInches, activityFactor, age]);
+
+	useEffect(()=>{
+		let pennOutput="";
 		let convertedTMax = Number(tMax);
 		if(tMaxUnit==="Fahrenheit"){
 			convertedTMax=(convertedTMax-32)*(5/9);
 		}
 		if(version==="original"){
-			pennOutput = String(Math.round(mifflinOutput*0.96 + convertedTMax*167 + Number(ve)*31 - 6212));
+			pennOutput = String(Math.round(mifflin*0.96 + convertedTMax*167 + Number(ve)*31 - 6212));
 		}
-		else{ //modified
-			pennOutput = String(Math.round(mifflinOutput*0.71 + convertedTMax*85 + Number(ve)*64 - 3085));
+		else{
+			pennOutput = String(Math.round(mifflin*0.71 + convertedTMax*85 + Number(ve)*64 - 3085));
 		}
 		setPenn(pennOutput + " kcal");
 
-	},[gender,weight,weightUnit,heightFeet,heightInches,age,activityFactor,tMax,tMaxUnit,ve, version]);
+	},[mifflin, tMax,tMaxUnit,ve, version]);
 
 	const handleTmaxUnit = (event:SelectChangeEvent) => {
 		setTMaxUnit(event.target.value);
