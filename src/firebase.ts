@@ -22,7 +22,7 @@ async function addNewUser(user:any){
 		await setDoc(doc(db,"users",user), {
 			user,
 			tubeFeedFavorites: [],
-			theme:"dark"
+			theme:"blue"
 		});
 	} catch (e) {
 		console.log(e);

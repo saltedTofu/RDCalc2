@@ -6,7 +6,7 @@ import {Link as RouterLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import { setGlobalUser } from "../../redux/calcs";
 import {useAuth} from "../../contexts/AuthContext";
-import Coffee from "../../assets/buyMeCoffee.png";
+import Coffee from "../../assets/black-button.png";
 
 interface Props {
     currentTheme:string;
@@ -53,11 +53,17 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	},[user,dispatch]);
 
 	useLayoutEffect(()=>{
-		if(currentTheme==="dark"){
+		if(currentTheme==="blue"){
 			setIconBackground("#0288d1"); //blue
 		}
 		else if(currentTheme==="lofi"){
-			setIconBackground("#9E6196"); //light pink
+			setIconBackground("#703fb5"); //light pink
+		}
+		else if(currentTheme==="apple"){
+			setIconBackground("#b12c2c"); //red
+		}
+		else if(currentTheme==="kiwi"){
+			setIconBackground("#2ed851"); //red
 		}
 	},[currentTheme]);
 
@@ -110,12 +116,16 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 					onChange={handleThemeChange}
 					value={currentTheme}
 				>
-					<MenuItem value='dark'>Dark</MenuItem>
-					<MenuItem value='lofi'>Lofi</MenuItem>
+					<MenuItem value='apple'sx={{backgroundColor:"#b12c2c"}}>Apple</MenuItem>
+					<MenuItem value='blue' sx={{backgroundColor:"#0288d1"}}>Blue</MenuItem>
+					<MenuItem value='kiwi'sx={{backgroundColor:"#2ed851"}}>Kiwi</MenuItem>
+					<MenuItem value='lofi' sx={{backgroundColor:"#703fb5"}}>Lofi</MenuItem>										
 				</Select>
 			</div>
 			<div style={{display: "flex", flexDirection:"row", alignItems:"center", position:"absolute"}} id="donateDiv">
-				<a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer"><img src={Coffee} width="160px" alt="Donate Button" id="donateButton"></img></a>
+				<a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer">
+					<img src={Coffee} width="160px" alt="Donate Button" id="donateButton"></img>
+				</a>
 			</div>
 			<div className="loginFields">
 				{user 
@@ -125,8 +135,8 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 					</Box>)
 					:   (<form id="notLoggedIn" onSubmit={handleLogin} style={{display: "flex", alignItems:"center",justifyContent:"center"}}>
 						{error && <Alert color="error">{error}</Alert>}
-						<TextField className="autofillColor" label="Email" sx={{paddingRight:"5px", paddingLeft:"5px"}} inputRef={emailRef} id="emailInput"></TextField>
-						<TextField className="autofillColor" label="Password" sx={{paddingRight:"5px", paddingLeft:"5px"}} inputRef={passwordRef} type="password" id="passwordInput"></TextField>
+						<TextField label="Email" sx={{paddingRight:"5px", paddingLeft:"5px"}} inputRef={emailRef} id="emailInput"></TextField>
+						<TextField label="Password" sx={{paddingRight:"5px", paddingLeft:"5px"}} inputRef={passwordRef} type="password" id="passwordInput"></TextField>
 						<Button sx={{marginLeft:"10px"}} type="submit" disabled={loading} >Log in</Button>
 						<RouterLink to='/signup'>
 							<Button variant="contained" sx={{margin:"10px"}} disabled={loading}>Sign Up</Button>

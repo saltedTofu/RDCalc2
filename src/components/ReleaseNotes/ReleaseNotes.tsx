@@ -58,21 +58,11 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 	const Auth = useAuth();
 	const changeTheme = Auth?.changeTheme;
 
-	const [backgroundColor,setBackgroundColor]=useState("#333333");
 	const [value,setValue] = useState(0);
 
 	const globalUser = useSelector((state:any) => state.calcsArray.globalUser);
 	const width = useWindowSize();
-	console.log(useWindowSize());
 
-	useEffect(()=>{
-		if(currentTheme==="dark"){
-			setBackgroundColor("#1E1E1E");
-		}
-		else if(currentTheme==="lofi"){
-			setBackgroundColor("#300E3F");
-		}
-	},[currentTheme]);
 
 	const handleChange = (event:React.SyntheticEvent, newValue:number) => {
 		setValue(newValue);
@@ -96,7 +86,6 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 	console.log(width, mobileWidth);
 	return(
 		<Paper sx={{
-			backgroundColor:backgroundColor,
 			width:"100vw",
 			height:"100%",
 			minHeight:"100vh",

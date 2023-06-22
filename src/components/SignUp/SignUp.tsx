@@ -21,24 +21,13 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 	const emailRef = useRef<HTMLInputElement>();
 	const passwordRef = useRef<HTMLInputElement>();
 	const passwordConfirmRef = useRef<HTMLInputElement>();
-	const [backgroundColor,setBackgroundColor]=useState("#333333");
 	const [error,setError] = useState("");
 	const [success,setSuccess] = useState("");
 	const [loading,setLoading] = useState(false);
 	const Auth = useAuth();
 	const signup = Auth?.signup;
 	const addUser = Auth?.addUser;
-
 	const navigate = useNavigate();
-
-	useEffect(()=>{
-		if(currentTheme==="dark"){
-			setBackgroundColor("#1E1E1E");
-		}
-		if(currentTheme==="lofi"){
-			setBackgroundColor("#300E3F");
-		}
-	},[currentTheme]);
 
 	useEffect(()=>{
 		if(success){
@@ -78,7 +67,6 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 		<div>
 			<Box 
 				sx={{
-					backgroundColor:backgroundColor,
 					width:"100vw",
 					minHeight:"100vh",
 					height:"100%",

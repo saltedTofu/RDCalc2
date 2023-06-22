@@ -22,7 +22,7 @@ function TubeFeedMicros({chosenFormula,totalVolume}:Props){
 
 	return(
 		<div>
-			<Button variant="contained" onClick={handleOpenPopover} ref={buttonRef}>
+			<Button variant="contained" color="info" onClick={handleOpenPopover} ref={buttonRef}>
                 Micronutrients
 			</Button>
 			<Popover

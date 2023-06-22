@@ -67,7 +67,7 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 					currentTheme={currentTheme}
 				/>
 				<RouterLink to='/release-notes'>
-					<Link >Release Notes</Link>
+					<Link>Release Notes</Link>
 				</RouterLink>
 				<div style={{width:"240px"}} className="emptyDiv"></div>
 			</div>

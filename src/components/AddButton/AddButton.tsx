@@ -15,14 +15,17 @@ function AddButton({addNewCalc, currentTheme}:Props){
 	const calcsArray = useSelector((state:any) => state.calcsArray.calcsArray);
 
 	useLayoutEffect(()=>{
-		if(currentTheme==="dark"){
+		if(currentTheme==="blue"){
 			setBorderColor("#0288d1"); //blue
 		}
 		else if(currentTheme==="lofi"){
 			setBorderColor("#9E6196"); //light pink
 		}
-		else if(currentTheme==="banana"){
-			setBorderColor("#212121"); //light pink
+		else if(currentTheme==="apple"){
+			setBorderColor("#ff0000"); //light pink
+		}
+		else if(currentTheme==="kiwi"){
+			setBorderColor("#2ed851"); //light pink
 		}
 	},[currentTheme]);
 
