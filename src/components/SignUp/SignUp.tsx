@@ -1,8 +1,7 @@
-import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert} from "@mui/material";
+import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert, Box} from "@mui/material";
 import {useRef, useState, useEffect, SetStateAction} from "react";
 import Header from "../Header/Header";
 import {useAuth} from "../../contexts/AuthContext";
-import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import Spacer from "../Design/Spacer";
 
@@ -77,38 +76,70 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 
 	return(
 		<div>
-			<Paper className="signUp" sx={{backgroundColor:backgroundColor}}>
+			<Box 
+				sx={{
+					backgroundColor:backgroundColor,
+					width:"100vw",
+					minHeight:"100vh",
+					height:"100%",
+					display:"flex",
+					flexDirection: "column",
+					alignItems: "center",
+					justifyContent: "flex-start",
+				}}
+			>
 				<Header currentTheme={currentTheme} handleThemeChange={handleThemeChange} setCurrentTheme={setCurrentTheme}/>
-				<div className="signUpForm">
-					<form onSubmit={handleSubmit}>
-						<Spacer mt={16} mb={16}>
-							<Typography variant="h2" sx={{marginLeft:"5px"}}>Sign Up</Typography>
-						</Spacer>                        
-						<FormGroup sx={{width:"100%"}}>
-							<FormControl>
-								<Spacer mt={16} mb={16}>
-									<TextField label="Enter Email" inputRef={emailRef}></TextField>
-								</Spacer>                                
-							</FormControl>
-						</FormGroup>
-						<FormGroup sx={{width:"100%"}}>
-							<FormControl>
-								<Spacer mt={16} mb={16}>
-									<TextField label="Create Password" type="password" inputRef={passwordRef}></TextField>
-								</Spacer>                                
-							</FormControl>
-						</FormGroup>
-						<FormGroup sx={{width:"100%"}}>
-							<FormControl>
-								<Spacer mt={16} mb={16}>
-									<TextField label="Confirm Password" type="password" inputRef={passwordConfirmRef}></TextField>
-								</Spacer>                                
-							</FormControl>
-						</FormGroup>
-						<Spacer mt={16} mb={32}>
-							<Button disabled={loading} fullWidth variant="contained" type="submit">Create Account</Button>
-						</Spacer>                        
-					</form>
+				<div
+					style={{
+						width:"100%",
+						height:"90vh",
+						display:"flex",
+						justifyContent:"center",
+						alignItems:"center",
+					}}
+				>
+					<Paper 
+						elevation={5}
+						sx={{
+							width:"400px",
+							height:"fit-content",
+							padding:"50px",
+							display:"flex",
+							flexDirection: "column",
+							alignItems: "center",
+							justifyContent: "center",
+						}}
+					>
+						<form 
+							onSubmit={handleSubmit} 
+						>
+							<Typography variant="h2" sx={{marginLeft:"5px"}}>Sign Up</Typography>                       
+							<FormGroup sx={{width:"100%"}}>
+								<FormControl>
+									<Spacer mt={32}>
+										<TextField label="Enter Email" inputRef={emailRef} autoComplete='off'></TextField>
+									</Spacer>                                
+								</FormControl>
+							</FormGroup>
+							<FormGroup sx={{width:"100%"}}>
+								<FormControl>
+									<Spacer mt={32}>
+										<TextField label="Create Password" type="password" inputRef={passwordRef} autoComplete='off'></TextField>
+									</Spacer>                                
+								</FormControl>
+							</FormGroup>
+							<FormGroup sx={{width:"100%"}}>
+								<FormControl>
+									<Spacer mt={32} mb={16}>
+										<TextField label="Confirm Password" type="password" inputRef={passwordConfirmRef} autoComplete='off'></TextField>
+									</Spacer>                                
+								</FormControl>
+							</FormGroup>
+							<Spacer mt={16} mb={32}>
+								<Button disabled={loading} fullWidth variant="contained" type="submit">Create Account</Button>
+							</Spacer>                        
+						</form>
+					</Paper>
 				</div>
 				{error && 
 					<Spacer mt={16}>
@@ -118,7 +149,7 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 					<Spacer mt={16}>
 						<Alert color="success">{success}</Alert>
 					</Spacer>}
-			</Paper>
+			</Box>
 		</div>
 	);
 }
