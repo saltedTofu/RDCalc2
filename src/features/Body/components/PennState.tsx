@@ -1,11 +1,12 @@
-import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem, SelectChangeEvent, ToggleButtonGroup, ToggleButton } from "@mui/material";
+import { Paper, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem, SelectChangeEvent, ToggleButtonGroup, ToggleButton } from "@mui/material";
 import {useState, useEffect, useMemo} from "react";
 import WeightInput from "components/WeightInput";
 import HeightInput from "components/HeightInput";
-import { decimalInputValidation } from "../../../utils/decimalInputValidation";
-import { wholeNumberInputValidation } from "../../../utils/wholeNumberInputValidation";
-import Spacer from "../../../components/Spacer";
+import { decimalInputValidation } from "utils/decimalInputValidation";
+import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
+import Spacer from "components/Spacer";
 import FormulaPopover from "components/FormulaPopover";
+import Text from "components/Text";
 
 function PennState(){
 	const [gender,setGender] = useState("");
@@ -142,7 +143,7 @@ function PennState(){
 					width:"60%",
 				}}
 			>
-				<Typography>Age</Typography>
+				<Text variant="body1">Age</Text>
 				<TextField
 					autoComplete='off'
 					type='number'
@@ -155,7 +156,7 @@ function PennState(){
 				</TextField>
 			</Spacer>
 			<Spacer mt={16} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
-				<Typography>Activity Factor</Typography>
+				<Text variant="body1">Activity Factor</Text>
 				<Spacer ml={8}>
 					<TextField
 						autoComplete='off'
@@ -169,7 +170,7 @@ function PennState(){
 				</Spacer>
 			</Spacer>
 			<Spacer mt={16} style={{display:"flex", alignItems:"center", justifyContent:"space-around", width:"80%"}}>
-				<Typography>TMax</Typography>
+				<Text variant="body1">TMax</Text>
 				<TextField
 					autoComplete='off'
 					type="string"
@@ -191,7 +192,7 @@ function PennState(){
 				</Select>
 			</Spacer>
 			<Spacer mt={16} style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
-				<Typography>Minute Ventilation</Typography>
+				<Text variant="body1">Minute Ventilation</Text>
 				<TextField
 					autoComplete='off'
 					type="string"
@@ -204,7 +205,7 @@ function PennState(){
 			</Spacer>
 			<Spacer mt={16}>
 				<Paper sx={{padding:"10px"}}>
-					<Typography variant="h6">{penn}</Typography>
+					<Text variant="h6">{penn}</Text>
 				</Paper>
 			</Spacer>
 			<Spacer mt={16} mb={16}>            
@@ -214,8 +215,8 @@ function PennState(){
 							display:"flex"
 						}}
 					>
-						<Typography variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Original (2003):</Typography>
-						<Typography variant="body1">Mifflin(0.96) + Tmax(167) + Ve(31) - 6,212</Typography>
+						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Original (2003):</Text>
+						<Text variant="body1">Mifflin(0.96) + Tmax(167) + Ve(31) - 6,212</Text>
 					</div>
 					<Spacer
 						mt={4}
@@ -223,8 +224,8 @@ function PennState(){
 							display:"flex"
 						}}
 					>
-						<Typography variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Modified (2010):</Typography>
-						<Typography variant="body1">Mifflin(0.71) + Tmax(85) + Ve(64) - 3,085</Typography>
+						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Modified (2010):</Text>
+						<Text variant="body1">Mifflin(0.71) + Tmax(85) + Ve(64) - 3,085</Text>
 					</Spacer>                
 				</FormulaPopover>
 			</Spacer>

@@ -1,5 +1,5 @@
 import Header from "../../Header/components/Header";
-import {Paper, Typography, Stack, Box, Tabs, Tab} from "@mui/material";
+import {Paper, Stack, Box, Tabs, Tab} from "@mui/material";
 import {SetStateAction, useEffect,useState} from "react";
 import PropTypes from "prop-types";
 import Footer from "../../Footer/components/Footer";
@@ -8,6 +8,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import { useSelector } from "react-redux";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { mobileWidth } from "../../../constants";
+import Text from "components/Text";
 
 function TabPanel(props:any) {
 	const { children, value, index, ...other } = props;
@@ -23,7 +24,7 @@ function TabPanel(props:any) {
 		>
 			{value === index && (
 				<Box sx={{ p: 3 }}>
-					<Typography>{children}</Typography>
+					<Text variant="body1">{children}</Text>
 				</Box>
 			)}
 		</div>
@@ -126,7 +127,7 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 				</Tabs>
 				<TabPanel value={value} index={0}>
 					<Spacer mt={32} mb={4}>
-						<Typography 
+						<Text 
 							variant="h3" 
 							sx={{
 								width:"80%",
@@ -135,49 +136,49 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 							}}
 						>
 							Release Notes
-						</Typography>
+						</Text>
 					</Spacer>
 					<Stack spacing={1} sx={styles.versionNote}>
-						<Typography variant="h4" sx={{fontWeight:"bold"}}>Version 1.1</Typography>
-						<Typography variant="h5">June 13, 2023</Typography>
-						<Typography sx={{fontWeight:"bold"}}>What&apos;s New</Typography>
-						<Typography>• Inches/Cm converter</Typography>
-						<Typography>• Improved input validation for calculators</Typography>
-						<Typography>• Calculators are now alphabetized in the select component</Typography>
-						<Typography sx={{fontWeight:"bold"}}>Bug Fixes</Typography>
-						<Typography>• Various app architecture and optimization changes</Typography>
-						<Typography>• Paraplegic/Quadriplegic should now be exclusive and so should AKA/BKA for same leg</Typography>
-						<Typography>• Fixed a bug where users with capital letters in their email would not be able to set favorite tube feeding formulas</Typography>
-						<Typography>• Fixed spelling of &quot;Diabetisource AC&quot;</Typography>
+						<Text variant="h4" sx={{fontWeight:"bold"}}>Version 1.1</Text>
+						<Text variant="h5">June 13, 2023</Text>
+						<Text variant="body1" sx={{fontWeight:"bold"}}>What&apos;s New</Text>
+						<Text variant="body1">• Inches/Cm converter</Text>
+						<Text variant="body1">• Improved input validation for calculators</Text>
+						<Text variant="body1">• Calculators are now alphabetized in the select component</Text>
+						<Text variant="body1" sx={{fontWeight:"bold"}}>Bug Fixes</Text>
+						<Text variant="body1">• Various app architecture and optimization changes</Text>
+						<Text variant="body1">• Paraplegic/Quadriplegic should now be exclusive and so should AKA/BKA for same leg</Text>
+						<Text variant="body1">• Fixed a bug where users with capital letters in their email would not be able to set favorite tube feeding formulas</Text>
+						<Text variant="body1">• Fixed spelling of &quot;Diabetisource AC&quot;</Text>
 					</Stack>
 					<Stack spacing={1} sx={styles.versionNote}>
-						<Typography variant="h4" sx={{fontWeight:"bold"}}>Version 1.0.1</Typography>
-						<Typography variant="h5">August 11, 2022</Typography>
-						<Typography sx={{fontWeight:"bold"}}>Bug Fixes</Typography>
-						<Typography>• Fixed a bug where micronutrient amounts were calculated incorrectly</Typography>
-						<Typography>• Updated version number in footer</Typography>
+						<Text variant="h4" sx={{fontWeight:"bold"}}>Version 1.0.1</Text>
+						<Text variant="h5">August 11, 2022</Text>
+						<Text variant="body1" sx={{fontWeight:"bold"}}>Bug Fixes</Text>
+						<Text variant="body1">• Fixed a bug where micronutrient amounts were calculated incorrectly</Text>
+						<Text variant="body1">• Updated version number in footer</Text>
 					</Stack>
 					<Stack spacing={1} sx={styles.versionNote}>
-						<Typography variant="h4" sx={{fontWeight:"bold"}}>Version 1.0</Typography>
-						<Typography variant="h5">August 10, 2022</Typography>
-						<Typography sx={{fontWeight:"bold"}}>What&apos;s New</Typography>
-						<Typography>• Added release notes route (the page you are currently reading)</Typography>
-						<Typography>• Micronutrients added to tube feeding calculator</Typography>
+						<Text variant="h4" sx={{fontWeight:"bold"}}>Version 1.0</Text>
+						<Text variant="h5">August 10, 2022</Text>
+						<Text variant="body1" sx={{fontWeight:"bold"}}>What&apos;s New</Text>
+						<Text variant="body1">• Added release notes route (the page you are currently reading)</Text>
+						<Text variant="body1">• Micronutrients added to tube feeding calculator</Text>
 					</Stack>
 					<Stack spacing={1} sx={styles.versionNote}>
-						<Typography variant="h4" sx={{fontWeight:"bold"}}>Version 0.9.1</Typography>
-						<Typography variant="h5">July 26, 2022</Typography>
-						<Typography sx={{fontWeight:"bold"}}>What&apos;s New</Typography>
-						<Typography>• Added version number to footer</Typography>
-						<Typography>• Theme is now saved for each user when logged in, so your chosen theme should automatically be used when logging in</Typography>
-						<Typography sx={{fontWeight:"bold"}}>Bug Fixes</Typography>
-						<Typography>• Signing up will now correctly reroute user back to the home page</Typography>
-						<Typography>• Renalcal kcal information fixed to correct value</Typography>
+						<Text variant="h4" sx={{fontWeight:"bold"}}>Version 0.9.1</Text>
+						<Text variant="h5">July 26, 2022</Text>
+						<Text variant="body1" sx={{fontWeight:"bold"}}>What&apos;s New</Text>
+						<Text variant="body1">• Added version number to footer</Text>
+						<Text variant="body1">• Theme is now saved for each user when logged in, so your chosen theme should automatically be used when logging in</Text>
+						<Text variant="body1" sx={{fontWeight:"bold"}}>Bug Fixes</Text>
+						<Text variant="body1">• Signing up will now correctly reroute user back to the home page</Text>
+						<Text variant="body1">• Renalcal kcal information fixed to correct value</Text>
 					</Stack>
 				</TabPanel>
 
 				<TabPanel value={value} index={1}>
-					<Typography 
+					<Text 
 						variant="h3" 
 						sx={{
 							width:"80%",
@@ -186,7 +187,7 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 						}}
 					>
 						Upcoming Features
-					</Typography>
+					</Text>
 					<Stack 
 						spacing={1} 
 						sx={{
@@ -194,16 +195,16 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 							textAlign:"left"
 						}}
 					>
-						<Typography>• Additional themes </Typography>
-						<Typography variant="h5" sx={{textDecoration:"underline", }}>Calculators</Typography>
-						<Typography>• Harris Benedict</Typography>
-						<Typography>• Ireton Jones</Typography>
-						<Typography>• Modified Penn State</Typography>
-						<Typography>• Kcal from Propofol</Typography>
-						<Typography>• Kcal from dextrose</Typography>
-						<Typography>• Kcal from alcohol</Typography>
-						<Typography>• Inches/Cm converter</Typography>
-						<Typography>• Supplement Nutrition Facts Database</Typography>
+						<Text variant="body1">• Additional themes </Text>
+						<Text variant="h5" sx={{textDecoration:"underline", }}>Calculators</Text>
+						<Text variant="body1">• Harris Benedict</Text>
+						<Text variant="body1">• Ireton Jones</Text>
+						<Text variant="body1">• Modified Penn State</Text>
+						<Text variant="body1">• Kcal from Propofol</Text>
+						<Text variant="body1">• Kcal from dextrose</Text>
+						<Text variant="body1">• Kcal from alcohol</Text>
+						<Text variant="body1">• Inches/Cm converter</Text>
+						<Text variant="body1">• Supplement Nutrition Facts Database</Text>
 					</Stack>
 				</TabPanel>
 

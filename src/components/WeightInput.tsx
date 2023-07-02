@@ -1,5 +1,6 @@
-import { MenuItem, Select, SelectChangeEvent, TextField, Typography } from "@mui/material";
+import { MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 import { decimalInputValidation } from "utils/decimalInputValidation";
+import Text from "./Text";
 
 interface Props {
     weight:string;
@@ -32,7 +33,7 @@ function WeightInput({weight, setWeight, weightUnit, setWeightUnit, variant="med
 				width:"100%",
 				...style
 			}}>
-			{includeLabel && <Typography>Weight</Typography>}
+			{includeLabel && <Text variant="body1">Weight</Text>}
 			<TextField
 				type="string"
 				value={weight}

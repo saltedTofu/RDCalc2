@@ -1,4 +1,4 @@
-import { Alert, Snackbar, Checkbox, Paper, FormControl, Typography, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from "@mui/material";
+import { Alert, Snackbar, Checkbox, Paper, FormControl, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import {useState, useEffect} from "react";
@@ -11,6 +11,7 @@ import TubeFeedMicros from "./TubeFeedMicros";
 import { wholeNumberInputValidation } from "../../../utils/wholeNumberInputValidation";
 import { decimalInputValidation } from "../../../utils/decimalInputValidation";
 import Spacer from "../../../components/Spacer";
+import Text from "components/Text";
 
 function TubeFeed(){
 	const [chosenFormula,setChosenFormula] = useState<FormulasType>("Compleat");
@@ -212,7 +213,7 @@ function TubeFeed(){
 									checked={showOnlyFavorites}
 									onChange={handleShowFavorites}
 								/>
-								<Typography>Show Favorites Only</Typography>                            
+								<Text variant="body1">Show Favorites Only</Text>                            
 							</Spacer>
 							<div style={{display:"flex",flexDirection:"row", justifyContent:"center",alignItems:"center"}}>
 								<TubeFeedSelect 
@@ -237,8 +238,8 @@ function TubeFeed(){
 									<FavoriteIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"block"} : {display:"none"}}/>
 									<FavoriteBorderIcon color="primary" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"none"} : {display:"block"}}/>
 								</IconButton>
-								<Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"none"} : {display:"block"}}>Add to Favorites</Typography>
-								<Typography sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"block"} : {display:"none"}}>Remove from Favorites</Typography>
+								<Text variant="body1" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"none"} : {display:"block"}}>Add to Favorites</Text>
+								<Text variant="body1" sx={tubeFeedFavorites && tubeFeedFavorites.includes(Formulas[chosenFormula].name) ? {display:"block"} : {display:"none"}}>Remove from Favorites</Text>
 							</Spacer>
 						</div>
 					</Spacer>
@@ -344,9 +345,9 @@ function TubeFeed(){
 								padding:"10px",
 							}}
 						>
-							<Typography variant="h6">{kcalProvided} Kcal</Typography>
-							<Typography variant="h6">{proteinProvided}g Protein</Typography>
-							<Typography variant="h6">{freeWater}ml Free Water</Typography>
+							<Text variant="h6">{kcalProvided} Kcal</Text>
+							<Text variant="h6">{proteinProvided}g Protein</Text>
+							<Text variant="h6">{freeWater}ml Free Water</Text>
 						</Paper>
 					</Spacer>
 					<Spacer mt={16}>                                   
@@ -494,9 +495,9 @@ function TubeFeed(){
 								padding:"10px"
 							}}
 						>
-							<Typography variant="h6">{bolusKcalProvided} Kcal</Typography>
-							<Typography variant="h6">{bolusProteinProvided}g Protein</Typography>
-							<Typography variant="h6">{bolusFreeWater}ml Free Water</Typography>
+							<Text variant="h6">{bolusKcalProvided} Kcal</Text>
+							<Text variant="h6">{bolusProteinProvided}g Protein</Text>
+							<Text variant="h6">{bolusFreeWater}ml Free Water</Text>
 						</Paper>
 					</Spacer>
 					<Spacer mt={16}>

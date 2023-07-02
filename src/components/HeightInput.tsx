@@ -1,5 +1,6 @@
-import { TextField, Typography } from "@mui/material";
+import { TextField } from "@mui/material";
 import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
+import Text from "components/Text";
 
 interface Props{
     feet:string;
@@ -31,7 +32,7 @@ export default function HeightInput({feet, setFeet, inches, setInches, includeLa
 				width:"100%",
 			}}
 		>
-			{includeLabel && <Typography variant="body1">Height</Typography>}
+			{includeLabel && <Text variant="body1">Height</Text>}
 			<TextField
 				label="Feet"
 				type="string"

@@ -1,9 +1,10 @@
-import {Typography, Slider, TextField, Paper } from "@mui/material";
+import {Slider, TextField, Paper } from "@mui/material";
 import {useState, useEffect} from "react";
-import {decimalInputValidation} from "../../../utils/decimalInputValidation";
+import {decimalInputValidation} from "utils/decimalInputValidation";
 import WeightInput from "components/WeightInput";
-import { wholeNumberInputValidation } from "../../../utils/wholeNumberInputValidation";
-import Spacer from "../../../components/Spacer";
+import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
+import Spacer from "components/Spacer";
+import Text from "components/Text";
 
 function TPNPPN(){
 
@@ -117,7 +118,7 @@ function TPNPPN(){
 				></Slider>
 			</Spacer>
 			<Spacer mt={8}>
-				<Typography variant="h6">{rate} ml/hr</Typography>
+				<Text variant="h6">{rate} ml/hr</Text>
 			</Spacer>
 			<Spacer mt={16}>       
 				<TextField
@@ -130,14 +131,14 @@ function TPNPPN(){
 			</Spacer>  
 			<Spacer mt={16}>
 				<Paper sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"flex-start",padding:"10px"}}>
-					<Typography variant="h6">{kcal} Kcal</Typography>
-					<Typography variant="h6">{protein}g Protein</Typography>
-					<Typography variant="h6">{carbohydrates}g Dextrose</Typography>
-					<Typography variant="h6">{volume}ml Total Volume</Typography>
+					<Text variant="h6">{kcal} Kcal</Text>
+					<Text variant="h6">{protein}g Protein</Text>
+					<Text variant="h6">{carbohydrates}g Dextrose</Text>
+					<Text variant="h6">{volume}ml Total Volume</Text>
 				</Paper>
 			</Spacer>
 			<Spacer mt={16}>
-				<Typography variant="h5">Glucose Infusion Rate</Typography>
+				<Text variant="h5">Glucose Infusion Rate</Text>
 			</Spacer>
 			<Spacer mt={16} style={{width:"70%"}}>          
 				<WeightInput 
@@ -158,7 +159,7 @@ function TPNPPN(){
 						padding:"10px"
 					}}
 				>
-					{GIRError ? <Typography variant="h6">{GIRError}</Typography> : <Typography variant="h6">{GIR} mg/kg/min</Typography>}
+					{GIRError ? <Text variant="h6">{GIRError}</Text> : <Text variant="h6">{GIR} mg/kg/min</Text>}
 				</Paper>
 			</Spacer>
             

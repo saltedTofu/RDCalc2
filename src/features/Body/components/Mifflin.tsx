@@ -1,10 +1,11 @@
-import { Paper, Typography, RadioGroup, FormControlLabel, Radio, TextField} from "@mui/material";
+import { Paper, RadioGroup, FormControlLabel, Radio, TextField} from "@mui/material";
+import Text from "components/Text";
 import {useState, useEffect} from "react";
 import WeightInput from "components/WeightInput";
 import HeightInput from "components/HeightInput";
-import { decimalInputValidation } from "../../../utils/decimalInputValidation";
-import { wholeNumberInputValidation } from "../../../utils/wholeNumberInputValidation";
-import Spacer from "../../../components/Spacer";
+import { decimalInputValidation } from "utils/decimalInputValidation";
+import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
+import Spacer from "components/Spacer";
 import FormulaPopover from "components/FormulaPopover";
 
 function Mifflin(){
@@ -95,7 +96,7 @@ function Mifflin(){
 					width:"50%",
 				}}
 			>                
-				<Typography>Age</Typography>
+				<Text variant="body1">Age</Text>
 				<TextField
 					autoComplete='off'
 					type='string'
@@ -115,7 +116,7 @@ function Mifflin(){
 					justifyContent:"center"
 				}}
 			>
-				<Typography>Activity Factor</Typography>
+				<Text variant="body1">Activity Factor</Text>
 				<Spacer ml={8}>
 					<TextField
 						type="string"
@@ -129,7 +130,7 @@ function Mifflin(){
 			</Spacer>
 			<Spacer mt={16}>
 				<Paper sx={{padding:"10px"}}>
-					<Typography variant="h6">{output}</Typography>
+					<Text variant="h6">{output}</Text>
 				</Paper>
 			</Spacer>
 			<Spacer mt={16} mb={16}>            
@@ -139,8 +140,8 @@ function Mifflin(){
 							display:"flex"
 						}}
 					>
-						<Typography variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Male: </Typography>
-						<Typography variant="body1">(10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5</Typography>
+						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Male: </Text>
+						<Text variant="body1">(10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5</Text>
 					</div>
 					<Spacer
 						mt={4}
@@ -148,8 +149,8 @@ function Mifflin(){
 							display:"flex"
 						}}
 					>
-						<Typography variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Female: </Typography>
-						<Typography variant="body1">(10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161</Typography>
+						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Female: </Text>
+						<Text variant="body1">(10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161</Text>
 					</Spacer>
 				</FormulaPopover>
 			</Spacer>

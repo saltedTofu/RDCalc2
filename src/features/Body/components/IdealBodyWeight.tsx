@@ -1,9 +1,10 @@
-import {Paper, Typography, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel} from "@mui/material";
+import {Paper, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel} from "@mui/material";
 import {useState, useEffect} from "react";
 import WeightInput from "components/WeightInput";
 import HeightInput from "components/HeightInput";
 import Spacer from "components/Spacer";
 import FormulaPopover from "components/FormulaPopover";
+import Text from "components/Text";
 
 function IdealBodyWeight(){
 	const [gender,setGender] = useState("");
@@ -199,7 +200,7 @@ function IdealBodyWeight(){
 					}}
 				>
 					<Spacer mr={4}>
-						<Typography variant="h6">Amputations?</Typography>
+						<Text variant="h6">Amputations?</Text>
 						<FormGroup>
 							<FormControlLabel control={<Checkbox disabled={LAKA ? true : false} onChange={handleLBKA} size='small'/>} label="L BKA (6%)" />
 							<FormControlLabel control={<Checkbox disabled={RAKA ? true : false} onChange={handleRBKA} size='small'/>} label="R BKA (6%)" />
@@ -208,7 +209,7 @@ function IdealBodyWeight(){
 						</FormGroup>
 					</Spacer>
 					<Spacer ml={4}>
-						<Typography variant="h6">Paralyzations?</Typography>
+						<Text variant="h6">Paralyzations?</Text>
 						<FormGroup>
 							<FormControlLabel control={<Checkbox disabled={quadriplegic ? true : false} onChange={handleParaplegic}size='small'/>} label="Paraplegic (12.5%)" />
 							<FormControlLabel control={<Checkbox disabled={paraplegic ? true : false} onChange={handleQuadriplegic}size='small'/>} label="Quadriplegic (17.5%)" />
@@ -226,8 +227,8 @@ function IdealBodyWeight(){
 						padding:"10px"
 					}}
 				>
-					<Typography variant="h6">IBW={IBW}</Typography>
-					<Typography variant="h6">%IBW={percentIBW}</Typography>
+					<Text variant="h6">IBW={IBW}</Text>
+					<Text variant="h6">%IBW={percentIBW}</Text>
 					<div 
 						style={{
 							display:"flex", 
@@ -237,10 +238,10 @@ function IdealBodyWeight(){
 					>
 						{adjusted &&
 							<Spacer mr={4}>
-								<Typography>(adjusted)</Typography>
+								<Text variant="body1">(adjusted)</Text>
 							</Spacer>                        
 						}
-						<Typography variant="h6">BMI={BMI}</Typography>
+						<Text variant="h6">BMI={BMI}</Text>
 					</div>
 				</Paper>
 			</Spacer>
@@ -251,8 +252,8 @@ function IdealBodyWeight(){
 							display:"flex"
 						}}
 					>
-						<Typography variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Male:</Typography>
-						<Typography variant="body1">106 + 6 × (Inches taller than 5 feet)</Typography>
+						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Male:</Text>
+						<Text variant="body1">106 + 6 × (Inches taller than 5 feet)</Text>
 					</div>
 					<Spacer
 						mt={4}
@@ -260,8 +261,8 @@ function IdealBodyWeight(){
 							display:"flex"
 						}}
 					>
-						<Typography variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Female:</Typography>
-						<Typography variant="body1">100 + 5 × (Inches taller than 5 feet)</Typography>
+						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>Female:</Text>
+						<Text variant="body1">100 + 5 × (Inches taller than 5 feet)</Text>
 					</Spacer>
 					
 				</FormulaPopover>

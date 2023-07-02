@@ -1,7 +1,8 @@
 import {useState, useEffect} from "react";
-import { Slider, Typography, Paper } from "@mui/material";
+import { Slider, Paper } from "@mui/material";
 import WeightInput from "components/WeightInput";
 import Spacer from "components/Spacer";
+import Text from "components/Text";
 
 function Hamwi(){
 	const [weight,setWeight] = useState("");
@@ -68,7 +69,7 @@ function Hamwi(){
 				/>
 			</Spacer>
 			<Spacer mt={4}>
-				<Typography variant="h5">Kcal Range</Typography>
+				<Text variant="h5">Kcal Range</Text>
 			</Spacer>
 			<Spacer mt={4}>
 				<Slider 
@@ -83,7 +84,7 @@ function Hamwi(){
 				>
 				</Slider>
 			</Spacer>                       
-			<Typography>{lowerCal} kcal/kg</Typography>
+			<Text variant="body1">{lowerCal} kcal/kg</Text>
 			<Spacer mt={4}>
 				<Slider 
 					aria-label="Higher Kcal Range"
@@ -97,14 +98,14 @@ function Hamwi(){
 				>
 				</Slider>
 			</Spacer>
-			<Typography>{higherCal} kcal/kg</Typography>
+			<Text variant="body1">{higherCal} kcal/kg</Text>
 			<Spacer mt={4}>
 				<Paper sx={{padding:"10px"}}>
-					<Typography  variant="h6">{kcalRange} kcal</Typography>
+					<Text  variant="h6">{kcalRange} kcal</Text>
 				</Paper>
 			</Spacer>
 			<Spacer mt={4}>
-				<Typography variant="h5">Protein Range</Typography>
+				<Text variant="h5">Protein Range</Text>
 			</Spacer>
 			<Spacer mt={4}>                      
 				<Slider
@@ -118,7 +119,7 @@ function Hamwi(){
 					sx={{width:"300px"}}
 				></Slider>
 			</Spacer>
-			<Typography>{lowerProtein}</Typography>          
+			<Text variant="body1">{lowerProtein}</Text>          
 			<Slider
 				aria-label="Higher Protein Range"
 				defaultValue={higherProtein}
@@ -129,10 +130,10 @@ function Hamwi(){
 				step={0.1}
 				sx={{width:"300px"}}
 			></Slider>
-			<Typography>{higherProtein}</Typography>
+			<Text variant="body1">{higherProtein}</Text>
 			<Spacer mt={8} mb={8}>
 				<Paper sx={{padding:"10px"}}>
-					<Typography variant="h6">{proteinRange} g</Typography>
+					<Text variant="h6">{proteinRange} g</Text>
 				</Paper>
 			</Spacer>
 		</div>

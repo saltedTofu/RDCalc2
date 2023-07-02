@@ -1,8 +1,9 @@
 import "./AddButton.css";
 import AddIcon from "@mui/icons-material/Add";
-import { SvgIcon, IconButton, Typography, Paper, Alert, Snackbar } from "@mui/material";
+import { SvgIcon, IconButton, Paper, Alert, Snackbar } from "@mui/material";
 import {useState, useLayoutEffect} from "react";
 import {useSelector} from "react-redux";
+import Text from "components/Text";
 
 interface Props {
     addNewCalc: () => void;
@@ -44,7 +45,7 @@ function AddButton({addNewCalc, currentTheme}:Props){
 
 	return(
 		<Paper className="addButton" elevation={5} sx={{border:`1px solid ${borderColor}`}}>
-			<Typography variant="body1">Add Calculator</Typography>
+			<Text variant="body1">Add Calculator</Text>
 			<IconButton 
 				aria-label="Add Calculator"
 				onClick={handleClick}

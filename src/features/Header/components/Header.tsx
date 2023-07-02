@@ -1,5 +1,5 @@
 import "./Header.css";
-import {Button, Paper, Box, TextField, Select, MenuItem, Typography, Alert} from "@mui/material";
+import {Button, Paper, Box, TextField, Select, MenuItem, Alert} from "@mui/material";
 import {useState, useLayoutEffect, useRef, useEffect, SetStateAction} from "react";
 import Logo from "assets/logo.png";
 import {Link as RouterLink} from "react-router-dom";
@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import { setGlobalUser } from "../../../redux/calcs";
 import {useAuth} from "../../../contexts/AuthContext";
 import Coffee from "assets/black-button.png";
+import Text from "components/Text";
 
 interface Props {
     currentTheme:string;
@@ -111,7 +112,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 				</div>
 			</RouterLink>
 			<div style={{display: "flex", flexDirection:"row", alignItems:"center", position:"absolute", left:"100px"}}>
-				<Typography style={{marginRight:"10px"}}>Theme</Typography>
+				<Text variant="body1" sx={{marginRight:"10px"}}>Theme</Text>
 				<Select
 					onChange={handleThemeChange}
 					value={currentTheme}
@@ -130,7 +131,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 			<div className="loginFields">
 				{user 
 					?   (<Box style={{display: "flex", alignItems:"center",justifyContent:"center"}}>
-						<Typography>Hello, {user}</Typography>
+						<Text variant="body1">Hello, {user}</Text>
 						<Button variant="contained" onClick={handleLogout} sx={{margin:"10px"}} disabled={loading}>Logout</Button>
 					</Box>)
 					:   (<form id="notLoggedIn" onSubmit={handleLogin} style={{display: "flex", alignItems:"center",justifyContent:"center"}}>

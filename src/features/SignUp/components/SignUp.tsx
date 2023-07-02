@@ -1,9 +1,10 @@
-import {Paper, Typography, TextField, Button, FormControl, FormGroup, Alert} from "@mui/material";
+import {Paper, TextField, Button, FormControl, FormGroup, Alert} from "@mui/material";
 import {useRef, useState, useEffect, SetStateAction} from "react";
 import Header from "../../Header/components/Header";
 import {useAuth} from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Spacer from "../../../components/Spacer";
+import Text from "components/Text";
 
 interface Props {
 	currentTheme:string;
@@ -106,7 +107,7 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 						<form 
 							onSubmit={handleSubmit} 
 						>
-							<Typography variant="h2" sx={{marginLeft:"5px"}}>Sign Up</Typography>                       
+							<Text variant="h2" sx={{marginLeft:"5px"}}>Sign Up</Text>                       
 							<FormGroup sx={{width:"100%"}}>
 								<FormControl>
 									<Spacer mt={32}>
