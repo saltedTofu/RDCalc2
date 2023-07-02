@@ -1,7 +1,7 @@
 import "./App.css";
-import SignUp from "./components/SignUp/SignUp";
-import Home from "./components/Home";
-import ReleaseNotes from "./components/ReleaseNotes/ReleaseNotes";
+import SignUp from "./features/SignUp/components/SignUp";
+import Home from "./features/Home";
+import ReleaseNotes from "./features/ReleaseNotes/components/ReleaseNotes";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";

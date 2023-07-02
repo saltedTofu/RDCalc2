@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import CalculatorContainer from "../components/Body/CalculatorContainer/CalculatorContainer";
+import CalculatorContainer from "features/Body/components/CalculatorContainer";
 
 export const calcsArraySlice = createSlice({
 	name:"calcs",
