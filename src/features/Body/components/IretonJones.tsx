@@ -1,4 +1,4 @@
-import {TextField, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, Paper} from "@mui/material";
+import {TextField, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, Paper, ToggleButton, ToggleButtonGroup} from "@mui/material";
 import Spacer from "components/Spacer";
 import Text from "components/Text";
 import WeightInput from "components/WeightInput";
@@ -8,6 +8,7 @@ import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
 
 export default function IretonJones(){
 
+	const [version, setVersion] = useState("revised");
 	const [age, setAge] = useState("");
 	const [weight, setWeight] = useState("");
 	const [weightUnit, setWeightUnit] = useState("Lbs");
@@ -22,8 +23,12 @@ export default function IretonJones(){
 		const weightInKg = weightUnit === "Kg" ? Number(weight) : Number(weight)/2.2;
 		let kcal=0;
 		if(vent){
-			kcal = 1784 - 11 * (Number(age)) + 5 * (weightInKg) + 244 * (gender==="Male" ? 1 : 0) + 239 * (trauma ? 1 : 0) + 804 * (burn ? 1 : 0);
-			console.log(gender);
+			if(version==="revised"){
+				kcal = 1784 - 11 * (Number(age)) + 5 * (weightInKg) + 244 * (gender==="Male" ? 1 : 0) + 239 * (trauma ? 1 : 0) + 804 * (burn ? 1 : 0);
+			}
+			else{
+				kcal = 1925 - 10 * (Number(age)) + 5 * (weightInKg) + 281 * (gender==="Male" ? 1 : 0) + 292 * (trauma ? 1 : 0) + 851 * (burn ? 1 : 0);
+			}
 		}
 		else{
 			kcal = 629 - 11 * (Number(age)) + 25 * (weightInKg) - 609 * (obese ? 1 : 0);
@@ -69,6 +74,10 @@ export default function IretonJones(){
 		else setObese(false);
 	};
 
+	const handleVersion = (event: any) => {
+		setVersion(event.target.value);
+	};
+
 	return(
 		<div
 			style={{
@@ -80,6 +89,18 @@ export default function IretonJones(){
 			}}
 		>
 			<Spacer mt={8}>
+				<ToggleButtonGroup
+					size="large" 
+					aria-label="Choose 2002 or 1992 Ireton Jones"
+					exclusive
+					onChange={handleVersion}
+					value={version}
+				>
+					<ToggleButton value="original">Original (1992)</ToggleButton>
+					<ToggleButton value="revised">Revised (2002)</ToggleButton>
+				</ToggleButtonGroup>
+			</Spacer>
+			<Spacer mt={16}>
 				<RadioGroup
 					aria-labelledby="demo-controlled-radio-buttons-group"
 					name="controlled-radio-buttons-group"
@@ -137,9 +158,18 @@ export default function IretonJones(){
 							display:"flex"
 						}}
 					>
-						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>On Vent: </Text>
-						<Text variant="body1">1784 - (11 × age) + (5 × weight in kg) + 244(if male) + 239(if trauma) + 804(if burns)</Text>
+						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>On Vent(1992): </Text>
+						<Text variant="body1">1784 - (10 × age) + (5 × weight in kg) + 281(if male) + 292(if trauma) + 851(if burns)</Text>
 					</div>
+					<Spacer
+						mt={4}
+						style={{
+							display:"flex"
+						}}
+					>
+						<Text variant="body1" sx={{fontWeight:"bold", textDecoration:"underline", paddingRight:"4px"}}>On Vent(2002): </Text>
+						<Text variant="body1">1784 - (11 × age) + (5 × weight in kg) + 244(if male) + 239(if trauma) + 804(if burns)</Text>
+					</Spacer>
 					<Spacer
 						mt={4}
 						style={{
@@ -154,27 +184,3 @@ export default function IretonJones(){
 		</div>
 	);
 }
-
-/*
-current uses 2002 version
-
-variables
-ventDependent: Bool;
-age: number;
-weight: number;
-weightUnit: string;
-gender: string;
-Trauma: boolean;
-burn: boolean;
-obesity: boolean;
-
-Ventilator-dependent:
-IJEE(v) = 1784 - 11(A)+ 5(W)+244 (G) + 239(T) + 804(B)
-       2002 version (revised 1997 equation).
-
-Spontaneously Breathing:
-IJEE(s) = 629 - 11 (A) + 25 (W) - 609 (O)
-
-IJEE = kcal/day; A = age (yrs); W = actual wt(kg); G = gender(male=1, female=0); T = trauma, B = burn, O=obesity( if present=1, absent=0)
-No additional factor is added for activity or injury
-*/

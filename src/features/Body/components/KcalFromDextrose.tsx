@@ -28,7 +28,7 @@ export default function KcalFromDextrose(){
 
 	useEffect(()=>{
 		const totalVolume =  Number(rate)*Number(hrsDay);
-		setKcal(String(totalVolume*(Number(concentration)/100) * 3.4));
+		setKcal(String(Math.round(totalVolume*(Number(concentration)/100) * 3.4)));
 
 	},[concentration, rate, hrsDay]);
 

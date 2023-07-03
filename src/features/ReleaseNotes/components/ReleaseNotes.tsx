@@ -139,6 +139,21 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 						</Text>
 					</Spacer>
 					<Stack spacing={1} sx={styles.versionNote}>
+						<Text variant="h4" sx={{fontWeight:"bold"}}>Version 1.2</Text>
+						<Text variant="h5">🎆 July 4, 2023 </Text>
+						<Text variant="body1" sx={{fontWeight:"bold"}}>What&apos;s New</Text>
+						<Text variant="body1">• Added option to choose between 2003 and 2010 Penn State formulas</Text>
+						<Text variant="body1">• Added a popover to some calculators that shows the formula used</Text>
+						<Text variant="body1">• Added apple 🍎,kiwi 🥝, and orange🍊 themes</Text>
+						<Text variant="body1">• New Calculators</Text>
+						<Text variant="body1" sx={{paddingLeft:"8px"}}>○ Kcal from Dextrose</Text>
+						<Text variant="body1" sx={{paddingLeft:"8px"}}>○ Kcal from Propofol</Text>
+						<Text variant="body1" sx={{paddingLeft:"8px"}}>○ Ireton Jones</Text>
+						<Text variant="body1" sx={{fontWeight:"bold"}}>Bug Fixes</Text>
+						<Text variant="body1">• Alphabetized calculators in the select menu on mobile</Text>
+						<Text variant="body1">• Made the release notes page more viewable on mobile</Text>
+					</Stack>
+					<Stack spacing={1} sx={styles.versionNote}>
 						<Text variant="h4" sx={{fontWeight:"bold"}}>Version 1.1</Text>
 						<Text variant="h5">June 13, 2023</Text>
 						<Text variant="body1" sx={{fontWeight:"bold"}}>What&apos;s New</Text>
