@@ -36,6 +36,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	const [iconBackground,setIconBackground] = useState("#0288d1");
 	const [error,setError] = useState("");
 	const [loading,setLoading] = useState(false);
+	const [disableSelect, setDisableSelect] = useState(false);
 
 	const emailRef = useRef<HTMLInputElement>();
 	const passwordRef = useRef<HTMLInputElement>();
@@ -59,14 +60,24 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 			setIconBackground("#0288d1"); //blue
 		}
 		else if(currentTheme==="lofi"){
-			setIconBackground("#703fb5"); //light pink
+			setIconBackground("#703fb5"); //purple
 		}
 		else if(currentTheme==="apple"){
 			setIconBackground("#b12c2c"); //red
 		}
 		else if(currentTheme==="kiwi"){
-			setIconBackground("#2ed851"); //red
+			setIconBackground("#2ed851"); //green
 		}
+		else if(currentTheme==="orange"){
+			setIconBackground("#f07500"); //orange
+		}
+		async function timeoutSelect(){
+			setDisableSelect(true);
+			setTimeout(() => {
+				setDisableSelect(false);
+			},1000);
+		}
+		timeoutSelect();
 	},[currentTheme]);
 
 	useLayoutEffect(()=>{
@@ -117,11 +128,13 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 				<Select
 					onChange={handleThemeChange}
 					value={currentTheme}
+					disabled={disableSelect}
 				>
 					<MenuItem value='apple'sx={{backgroundColor:"#b12c2c"}}>Apple</MenuItem>
 					<MenuItem value='blue' sx={{backgroundColor:"#0288d1"}}>Blue</MenuItem>
 					<MenuItem value='kiwi'sx={{backgroundColor:"#2ed851"}}>Kiwi</MenuItem>
-					<MenuItem value='lofi' sx={{backgroundColor:"#703fb5"}}>Lofi</MenuItem>										
+					<MenuItem value='lofi' sx={{backgroundColor:"#703fb5"}}>Lofi</MenuItem>
+					<MenuItem value='orange' sx={{backgroundColor:"#f07500"}}>Orange</MenuItem>										
 				</Select>
 			</div>
 			<div style={{display: "flex", flexDirection:"row", alignItems:"center", position:"absolute"}} id="donateDiv">

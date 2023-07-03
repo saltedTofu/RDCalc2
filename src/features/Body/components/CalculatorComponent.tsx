@@ -7,6 +7,9 @@ import PennState from "./PennState";
 import Notes from "./Notes";
 import TubeFeed from "./TubeFeed";
 import InchesCm from "./InchesCm";
+import KcalFromPropofol from "./KcalFromPropofol";
+import KcalFromDextrose from "./KcalFromDextrose";
+import IretonJones from "./IretonJones";
 
 interface Props {
     Calc:string;
@@ -57,6 +60,21 @@ function Calculator({Calc}:Props){
 	else if(Calc==="InchesCm"){
 		return(
 			<InchesCm />
+		);
+	}
+	else if(Calc==="KcalFromPropofol"){
+		return(
+			<KcalFromPropofol />
+		);
+	}
+	else if(Calc==="KcalFromDextrose"){
+		return(
+			<KcalFromDextrose />
+		);
+	}
+	else if(Calc==="IretonJones"){
+		return(
+			<IretonJones />
 		);
 	}
 	return(

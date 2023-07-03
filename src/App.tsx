@@ -12,6 +12,7 @@ import blueTheme from "./themes/blue";
 import lofiTheme from "./themes/lofi";
 import appleTheme from "./themes/apple";
 import kiwiTheme from "./themes/kiwi";
+import orangeTheme from "themes/orange";
 import {useState, useLayoutEffect, SetStateAction} from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {AuthProvider} from "./contexts/AuthContext";
@@ -33,6 +34,9 @@ function App() {
 		else if(currentTheme==="kiwi"){
 			setThemeObject(kiwiTheme);
 		}
+		else if(currentTheme==="orange"){
+			setThemeObject(orangeTheme);
+		}
 	},[currentTheme]);
 
 	const handleThemeChange = (event: { target: { value: SetStateAction<string>; }; }) => {
@@ -47,6 +51,9 @@ function App() {
 		}
 		else if(event.target.value==="kiwi"){
 			setThemeObject(kiwiTheme);
+		}
+		else if(event.target.value==="orange"){
+			setThemeObject(orangeTheme);
 		}
 		setCurrentTheme(event.target.value);
 	};

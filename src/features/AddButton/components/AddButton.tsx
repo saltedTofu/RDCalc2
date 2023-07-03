@@ -23,10 +23,13 @@ function AddButton({addNewCalc, currentTheme}:Props){
 			setBorderColor("#9E6196"); //light pink
 		}
 		else if(currentTheme==="apple"){
-			setBorderColor("#ff0000"); //light pink
+			setBorderColor("#ff0000"); //red
 		}
 		else if(currentTheme==="kiwi"){
-			setBorderColor("#2ed851"); //light pink
+			setBorderColor("#2ed851"); //green
+		}
+		else if(currentTheme==="orange"){
+			setBorderColor("#f07500"); //orange
 		}
 	},[currentTheme]);
 

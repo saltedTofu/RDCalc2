@@ -69,6 +69,9 @@ const CalculatorContainer = (({id, name=""}:Props) => {
 							<MenuItem value={"Hamwi"}>Hamwi</MenuItem>
 							<MenuItem value={"IBW"}>Ideal Body Weight</MenuItem>
 							<MenuItem value={"InchesCm"}>Inches/Cm Converter</MenuItem>
+							<MenuItem value={"IretonJones"}>Ireton Jones</MenuItem>
+							<MenuItem value={"KcalFromDextrose"}>Kcal From Dextrose</MenuItem>
+							<MenuItem value={"KcalFromPropofol"}>Kcal From Propofol</MenuItem>
 							<MenuItem value={"lbs/kg"}>Lbs/Kg Converter</MenuItem>
 							<MenuItem value={"Mifflin"}>Mifflin</MenuItem>
 							<MenuItem value={"Notes"}>Notepad</MenuItem>
