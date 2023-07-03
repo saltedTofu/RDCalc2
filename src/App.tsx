@@ -12,7 +12,7 @@ import blueTheme from "./themes/blue";
 import lofiTheme from "./themes/lofi";
 import appleTheme from "./themes/apple";
 import kiwiTheme from "./themes/kiwi";
-import {useState, useEffect, SetStateAction} from "react";
+import {useState, useLayoutEffect, SetStateAction} from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {AuthProvider} from "./contexts/AuthContext";
 
@@ -20,7 +20,7 @@ function App() {
 	const [currentTheme,setCurrentTheme] = useState("blue");
 	const [themeObject,setThemeObject] = useState(blueTheme);
 
-	useEffect(()=>{
+	useLayoutEffect(()=>{
 		if(currentTheme==="blue"){
 			setThemeObject(blueTheme);
 		}

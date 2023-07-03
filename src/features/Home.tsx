@@ -3,7 +3,7 @@ import { adjustCalcCounter, addCalc} from "../redux/calcs";
 import {useSelector, useDispatch} from "react-redux";
 import {Link as RouterLink} from "react-router-dom";
 import {Link} from "@mui/material";
-import {SetStateAction, useEffect} from "react";
+import {SetStateAction, useLayoutEffect} from "react";
 import Header from "./Header/components/Header";
 import Body from "./Body/components/Body";
 import AddButton from "./AddButton/components/AddButton";
@@ -44,7 +44,7 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 		dispatch(adjustCalcCounter(1));
 	};
 
-	useEffect(()=>{ //updates users theme in the DB
+	useLayoutEffect(()=>{ //updates users theme in the DB
 		async function updateThemePreference(){
 			if(globalUser){
 				await changeTheme(globalUser,currentTheme);				
