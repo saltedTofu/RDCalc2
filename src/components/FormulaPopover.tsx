@@ -1,5 +1,6 @@
-import {Popover,Button} from "@mui/material";
+import {Popover} from "@mui/material";
 import {useState, useRef, ReactNode} from "react";
+import Button from "components/Button";
 
 interface Props {
     children:ReactNode;
@@ -20,7 +21,7 @@ function FormulaPopover({children}:Props){
 
 	return(
 		<div>
-			<Button variant="text" onClick={handleOpenPopover} ref={buttonRef}>
+			<Button variant="text" onClick={handleOpenPopover} refProp={buttonRef} size="medium">
                 Show Formula
 			</Button>
 			<Popover

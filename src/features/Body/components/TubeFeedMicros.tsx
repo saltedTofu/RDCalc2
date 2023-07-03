@@ -1,6 +1,7 @@
-import {Popover,Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from "@mui/material";
+import {Popover, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from "@mui/material";
 import {useState, useRef} from "react";
-import {Formulas, FormulasType} from "../../../assets/TubeFeedFormulas";
+import {Formulas, FormulasType} from "assets/TubeFeedFormulas";
+import Button from "components/Button";
 
 interface Props {
     chosenFormula:FormulasType;
@@ -22,7 +23,7 @@ function TubeFeedMicros({chosenFormula,totalVolume}:Props){
 
 	return(
 		<div>
-			<Button variant="contained" color="info" onClick={handleOpenPopover} ref={buttonRef}>
+			<Button size="medium" variant="contained" color="info" onClick={handleOpenPopover} refProp={buttonRef}>
                 Micronutrients
 			</Button>
 			<Popover

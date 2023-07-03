@@ -1,10 +1,11 @@
-import {Paper, TextField, Button, FormControl, FormGroup, Alert} from "@mui/material";
+import {Paper, TextField, FormControl, FormGroup, Alert} from "@mui/material";
 import {useRef, useState, useEffect, SetStateAction} from "react";
 import Header from "../../Header/components/Header";
 import {useAuth} from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Spacer from "../../../components/Spacer";
 import Text from "components/Text";
+import Button from "components/Button";
 
 interface Props {
 	currentTheme:string;
@@ -130,7 +131,7 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 								</FormControl>
 							</FormGroup>
 							<Spacer mt={16} mb={32}>
-								<Button disabled={loading} fullWidth variant="contained" type="submit">Create Account</Button>
+								<Button size="medium" disabled={loading} fullWidth variant="contained" type="submit">Create Account</Button>
 							</Spacer>                        
 						</form>
 					</Paper>

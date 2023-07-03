@@ -1,5 +1,5 @@
 import "./Header.css";
-import {Button, Paper, Box, TextField, Select, MenuItem, Alert} from "@mui/material";
+import {Paper, Box, TextField, Select, MenuItem, Alert} from "@mui/material";
 import {useState, useLayoutEffect, useRef, useEffect, SetStateAction} from "react";
 import Logo from "assets/logo.png";
 import {Link as RouterLink} from "react-router-dom";
@@ -8,6 +8,7 @@ import { setGlobalUser } from "../../../redux/calcs";
 import {useAuth} from "../../../contexts/AuthContext";
 import Coffee from "assets/black-button.png";
 import Text from "components/Text";
+import Button from "components/Button";
 
 interface Props {
     currentTheme:string;
@@ -132,15 +133,15 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 				{user 
 					?   (<Box style={{display: "flex", alignItems:"center",justifyContent:"center"}}>
 						<Text variant="body1">Hello, {user}</Text>
-						<Button variant="contained" onClick={handleLogout} sx={{margin:"10px"}} disabled={loading}>Logout</Button>
+						<Button size="medium" variant="contained" onClick={handleLogout} sx={{margin:"10px"}} disabled={loading}>Logout</Button>
 					</Box>)
 					:   (<form id="notLoggedIn" onSubmit={handleLogin} style={{display: "flex", alignItems:"center",justifyContent:"center"}}>
 						{error && <Alert color="error">{error}</Alert>}
 						<TextField label="Email" sx={{paddingRight:"5px", paddingLeft:"5px"}} inputRef={emailRef} id="emailInput"></TextField>
 						<TextField label="Password" sx={{paddingRight:"5px", paddingLeft:"5px"}} inputRef={passwordRef} type="password" id="passwordInput"></TextField>
-						<Button sx={{marginLeft:"10px"}} type="submit" disabled={loading} >Log in</Button>
+						<Button  size="medium" variant="text" sx={{marginLeft:"10px"}} type="submit" disabled={loading}>Log in</Button>
 						<RouterLink to='/signup'>
-							<Button variant="contained" sx={{margin:"10px"}} disabled={loading}>Sign Up</Button>
+							<Button size="medium" variant="contained" sx={{margin:"10px"}} disabled={loading}>Sign Up</Button>
 						</RouterLink>
 					</form>)}
 			</div>
