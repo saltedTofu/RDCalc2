@@ -3708,7 +3708,7 @@ const Compleat = new tubeFeed(1060,48,828, "Compleat", "https://www.nestlemedica
 		unit:"mg"
 	}
 });
-const DiabetisourceAC = new tubeFeed (1200,60,820, "Diabetisource AC", "https://www.nestlemedicalhub.com/products/diabetisource-ac",{
+const DiabetisourceAC = new tubeFeed (1200,60,816, "Diabetisource AC", "https://www.nestlemedicalhub.com/products/diabetisource-ac",{
 	fat:{
 		name:"Fat",
 		amount:14.7*4,
@@ -3880,7 +3880,7 @@ const DiabetisourceAC = new tubeFeed (1200,60,820, "Diabetisource AC", "https://
 		unit:"mg"
 	}
 });
-const FibersourceHN = new tubeFeed(1200,54,810, "Fibersource HN", "https://www.nestlemedicalhub.com/products/fibersource-hn",{
+const FibersourceHN = new tubeFeed(1200,54,808, "Fibersource HN", "https://www.nestlemedicalhub.com/products/fibersource-hn",{
 	fat:{
 		name:"Fat",
 		amount:10*4,
@@ -4396,7 +4396,7 @@ const Impact = new tubeFeed(1000,56,852, "Impact", "https://www.nestlemedicalhub
 		unit:"mg"
 	}
 });
-const ImpactPeptide15 = new tubeFeed(1500,94,770, "Impact Peptide 1.5", "https://www.nestlemedicalhub.com/products/impact-peptide-15",{
+const ImpactPeptide15 = new tubeFeed(1500,94,772, "Impact Peptide 1.5", "https://www.nestlemedicalhub.com/products/impact-peptide-15",{
 	fat:{
 		name:"Fat",
 		amount:15.9*4,
@@ -4912,7 +4912,7 @@ const IsosourceHN = new tubeFeed(1200,54,808, "Isosource HN", "https://www.nestl
 		unit:"mg"
 	}
 });
-const Isosource15 = new tubeFeed(1500,68,760, "Isosource 1.5", "https://www.nestlemedicalhub.com/products/isosource-15-cal",{
+const Isosource15 = new tubeFeed(1500,68,764, "Isosource 1.5", "https://www.nestlemedicalhub.com/products/isosource-15-cal",{
 	fat:{
 		name:"Fat",
 		amount:14.8*4,
@@ -5084,7 +5084,7 @@ const Isosource15 = new tubeFeed(1500,68,760, "Isosource 1.5", "https://www.nest
 		unit:"mg"
 	}
 });
-const Nutren20 = new tubeFeed(2000,84,690, "Nutren 2.0", "https://www.nestlemedicalhub.com/products/nutren-20",{
+const Nutren20 = new tubeFeed(2000,84,692, "Nutren 2.0", "https://www.nestlemedicalhub.com/products/nutren-20",{
 	fat:{
 		name:"Fat",
 		amount:23*4,
@@ -5256,7 +5256,7 @@ const Nutren20 = new tubeFeed(2000,84,690, "Nutren 2.0", "https://www.nestlemedi
 		unit:"mg"
 	}
 });
-const NovasourceRenal = new tubeFeed (2000,90.7,720, "Novasource Renal", "https://www.nestlemedicalhub.com/products/novasource-renal",{
+const NovasourceRenal = new tubeFeed (2005,93,709, "Novasource Renal", "https://www.nestlemedicalhub.com/products/novasource-renal",{
 	fat:{
 		name:"Fat",
 		amount:24*(1000/237),
@@ -5600,7 +5600,7 @@ const Nutren10 = new tubeFeed(1000,40,844, "Nutren 1.0", "https://www.nestlemedi
 		unit:"mg"
 	}
 });
-const Nutren10WithFiber = new tubeFeed(1000,40,848, "Nutren 1.0 With Fiber", "https://www.nestlemedicalhub.com/products/nutren-10-fiber",{
+const Nutren10WithFiber = new tubeFeed(1000,40,832, "Nutren 1.0 With Fiber", "https://www.nestlemedicalhub.com/products/nutren-10-fiber",{
 	fat:{
 		name:"Fat",
 		amount:8.5*4,
@@ -6116,7 +6116,7 @@ const Peptamen = new tubeFeed(1000,40,848, "Peptamen", "https://www.nestlemedica
 		unit:"mg"
 	}
 });
-const Peptamen15 = new tubeFeed(1500,68,772, "Peptamen 1.5", "https://www.nestlemedicalhub.com/products/peptamen-15",{
+const Peptamen15 = new tubeFeed(1500,68,768, "Peptamen 1.5", "https://www.nestlemedicalhub.com/products/peptamen-15",{
 	fat:{
 		name:"Fat",
 		amount:14*4,
@@ -6288,7 +6288,7 @@ const Peptamen15 = new tubeFeed(1500,68,772, "Peptamen 1.5", "https://www.nestle
 		unit:"mg"
 	}
 });
-const PeptamenAF12 = new tubeFeed(1200,76,810, "Peptamen AF 1.2", "https://www.nestlemedicalhub.com/products/peptamen-af",{
+const PeptamenAF12 = new tubeFeed(1200,76,812, "Peptamen AF 1.2", "https://www.nestlemedicalhub.com/products/peptamen-af",{
 	fat:{
 		name:"Fat",
 		amount:13.5*4,
@@ -6976,7 +6976,7 @@ const Replete = new tubeFeed(1000,64,840, "Replete", "https://www.nestlemedicalh
 		unit:"mg"
 	}
 });
-const VivonexRTF = new tubeFeed(1000,50,850, "Vivonex RTF", "https://www.nestlemedicalhub.com/products/vivonex-rtf",{
+const VivonexRTF = new tubeFeed(1000,50,848, "Vivonex RTF", "https://www.nestlemedicalhub.com/products/vivonex-rtf",{
 	fat:{
 		name:"Fat",
 		amount:2.9*4,
