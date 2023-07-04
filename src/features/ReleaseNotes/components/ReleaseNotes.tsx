@@ -151,6 +151,7 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 						<Text variant="body1" sx={{fontWeight:"bold"}}>Bug Fixes</Text>
 						<Text variant="body1">• Alphabetized calculators in the select menu on mobile</Text>
 						<Text variant="body1">• Made the release notes page more viewable on mobile</Text>
+						<Text variant="body1">• Fixed a bug where the theme wouldnt change if themes were switched rapidly</Text>
 					</Stack>
 					<Stack spacing={1} sx={styles.versionNote}>
 						<Text variant="h4" sx={{fontWeight:"bold"}}>Version 1.1</Text>
