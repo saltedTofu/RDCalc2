@@ -37,7 +37,6 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	const [iconBackground,setIconBackground] = useState(blue);
 	const [error,setError] = useState("");
 	const [loading,setLoading] = useState(false);
-	const [disableSelect, setDisableSelect] = useState(false);
 
 	const emailRef = useRef<HTMLInputElement>();
 	const passwordRef = useRef<HTMLInputElement>();
@@ -50,7 +49,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 			}
 		}
 		grabTheme();
-	},[user,getTheme,setCurrentTheme]);
+	},[user]);
 
 	useEffect(()=>{
 		dispatch(setGlobalUser(user));
@@ -72,13 +71,6 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 		else if(currentTheme==="orange"){
 			setIconBackground(orange); //orange
 		}
-		async function timeoutSelect(){
-			setDisableSelect(true);
-			setTimeout(() => {
-				setDisableSelect(false);
-			},1000);
-		}
-		timeoutSelect();
 	},[currentTheme]);
 
 	useLayoutEffect(()=>{
@@ -129,7 +121,6 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 				<Select
 					onChange={handleThemeChange}
 					value={currentTheme}
-					disabled={disableSelect}
 				>
 					<MenuItem value='apple'sx={{backgroundColor:red}}>Apple</MenuItem>
 					<MenuItem value='blue' sx={{backgroundColor:blue}}>Blue</MenuItem>
