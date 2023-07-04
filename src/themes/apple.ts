@@ -1,18 +1,19 @@
 import { createTheme } from "@mui/material/styles";
+import { red, forestGreen } from "constants/colors";
 
-const apple = createTheme({
+const appleTheme = createTheme({
 	palette: {
 		mode: "dark",
 		primary: {
-			main: "#b12c2c",
+			main: red,
 		},
 		secondary: {
-			main: "#2e7d32",
+			main: forestGreen,
 		},
 		info:{
-			main:"#2e7d32"
+			main:forestGreen
 		}
 	},
 });
 
-export default apple;
+export default appleTheme;

@@ -4,6 +4,7 @@ import { SvgIcon, IconButton, Paper, Alert, Snackbar } from "@mui/material";
 import {useState, useLayoutEffect} from "react";
 import {useSelector} from "react-redux";
 import Text from "components/Text";
+import { red, orange, purple, blue, kiwiGreen } from "constants/colors";
 
 interface Props {
     addNewCalc: () => void;
@@ -11,25 +12,25 @@ interface Props {
 }
 
 function AddButton({addNewCalc, currentTheme}:Props){
-	const [borderColor, setBorderColor] = useState("#0288d1");
+	const [borderColor, setBorderColor] = useState(blue);
 	const [error,setError] = useState("");
 	const calcsArray = useSelector((state:any) => state.calcsArray.calcsArray);
 
 	useLayoutEffect(()=>{
 		if(currentTheme==="blue"){
-			setBorderColor("#0288d1"); //blue
+			setBorderColor(blue);
 		}
 		else if(currentTheme==="lofi"){
-			setBorderColor("#9E6196"); //light pink
+			setBorderColor(purple);
 		}
 		else if(currentTheme==="apple"){
-			setBorderColor("#ff0000"); //red
+			setBorderColor(red);
 		}
 		else if(currentTheme==="kiwi"){
-			setBorderColor("#2ed851"); //green
+			setBorderColor(kiwiGreen);
 		}
 		else if(currentTheme==="orange"){
-			setBorderColor("#f07500"); //orange
+			setBorderColor(orange);
 		}
 	},[currentTheme]);
 

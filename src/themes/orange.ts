@@ -1,18 +1,19 @@
 import { createTheme } from "@mui/material/styles";
+import { orange, forestGreen } from "constants/colors";
 
-const orange = createTheme({
+const orangeTheme = createTheme({
 	palette: {
 		mode: "dark",
 		primary: {
-			main: "#f07500",
+			main: orange,
 		},
 		secondary: {
-			main: "#2e7d32",
+			main: forestGreen,
 		},
 		info:{
-			main:"#2e7d32"
+			main:forestGreen
 		}
 	},
 });
 
-export default orange;
+export default orangeTheme;

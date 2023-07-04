@@ -9,6 +9,7 @@ import {useAuth} from "../../../contexts/AuthContext";
 import Coffee from "assets/black-button.png";
 import Text from "components/Text";
 import Button from "components/Button";
+import { red, orange, purple, blue, kiwiGreen } from "constants/colors";
 
 interface Props {
     currentTheme:string;
@@ -33,7 +34,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 
 	//local state
 	const [user,setUser] = useState("");
-	const [iconBackground,setIconBackground] = useState("#0288d1");
+	const [iconBackground,setIconBackground] = useState(blue);
 	const [error,setError] = useState("");
 	const [loading,setLoading] = useState(false);
 	const [disableSelect, setDisableSelect] = useState(false);
@@ -57,19 +58,19 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 
 	useLayoutEffect(()=>{
 		if(currentTheme==="blue"){
-			setIconBackground("#0288d1"); //blue
+			setIconBackground(blue); //blue
 		}
 		else if(currentTheme==="lofi"){
-			setIconBackground("#703fb5"); //purple
+			setIconBackground(purple); //purple
 		}
 		else if(currentTheme==="apple"){
-			setIconBackground("#b12c2c"); //red
+			setIconBackground(red); //red
 		}
 		else if(currentTheme==="kiwi"){
-			setIconBackground("#2ed851"); //green
+			setIconBackground(kiwiGreen); //green
 		}
 		else if(currentTheme==="orange"){
-			setIconBackground("#f07500"); //orange
+			setIconBackground(orange); //orange
 		}
 		async function timeoutSelect(){
 			setDisableSelect(true);
@@ -130,11 +131,11 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 					value={currentTheme}
 					disabled={disableSelect}
 				>
-					<MenuItem value='apple'sx={{backgroundColor:"#b12c2c"}}>Apple</MenuItem>
-					<MenuItem value='blue' sx={{backgroundColor:"#0288d1"}}>Blue</MenuItem>
-					<MenuItem value='kiwi'sx={{backgroundColor:"#2ed851"}}>Kiwi</MenuItem>
-					<MenuItem value='lofi' sx={{backgroundColor:"#703fb5"}}>Lofi</MenuItem>
-					<MenuItem value='orange' sx={{backgroundColor:"#f07500"}}>Orange</MenuItem>										
+					<MenuItem value='apple'sx={{backgroundColor:red}}>Apple</MenuItem>
+					<MenuItem value='blue' sx={{backgroundColor:blue}}>Blue</MenuItem>
+					<MenuItem value='kiwi'sx={{backgroundColor:kiwiGreen}}>Kiwi</MenuItem>
+					<MenuItem value='lofi' sx={{backgroundColor:purple}}>Lofi</MenuItem>
+					<MenuItem value='orange' sx={{backgroundColor:orange}}>Orange</MenuItem>										
 				</Select>
 			</div>
 			<div style={{display: "flex", flexDirection:"row", alignItems:"center", position:"absolute"}} id="donateDiv">

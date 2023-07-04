@@ -1,18 +1,19 @@
 import { createTheme } from "@mui/material/styles";
+import { kiwiGreen, brown } from "constants/colors";
 
-const kiwi = createTheme({
+const kiwiTheme = createTheme({
 	palette: {
 		mode: "dark",
 		primary: {
-			main: "#2ed851",
+			main: kiwiGreen,
 		},
 		secondary: {
-			main: "#6d4c41",
+			main: brown,
 		},
 		info:{
-			main:"#6d4c41"
+			main:brown
 		}
 	},
 });
 
-export default kiwi;
+export default kiwiTheme;

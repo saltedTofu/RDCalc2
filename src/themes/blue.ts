@@ -1,18 +1,19 @@
 import { createTheme } from "@mui/material/styles";
+import { blue, smoke } from "constants/colors";
 
-const blue = createTheme({
+const blueTheme = createTheme({
 	palette: {
 		mode: "dark",
 		primary: {
-			main: "#0288d1",
+			main: blue,
 		},
 		secondary: {
-			main: "#212121",
+			main: smoke,
 		},
 		info:{
-			main:"#0288d1"
+			main:blue
 		}
 	},
 });
 
-export default blue;
+export default blueTheme;

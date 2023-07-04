@@ -1,18 +1,19 @@
 import { createTheme } from "@mui/material/styles";
+import { purple, lightBlue } from "constants/colors";
 
-const lofi = createTheme({
+const lofiTheme = createTheme({
 	palette: {
 		mode: "dark",
 		primary: {
-			main: "#703fb5", //light purple
+			main: purple, //light purple
 		},
 		secondary: {
-			main: "#00ebf5", //light blue
+			main: purple, //light blue
 		},
 		info:{
-			main:"#00ebf5"
+			main:lightBlue
 		},
 	},
 });
 
-export default lofi;
+export default lofiTheme;
