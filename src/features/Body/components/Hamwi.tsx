@@ -1,8 +1,9 @@
 import {useState, useEffect} from "react";
-import { Slider, Paper } from "@mui/material";
+import { Paper } from "@mui/material";
 import WeightInput from "components/WeightInput";
 import Spacer from "components/Spacer";
 import Text from "components/Text";
+import Slider from "components/Slider";
 
 function Hamwi(){
 	const [weight,setWeight] = useState("");
@@ -73,7 +74,7 @@ function Hamwi(){
 			</Spacer>
 			<Spacer mt={4}>
 				<Slider 
-					aria-label="Lower Kcal Range"
+					ariaLabel="Lower Kcal Range"
 					defaultValue={lowerCal}
 					value={lowerCal} 
 					onChange={handleLowerCal}
@@ -81,13 +82,12 @@ function Hamwi(){
 					max={50}
 					valueLabelDisplay="auto"
 					sx={{width:"300px"}}
-				>
-				</Slider>
+				/>
 			</Spacer>                       
 			<Text variant="body1">{lowerCal} kcal/kg</Text>
 			<Spacer mt={4}>
 				<Slider 
-					aria-label="Higher Kcal Range"
+					ariaLabel="Higher Kcal Range"
 					defaultValue={higherCal}
 					value={higherCal}
 					onChange={handleHigherCal}
@@ -95,8 +95,7 @@ function Hamwi(){
 					max={50}
 					valueLabelDisplay="auto"
 					sx={{width:"300px"}}
-				>
-				</Slider>
+				/>
 			</Spacer>
 			<Text variant="body1">{higherCal} kcal/kg</Text>
 			<Spacer mt={4}>
@@ -109,7 +108,7 @@ function Hamwi(){
 			</Spacer>
 			<Spacer mt={4}>                      
 				<Slider
-					aria-label="Lower Protein Range"
+					ariaLabel="Lower Protein Range"
 					defaultValue={lowerProtein}
 					value={lowerProtein}
 					onChange={handleLowerProtein}
@@ -117,7 +116,7 @@ function Hamwi(){
 					max={4.0}
 					step={0.1}
 					sx={{width:"300px"}}
-				></Slider>
+				/>
 			</Spacer>
 			<Text variant="body1">{lowerProtein}</Text>          
 			<Slider
@@ -129,7 +128,7 @@ function Hamwi(){
 				max={4.0}
 				step={0.1}
 				sx={{width:"300px"}}
-			></Slider>
+			/>
 			<Text variant="body1">{higherProtein}</Text>
 			<Spacer mt={8} mb={8}>
 				<Paper sx={{padding:"10px"}}>

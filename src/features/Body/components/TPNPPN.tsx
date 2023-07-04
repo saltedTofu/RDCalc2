@@ -1,16 +1,17 @@
-import {Slider, TextField, Paper } from "@mui/material";
+import {TextField, Paper } from "@mui/material";
 import {useState, useEffect} from "react";
 import {decimalInputValidation} from "utils/decimalInputValidation";
 import WeightInput from "components/WeightInput";
 import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
 import Spacer from "components/Spacer";
 import Text from "components/Text";
+import Slider from "components/Slider";
 
 function TPNPPN(){
 
 	const [dextrose,setDextrose] = useState("");
 	const [aminoAcid,setAminoAcid] = useState("");
-	const [rate,setRate] = useState(0);
+	const [rate,setRate] = useState(50);
 	const [hrsDay,setHrsDay] = useState("");
 	const [kcal,setKcal] = useState(0);
 	const [protein,setProtein] = useState(0);
@@ -108,14 +109,14 @@ function TPNPPN(){
 			</Spacer>
 			<Spacer mt={16} style={{width:"100%"}}>
 				<Slider
+					defaultValue={rate}
 					value={rate}
 					onChange={handleRate}
 					min={5}
 					max={150}
-					step={1}
 					valueLabelDisplay="auto"
 					sx={{width:"85%"}}
-				></Slider>
+				/>
 			</Spacer>
 			<Spacer mt={8}>
 				<Text variant="h6">{rate} ml/hr</Text>

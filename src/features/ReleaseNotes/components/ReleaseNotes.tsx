@@ -84,7 +84,6 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 			alignItems:"left",
 		},
 	};
-	console.log(width, mobileWidth);
 	return(
 		<Paper sx={{
 			width:"100vw",
