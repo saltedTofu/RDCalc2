@@ -210,16 +210,11 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 							textAlign:"left"
 						}}
 					>
-						<Text variant="body1">• Additional themes </Text>
+						<Text variant="body1">• Additional themes</Text>
 						<Text variant="h5" sx={{textDecoration:"underline", }}>Calculators</Text>
 						<Text variant="body1">• Harris Benedict</Text>
-						<Text variant="body1">• Ireton Jones</Text>
-						<Text variant="body1">• Modified Penn State</Text>
 						<Text variant="body1">• Kcal from Propofol</Text>
-						<Text variant="body1">• Kcal from dextrose</Text>
 						<Text variant="body1">• Kcal from alcohol</Text>
-						<Text variant="body1">• Inches/Cm converter</Text>
-						<Text variant="body1">• Supplement Nutrition Facts Database</Text>
 					</Stack>
 				</TabPanel>
 
