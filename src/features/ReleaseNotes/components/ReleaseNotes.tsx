@@ -217,7 +217,6 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 						<Text variant="body1">• Kcal from alcohol</Text>
 					</Stack>
 				</TabPanel>
-
 			</div>
 			<Footer />
 		</Paper>
