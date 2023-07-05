@@ -25,7 +25,11 @@ function MobileCalculatorContainer(){
 				paddingTop:"20px",
 			}}
 		>
-			<Paper className="selectCalc">
+			<Paper
+				sx={{
+					width:"200px"
+				}}
+			>
 				<FormControl fullWidth>
 					<InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
 					<Select

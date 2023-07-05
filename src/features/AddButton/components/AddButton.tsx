@@ -1,4 +1,3 @@
-import "./AddButton.css";
 import AddIcon from "@mui/icons-material/Add";
 import { SvgIcon, IconButton, Paper, Alert, Snackbar } from "@mui/material";
 import {useState, useLayoutEffect} from "react";
@@ -48,7 +47,14 @@ function AddButton({addNewCalc, currentTheme}:Props){
 	};
 
 	return(
-		<Paper className="addButton" elevation={5} sx={{border:`1px solid ${borderColor}`}}>
+		<Paper style={{
+			display:"flex",
+			flexDirection: "column",
+			justifyContent: "center",
+			alignItems: "center",
+			padding:"10px",
+			margin:"10px"
+		}} elevation={5} sx={{border:`1px solid ${borderColor}`}}>
 			<Text variant="body1">Add Calculator</Text>
 			<IconButton 
 				aria-label="Add Calculator"

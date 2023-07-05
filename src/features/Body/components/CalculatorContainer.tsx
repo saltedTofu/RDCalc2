@@ -5,7 +5,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import {SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl, SelectChangeEvent} from "@mui/material";
 import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from "../../../redux/calcs";
 import "./CalculatorComponent";
-import "./CalculatorContainer.css";
 import Spacer from "../../../components/Spacer";
 
 interface Props {
@@ -46,8 +45,26 @@ const CalculatorContainer = (({id, name=""}:Props) => {
 	};
     
 	return(
-		<Paper className="CalculatorContainer" elevation={5}>
-			<Paper className="handle">
+		<Paper 
+			sx={{
+				display:"flex",
+				flexDirection: "column",
+				justifyContent: "flex-start",
+				alignItems: "center",
+			}}
+			className="CalculatorContainer" 
+			elevation={5}
+		>
+			<Paper 
+				className="handle"
+				sx={{
+					width:"100%",
+					height:"25px",
+					display:"flex",
+					flexDirection: "row",
+					justifyContent: "flex-end",
+				}}
+			>
 				<IconButton 
 					sx={{padding:"0"}} 
 					onClick={handleClose}
@@ -56,7 +73,11 @@ const CalculatorContainer = (({id, name=""}:Props) => {
 				</IconButton>
 			</Paper>
 			<Spacer mt={8}>
-				<Paper className="selectCalc">
+				<Paper
+					sx={{
+						width:"200px"
+					}}
+				>
 					<FormControl fullWidth>
 						<InputLabel id="demo-simple-select-label">Pick Calculator</InputLabel>
 						<Select

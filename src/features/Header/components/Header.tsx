@@ -1,15 +1,16 @@
-import "./Header.css";
 import {Paper, Box, TextField, Select, MenuItem, Alert} from "@mui/material";
 import {useState, useLayoutEffect, useRef, useEffect, SetStateAction} from "react";
 import Logo from "assets/logo.png";
 import {Link as RouterLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import { setGlobalUser } from "../../../redux/calcs";
-import {useAuth} from "../../../contexts/AuthContext";
+import { setGlobalUser } from "redux/calcs";
+import {useAuth} from "contexts/AuthContext";
 import Coffee from "assets/black-button.png";
 import Text from "components/Text";
 import Button from "components/Button";
 import { red, orange, purple, blue, kiwiGreen } from "constants/colors";
+import { useWindowSize } from "hooks/useWindowSize";
+import { mobileWidth } from "constants/index";
 
 interface Props {
     currentTheme:string;
@@ -28,6 +29,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	const currentUser = Auth?.currentUser;
 	const logout = Auth?.logout;
 	const getTheme = Auth?.getTheme;
+	const width = useWindowSize();
 
 	//global state from redux
 	const dispatch = useDispatch();
@@ -110,10 +112,33 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	};
 
 	return(
-		<Paper className="header" elevation={5} square={true}>
+		<Paper
+			sx={{
+				height:"fit-content",
+				display:"flex",
+				flexDirection: "row",
+				justifyContent: "space-between",
+				alignItems: "center",
+				width:"100%",
+			}} 
+			elevation={5} 
+			square={true}
+		>
 			<RouterLink to='/'>
-				<div id="logoContainer" style={{backgroundColor:iconBackground}}>
-					<img src={Logo} alt="dietitian calc" id='logoImage'/>
+				<div 
+					style={{
+						backgroundColor:iconBackground,
+						width:"65px",
+						height:"65px"
+					}}
+				>
+					<img 
+						src={Logo} 
+						alt="dietitian calc" 
+						style={{
+							width:"65px"
+						}}
+					/>
 				</div>
 			</RouterLink>
 			<div style={{display: "flex", flexDirection:"row", alignItems:"center", position:"absolute", left:"100px"}}>
@@ -129,12 +154,24 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 					<MenuItem value='orange' sx={{backgroundColor:orange}}>Orange</MenuItem>										
 				</Select>
 			</div>
-			<div style={{display: "flex", flexDirection:"row", alignItems:"center", position:"absolute"}} id="donateDiv">
+			<div 
+				style={{
+					display: "flex", 
+					flexDirection:"row", 
+					alignItems:"center", 
+					position:"absolute",
+					left: width < mobileWidth ? "275px" : "280px"
+				}} 
+			>
 				<a href="https://www.buymeacoffee.com/saltedTofu" target="_blank" rel="noreferrer">
-					<img src={Coffee} width="160px" alt="Donate Button" id="donateButton"></img>
+					<img 
+						src={Coffee} 
+						width={width < mobileWidth ? "125px" : "160px"}
+						alt="Donate Button" 
+					></img>
 				</a>
 			</div>
-			<div className="loginFields">
+			{ width > 850 && <div>
 				{user 
 					?   (<Box style={{display: "flex", alignItems:"center",justifyContent:"center"}}>
 						<Text variant="body1">Hello, {user}</Text>
@@ -142,14 +179,31 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 					</Box>)
 					:   (<form id="notLoggedIn" onSubmit={handleLogin} style={{display: "flex", alignItems:"center",justifyContent:"center"}}>
 						{error && <Alert color="error">{error}</Alert>}
-						<TextField label="Email" sx={{paddingRight:"5px", paddingLeft:"5px"}} inputRef={emailRef} id="emailInput"></TextField>
-						<TextField label="Password" sx={{paddingRight:"5px", paddingLeft:"5px"}} inputRef={passwordRef} type="password" id="passwordInput"></TextField>
+						<TextField 
+							label="Email" 
+							sx={{
+								paddingRight:"5px", 
+								paddingLeft:"5px",
+								width:(width <= 1050 ? (width <= 890 ? "90px" : "110px") : "auto")
+							}} 
+							inputRef={emailRef} 							
+						></TextField>
+						<TextField 
+							label="Password" 
+							sx={{
+								paddingRight:"5px", 
+								paddingLeft:"5px",
+								width:(width <= 1050 ? (width <= 890 ? "90px" : "110px") : "auto")
+							}} 
+							inputRef={passwordRef} 
+							type="password" 							
+						></TextField>
 						<Button  size="medium" variant="text" sx={{marginLeft:"10px"}} type="submit" disabled={loading}>Log in</Button>
 						<RouterLink to='/signup'>
 							<Button size="medium" variant="contained" sx={{margin:"10px"}} disabled={loading}>Sign Up</Button>
 						</RouterLink>
 					</form>)}
-			</div>
+			</div>}
 		</Paper>
 	);
 }

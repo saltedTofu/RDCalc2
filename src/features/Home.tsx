@@ -15,7 +15,6 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import MobileCalculatorContainer from "./MobileCalculatorContainer/components/MobileCalculatorContainer";
-import "./Home.css";
 import {useAuth} from "../contexts/AuthContext";
 import Spacer from "../components/Spacer";
 import { useWindowSize } from "../hooks/useWindowSize";
@@ -54,24 +53,50 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	},[currentTheme, changeTheme]);
 
 	return(
-		<Paper component="div" className="App" square={true}>
+		<Paper 
+			component="div" 
+			style={{
+				width:"100vw",
+				minWidth:"1200px",
+				minHeight:"100vh",
+				height:"100%",
+				display:"flex",
+				flexDirection:"column",
+				alignItems: "center",
+				justifyContent: "flex-start",
+			}}
+			square={true}
+		>
 			<Header 
 				currentTheme={currentTheme} 
 				handleThemeChange={handleThemeChange}
 				setCurrentTheme={setCurrentTheme}
 			/>
-			<div id='warningAddNotes'>
+			<div
+				style={{
+					display:"flex",
+					flexDirection: width < mobileWidth ? "column" : "row",
+					alignItems:"center",
+					width:"100%",
+					justifyContent:"center",
+				}}
+			>
 				<Alert className="doubleCheckWarning" color="info" sx={width > mobileWidth ? {width:"400px"} : {width:"100%"}}>Please Note: All calculations should be double checked for accuracy</Alert>
-				<AddButton
+				{width > mobileWidth && <AddButton
 					addNewCalc={addNewCalc}
 					currentTheme={currentTheme}
-				/>
+				/>}
 				<Spacer mt={width <= mobileWidth? 16 : undefined}>
 					<RouterLink to='/release-notes'>
 						<Link>Release Notes</Link>
 					</RouterLink>
 				</Spacer>
-				<div style={{width:"240px"}} className="emptyDiv"></div>
+				{width >= mobileWidth && <div 
+					style={{
+						width:"240px"
+					}} 
+					className="emptyDiv"
+				></div>}
 			</div>
 			{width > mobileWidth && <Body />}
 			{width <= mobileWidth && 

@@ -1,5 +1,4 @@
 import {useSelector} from "react-redux";
-import "./Body.css";
 import {Paper} from "@mui/material";
 import GridLayout from "react-grid-layout";
 
@@ -9,7 +8,15 @@ function Body(){
 	const calcsArray = useSelector((state:any) => state.calcsArray.calcsArray);
 
 	return (
-		<Paper className="body" elevation={5}>
+		<Paper 
+			style={{
+				width:"1200px",
+				height:"1200px",
+				marginBottom:"375px",
+			}}
+			className="body" 
+			elevation={5}
+		>
 			<GridLayout
 				style={{minHeight:"80%", minWidth:"100%", maxWidth:"100%"}}
 				rowHeight={30}
