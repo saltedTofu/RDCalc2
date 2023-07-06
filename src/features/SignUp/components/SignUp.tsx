@@ -1,4 +1,4 @@
-import {Paper, TextField, FormControl, FormGroup, Alert} from "@mui/material";
+import {TextField, FormControl, FormGroup, Alert} from "@mui/material";
 import {useRef, useState, useEffect, SetStateAction} from "react";
 import Header from "../../Header/components/Header";
 import {useAuth} from "../../../contexts/AuthContext";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Spacer from "../../../components/Spacer";
 import Text from "components/Text";
 import Button from "components/Button";
+import Surface from "components/Surface";
 
 interface Props {
 	currentTheme:string;
@@ -67,7 +68,7 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 
 	return(
 		<div>
-			<Paper
+			<Surface
 				square={true}
 				sx={{
 					width:"100vw",
@@ -93,7 +94,7 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 						alignItems:"center",
 					}}
 				>
-					<Paper 
+					<Surface 
 						elevation={5}
 						sx={{
 							width:"400px",
@@ -134,7 +135,7 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 								<Button size="medium" disabled={loading} fullWidth variant="contained" type="submit">Create Account</Button>
 							</Spacer>                        
 						</form>
-					</Paper>
+					</Surface>
 				</div>
 				{error && 
 					<Spacer mt={16}>
@@ -144,7 +145,7 @@ function SignUp({currentTheme,handleThemeChange, setCurrentTheme}:Props){
 					<Spacer mt={16}>
 						<Alert color="success">{success}</Alert>
 					</Spacer>}
-			</Paper>
+			</Surface>
 		</div>
 	);
 }

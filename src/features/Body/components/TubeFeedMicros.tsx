@@ -1,7 +1,8 @@
-import {Popover, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from "@mui/material";
+import {Popover, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import {useState, useRef} from "react";
 import {Formulas, FormulasType} from "assets/TubeFeedFormulas";
 import Button from "components/Button";
+import Surface from "components/Surface";
 
 interface Props {
     chosenFormula:FormulasType;
@@ -39,7 +40,7 @@ function TubeFeedMicros({chosenFormula,totalVolume}:Props){
 					horizontal:"left"
 				}}
 			>
-				<TableContainer component={Paper} sx={{height:"500px"}}>
+				<TableContainer component={Surface} sx={{height:"500px"}}>
 					<Table aria-label="micronutrient table" size='medium' stickyHeader>
 						<TableHead>
 							<TableRow>

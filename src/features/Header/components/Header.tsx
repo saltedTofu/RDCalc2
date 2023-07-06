@@ -1,4 +1,4 @@
-import {Paper, Box, TextField, Select, MenuItem, Alert} from "@mui/material";
+import {Box, TextField, Select, MenuItem, Alert} from "@mui/material";
 import {useState, useLayoutEffect, useRef, useEffect, SetStateAction} from "react";
 import Logo from "assets/logo.png";
 import {Link as RouterLink} from "react-router-dom";
@@ -11,6 +11,7 @@ import Button from "components/Button";
 import { red, orange, purple, blue, kiwiGreen } from "constants/colors";
 import { useWindowSize } from "hooks/useWindowSize";
 import { mobileWidth } from "constants/index";
+import Surface from "components/Surface";
 
 interface Props {
     currentTheme:string;
@@ -112,7 +113,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	};
 
 	return(
-		<Paper
+		<Surface
 			sx={{
 				height:"fit-content",
 				display:"flex",
@@ -204,7 +205,7 @@ function Header({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 						</RouterLink>
 					</form>)}
 			</div>}
-		</Paper>
+		</Surface>
 	);
 }
 export default Header;

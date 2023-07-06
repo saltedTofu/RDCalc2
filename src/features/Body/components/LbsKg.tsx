@@ -1,8 +1,8 @@
 import {useState, useEffect} from "react";
-import {Paper} from "@mui/material";
 import WeightInput from "components/WeightInput";
 import Spacer from "components/Spacer";
 import Text from "components/Text";
+import Surface from "components/Surface";
 
 function LbsKg(){
 	const [input,setInput] = useState("");
@@ -43,9 +43,9 @@ function LbsKg(){
 				style={{width:"70%"}}
 			/>
 			<Spacer mt={8} mb={8}>
-				<Paper sx={{padding:"10px"}}>
+				<Surface sx={{padding:"10px"}}>
 					<Text variant="h6">{output} {outputUnit}</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
             
 		</div>

@@ -9,7 +9,7 @@ import Body from "./Body/components/Body";
 import AddButton from "./AddButton/components/AddButton";
 import CalculatorContainer from "./Body/components/CalculatorContainer";
 import Footer from "./Footer/components/Footer";
-import {Paper, Alert} from "@mui/material";
+import {Alert} from "@mui/material";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -19,6 +19,7 @@ import {useAuth} from "../contexts/AuthContext";
 import Spacer from "../components/Spacer";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { mobileWidth } from "../constants";
+import Surface from "components/Surface";
 
 interface Props {
 	currentTheme:string;
@@ -53,9 +54,9 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 	},[currentTheme, changeTheme]);
 
 	return(
-		<Paper 
+		<Surface 
 			component="div" 
-			style={{
+			sx={{
 				width:"100vw",
 				minWidth:"1200px",
 				minHeight:"100vh",
@@ -104,7 +105,7 @@ function Home({currentTheme, handleThemeChange, setCurrentTheme}:Props){
 						<MobileCalculatorContainer />
 					</Spacer> }
 			<Footer />
-		</Paper>
+		</Surface>
 	);
 }
 

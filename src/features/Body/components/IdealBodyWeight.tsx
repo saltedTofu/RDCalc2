@@ -1,10 +1,11 @@
-import {Paper, Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel} from "@mui/material";
+import {Checkbox, FormGroup, Radio, RadioGroup, FormControlLabel} from "@mui/material";
 import {useState, useEffect} from "react";
 import WeightInput from "components/WeightInput";
 import HeightInput from "components/HeightInput";
 import Spacer from "components/Spacer";
 import FormulaPopover from "components/FormulaPopover";
 import Text from "components/Text";
+import Surface from "components/Surface";
 
 function IdealBodyWeight(){
 	const [gender,setGender] = useState("");
@@ -218,7 +219,7 @@ function IdealBodyWeight(){
 				</div>
 			</Spacer>
 			<Spacer mt={8}>
-				<Paper 
+				<Surface 
 					sx={{
 						display:"flex",
 						flexDirection:"column",
@@ -243,7 +244,7 @@ function IdealBodyWeight(){
 						}
 						<Text variant="h6">BMI={BMI}</Text>
 					</div>
-				</Paper>
+				</Surface>
 			</Spacer>
 			<Spacer mt={16} mb={16}>
 				<FormulaPopover>

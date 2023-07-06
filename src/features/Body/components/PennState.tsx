@@ -1,4 +1,4 @@
-import { Paper, RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem, SelectChangeEvent, ToggleButtonGroup, ToggleButton } from "@mui/material";
+import { RadioGroup, FormControlLabel, Radio, TextField, Select, MenuItem, SelectChangeEvent, ToggleButtonGroup, ToggleButton } from "@mui/material";
 import {useState, useEffect, useMemo} from "react";
 import WeightInput from "components/WeightInput";
 import HeightInput from "components/HeightInput";
@@ -7,6 +7,7 @@ import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
 import Spacer from "components/Spacer";
 import FormulaPopover from "components/FormulaPopover";
 import Text from "components/Text";
+import Surface from "components/Surface";
 
 function PennState(){
 	const [gender,setGender] = useState("");
@@ -204,9 +205,9 @@ function PennState(){
 				></TextField>
 			</Spacer>
 			<Spacer mt={16}>
-				<Paper sx={{padding:"10px"}}>
+				<Surface sx={{padding:"10px"}}>
 					<Text variant="h6">{penn}</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
 			<Spacer mt={16} mb={16}>            
 				<FormulaPopover>

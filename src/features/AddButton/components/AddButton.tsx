@@ -1,9 +1,10 @@
 import AddIcon from "@mui/icons-material/Add";
-import { SvgIcon, IconButton, Paper, Alert, Snackbar } from "@mui/material";
+import { SvgIcon, IconButton, Alert, Snackbar } from "@mui/material";
 import {useState, useLayoutEffect} from "react";
 import {useSelector} from "react-redux";
 import Text from "components/Text";
 import { red, orange, purple, blue, kiwiGreen } from "constants/colors";
+import Surface from "components/Surface";
 
 interface Props {
     addNewCalc: () => void;
@@ -47,14 +48,18 @@ function AddButton({addNewCalc, currentTheme}:Props){
 	};
 
 	return(
-		<Paper style={{
-			display:"flex",
-			flexDirection: "column",
-			justifyContent: "center",
-			alignItems: "center",
-			padding:"10px",
-			margin:"10px"
-		}} elevation={5} sx={{border:`1px solid ${borderColor}`}}>
+		<Surface 
+			sx={{
+				display:"flex",
+				flexDirection: "column",
+				justifyContent: "center",
+				alignItems: "center",
+				padding:"10px",
+				margin:"10px",
+				border:`1px solid ${borderColor}`
+			}} 
+			elevation={5}
+		>
 			<Text variant="body1">Add Calculator</Text>
 			<IconButton 
 				aria-label="Add Calculator"
@@ -66,7 +71,7 @@ function AddButton({addNewCalc, currentTheme}:Props){
 			</IconButton>
             
 			{error && <Snackbar anchorOrigin={{ vertical: "top", horizontal: "right" }} open={true} autoHideDuration={6000} onClose={handleCloseError}><Alert severity="error"  >{error}</Alert></Snackbar>}
-		</Paper>
+		</Surface>
 	);
 }
 

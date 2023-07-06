@@ -1,4 +1,4 @@
-import { Alert, Snackbar, Checkbox, Paper, FormControl, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from "@mui/material";
+import { Alert, Snackbar, Checkbox, FormControl, Select, MenuItem, TextField, InputLabel, ToggleButton, ToggleButtonGroup, Link, IconButton} from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import {useState, useEffect} from "react";
@@ -12,6 +12,7 @@ import { wholeNumberInputValidation } from "../../../utils/wholeNumberInputValid
 import { decimalInputValidation } from "../../../utils/decimalInputValidation";
 import Spacer from "../../../components/Spacer";
 import Text from "components/Text";
+import Surface from "components/Surface";
 
 function TubeFeed(){
 	const [chosenFormula,setChosenFormula] = useState<FormulasType>("Compleat");
@@ -336,8 +337,8 @@ function TubeFeed(){
 						</FormControl>
 					</Spacer>
 					<Spacer mt={16}>
-						<Paper
-							style={{
+						<Surface
+							sx={{
 								display:"flex",
 								flexDirection: "column",
 								justifyContent: "center",
@@ -348,7 +349,7 @@ function TubeFeed(){
 							<Text variant="h6">{kcalProvided} Kcal</Text>
 							<Text variant="h6">{proteinProvided}g Protein</Text>
 							<Text variant="h6">{freeWater}ml Free Water</Text>
-						</Paper>
+						</Surface>
 					</Spacer>
 					<Spacer mt={16}>                                   
 						<TubeFeedMicros 
@@ -490,7 +491,7 @@ function TubeFeed(){
 						</FormControl>
 					</Spacer>
 					<Spacer mt={16}>
-						<Paper
+						<Surface
 							sx={{
 								padding:"10px"
 							}}
@@ -498,7 +499,7 @@ function TubeFeed(){
 							<Text variant="h6">{bolusKcalProvided} Kcal</Text>
 							<Text variant="h6">{bolusProteinProvided}g Protein</Text>
 							<Text variant="h6">{bolusFreeWater}ml Free Water</Text>
-						</Paper>
+						</Surface>
 					</Spacer>
 					<Spacer mt={16}>
 						<TubeFeedMicros 

@@ -1,8 +1,9 @@
-import {TextField, Paper } from "@mui/material";
+import {TextField} from "@mui/material";
 import Spacer from "components/Spacer";
 import {useState, useEffect} from "react";
 import Text from "components/Text";
 import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
+import Surface from "components/Surface";
 
 export default function KcalFromPropofol(){
 
@@ -39,9 +40,9 @@ export default function KcalFromPropofol(){
 				></TextField>
 			</Spacer>
 			<Spacer mt={16} mb={16}>
-				<Paper sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"flex-start",padding:"10px"}}>
+				<Surface sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"flex-start",padding:"10px"}}>
 					<Text variant="h6">{kcal} Kcal</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
 		</div>
 	);

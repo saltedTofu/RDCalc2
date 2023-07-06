@@ -1,10 +1,11 @@
-import {TextField, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, Paper, ToggleButton, ToggleButtonGroup} from "@mui/material";
+import {TextField, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, ToggleButton, ToggleButtonGroup} from "@mui/material";
 import Spacer from "components/Spacer";
 import Text from "components/Text";
 import WeightInput from "components/WeightInput";
 import {useState, useEffect} from "react";
 import FormulaPopover from "components/FormulaPopover";
 import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
+import Surface from "components/Surface";
 
 export default function IretonJones(){
 
@@ -147,9 +148,9 @@ export default function IretonJones(){
 				</FormGroup>
 			</Spacer>
 			<Spacer mt={16}>
-				<Paper sx={{padding:"10px"}}>
+				<Surface sx={{padding:"10px"}}>
 					<Text variant="h6">{output}</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
 			<Spacer mt={16} mb={16}>            
 				<FormulaPopover>

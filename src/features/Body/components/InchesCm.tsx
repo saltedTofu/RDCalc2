@@ -1,8 +1,9 @@
-import { MenuItem, Paper, Select, SelectChangeEvent, TextField } from "@mui/material";
+import { MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
 import {decimalInputValidation} from "utils/decimalInputValidation";
 import Spacer from "components/Spacer";
 import Text from "components/Text";
+import Surface from "components/Surface";
 
 export default function InchesCm(){
 
@@ -70,9 +71,9 @@ export default function InchesCm(){
 				</Select>
 			</div>
 			<Spacer mt={8} mb={8} >
-				<Paper sx={{padding:"10px", width:"fit-content"}}>
+				<Surface sx={{padding:"10px", width:"fit-content"}}>
 					<Text variant="h6">{output} {outputUnit}</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
 		</div>
 	);

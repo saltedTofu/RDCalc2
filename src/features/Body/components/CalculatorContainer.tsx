@@ -2,10 +2,11 @@ import {useState,useEffect} from "react";
 import {useDispatch} from "react-redux";
 import CalculatorComponent from "./CalculatorComponent";
 import CloseIcon from "@mui/icons-material/Close";
-import {SvgIcon, IconButton, Paper, Select, InputLabel, MenuItem, FormControl, SelectChangeEvent} from "@mui/material";
+import {SvgIcon, IconButton, Select, InputLabel, MenuItem, FormControl, SelectChangeEvent} from "@mui/material";
 import {removeCalc, removeCalcName, addCalcName, adjustCalcCounter} from "../../../redux/calcs";
 import "./CalculatorComponent";
 import Spacer from "../../../components/Spacer";
+import Surface from "components/Surface";
 
 interface Props {
     id:number;
@@ -45,17 +46,16 @@ const CalculatorContainer = (({id, name=""}:Props) => {
 	};
     
 	return(
-		<Paper 
+		<Surface 
 			sx={{
 				display:"flex",
 				flexDirection: "column",
 				justifyContent: "flex-start",
 				alignItems: "center",
 			}}
-			className="CalculatorContainer" 
 			elevation={5}
 		>
-			<Paper 
+			<Surface 
 				className="handle"
 				sx={{
 					width:"100%",
@@ -71,9 +71,9 @@ const CalculatorContainer = (({id, name=""}:Props) => {
 				>
 					<SvgIcon component={CloseIcon} fontSize="small"></SvgIcon>
 				</IconButton>
-			</Paper>
+			</Surface>
 			<Spacer mt={8}>
-				<Paper
+				<Surface
 					sx={{
 						width:"200px"
 					}}
@@ -101,7 +101,7 @@ const CalculatorContainer = (({id, name=""}:Props) => {
 							<MenuItem value={"TubeFeeding"}>Tube Feeding</MenuItem>
 						</Select>
 					</FormControl>
-				</Paper>
+				</Surface>
 			</Spacer>
 			<Spacer mt={8} style={{width:"100%", display:"flex", justifyContent:"center"}}>
 				<CalculatorComponent 
@@ -109,7 +109,7 @@ const CalculatorContainer = (({id, name=""}:Props) => {
 				/>
 			</Spacer>
                 
-		</Paper>
+		</Surface>
 	);
 });
 

@@ -1,5 +1,5 @@
 import Header from "../../Header/components/Header";
-import {Paper, Stack, Box, Tabs, Tab} from "@mui/material";
+import {Stack, Box, Tabs, Tab} from "@mui/material";
 import {SetStateAction, useEffect,useState} from "react";
 import PropTypes from "prop-types";
 import Footer from "../../Footer/components/Footer";
@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import { mobileWidth } from "../../../constants";
 import Text from "components/Text";
+import Surface from "components/Surface";
 
 function TabPanel(props:any) {
 	const { children, value, index, ...other } = props;
@@ -85,7 +86,7 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 		},
 	};
 	return(
-		<Paper sx={{
+		<Surface sx={{
 			width:"100vw",
 			height:"100%",
 			minHeight:"100vh",
@@ -219,7 +220,7 @@ function ReleaseNotes({currentTheme,handleThemeChange, setCurrentTheme}:ReleaseN
 				</TabPanel>
 			</div>
 			<Footer />
-		</Paper>
+		</Surface>
 	);
 }
 

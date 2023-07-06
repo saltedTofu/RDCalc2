@@ -1,4 +1,4 @@
-import { Paper, RadioGroup, FormControlLabel, Radio, TextField} from "@mui/material";
+import {RadioGroup, FormControlLabel, Radio, TextField} from "@mui/material";
 import Text from "components/Text";
 import {useState, useEffect} from "react";
 import WeightInput from "components/WeightInput";
@@ -7,6 +7,7 @@ import { decimalInputValidation } from "utils/decimalInputValidation";
 import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
 import Spacer from "components/Spacer";
 import FormulaPopover from "components/FormulaPopover";
+import Surface from "components/Surface";
 
 function Mifflin(){
 	const [gender,setGender] = useState("");
@@ -129,9 +130,9 @@ function Mifflin(){
 				</Spacer>
 			</Spacer>
 			<Spacer mt={16}>
-				<Paper sx={{padding:"10px"}}>
+				<Surface sx={{padding:"10px"}}>
 					<Text variant="h6">{output}</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
 			<Spacer mt={16} mb={16}>            
 				<FormulaPopover>

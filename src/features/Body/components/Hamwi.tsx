@@ -1,9 +1,9 @@
 import {useState, useEffect} from "react";
-import { Paper } from "@mui/material";
 import WeightInput from "components/WeightInput";
 import Spacer from "components/Spacer";
 import Text from "components/Text";
 import Slider from "components/Slider";
+import Surface from "components/Surface";
 
 function Hamwi(){
 	const [weight,setWeight] = useState("");
@@ -99,9 +99,9 @@ function Hamwi(){
 			</Spacer>
 			<Text variant="body1">{higherCal} kcal/kg</Text>
 			<Spacer mt={4}>
-				<Paper sx={{padding:"10px"}}>
+				<Surface sx={{padding:"10px"}}>
 					<Text  variant="h6">{kcalRange} kcal</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
 			<Spacer mt={4}>
 				<Text variant="h5">Protein Range</Text>
@@ -131,9 +131,9 @@ function Hamwi(){
 			/>
 			<Text variant="body1">{higherProtein}</Text>
 			<Spacer mt={8} mb={8}>
-				<Paper sx={{padding:"10px"}}>
+				<Surface sx={{padding:"10px"}}>
 					<Text variant="h6">{proteinRange} g</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
 		</div>
 	);

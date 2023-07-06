@@ -1,4 +1,4 @@
-import {TextField, Paper } from "@mui/material";
+import {TextField} from "@mui/material";
 import {useState, useEffect} from "react";
 import {decimalInputValidation} from "utils/decimalInputValidation";
 import WeightInput from "components/WeightInput";
@@ -6,6 +6,7 @@ import { wholeNumberInputValidation } from "utils/wholeNumberInputValidation";
 import Spacer from "components/Spacer";
 import Text from "components/Text";
 import Slider from "components/Slider";
+import Surface from "components/Surface";
 
 function TPNPPN(){
 
@@ -131,12 +132,12 @@ function TPNPPN(){
 				></TextField>
 			</Spacer>  
 			<Spacer mt={16}>
-				<Paper sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"flex-start",padding:"10px"}}>
+				<Surface sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"flex-start",padding:"10px"}}>
 					<Text variant="h6">{kcal} Kcal</Text>
 					<Text variant="h6">{protein}g Protein</Text>
 					<Text variant="h6">{carbohydrates}g Dextrose</Text>
 					<Text variant="h6">{volume}ml Total Volume</Text>
-				</Paper>
+				</Surface>
 			</Spacer>
 			<Spacer mt={16}>
 				<Text variant="h5">Glucose Infusion Rate</Text>
@@ -151,7 +152,7 @@ function TPNPPN(){
 				/>
 			</Spacer>
 			<Spacer mt={16} mb={16}>
-				<Paper 
+				<Surface 
 					sx={{
 						display:"flex",
 						flexDirection:"column",
@@ -161,7 +162,7 @@ function TPNPPN(){
 					}}
 				>
 					{GIRError ? <Text variant="h6">{GIRError}</Text> : <Text variant="h6">{GIR} mg/kg/min</Text>}
-				</Paper>
+				</Surface>
 			</Spacer>
             
 		</div>

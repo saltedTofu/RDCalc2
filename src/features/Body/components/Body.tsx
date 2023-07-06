@@ -1,20 +1,18 @@
 import {useSelector} from "react-redux";
-import {Paper} from "@mui/material";
 import GridLayout from "react-grid-layout";
-
+import Surface from "components/Surface";
 
 function Body(){
 
 	const calcsArray = useSelector((state:any) => state.calcsArray.calcsArray);
 
 	return (
-		<Paper 
-			style={{
+		<Surface 
+			sx={{
 				width:"1200px",
 				height:"1200px",
 				marginBottom:"375px",
 			}}
-			className="body" 
 			elevation={5}
 		>
 			<GridLayout
@@ -32,7 +30,7 @@ function Body(){
 			>
 				{calcsArray}
 			</GridLayout>
-		</Paper>
+		</Surface>
 	);
 }
 

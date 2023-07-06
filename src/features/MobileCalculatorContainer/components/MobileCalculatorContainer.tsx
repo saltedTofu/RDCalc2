@@ -1,7 +1,8 @@
-import {Paper, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent} from "@mui/material";
+import {FormControl, InputLabel, Select, MenuItem, SelectChangeEvent} from "@mui/material";
 import CalculatorComponent from "../../Body/components/CalculatorComponent";
 import {useState} from "react";
 import Spacer from "../../../components/Spacer";
+import Surface from "components/Surface";
 
 function MobileCalculatorContainer(){
 
@@ -12,10 +13,10 @@ function MobileCalculatorContainer(){
 	};
 
 	return(
-		<Paper
+		<Surface
 			elevation={5}
 			square={true}
-			style={{
+			sx={{
 				display:"flex",
 				flexDirection: "column",
 				justifyContent: "flex-start",
@@ -25,7 +26,7 @@ function MobileCalculatorContainer(){
 				paddingTop:"20px",
 			}}
 		>
-			<Paper
+			<Surface
 				sx={{
 					width:"200px"
 				}}
@@ -50,13 +51,13 @@ function MobileCalculatorContainer(){
 						<MenuItem value={"TubeFeeding"}>Tube Feeding</MenuItem>
 					</Select>
 				</FormControl>
-			</Paper>
+			</Surface>
 			<Spacer mt={8} style={{width:"100%", display:"flex", justifyContent:"center"}}>
 				<CalculatorComponent 
 					Calc={chosenCalc}
 				/>
 			</Spacer>
-		</Paper>
+		</Surface>
 	);
    
 }
